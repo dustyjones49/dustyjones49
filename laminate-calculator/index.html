@@ -1,0 +1,230 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>Laminate Flooring Calculator - Boxes &amp; Cost</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<meta name="description" content="Calculate laminate flooring boxes needed. Standard 20 sq ft per box with 10% waste for cuts and pattern matching.">
+<link rel="canonical" href="https://buildcalc.com/laminate-calculator/">
+<meta property="og:title" content="Laminate Flooring Calculator - Boxes &amp; Cost">
+<meta property="og:description" content="Calculate laminate flooring boxes needed. Standard 20 sq ft per box with 10% waste for cuts and pattern matching.">
+<meta property="og:url" content="https://buildcalc.com/laminate-calculator/">
+<meta property="og:type" content="website">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Laminate Flooring Calculator - Boxes &amp; Cost">
+<meta name="twitter:description" content="Calculate laminate flooring boxes needed. Standard 20 sq ft per box with 10% waste for cuts and pattern matching.">
+<style>
+:root{--bg:#fff;--text:#1a1a1a;--card:#f8f9fa;--input:#fff;--border:#dee2e6;--primary:#2563eb;--primary-hover:#1d4ed8;--result-bg:#e8f0fe;--accent:#ea580c;--faq-bg:#f0f9ff;--shadow:0 2px 8px rgba(0,0,0,0.1)}
+.dark{--bg:#1a1a2e;--text:#e0e0e0;--card:#16213e;--input:#0f3460;--border:#2a2a4a;--primary:#60a5fa;--primary-hover:#93bdf8;--result-bg:#1e3a5f;--accent:#f97316;--faq-bg:#1e2a3a;--shadow:0 2px 8px rgba(0,0,0,0.4)}
+body{font-family:system-ui,-apple-system,sans-serif;background:var(--bg);color:var(--text);margin:0;padding:0;line-height:1.6;transition:background .3s,color .3s}
+.container{max-width:720px;margin:0 auto;padding:16px}
+h1{font-size:1.8rem;margin:0 0 4px;color:var(--primary)}
+header p{margin:0 0 16px;color:var(--text);opacity:.8}
+.breadcrumb{font-size:.85rem;margin-bottom:12px;color:var(--text);opacity:.7}
+.breadcrumb a{color:var(--primary);text-decoration:none}
+.breadcrumb a:hover{text-decoration:underline}
+.card{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:20px;margin-bottom:16px;box-shadow:var(--shadow)}
+.card h2{font-size:1.2rem;margin:0 0 12px;color:var(--primary)}
+.input-group{margin-bottom:12px}
+.input-group label{display:block;font-weight:600;margin-bottom:4px;font-size:.9rem}
+.input-group input,.input-group select{width:100%;padding:10px 12px;border:1px solid var(--border);border-radius:8px;font-size:1rem;background:var(--input);color:var(--text);box-sizing:border-box}
+.input-group input:focus,.input-group select:focus{outline:2px solid var(--primary);outline-offset:-1px}
+.btn{display:inline-block;padding:12px 24px;font-size:1rem;font-weight:600;border:none;border-radius:8px;cursor:pointer;transition:background .2s}
+.btn-primary{background:var(--primary);color:#fff;width:100%}
+.btn-primary:hover{background:var(--primary-hover)}
+.btn-secondary{background:var(--bg);color:var(--text);border:1px solid var(--border);font-size:.85rem;padding:8px 16px}
+.result{background:var(--result-bg);border:1px solid var(--primary);border-radius:8px;padding:12px 16px;margin-top:12px}
+.result .row{display:flex;justify-content:space-between;align-items:center;padding:6px 0;border-bottom:1px solid var(--border)}
+.result .row:last-child{border-bottom:none}
+.result .label{font-weight:600}
+.result .value{font-size:1.1rem;font-weight:700;color:var(--accent)}
+.formula-box{background:var(--result-bg);border:1px dashed var(--primary);border-radius:8px;padding:12px;margin-top:12px;font-size:.85rem}
+.formula-box code{display:block;margin:4px 0}
+.faq-item{border:1px solid var(--border);border-radius:8px;margin-bottom:8px;overflow:hidden}
+.faq-question{width:100%;text-align:left;padding:14px 16px;background:var(--faq-bg);border:none;cursor:pointer;font-weight:600;font-size:.95rem;color:var(--text);display:flex;justify-content:space-between;align-items:center}
+.faq-question:hover{opacity:.85}
+.faq-question .arrow{transition:transform .2s;font-size:1.2rem}
+.faq-question.open .arrow{transform:rotate(180deg)}
+.faq-answer{display:none;padding:0 16px 14px;font-size:.9rem;line-height:1.5}
+.faq-answer.open{display:block}
+.share-row{display:flex;gap:8px;flex-wrap:wrap;margin-top:8px}
+.share-btn{flex:1;min-width:100px;padding:10px;border:none;border-radius:8px;cursor:pointer;font-size:.85rem;font-weight:600;text-align:center;color:#fff}
+.share-fb{background:#1877f2}.share-tw{background:#000}.share-wa{background:#25d366}.share-em{background:#555}
+.embed-box{width:100%;background:var(--input);border:1px solid var(--border);border-radius:8px;padding:10px;font-size:.8rem;font-family:monospace;box-sizing:border-box;margin-top:4px;color:var(--text)}
+.products{margin-top:12px}
+.products a{display:block;padding:10px 12px;background:var(--card);border:1px solid var(--border);border-radius:8px;margin-bottom:6px;text-decoration:none;color:var(--primary);font-weight:600;font-size:.9rem;transition:background .2s}
+.products a:hover{background:var(--result-bg)}
+.related-links{display:flex;flex-wrap:wrap;gap:8px;margin-top:8px}
+.related-links a{background:var(--card);border:1px solid var(--border);padding:8px 14px;border-radius:20px;text-decoration:none;color:var(--primary);font-size:.85rem;font-weight:500}
+.related-links a:hover{background:var(--result-bg)}
+.ad-slot{background:var(--card);border:1px dashed var(--border);padding:60px 20px;text-align:center;border-radius:12px;margin:16px 0;color:var(--text);opacity:.6;font-size:.9rem}
+#backToTop{position:fixed;bottom:24px;right:24px;width:44px;height:44px;background:var(--primary);color:#fff;border:none;border-radius:50%;font-size:1.3rem;cursor:pointer;display:none;box-shadow:0 2px 8px rgba(0,0,0,.3);z-index:999}
+#backToTop:hover{background:var(--primary-hover)}
+.dark-toggle{position:fixed;top:16px;right:16px;z-index:1000;background:var(--card);border:1px solid var(--border);border-radius:50%;width:40px;height:40px;cursor:pointer;font-size:1.2rem;display:flex;align-items:center;justify-content:center;box-shadow:var(--shadow)}
+@media print{
+  .share-row,.embed-box,.ad-slot,.dark-toggle,#backToTop,.btn-secondary,.products,.related-links{display:none!important}
+  body{background:var(--bg);color:#000;font-size:12px}
+  .card{box-shadow:none;border:1px solid #ccc;break-inside:avoid}
+}
+@media(max-width:480px){.container{padding:10px}h1{font-size:1.4rem}}
+</style>
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"WebApplication",
+  "name":"Laminate Flooring Calculator",
+  "description":"Calculate laminate flooring boxes needed. Standard 20 sq ft per box with 10% waste for cuts and pattern matching.",
+  "url":"https://buildcalc.com/laminate-calculator/",
+  "applicationCategory":"EducationalApplication"
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"FAQPage",
+  "mainEntity":[
+    {"@type":"Question","name":"Laminate vs vinyl plank?","acceptedAnswer":{"@type":"Answer","text":"Laminate ($1-3/sq ft) has a thicker core and feels more like wood underfoot. Vinyl plank ($2-5/sq ft) is 100% waterproof. Use laminate for living rooms and bedrooms, vinyl for kitchens, baths and basements. Both are DIY-friendly with click-lock."}},
+    {"@type":"Question","name":"How much waste for laminate flooring?","acceptedAnswer":{"@type":"Answer","text":"10% for straight lay in square rooms. 15% for diagonal or rooms with lots of angles. 20% for herringbone or complex patterns. Buy one extra box beyond the calculator for future plank replacements."}},
+    {"@type":"Question","name":"Do I need underlayment?","acceptedAnswer":{"@type":"Answer","text":"Yes&#8212;always. Underlayment provides moisture barrier, sound reduction and slight leveling. Most laminate comes with attached pad but an extra layer helps. Budget $0.30-0.60/sq ft for quality underlayment."}}
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"BreadcrumbList",
+  "itemListElement":[
+    {"@type":"ListItem","position":1,"name":"Home","item":"https://buildcalc.com/"},
+    {"@type":"ListItem","position":2,"name":"Painting & Finishing","item":"https://buildcalc.com/category/painting-finishing/"},
+    {"@type":"ListItem","position":3,"name":"Laminate Flooring Calculator","item":"https://buildcalc.com/laminate-calculator/"}
+  ]
+}
+</script><style id="bc-theme">/* FieldMath - Light Theme
+   All pages use this single light theme. No dark mode. */
+:root{
+  --bg:#f5f5f5;
+  --card:#ffffff;
+  --text:#333333;
+  --text-light:#666666;
+  --muted:#f1f3f7;
+  --muted-bg:#f8f9fa;
+  --border:#dde3ea;
+  --navy:#1a2332;
+  --header-bg:#1a2332;
+  --header-text:#ffffff;
+  --orange:#f97316;
+  --accent:#f97316;
+  --success:#16a34a;
+  --warning:#d97706;
+  --danger:#dc2626;
+}
+</style>
+<style id="bc-darkflash">html,html body{background:#f5f5f5 !important;color:#333 !important}body .card,body .panel,body .box,body .calculator,body .container,body .c,body .result,body .results,body .res,body .formula,body .example,body .faq,body .faq-item,body input,body select,body textarea{background:#ffffff !important;color:#333 !important;border-color:#ddd !important}</style></head>
+<body>
+<button class="dark-toggle" onclick="toggleDark()" aria-label="Toggle dark mode">&#9788;</button>
+<div class="container">
+
+<header><h1>Laminate Flooring Calculator</h1></header>
+<div class="card">
+<h2>Room Dimensions</h2>
+<div class="input-group"><label for="length">Room Length (ft)</label><input type="number" id="length" value="15" min="1" step="0.1"></div>
+<div class="input-group"><label for="width">Room Width (ft)</label><input type="number" id="width" value="12" min="1" step="0.1"></div>
+<div class="input-group"><label for="waste">Waste %</label><input type="number" id="waste" value="10" min="0" max="50" step="1"></div>
+<div class="input-group"><label for="boxSqft">Sq Ft per Box</label><input type="number" id="boxSqft" value="20" min="1" step="0.5"></div>
+<div class="input-group"><label for="price">Price per Box ($)</label><input type="number" id="price" value="40" min="0" step="0.01"></div>
+<button class="btn btn-primary" onclick="calculate()">Calculate</button>
+<div class="result" id="result"></div>
+<div class="formula-box">
+<strong>Formula:</strong>
+<code>area = L &times; W &times; (1 + waste/100)</code>
+<code>boxes = ceil(area / boxSqft)</code>
+<code>cost = boxes &times; price</code>
+<strong>Example:</strong> 15&times;12 ft room, 10% waste, 20 sq ft/box = 198 sq ft, 10 boxes, $400. Buy 11 for repairs.
+</div>
+</div>
+<div class="ad-slot">Advertisement</div>
+<div class="card">
+<h2>FAQ</h2>
+<div class="faq-item"><button class="faq-question" onclick="toggleFAQ(this)">Laminate vs vinyl plank? <span class="arrow">&#9660;</span></button><div class="faq-answer">Laminate ($1-3/sq ft) has a thicker core and feels more like wood underfoot. Vinyl plank ($2-5/sq ft) is 100% waterproof. Use laminate for living rooms and bedrooms, vinyl for kitchens, baths and basements. Both are DIY-friendly with click-lock.</div></div>
+<div class="faq-item"><button class="faq-question" onclick="toggleFAQ(this)">How much waste for laminate flooring? <span class="arrow">&#9660;</span></button><div class="faq-answer">10% for straight lay in square rooms. 15% for diagonal or rooms with lots of angles. 20% for herringbone or complex patterns. Buy one extra box beyond the calculator for future plank replacements.</div></div>
+<div class="faq-item"><button class="faq-question" onclick="toggleFAQ(this)">Do I need underlayment? <span class="arrow">&#9660;</span></button><div class="faq-answer">Yes&#8212;always. Underlayment provides moisture barrier, sound reduction and slight leveling. Most laminate comes with attached pad but an extra layer helps. Budget $0.30-0.60/sq ft for quality underlayment.</div></div>
+</div>
+<div class="card">
+<h2>Recommended Products</h2>
+<div class="products">
+<a href="https://www.homedepot.com/s/laminate+flooring+20sqft?NCNI-5" target="_blank" rel="nofollow sponsored">Laminate Flooring 20 sq ft (Home Depot)</a>
+<a href="https://www.amazon.com/s?k=underlayment+roll+200sqft&tag=buildcalc-20" target="_blank" rel="nofollow sponsored">Underlayment Roll 200 sq ft (Amazon)</a>
+<a href="https://www.amazon.com/s?k=laminate+installation+kit&tag=buildcalc-20" target="_blank" rel="nofollow sponsored">Laminate Installation Kit (Amazon)</a>
+</div>
+</div>
+<div class="card">
+<h2>Share</h2>
+<div class="share-row">
+<button class="share-btn share-fb" onclick="share('facebook')">Facebook</button>
+<button class="share-btn share-tw" onclick="share('twitter')">X / Twitter</button>
+<button class="share-btn share-wa" onclick="share('whatsapp')">WhatsApp</button>
+<button class="share-btn share-em" onclick="share('email')">Email</button>
+</div>
+<h2 style="margin-top:16px">Embed</h2>
+<textarea class="embed-box" rows="3" readonly><iframe src="https://buildcalc.com/laminate-calculator/" width="100%" height="600" style="border:none;border-radius:12px" title="Laminate Flooring Calculator"></iframe></textarea>
+</div>
+<div class="card">
+<h2>Related Calculators</h2>
+<div class="related-links">
+<a href="../flooring-calculator/">Flooring Calculator</a>
+<a href="../carpet-calculator/">Carpet Calculator</a>
+<a href="../tile-calculator/">Tile Calculator</a>
+</div>
+</div>
+</div>
+<button id="backToTop" onclick="window.scrollTo({top:0,behavior:'smooth'})">&#9650;</button>
+<script>
+function calculate(){
+  var L=parseFloat(document.getElementById('length').value)||0;
+  var W=parseFloat(document.getElementById('width').value)||0;
+  var waste=parseFloat(document.getElementById('waste').value)||0;
+  var boxSqft=parseFloat(document.getElementById('boxSqft').value)||1;
+  var price=parseFloat(document.getElementById('price').value)||0;
+  var area=L*W*(1+waste/100);
+  var boxes=Math.ceil(area/boxSqft);
+  var cost=boxes*price;
+  var planksPerRow=Math.ceil(L/(4));
+  document.getElementById('result').innerHTML=
+  '<div class="row"><span class="label">Total Area with Waste</span><span class="value">'+area.toFixed(1)+' sq ft</span></div>'+
+  '<div class="row"><span class="label">Boxes Needed</span><span class="value">'+boxes+'</span></div>'+
+  '<div class="row"><span class="label">Total Cost</span><span class="value">$'+cost.toFixed(2)+'</span></div>'+
+  '<div class="row"><span class="label">Planks per Row</span><span class="value">~'+planksPerRow+' planks</span></div>';
+  var params=new URLSearchParams(window.location.search);
+  params.set('length',L);params.set('width',W);params.set('waste',waste);
+  params.set('boxSqft',boxSqft);params.set('price',price);
+  window.history.replaceState({},'',location.pathname+'?'+params.toString());
+}
+function toggleFAQ(el){el.classList.toggle('open');el.nextElementSibling.classList.toggle('open')}
+function toggleDark(){document.documentElement.classList.toggle('dark');localStorage.setItem('dark',document.documentElement.classList.contains('dark')?'1':'0')}
+function share(p){
+  var url=encodeURIComponent(location.href);
+  var title=encodeURIComponent(document.title);
+  if(p==='facebook')window.open('https://www.facebook.com/sharer.php?u='+url);
+  else if(p==='twitter')window.open('https://twitter.com/intent/tweet?url='+url+'&text='+title);
+  else if(p==='whatsapp')window.open('https://wa.me/?text='+title+' '+url);
+  else if(p==='email')window.open('mailto:?subject='+title+'&body='+url);
+}
+window.onscroll=function(){document.getElementById('backToTop').style.display=window.scrollY>300?'block':'none'};
+window.onload=function(){
+  if(localStorage.getItem('dark')==='1')document.documentElement.classList.add('dark');
+  var p=new URLSearchParams(window.location.search);
+  if(p.get('length'))document.getElementById('length').value=p.get('length');
+  if(p.get('width'))document.getElementById('width').value=p.get('width');
+  if(p.get('waste'))document.getElementById('waste').value=p.get('waste');
+  if(p.get('boxSqft'))document.getElementById('boxSqft').value=p.get('boxSqft');
+  if(p.get('price'))document.getElementById('price').value=p.get('price');
+  calculate();
+};
+</script>
+<script id='__CALC_AUTO__'>(function(){try{if(typeof calculate==='function')calculate();}catch(e){}})();</script><script src="../custom-select.js"></script><script src="../favorites.js"></script><script src="../remember-inputs.js"></script><script src="../sticky-header.js"></script><script src="../ui-fix.js"></script><script src="../link-fix.js"></script><script src="../auto-calc.js"></script><script src="../dark-persist.js"></script><script src="../admob-banner.js"></script></body>
+</html>
+
+
+
+
+

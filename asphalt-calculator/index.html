@@ -1,0 +1,232 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>Asphalt Calculator - Tons for Driveway | FieldMath</title>
+<meta name="description" content="Asphalt tons calculator for driveways. Uses 2 tons per cubic yard compacted density and depth in inches.">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Segoe UI',system-ui,-apple-system,sans-serif;background:var(--bg);color:var(--text);line-height:1.6}
+header{background:#1a2332;color:#fff;padding:1.5rem 1rem;text-align:center}
+header a{color:#f97316;text-decoration:none;font-size:0.9rem}
+header a:hover{text-decoration:underline}
+header h1{font-size:1.8rem;margin:0.5rem 0 0}
+header .category{color:#f97316;font-size:0.85rem;text-transform:uppercase;letter-spacing:1px;margin-top:0.25rem}
+header .desc{color:#ccc;font-size:0.95rem;margin-top:0.25rem}
+.container{max-width:800px;margin:2rem auto;padding:0 1rem}
+.card{background:#fff;border-radius:8px;box-shadow:0 2px 12px rgba(0,0,0,0.08);padding:2rem;margin-bottom:2rem}
+.card h2{color:#1a2332;font-size:1.3rem;margin-bottom:1rem;border-bottom:2px solid #f97316;padding-bottom:0.5rem;display:inline-block}
+.form-group{margin-bottom:1.2rem}
+.form-group label{display:block;font-weight:600;margin-bottom:0.4rem;color:#1a2332}
+.form-group input,.form-group select{width:100%;padding:0.65rem 0.8rem;border:2px solid #ddd;border-radius:6px;font-size:1rem;transition:border-color 0.2s}
+.form-group input:focus,.form-group select:focus{outline:none;border-color:#f97316}
+.results{background:#fff8f3;border-left:4px solid #f97316;padding:1.2rem;border-radius:0 8px 8px 0;margin-top:1.5rem}
+.results p{margin:0.5rem 0;font-size:1.05rem}
+.results span{font-weight:700;color:#1a2332}
+.formula-box{background:#1a2332;color:#fff;padding:1rem 1.2rem;border-radius:6px;text-align:center;font-size:1.1rem;margin-top:1rem;word-break:break-word}
+.formula-box code{color:#f97316;font-weight:600}
+.example-box{background:#f0f4f8;padding:1rem 1.2rem;border-radius:6px;margin-top:1rem}
+.example-box h4{color:#1a2332;margin-bottom:0.5rem}
+.example-box p{font-size:0.95rem;color:#555}
+.faq-item{margin-bottom:0.5rem;border:1px solid #e0e0e0;border-radius:6px;overflow:hidden}
+.faq-q{background:#f9f9f9;padding:0.9rem 1.2rem;font-weight:600;color:#1a2332;cursor:pointer;display:flex;justify-content:space-between;align-items:center;user-select:none;transition:background 0.2s}
+.faq-q:hover{background:#f0f0f0}
+.faq-q::after{content:'+';font-size:1.3rem;color:#f97316;font-weight:700;transition:transform 0.3s}
+.faq-q.open::after{content:'\2212';transform:rotate(180deg)}
+.faq-a{max-height:0;overflow:hidden;transition:max-height 0.35s ease,padding 0.35s ease}
+.faq-a-inner{padding:0 1.2rem 1rem;color:#555;font-size:0.95rem;line-height:1.5}
+.faq-a.open{max-height:300px}
+.products{list-style:none}
+.products li{margin-bottom:0.6rem}
+.products a{color:#f97316;text-decoration:none;font-weight:500}
+.products a:hover{text-decoration:underline}
+footer{background:#1a2332;color:#aaa;text-align:center;padding:2rem 1rem;margin-top:3rem;font-size:0.85rem}
+footer a{color:#f97316;text-decoration:none}
+@media(max-width:600px){
+  header h1{font-size:1.4rem}
+  .card{padding:1.2rem}
+  .formula-box{font-size:0.95rem}
+}
+:root{--bg:#f5f5f5;--card:#fff;--text:#333;--text-light:#666;--border:#ddd;--header-bg:#1a2332;--header-text:#fff;--muted-bg:#f8f9fa}
+body.dark{--bg:#1a1a2e;--card:#16213e;--text:#e0e0e0;--text-light:#aaa;--border:#333;--header-bg:#0f3460;--header-text:#e0e0e0;--muted-bg:#1a1a2e}
+.card{background:var(--card);border-color:var(--border)}
+header{background:var(--header-bg);color:var(--header-text)}
+@media print{header .back-link,.dark-toggle,footer,#ad-slot,button{display:none!important}body{background:var(--bg);color:#000;font-size:12pt}.card{box-shadow:none;border:1px solid #ccc;break-inside:avoid}.results{border:2px solid var(--orange,#f97316)}[id$="-slot"]{display:none!important}@page{margin:0.5in}}
+</style>
+<link rel="canonical" href="https://dustyjones49.github.io/dustyjones49/asphalt-calculator/">
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"WebApplication",
+  "name":"Asphalt Calculator",
+  "url":"https://dustyjones49.github.io/dustyjones49/asphalt-calculator/",
+  "description":"Asphalt tons calculator for driveways. Uses 2 tons per cubic yard compacted density and depth in inches.",
+  "applicationCategory":"EducationalApplication",
+  "operatingSystem":"All"
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"FAQPage",
+  "mainEntity":[
+    {"@type":"Question","name":"How many tons of asphalt per square foot?","acceptedAnswer":{"@type":"Answer","text":"At 3 inches thick you need about 0.037 tons per sq ft, or 1 ton per 27 sq ft. At 2 inches thick it's 1 ton per 40 sq ft. Our calculator uses compacted density of 2 tons per cubic yard for accurate estimates."}},
+    {"@type":"Question","name":"How thick should an asphalt driveway be?","acceptedAnswer":{"@type":"Answer","text":"Residential driveways should be 2-3 inches of hot mix over 6-8 inches of compacted crushed base. Heavy use or clay soils need 3-4 inches of asphalt. Commercial parking lots are 3-4 inches minimum."}},
+    {"@type":"Question","name":"How long before you can seal new asphalt?","acceptedAnswer":{"@type":"Answer","text":"Wait 6-12 months before first sealcoat so oils can cure and surface can harden. Sealing too early traps oils and causes peeling. After that, reseal every 3-5 years to protect from UV and oil stains."}}
+  ]
+}
+</script><style id="bc-theme">/* FieldMath - Light Theme
+   All pages use this single light theme. No dark mode. */
+:root{
+  --bg:#f5f5f5;
+  --card:#ffffff;
+  --text:#333333;
+  --text-light:#666666;
+  --muted:#f1f3f7;
+  --muted-bg:#f8f9fa;
+  --border:#dde3ea;
+  --navy:#1a2332;
+  --header-bg:#1a2332;
+  --header-text:#ffffff;
+  --orange:#f97316;
+  --accent:#f97316;
+  --success:#16a34a;
+  --warning:#d97706;
+  --danger:#dc2626;
+}
+</style>
+<style id="bc-darkflash">html,html body{background:#f5f5f5 !important;color:#333 !important}body .card,body .panel,body .box,body .calculator,body .container,body .c,body .result,body .results,body .res,body .formula,body .example,body .faq,body .faq-item,body input,body select,body textarea{background:#ffffff !important;color:#333 !important;border-color:#ddd !important}</style></head>
+<body>
+<header><h1>Asphalt Calculator</h1></header>
+<div class="container">
+  <div class="card">
+    <h2>Calculate Asphalt Needed</h2>
+    <div class="form-group">
+      <label for="length">Driveway Length (ft)</label>
+      <input type="number" id="length" value="24" min="1" step="any" placeholder="e.g. 24">
+    </div>
+    <div class="form-group">
+      <label for="width">Driveway Width (ft)</label>
+      <input type="number" id="width" value="50" min="1" step="any" placeholder="e.g. 50">
+    </div>
+    <div class="form-group">
+      <label for="depth">Asphalt Depth (in)</label>
+      <input type="number" id="depth" value="3" min="0.5" step="0.5" placeholder="e.g. 3">
+    </div>
+    <div class="results" id="results">
+      <p>Cubic Yards: <span id="cy">11.11</span></p>
+      <p>Tons of Asphalt: <span id="tons">22.22</span></p>
+      <p>Recommended Order: <span id="order">23</span> tons</p>
+    </div>
+  </div>
+
+  <div class="card" style="margin-top:8px">
+<h2>Share This Calculation</h2>
+<div style="display:flex;gap:8px;flex-wrap:wrap">
+<button onclick="navigator.clipboard.writeText(window.location.href);this.textContent='Copied!';setTimeout(()=>this.textContent='&#128203; Copy Link',2000)" style="padding:8px 16px;background:#f97316;color:#fff;border:none;border-radius:6px;cursor:pointer;font-size:0.9rem">&#128203; Copy Link</button>
+<button onclick="window.open('https://twitter.com/intent/tweet?url='+encodeURIComponent(window.location.href)+'&text='+encodeURIComponent(document.title),'_blank')" style="padding:8px 16px;background:#1a2332;color:#fff;border:none;border-radius:6px;cursor:pointer;font-size:0.9rem">ð• Tweet</button>
+<button onclick="window.open('https://www.facebook.com/sharer/sharer.php?u='+encodeURIComponent(window.location.href),'_blank')" style="padding:8px 16px;background:#1877f2;color:#fff;border:none;border-radius:6px;cursor:pointer;font-size:0.9rem"> Share</button>
+<button onclick="window.open('https://pinterest.com/pin/create/button/?url='+encodeURIComponent(window.location.href)+'&description='+encodeURIComponent(document.title),'_blank')" style="padding:8px 16px;background:#e60023;color:#fff;border:none;border-radius:6px;cursor:pointer;font-size:0.9rem"> Pin</button>
+</div>
+</div>
+<div class="card">
+<h2>Embed This Calculator</h2>
+<p style="color:var(--text-light);font-size:0.85rem;margin-bottom:8px">Add this calculator to your website:</p>
+<textarea readonly onclick="this.select()" style="width:100%;height:60px;padding:8px;border:2px solid #ddd;border-radius:6px;font-family:monospace;font-size:0.8rem;background:var(--muted-bg);color:var(--text)" rows="3">&lt;iframe src="https://dustyjones49.github.io/dustyjones49/asphalt-calculator/" width="100%" height="800" frameborder="0"&gt;&lt;/iframe&gt;</textarea>
+</div>
+<div class="card" style="text-align:center">
+<div id="ad-slot" style="min-height:90px;border:2px dashed var(--border);display:flex;align-items:center;justify-content:center;color:var(--text-light);border-radius:6px;font-size:0.85rem">Ad Slot &#8212; Replace with AdSense Code</div>
+</div>
+
+  <div class="card">
+    <h2>Formula</h2>
+    <div class="formula-box">
+      <code>tons = (L &times; W &times; (D &divide; 12) &divide; 27) &times; 2</code>
+    </div>
+    <p style="margin-top:0.8rem;font-size:0.9rem;color:#666;">Density: 2 tons per cubic yard (compacted hot mix asphalt)</p>
+  </div>
+
+  <div class="card">
+    <h2>Example Calculation</h2>
+    <div class="example-box">
+      <h4>Driveway 24 ft &times; 50 ft at 3 inches</h4>
+      <p>Cubic yards = 24 &times; 50 &times; (3 &divide; 12) &divide; 27 = <strong>11.11 cy</strong><br>
+      Tons = 11.11 &times; 2 = <strong>22.22 tons</strong><br>
+      Order <strong>23 tons</strong> including slight overage.</p>
+    </div>
+  </div>
+
+  <div class="card">
+    <h2>FAQ</h2>
+    <div class="faq-item">
+      <div class="faq-q" onclick="toggleFaq(this)">How many tons of asphalt per square foot?</div>
+      <div class="faq-a"><div class="faq-a-inner">At 3 inches thick you need about 0.037 tons per sq ft, or 1 ton per 27 sq ft. At 2 inches thick it's 1 ton per 40 sq ft. Our calculator uses compacted density of 2 tons per cubic yard for accurate estimates.</div></div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q" onclick="toggleFaq(this)">How thick should an asphalt driveway be?</div>
+      <div class="faq-a"><div class="faq-a-inner">Residential driveways should be 2-3 inches of hot mix over 6-8 inches of compacted crushed base. Heavy use or clay soils need 3-4 inches of asphalt. Commercial parking lots are 3-4 inches minimum.</div></div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q" onclick="toggleFaq(this)">How long before you can seal new asphalt?</div>
+      <div class="faq-a"><div class="faq-a-inner">Wait 6-12 months before first sealcoat so oils can cure and surface can harden. Sealing too early traps oils and causes peeling. After that, reseal every 3-5 years to protect from UV and oil stains.</div></div>
+    </div>
+  </div>
+
+  <div class="card">
+    <h2>Recommended Products</h2>
+    <ul class="products">
+      <li><a href="https://www.homedepot.com/s/asphalt%20cold%20patch" target="_blank" rel="nofollow">Asphalt Patch 50lb Cold Mix</a> &mdash; Home Depot</li>
+      <li><a href="https://www.amazon.com/s?k=hand+tamper+8x8+steel&tag=buildcalc-20" target="_blank" rel="nofollow">Hand Tamper 8x8 Steel</a> &mdash; Amazon</li>
+      <li><a href="https://www.homedepot.com/s/driveway%20sealer%205%20gallon" target="_blank" rel="nofollow">Driveway Sealer 5 Gallon</a> &mdash; Home Depot</li>
+    </ul>
+  </div>
+</div>
+<footer>
+<p>2026 FieldMath - Calculators are reference only. Always verify with your local code.</p>
+</footer>
+
+<script>
+(function(){
+  var len = document.getElementById('length');
+  var wid = document.getElementById('width');
+  var dep = document.getElementById('depth');
+  var cyEl = document.getElementById('cy');
+  var tonsEl = document.getElementById('tons');
+  var orderEl = document.getElementById('order');
+
+  function calc(){
+    var L = parseFloat(len.value) || 0;
+    var W = parseFloat(wid.value) || 0;
+    var D = parseFloat(dep.value) || 0;
+    var cy = L * W * (D / 12) / 27;
+    var tons = cy * 2;
+    cyEl.textContent = cy.toFixed(2);
+    tonsEl.textContent = Math.max(0, tons).toFixed(2);
+    orderEl.textContent = Math.max(0, Math.ceil(tons));
+  }
+
+  len.addEventListener('input', calc);
+  wid.addEventListener('input', calc);
+  dep.addEventListener('input', calc);
+  calc();
+})();
+
+function toggleFaq(el){
+  el.classList.toggle('open');
+  el.nextElementSibling.classList.toggle('open');
+}
+(function(){
+  var inputs=document.querySelectorAll('input,select');
+  function save(){var p=new URLSearchParams();inputs.forEach(function(e,i){if(e.value)p.set('i'+i,e.value)});if(p.toString())history.replaceState(null,'','?'+p.toString())}
+  function load(){var p=new URLSearchParams(location.search);inputs.forEach(function(e,i){if(p.has('i'+i))e.value=p.get('i'+i);e.addEventListener('input',save);e.addEventListener('change',save)});if(p.toString()){var ev=new Event('input');inputs[inputs.length-1].dispatchEvent(ev)}}
+  load();
+})();
+</script>
+<script src="../custom-select.js"></script><script src="../favorites.js"></script><script src="../remember-inputs.js"></script><script src="../sticky-header.js"></script><script src="../ui-fix.js"></script><script src="../link-fix.js"></script><script src="../auto-calc.js"></script><script src="../dark-persist.js"></script><script src="../admob-banner.js"></script></body>
+</html>
+
+
+
+
+

@@ -1,0 +1,27 @@
+﻿<!DOCTYPE html><html lang="en"><head>
+<meta name="description" content="Lead Paint Risk Assessment calculator. Enter your values for instant, accurate results with clear formulas and helpful references."><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<link rel="canonical" href="https://dustyjones49.github.io/dustyjones49/lead-paint-test/"><title>Lead Paint Risk Assessment Calculator | FieldMath</title><style>*{margin:0;padding:0;box-sizing:border-box}body{font-family:Arial,sans-serif;background:var(--bg);color:#333}.header{background:#1a237e;color:#fff;padding:24px;text-align:center}.header h1{font-size:1.5rem}.header p{opacity:0.8;margin-top:4px;font-size:.85rem}.container{max-width:600px;margin:20px auto;padding:0 16px}.card{background:#fff;border-radius:8px;padding:20px;box-shadow:0 2px 8px rgba(0,0,0,.1);margin-bottom:16px}.card h2{font-size:1.1rem;color:#1a237e;margin-bottom:12px;border-bottom:2px solid #ff6d00;padding-bottom:6px;display:inline-block}label{display:block;margin-bottom:4px;font-weight:600;font-size:.9rem}input,select{width:100%;padding:10px;border:1px solid #ddd;border-radius:4px;margin-bottom:12px;font-size:.9rem}input:focus,select:focus{outline:none;border-color:#ff6d00}button{width:100%;padding:12px;background:#ff6d00;color:#fff;border:none;border-radius:4px;font-size:1rem;font-weight:700;cursor:pointer}button:hover{background:#e65100}.result{background:#fff3e0;border-left:4px solid #ff6d00;padding:14px;border-radius:4px;margin-top:12px;display:none}.result.show{display:block}.result p{font-size:1rem;margin:4px 0}.result span{font-weight:700;color:#1a237e}.footer{text-align:center;padding:16px;font-size:.8rem;color:#999}</style><script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"Lead Paint Risk Assessment","url":"https://dustyjones49.github.io/dustyjones49/lead-paint-test/","description":"Lead Paint Risk Assessment calculator. Enter your values for instant, accurate results with clear formulas and helpful references.","applicationCategory":"UtilityApplication","operatingSystem":"Any"}</script><style id="bc-theme">/* FieldMath - Light Theme
+   All pages use this single light theme. No dark mode. */
+:root{
+  --bg:#f5f5f5;
+  --card:#ffffff;
+  --text:#333333;
+  --text-light:#666666;
+  --muted:#f1f3f7;
+  --muted-bg:#f8f9fa;
+  --border:#dde3ea;
+  --navy:#1a2332;
+  --header-bg:#1a2332;
+  --header-text:#ffffff;
+  --orange:#f97316;
+  --accent:#f97316;
+  --success:#16a34a;
+  --warning:#d97706;
+  --danger:#dc2626;
+}
+</style>
+<style id="bc-darkflash">html,html body{background:#f5f5f5 !important;color:#333 !important}body .card,body .panel,body .box,body .calculator,body .container,body .c,body .result,body .results,body .res,body .formula,body .example,body .faq,body .faq-item,body input,body select,body textarea{background:#ffffff !important;color:#333 !important;border-color:#ddd !important}</style></head><body><header><h1>Lead Paint Risk Assessment</h1></header><div class="container"><div class="card"><h2>Inputs</h2><label>Home Year</label><input type="number" id="year" placeholder="e.g. 1950" step="1"><label>Paint Condition</label><select id="cond"><option value="good">Good (intact)</option><option value="fair">Fair (minor chips)</option><option value="poor">Poor (peeling/dust)</option></select><button onclick="calc()">Calculate</button><div class="result" id="result"><p>Risk Level: <span id="riskOut"></span></p><p>Test Recommended: <span id="testOut"></span></p></div><script>function calc(){const y=parseFloat(document.getElementById("year").value)||2020;const cond=document.getElementById("cond").value;let risk="Low",test="Not required";if(y<1978){risk="Medium";test="Surface test kit recommended"}if(y<1950){risk="High"}if(y<1978&&cond==="poor"){risk="High";test="Professional inspection required"}document.getElementById("riskOut").textContent=risk;document.getElementById("testOut").textContent=test;document.getElementById("result").classList.add("show");}</script></div></div></div><div class="footer">2026 FieldMath - Calculators are reference only. Always verify with your local code.</div><script src="../custom-select.js"></script><script src="../favorites.js"></script><script src="../remember-inputs.js"></script><script src="../sticky-header.js"></script><script src="../ui-fix.js"></script><script src="../link-fix.js"></script><script src="../auto-calc.js"></script><script src="../dark-persist.js"></script><script src="../admob-banner.js"></script></body></html>
+
+
+
+

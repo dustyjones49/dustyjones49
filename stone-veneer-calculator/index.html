@@ -1,0 +1,193 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>Stone Veneer Calculator - Sq Ft &amp; Corners</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<meta name="description" content="Calculate manufactured stone veneer needed. Flat pieces per sq ft plus corner pieces by linear foot.">
+<link rel="canonical" href="https://buildcalc.com/stone-veneer-calculator/">
+<meta property="og:title" content="Stone Veneer Calculator - Sq Ft &amp; Corners">
+<meta property="og:description" content="Calculate manufactured stone veneer needed. Flat pieces per sq ft plus corner pieces by linear foot.">
+<meta property="og:url" content="https://buildcalc.com/stone-veneer-calculator/">
+<meta property="og:type" content="website">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Stone Veneer Calculator - Sq Ft &amp; Corners">
+<meta name="twitter:description" content="Calculate manufactured stone veneer needed. Flat pieces per sq ft plus corner pieces by linear foot.">
+<style>
+:root{--bg:#fff;--text:#1a1a1a;--card:#f8f9fa;--input:#fff;--border:#dee2e6;--primary:#2563eb;--primary-hover:#1d4ed8;--result-bg:#e8f0fe;--accent:#ea580c;--faq-bg:#f0f9ff;--shadow:0 2px 8px rgba(0,0,0,0.1)}
+.dark{--bg:#1a1a2e;--text:#e0e0e0;--card:#16213e;--input:#0f3460;--border:#2a2a4a;--primary:#60a5fa;--primary-hover:#93bdf8;--result-bg:#1e3a5f;--accent:#f97316;--faq-bg:#1e2a3a;--shadow:0 2px 8px rgba(0,0,0,0.4)}
+body{font-family:system-ui,-apple-system,sans-serif;background:var(--bg);color:var(--text);margin:0;padding:0;line-height:1.6;transition:background .3s,color .3s}
+.container{max-width:720px;margin:0 auto;padding:16px}
+h1{font-size:1.8rem;margin:0 0 4px;color:var(--primary)}
+header p{margin:0 0 16px;color:var(--text);opacity:.8}
+.breadcrumb{font-size:.85rem;margin-bottom:12px;color:var(--text);opacity:.7}
+.breadcrumb a{color:var(--primary);text-decoration:none}
+.breadcrumb a:hover{text-decoration:underline}
+.card{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:20px;margin-bottom:16px;box-shadow:var(--shadow)}
+.card h2{font-size:1.2rem;margin:0 0 12px;color:var(--primary)}
+.input-group{margin-bottom:12px}
+.input-group label{display:block;font-weight:600;margin-bottom:4px;font-size:.9rem}
+.input-group input,.input-group select{width:100%;padding:10px 12px;border:1px solid var(--border);border-radius:8px;font-size:1rem;background:var(--input);color:var(--text);box-sizing:border-box}
+.input-group input:focus,.input-group select:focus{outline:2px solid var(--primary);outline-offset:-1px}
+.btn{display:inline-block;padding:12px 24px;font-size:1rem;font-weight:600;border:none;border-radius:8px;cursor:pointer;transition:background .2s}
+.btn-primary{background:var(--primary);color:#fff;width:100%}
+.btn-primary:hover{background:var(--primary-hover)}
+.result{background:var(--result-bg);border:1px solid var(--primary);border-radius:8px;padding:12px 16px;margin-top:12px}
+.result .row{display:flex;justify-content:space-between;align-items:center;padding:6px 0;border-bottom:1px solid var(--border)}
+.result .row:last-child{border-bottom:none}
+.result .label{font-weight:600}
+.result .value{font-size:1.1rem;font-weight:700;color:var(--accent)}
+.formula-box{background:var(--result-bg);border:1px dashed var(--primary);border-radius:8px;padding:12px;margin-top:12px;font-size:.85rem}
+.formula-box code{display:block;margin:4px 0}
+.faq-item{border:1px solid var(--border);border-radius:8px;margin-bottom:8px;overflow:hidden}
+.faq-question{width:100%;text-align:left;padding:14px 16px;background:var(--faq-bg);border:none;cursor:pointer;font-weight:600;font-size:.95rem;color:var(--text);display:flex;justify-content:space-between;align-items:center}
+.faq-question:hover{opacity:.85}
+.faq-question .arrow{transition:transform .2s;font-size:1.2rem}
+.faq-question.open .arrow{transform:rotate(180deg)}
+.faq-answer{display:none;padding:0 16px 14px;font-size:.9rem;line-height:1.5}
+.faq-answer.open{display:block}
+.share-row{display:flex;gap:8px;flex-wrap:wrap;margin-top:8px}
+.share-btn{flex:1;min-width:100px;padding:10px;border:none;border-radius:8px;cursor:pointer;font-size:.85rem;font-weight:600;text-align:center;color:#fff}
+.share-fb{background:#1877f2}.share-tw{background:#000}.share-wa{background:#25d366}.share-em{background:#555}
+.embed-box{width:100%;background:var(--input);border:1px solid var(--border);border-radius:8px;padding:10px;font-size:.8rem;font-family:monospace;box-sizing:border-box;margin-top:4px;color:var(--text)}
+.products{margin-top:12px}
+.products a{display:block;padding:10px 12px;background:var(--card);border:1px solid var(--border);border-radius:8px;margin-bottom:6px;text-decoration:none;color:var(--primary);font-weight:600;font-size:.9rem;transition:background .2s}
+.products a:hover{background:var(--result-bg)}
+.related-links{display:flex;flex-wrap:wrap;gap:8px;margin-top:8px}
+.related-links a{background:var(--card);border:1px solid var(--border);padding:8px 14px;border-radius:20px;text-decoration:none;color:var(--primary);font-size:.85rem;font-weight:500}
+.related-links a:hover{background:var(--result-bg)}
+.ad-slot{background:var(--card);border:1px dashed var(--border);padding:60px 20px;text-align:center;border-radius:12px;margin:16px 0;color:var(--text);opacity:.6;font-size:.9rem}
+#backToTop{position:fixed;bottom:24px;right:24px;width:44px;height:44px;background:var(--primary);color:#fff;border:none;border-radius:50%;font-size:1.3rem;cursor:pointer;display:none;box-shadow:0 2px 8px rgba(0,0,0,.3);z-index:999}
+#backToTop:hover{background:var(--primary-hover)}
+.dark-toggle{position:fixed;top:16px;right:16px;z-index:1000;background:var(--card);border:1px solid var(--border);border-radius:50%;width:40px;height:40px;cursor:pointer;font-size:1.2rem;display:flex;align-items:center;justify-content:center;box-shadow:var(--shadow)}
+@media print{.share-row,.embed-box,.ad-slot,.dark-toggle,#backToTop,.products,.related-links{display:none!important}body{background:var(--bg);color:#000;font-size:12px}.card{box-shadow:none;border:1px solid #ccc;break-inside:avoid}}
+@media(max-width:480px){.container{padding:10px}h1{font-size:1.4rem}}
+</style>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebApplication","name":"Stone Veneer Calculator","description":"Calculate manufactured stone veneer needed. Flat pieces per sq ft plus corner pieces by linear foot.","url":"https://buildcalc.com/stone-veneer-calculator/","applicationCategory":"EducationalApplication"}
+</script>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"How many sq ft per box of stone veneer?","acceptedAnswer":{"@type":"Answer","text":"Most manufactured stone veneer boxes contain 8-10 sq ft of flats and cover about 7-8 sq ft after overlap. Corner pieces cover about 0.75 sq ft per linear foot. Always check the manufacturer's coverage chart."}},{"@type":"Question","name":"Stone veneer vs real stone?","acceptedAnswer":{"@type":"Answer","text":"Manufactured stone veneer costs $8-15/sq ft installed vs $25-40 for real stone. It's 75% lighter, easier to install, and available in more colors. Real stone adds the most resale value but requires a structural ledge."}},{"@type":"Question","name":"Do I need a scratch coat for stone veneer?","acceptedAnswer":{"@type":"Answer","text":"Over plywood or OSB: yes&#8212;apply two layers of weather-resistant barrier, metal lath, and a 1/2-3/4 in scratch coat of Type S mortar. Over concrete block: just dampen and apply. Over existing brick: clean first, then apply directly."}}]}
+</script>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://buildcalc.com/"},{"@type":"ListItem","position":2,"name":"Concrete & Masonry","item":"https://buildcalc.com/category/concrete-masonry/"},{"@type":"ListItem","position":3,"name":"Stone Veneer Calculator","item":"https://buildcalc.com/stone-veneer-calculator/"}]}
+</script><style id="bc-theme">/* FieldMath - Light Theme
+   All pages use this single light theme. No dark mode. */
+:root{
+  --bg:#f5f5f5;
+  --card:#ffffff;
+  --text:#333333;
+  --text-light:#666666;
+  --muted:#f1f3f7;
+  --muted-bg:#f8f9fa;
+  --border:#dde3ea;
+  --navy:#1a2332;
+  --header-bg:#1a2332;
+  --header-text:#ffffff;
+  --orange:#f97316;
+  --accent:#f97316;
+  --success:#16a34a;
+  --warning:#d97706;
+  --danger:#dc2626;
+}
+</style>
+<style id="bc-darkflash">html,html body{background:#f5f5f5 !important;color:#333 !important}body .card,body .panel,body .box,body .calculator,body .container,body .c,body .result,body .results,body .res,body .formula,body .example,body .faq,body .faq-item,body input,body select,body textarea{background:#ffffff !important;color:#333 !important;border-color:#ddd !important}</style></head>
+<body>
+<button class="dark-toggle" onclick="toggleDark()" aria-label="Toggle dark mode">&#9788;</button>
+<div class="container">
+
+<header><h1>Stone Veneer Calculator</h1></header>
+<div class="card">
+<h2>Wall Dimensions</h2>
+<div class="input-group"><label for="wallArea">Wall Area (sq ft)</label><input type="number" id="wallArea" value="200" min="1" step="0.1"></div>
+<div class="input-group"><label for="corners">Linear Feet of Corners</label><input type="number" id="corners" value="20" min="0" step="0.1"></div>
+<div class="input-group"><label for="waste">Waste %</label><input type="number" id="waste" value="10" min="0" max="50" step="1"></div>
+<button class="btn btn-primary" onclick="calculate()">Calculate</button>
+<div class="result" id="result"></div>
+<div class="formula-box">
+<strong>Formula:</strong>
+<code>flats = wallArea - (cornerLinFt &times; 0.75 sq ft/ft)</code>
+<code>orderFlat = flats &times; (1 + waste/100)</code>
+<code>orderCorner = corners &times; (1 + waste/100)</code>
+<strong>Example:</strong> 200 sq ft wall, 20 ft corners, 10% waste: flats=185 sq ft, order 204 sq ft, corner=22 ft.
+</div>
+</div>
+<div class="ad-slot">Advertisement</div>
+<div class="card">
+<h2>FAQ</h2>
+<div class="faq-item"><button class="faq-question" onclick="toggleFAQ(this)">How many sq ft per box of stone veneer? <span class="arrow">&#9660;</span></button><div class="faq-answer">Most manufactured stone veneer boxes contain 8-10 sq ft of flats and cover about 7-8 sq ft after overlap. Corner pieces cover about 0.75 sq ft per linear foot. Always check the manufacturer's coverage chart.</div></div>
+<div class="faq-item"><button class="faq-question" onclick="toggleFAQ(this)">Stone veneer vs real stone? <span class="arrow">&#9660;</span></button><div class="faq-answer">Manufactured stone veneer costs $8-15/sq ft installed vs $25-40 for real stone. It's 75% lighter, easier to install, and available in more colors. Real stone adds the most resale value but requires a structural ledge.</div></div>
+<div class="faq-item"><button class="faq-question" onclick="toggleFAQ(this)">Do I need a scratch coat for stone veneer? <span class="arrow">&#9660;</span></button><div class="faq-answer">Over plywood or OSB: yes&#8212;apply two layers of weather-resistant barrier, metal lath, and a 1/2-3/4 in scratch coat of Type S mortar. Over concrete block: just dampen and apply. Over existing brick: clean first, then apply directly.</div></div>
+</div>
+<div class="card">
+<h2>Recommended Products</h2>
+<div class="products">
+<a href="https://www.homedepot.com/s/stone+veneer+panels+8sqft?NCNI-5" target="_blank" rel="nofollow sponsored">Stone Veneer Panels 8 sq ft (Home Depot)</a>
+<a href="https://www.homedepot.com/s/type+S+mortar+mix?NCNI-5" target="_blank" rel="nofollow sponsored">Type S Mortar Mix (Home Depot)</a>
+<a href="https://www.amazon.com/s?k=metal+lath+27x8&tag=buildcalc-20" target="_blank" rel="nofollow sponsored">Metal Lath 27 in &times; 8 ft (Amazon)</a>
+</div>
+</div>
+<div class="card">
+<h2>Share</h2>
+<div class="share-row">
+<button class="share-btn share-fb" onclick="share('facebook')">Facebook</button>
+<button class="share-btn share-tw" onclick="share('twitter')">X / Twitter</button>
+<button class="share-btn share-wa" onclick="share('whatsapp')">WhatsApp</button>
+<button class="share-btn share-em" onclick="share('email')">Email</button>
+</div>
+<h2 style="margin-top:16px">Embed</h2>
+<textarea class="embed-box" rows="3" readonly><iframe src="https://buildcalc.com/stone-veneer-calculator/" width="100%" height="600" style="border:none;border-radius:12px" title="Stone Veneer Calculator"></iframe></textarea>
+</div>
+<div class="card">
+<h2>Related Calculators</h2>
+<div class="related-links">
+<a href="../brick-calculator/">Brick Calculator</a>
+<a href="../mortar-calculator/">Mortar Calculator</a>
+<a href="../concrete-calculator/">Concrete Calculator</a>
+</div>
+</div>
+</div>
+<button id="backToTop" onclick="window.scrollTo({top:0,behavior:'smooth'})">&#9650;</button>
+<script>
+function calculate(){
+  var wallA=parseFloat(document.getElementById('wallArea').value)||0;
+  var corners=parseFloat(document.getElementById('corners').value)||0;
+  var waste=parseFloat(document.getElementById('waste').value)||0;
+  var flats=wallA-(corners*0.75);
+  var flatsOrder=Math.ceil(flats*(1+waste/100));
+  var cornersOrder=Math.ceil(corners*(1+waste/100));
+  document.getElementById('result').innerHTML=
+  '<div class="row"><span class="label">Flat Stone</span><span class="value">'+flats.toFixed(1)+' sq ft</span></div>'+
+  '<div class="row"><span class="label">Corner Pieces</span><span class="value">'+corners.toFixed(1)+' linear ft</span></div>'+
+  '<div class="row"><span class="label">Flats to Order</span><span class="value">'+flatsOrder+' sq ft</span></div>'+
+  '<div class="row"><span class="label">Corners to Order</span><span class="value">'+cornersOrder+' linear ft</span></div>';
+  var p=new URLSearchParams(window.location.search);
+  p.set('wallArea',wallA);p.set('corners',corners);p.set('waste',waste);
+  window.history.replaceState({},'',location.pathname+'?'+p.toString());
+}
+function toggleFAQ(el){el.classList.toggle('open');el.nextElementSibling.classList.toggle('open')}
+function toggleDark(){document.documentElement.classList.toggle('dark');localStorage.setItem('dark',document.documentElement.classList.contains('dark')?'1':'0')}
+function share(p){
+  var u=encodeURIComponent(location.href),t=encodeURIComponent(document.title);
+  if(p==='facebook')window.open('https://www.facebook.com/sharer.php?u='+u);
+  else if(p==='twitter')window.open('https://twitter.com/intent/tweet?url='+u+'&text='+t);
+  else if(p==='whatsapp')window.open('https://wa.me/?text='+t+' '+u);
+  else if(p==='email')window.open('mailto:?subject='+t+'&body='+u);
+}
+window.onscroll=function(){document.getElementById('backToTop').style.display=window.scrollY>300?'block':'none'};
+window.onload=function(){
+  if(localStorage.getItem('dark')==='1')document.documentElement.classList.add('dark');
+  var p=new URLSearchParams(window.location.search);
+  if(p.get('wallArea'))document.getElementById('wallArea').value=p.get('wallArea');
+  if(p.get('corners'))document.getElementById('corners').value=p.get('corners');
+  if(p.get('waste'))document.getElementById('waste').value=p.get('waste');
+  calculate();
+};
+</script>
+<script id='__CALC_AUTO__'>(function(){try{if(typeof calculate==='function')calculate();}catch(e){}})();</script><script src="../custom-select.js"></script><script src="../favorites.js"></script><script src="../remember-inputs.js"></script><script src="../sticky-header.js"></script><script src="../ui-fix.js"></script><script src="../link-fix.js"></script><script src="../auto-calc.js"></script><script src="../dark-persist.js"></script><script src="../admob-banner.js"></script></body>
+</html>
+
+
+
+
+

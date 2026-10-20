@@ -1,0 +1,197 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>Sand Calculator - Tons &amp; Yards</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<meta name="description" content="Calculate sand needed in tons and cubic yards. Play sand, masonry sand, paver sand and concrete sand.">
+<link rel="canonical" href="https://buildcalc.com/sand-calculator/">
+<meta property="og:title" content="Sand Calculator - Tons &amp; Yards">
+<meta property="og:description" content="Calculate sand needed in tons and cubic yards. Play sand, masonry sand, paver sand and concrete sand.">
+<meta property="og:url" content="https://buildcalc.com/sand-calculator/">
+<meta property="og:type" content="website">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Sand Calculator - Tons &amp; Yards">
+<meta name="twitter:description" content="Calculate sand needed in tons and cubic yards. Play sand, masonry sand, paver sand and concrete sand.">
+<style>
+:root{--bg:#fff;--text:#1a1a1a;--card:#f8f9fa;--input:#fff;--border:#dee2e6;--primary:#d97706;--primary-hover:#b45309;--result-bg:#fffbeb;--accent:#dc2626;--faq-bg:#fefce8;--shadow:0 2px 8px rgba(0,0,0,0.1)}
+.dark{--bg:#1a1a2e;--text:#e0e0e0;--card:#16213e;--input:#0f3460;--border:#2a2a4a;--primary:#fbbf24;--primary-hover:#fcd34d;--result-bg:#78350f;--accent:#f97316;--faq-bg:#1e2a3a;--shadow:0 2px 8px rgba(0,0,0,0.4)}
+body{font-family:system-ui,-apple-system,sans-serif;background:var(--bg);color:var(--text);margin:0;padding:0;line-height:1.6;transition:background .3s,color .3s}
+.container{max-width:720px;margin:0 auto;padding:16px}
+h1{font-size:1.8rem;margin:0 0 4px;color:var(--primary)}
+header p{margin:0 0 16px;color:var(--text);opacity:.8}
+.breadcrumb{font-size:.85rem;margin-bottom:12px;color:var(--text);opacity:.7}
+.breadcrumb a{color:var(--primary);text-decoration:none}
+.breadcrumb a:hover{text-decoration:underline}
+.card{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:20px;margin-bottom:16px;box-shadow:var(--shadow)}
+.card h2{font-size:1.2rem;margin:0 0 12px;color:var(--primary)}
+.input-group{margin-bottom:12px}
+.input-group label{display:block;font-weight:600;margin-bottom:4px;font-size:.9rem}
+.input-group input,.input-group select{width:100%;padding:10px 12px;border:1px solid var(--border);border-radius:8px;font-size:1rem;background:var(--input);color:var(--text);box-sizing:border-box}
+.input-group input:focus,.input-group select:focus{outline:2px solid var(--primary);outline-offset:-1px}
+.btn{display:inline-block;padding:12px 24px;font-size:1rem;font-weight:600;border:none;border-radius:8px;cursor:pointer;transition:background .2s}
+.btn-primary{background:var(--primary);color:#fff;width:100%}
+.btn-primary:hover{background:var(--primary-hover)}
+.result{background:var(--result-bg);border:1px solid var(--primary);border-radius:8px;padding:12px 16px;margin-top:12px}
+.result .row{display:flex;justify-content:space-between;align-items:center;padding:6px 0;border-bottom:1px solid var(--border)}
+.result .row:last-child{border-bottom:none}
+.result .label{font-weight:600}
+.result .value{font-size:1.1rem;font-weight:700;color:var(--accent)}
+.formula-box{background:var(--result-bg);border:1px dashed var(--primary);border-radius:8px;padding:12px;margin-top:12px;font-size:.85rem}
+.formula-box code{display:block;margin:4px 0}
+.faq-item{border:1px solid var(--border);border-radius:8px;margin-bottom:8px;overflow:hidden}
+.faq-question{width:100%;text-align:left;padding:14px 16px;background:var(--faq-bg);border:none;cursor:pointer;font-weight:600;font-size:.95rem;color:var(--text);display:flex;justify-content:space-between;align-items:center}
+.faq-question:hover{opacity:.85}
+.faq-question .arrow{transition:transform .2s;font-size:1.2rem}
+.faq-question.open .arrow{transform:rotate(180deg)}
+.faq-answer{display:none;padding:0 16px 14px;font-size:.9rem;line-height:1.5}
+.faq-answer.open{display:block}
+.share-row{display:flex;gap:8px;flex-wrap:wrap;margin-top:8px}
+.share-btn{flex:1;min-width:100px;padding:10px;border:none;border-radius:8px;cursor:pointer;font-size:.85rem;font-weight:600;text-align:center;color:#fff}
+.share-fb{background:#1877f2}.share-tw{background:#000}.share-wa{background:#25d366}.share-em{background:#555}
+.embed-box{width:100%;background:var(--input);border:1px solid var(--border);border-radius:8px;padding:10px;font-size:.8rem;font-family:monospace;box-sizing:border-box;margin-top:4px;color:var(--text)}
+.products{margin-top:12px}
+.products a{display:block;padding:10px 12px;background:var(--card);border:1px solid var(--border);border-radius:8px;margin-bottom:6px;text-decoration:none;color:var(--primary);font-weight:600;font-size:.9rem;transition:background .2s}
+.products a:hover{background:var(--result-bg)}
+.related-links{display:flex;flex-wrap:wrap;gap:8px;margin-top:8px}
+.related-links a{background:var(--card);border:1px solid var(--border);padding:8px 14px;border-radius:20px;text-decoration:none;color:var(--primary);font-size:.85rem;font-weight:500}
+.related-links a:hover{background:var(--result-bg)}
+.ad-slot{background:var(--card);border:1px dashed var(--border);padding:60px 20px;text-align:center;border-radius:12px;margin:16px 0;color:var(--text);opacity:.6;font-size:.9rem}
+#backToTop{position:fixed;bottom:24px;right:24px;width:44px;height:44px;background:var(--primary);color:#fff;border:none;border-radius:50%;font-size:1.3rem;cursor:pointer;display:none;box-shadow:0 2px 8px rgba(0,0,0,.3);z-index:999}
+#backToTop:hover{background:var(--primary-hover)}
+.dark-toggle{position:fixed;top:16px;right:16px;z-index:1000;background:var(--card);border:1px solid var(--border);border-radius:50%;width:40px;height:40px;cursor:pointer;font-size:1.2rem;display:flex;align-items:center;justify-content:center;box-shadow:var(--shadow)}
+@media print{.share-row,.embed-box,.ad-slot,.dark-toggle,#backToTop,.products,.related-links{display:none!important}body{background:var(--bg);color:#000;font-size:12px}.card{box-shadow:none;border:1px solid #ccc;break-inside:avoid}}
+@media(max-width:480px){.container{padding:10px}h1{font-size:1.4rem}}
+</style>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebApplication","name":"Sand Calculator","description":"Calculate sand needed in tons and cubic yards. Play sand, masonry sand, paver sand and concrete sand.","url":"https://buildcalc.com/sand-calculator/","applicationCategory":"EducationalApplication"}
+</script>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"How much sand for a sandbox?","acceptedAnswer":{"@type":"Answer","text":"A standard 8x8 ft sandbox at 6 inches deep needs about 1.19 cubic yards or 1.5 tons of play sand. That's about 60 bags of 50lb play sand. Add a cover to keep cats out and sand dry between play sessions."}},{"@type":"Question","name":"What sand for pavers?","acceptedAnswer":{"@type":"Answer","text":"Use sharp concrete sand (not play sand) for the 1-inch bedding layer under pavers. It's angular and locks together under compaction. Play sand is too round and soft&#8212;pavers will shift. Add polymeric sand in the joints after laying."}},{"@type":"Question","name":"Sand vs gravel under pavers?","acceptedAnswer":{"@type":"Answer","text":"Gravel (3/4 in crushed) goes as the 4-6 in base layer. Sand goes as the 1 in bedding layer on top to level pavers. Never use sand as the main base&#8212;it washes out. The gravel base is load-bearing, sand is for leveling."}}]}
+</script>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://buildcalc.com/"},{"@type":"ListItem","position":2,"name":"Concrete & Masonry","item":"https://buildcalc.com/category/concrete-masonry/"},{"@type":"ListItem","position":3,"name":"Sand Calculator","item":"https://buildcalc.com/sand-calculator/"}]}
+</script><style id="bc-theme">/* FieldMath - Light Theme
+   All pages use this single light theme. No dark mode. */
+:root{
+  --bg:#f5f5f5;
+  --card:#ffffff;
+  --text:#333333;
+  --text-light:#666666;
+  --muted:#f1f3f7;
+  --muted-bg:#f8f9fa;
+  --border:#dde3ea;
+  --navy:#1a2332;
+  --header-bg:#1a2332;
+  --header-text:#ffffff;
+  --orange:#f97316;
+  --accent:#f97316;
+  --success:#16a34a;
+  --warning:#d97706;
+  --danger:#dc2626;
+}
+</style>
+<style id="bc-darkflash">html,html body{background:#f5f5f5 !important;color:#333 !important}body .card,body .panel,body .box,body .calculator,body .container,body .c,body .result,body .results,body .res,body .formula,body .example,body .faq,body .faq-item,body input,body select,body textarea{background:#ffffff !important;color:#333 !important;border-color:#ddd !important}</style></head>
+<body>
+<button class="dark-toggle" onclick="toggleDark()" aria-label="Toggle dark mode">&#9788;</button>
+<div class="container">
+
+<header><h1>Sand Calculator</h1></header>
+<div class="card">
+<h2>Area Dimensions</h2>
+<div class="input-group"><label for="length">Length (ft)</label><input type="number" id="length" value="10" min="1" step="0.1"></div>
+<div class="input-group"><label for="width">Width (ft)</label><input type="number" id="width" value="10" min="1" step="0.1"></div>
+<div class="input-group"><label for="depth">Depth (in)</label><input type="number" id="depth" value="2" min="0.25" step="0.25"></div>
+<div class="input-group"><label for="sandType">Sand Type</label><select id="sandType"><option value="1.3">Play Sand (1.3 tons/cy)</option><option value="1.35">Masonry Sand (1.35 tons/cy)</option><option value="1.45">Concrete Sand (1.45 tons/cy)</option><option value="1.5">Paver Sand (1.5 tons/cy)</option></select></div>
+<button class="btn btn-primary" onclick="calculate()">Calculate</button>
+<div class="result" id="result"></div>
+<div class="formula-box">
+<strong>Formula:</strong>
+<code>cf = L &times; W &times; (D/12)</code>
+<code>cy = cf / 27</code>
+<code>tons = cy &times; density</code>
+<strong>Example:</strong> 10&times;10 ft at 2 in deep: cf=16.7, cy=0.62, play sand=0.8 tons, 32 bags &times; 50lb.
+</div>
+</div>
+<div class="ad-slot">Advertisement</div>
+<div class="card">
+<h2>FAQ</h2>
+<div class="faq-item"><button class="faq-question" onclick="toggleFAQ(this)">How much sand for a sandbox? <span class="arrow">&#9660;</span></button><div class="faq-answer">A standard 8&times;8 ft sandbox at 6 inches deep needs about 1.19 cubic yards or 1.5 tons of play sand. That's about 60 bags of 50lb play sand. Add a cover to keep cats out and sand dry between play sessions.</div></div>
+<div class="faq-item"><button class="faq-question" onclick="toggleFAQ(this)">What sand for pavers? <span class="arrow">&#9660;</span></button><div class="faq-answer">Use sharp concrete sand (not play sand) for the 1-inch bedding layer under pavers. It's angular and locks together under compaction. Play sand is too round and soft&#8212;pavers will shift. Add polymeric sand in the joints after laying.</div></div>
+<div class="faq-item"><button class="faq-question" onclick="toggleFAQ(this)">Sand vs gravel under pavers? <span class="arrow">&#9660;</span></button><div class="faq-answer">Gravel (3/4 in crushed) goes as the 4-6 in base layer. Sand goes as the 1 in bedding layer on top to level pavers. Never use sand as the main base&#8212;it washes out. The gravel base is load-bearing, sand is for leveling.</div></div>
+</div>
+<div class="card">
+<h2>Recommended Products</h2>
+<div class="products">
+<a href="https://www.homedepot.com/s/play+sand+50lb?NCNI-5" target="_blank" rel="nofollow sponsored">Play Sand 50lb (Home Depot)</a>
+<a href="https://www.amazon.com/s?k=polymeric+sand+for+pavers&tag=buildcalc-20" target="_blank" rel="nofollow sponsored">Polymeric Sand for Pavers (Amazon)</a>
+<a href="https://www.homedepot.com/s/concrete+sand+bulk?NCNI-5" target="_blank" rel="nofollow sponsored">Concrete Sand Bulk (Home Depot)</a>
+</div>
+</div>
+<div class="card">
+<h2>Share</h2>
+<div class="share-row">
+<button class="share-btn share-fb" onclick="share('facebook')">Facebook</button>
+<button class="share-btn share-tw" onclick="share('twitter')">X / Twitter</button>
+<button class="share-btn share-wa" onclick="share('whatsapp')">WhatsApp</button>
+<button class="share-btn share-em" onclick="share('email')">Email</button>
+</div>
+<h2 style="margin-top:16px">Embed</h2>
+<textarea class="embed-box" rows="3" readonly><iframe src="https://buildcalc.com/sand-calculator/" width="100%" height="600" style="border:none;border-radius:12px" title="Sand Calculator"></iframe></textarea>
+</div>
+<div class="card">
+<h2>Related Calculators</h2>
+<div class="related-links">
+<a href="../paver-calculator/">Paver Calculator</a>
+<a href="../gravel-calculator/">Gravel Calculator</a>
+<a href="../concrete-calculator/">Concrete Calculator</a>
+</div>
+</div>
+</div>
+<button id="backToTop" onclick="window.scrollTo({top:0,behavior:'smooth'})">&#9650;</button>
+<script>
+function calculate(){
+  var L=parseFloat(document.getElementById('length').value)||0;
+  var W=parseFloat(document.getElementById('width').value)||0;
+  var D=parseFloat(document.getElementById('depth').value)||0;
+  var density=parseFloat(document.getElementById('sandType').value)||1.3;
+  var cf=L*W*(D/12);
+  var cy=cf/27;
+  var tons=cy*density;
+  var bags=Math.ceil(tons*2000/50);
+  document.getElementById('result').innerHTML=
+  '<div class="row"><span class="label">Cubic Feet</span><span class="value">'+cf.toFixed(1)+' cu ft</span></div>'+
+  '<div class="row"><span class="label">Cubic Yards</span><span class="value">'+cy.toFixed(2)+' cu yd</span></div>'+
+  '<div class="row"><span class="label">Tons</span><span class="value">'+tons.toFixed(2)+' tons</span></div>'+
+  '<div class="row"><span class="label">50lb Bags</span><span class="value">'+bags+' bags</span></div>';
+  var p=new URLSearchParams(window.location.search);
+  p.set('length',L);p.set('width',W);p.set('depth',D);p.set('sandType',density);
+  window.history.replaceState({},'',location.pathname+'?'+p.toString());
+}
+function toggleFAQ(el){el.classList.toggle('open');el.nextElementSibling.classList.toggle('open')}
+function toggleDark(){document.documentElement.classList.toggle('dark');localStorage.setItem('dark',document.documentElement.classList.contains('dark')?'1':'0')}
+function share(p){
+  var u=encodeURIComponent(location.href),t=encodeURIComponent(document.title);
+  if(p==='facebook')window.open('https://www.facebook.com/sharer.php?u='+u);
+  else if(p==='twitter')window.open('https://twitter.com/intent/tweet?url='+u+'&text='+t);
+  else if(p==='whatsapp')window.open('https://wa.me/?text='+t+' '+u);
+  else if(p==='email')window.open('mailto:?subject='+t+'&body='+u);
+}
+window.onscroll=function(){document.getElementById('backToTop').style.display=window.scrollY>300?'block':'none'};
+window.onload=function(){
+  if(localStorage.getItem('dark')==='1')document.documentElement.classList.add('dark');
+  var p=new URLSearchParams(window.location.search);
+  if(p.get('length'))document.getElementById('length').value=p.get('length');
+  if(p.get('width'))document.getElementById('width').value=p.get('width');
+  if(p.get('depth'))document.getElementById('depth').value=p.get('depth');
+  if(p.get('sandType'))document.getElementById('sandType').value=p.get('sandType');
+  calculate();
+};
+</script>
+<script id='__CALC_AUTO__'>(function(){try{if(typeof calculate==='function')calculate();}catch(e){}})();</script><script src="../custom-select.js"></script><script src="../favorites.js"></script><script src="../remember-inputs.js"></script><script src="../sticky-header.js"></script><script src="../ui-fix.js"></script><script src="../link-fix.js"></script><script src="../auto-calc.js"></script><script src="../dark-persist.js"></script><script src="../admob-banner.js"></script></body>
+</html>
+
+
+
+
+

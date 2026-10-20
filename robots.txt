@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://dustyjones49.github.io/dustyjones49/sitemap.xml

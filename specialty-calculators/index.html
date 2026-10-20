@@ -1,0 +1,1052 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta name="description" content="Specialty calculator tools for unique and advanced home projects. Enter your values for instant, accurate results.">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<link rel="canonical" href="https://dustyjones49.github.io/dustyjones49/specialty-calculators/">
+<title>Specialty | FieldMath</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'Segoe UI',Arial,sans-serif;background:var(--bg);color:#1a1a2e}
+.header{background:#0a1628;color:#fff;padding:18px 28px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px;position:sticky;top:0;z-index:100;box-shadow:0 2px 12px rgba(0,0,0,0.3)}
+.header h1{font-size:1.3em;font-weight:700;letter-spacing:0.3px}
+.header h1 span{color:#f90}
+.nav-links{display:flex;gap:16px}
+.nav-links a{color:#ccc;text-decoration:none;font-size:0.85em;transition:color 0.2s}
+.nav-links a:hover{color:#f90}
+.search-wrap{background:#162447;padding:14px 28px;position:sticky;top:68px;z-index:99;display:flex;gap:12px;flex-wrap:wrap;align-items:center}
+.search-wrap input{padding:8px 14px;border:2px solid #1e3a5f;border-radius:6px;font-size:0.92em;width:280px;background:#1a2d4a;color:#fff;outline:none;transition:border-color 0.2s}
+.search-wrap input:focus{border-color:#f90}
+.search-wrap input::placeholder{color:#8899aa}
+.section-tag{display:inline-block;padding:4px 10px;border-radius:12px;font-size:0.72em;font-weight:600;margin-right:6px;cursor:pointer;transition:all 0.2s;border:1px solid transparent}
+.tag-acoustic{background:#1a3a2a;color:#4ecca3;border-color:#4ecca3}
+.tag-acoustic.active,.tag-acoustic:hover{background:#4ecca3;color:#000}
+.tag-thermal{background:#3a2a1a;color:#f4a460;border-color:#f4a460}
+.tag-thermal.active,.tag-thermal:hover{background:#f4a460;color:#000}
+.tag-lighting{background:#2a2a1a;color:#ffe066;border-color:#ffe066}
+.tag-lighting.active,.tag-lighting:hover{background:#ffe066;color:#000}
+.tag-green{background:#1a3a1a;color:#6bde6b;border-color:#6bde6b}
+.tag-green.active,.tag-green:hover{background:#6bde6b;color:#000}
+.container{padding:20px 28px;max-width:1400px;margin:0 auto}
+.section-title{color:#0a1628;font-size:1.1em;font-weight:700;margin:28px 0 14px;padding-bottom:6px;border-bottom:3px solid #f90;display:inline-block}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(310px,1fr));gap:14px}
+.card{background:#fff;border-radius:8px;padding:16px 18px;box-shadow:0 1px 4px rgba(0,0,0,0.08);border-left:4px solid #f90;transition:transform 0.15s,box-shadow 0.15s}
+.card:hover{transform:translateY(-2px);box-shadow:0 4px 14px rgba(0,0,0,0.12)}
+.card-title{font-weight:700;font-size:0.88em;color:#0a1628;margin-bottom:10px}
+.card-inputs{display:flex;flex-wrap:wrap;gap:7px;margin-bottom:10px}
+.card-inputs input,.card-inputs select,.card-inputs textarea{padding:6px 8px;border:1.5px solid #d0d5dd;border-radius:5px;font-size:0.82em;width:100px;background:#f9fafb;color:#1a1a2e}
+.card-inputs textarea{width:100%;min-width:200px}
+.card-inputs input:focus,.card-inputs select:focus{border-color:#f90;outline:none;background:#fff}
+.card-inputs label{font-size:0.72em;color:#667;display:flex;align-items:center;gap:4px}
+.card-row{display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+.btn{background:#f90;color:#000;border:none;padding:7px 16px;border-radius:5px;cursor:pointer;font-weight:700;font-size:0.8em;transition:background 0.2s}
+.btn:hover{background:#e68a00}
+.result{font-weight:700;font-size:0.9em;color:#0a1628;margin-left:6px}
+.result span{color:#f90;font-size:1.05em}
+.hidden{display:none}
+.back-top{position:fixed;bottom:24px;right:24px;background:#f90;color:#000;border:none;border-radius:50%;width:40px;height:40px;font-size:1.2em;font-weight:700;cursor:pointer;box-shadow:0 2px 8px rgba(0,0,0,0.3);z-index:200;transition:transform 0.2s}
+.back-top:hover{transform:scale(1.1)}
+@media(max-width:600px){
+  .grid{grid-template-columns:1fr}
+  .header h1{font-size:1.1em}
+  .search-wrap input{width:100%}
+}
+</style>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"Specialty <span>Calculators</span>","url":"https://dustyjones49.github.io/dustyjones49/specialty-calculators/","description":"Specialty <span>Calculators</span> calculator. Enter your values for instant, accurate results with clear formulas and helpful references.","applicationCategory":"UtilityApplication","operatingSystem":"Any"}</script><style id="bc-theme">/* FieldMath - Light Theme
+   All pages use this single light theme. No dark mode. */
+:root{
+  --bg:#f5f5f5;
+  --card:#ffffff;
+  --text:#333333;
+  --text-light:#666666;
+  --muted:#f1f3f7;
+  --muted-bg:#f8f9fa;
+  --border:#dde3ea;
+  --navy:#1a2332;
+  --header-bg:#1a2332;
+  --header-text:#ffffff;
+  --orange:#f97316;
+  --accent:#f97316;
+  --success:#16a34a;
+  --warning:#d97706;
+  --danger:#dc2626;
+}
+</style>
+<style id="bc-darkflash">html,html body{background:#f5f5f5 !important;color:#333 !important}body .card,body .panel,body .box,body .calculator,body .container,body .c,body .result,body .results,body .res,body .formula,body .example,body .faq,body .faq-item,body input,body select,body textarea{background:#ffffff !important;color:#333 !important;border-color:#ddd !important}</style></head>
+<body class="mega-cat"><style>body.mega-cat .c > .card{display:none !important}body.mega-cat .c > .srch{display:none !important}</style>
+<header><h1>Specialty</h1></header>
+
+<div class="container" id="calcContainer">
+
+<h2 class="section-title" data-section="acoustic">Acoustics</h2>
+<div class="grid" data-section="acoustic">
+
+<div class="card" data-tags="acoustic">
+<div class="card-title">1. Room RT60 (Sabine)</div>
+<div class="card-inputs">
+<label>Room Vol ft&#179;<input id="s1a" value="5000" type="number" step="any"></label>
+<label>Total Absorption sabins<input id="s1b" value="350" type="number" step="any"></label>
+</div>
+<div class="card-row"><button class="btn" onclick="document.getElementById('s1r').textContent=(0.049*parseFloat(document.getElementById('s1a').value)/parseFloat(document.getElementById('s1b').value)).toFixed(2)">Calc</button><span class="result"><span id="s1r">&#8212;</span> sec</span></div>
+</div>
+
+<div class="card" data-tags="acoustic">
+<div class="card-title">2. Sabine Formula (Absorption)</div>
+<div class="card-inputs">
+<label>Surface Area sf<input id="s2a" value="1200" type="number" step="any"></label>
+<label>Alpha (coeff)<input id="s2b" value="0.35" type="number" step="any"></label>
+</div>
+<div class="card-row"><button class="btn" onclick="document.getElementById('s2r').textContent=(parseFloat(document.getElementById('s2a').value)*parseFloat(document.getElementById('s2b').value)).toFixed(1)">Calc</button><span class="result"><span id="s2r">&#8212;</span> sabins</span></div>
+</div>
+
+<div class="card" data-tags="acoustic">
+<div class="card-title">3. Sound Absorption Needed</div>
+<div class="card-inputs">
+<label>Current RT60<input id="s3a" value="2.5" type="number" step="any"></label>
+<label>Target RT60<input id="s3b" value="1.2" type="number" step="any"></label>
+<label>Room Vol ft&#179;<input id="s3c" value="5000" type="number" step="any"></label>
+</div>
+<div class="card-row"><button class="btn" onclick="let a=0.049*parseFloat(document.getElementById('s3c').value)/parseFloat(document.getElementById('s3a').value);let b=0.049*parseFloat(document.getElementById('s3c').value)/parseFloat(document.getElementById('s3b').value);document.getElementById('s3r').textContent=(b-a).toFixed(1)">Calc</button><span class="result"><span id="s3r">&#8212;</span> sabins needed</span></div>
+</div>
+
+<div class="card" data-tags="acoustic">
+<div class="card-title">4. NRC of Room</div>
+<div class="card-inputs">
+<label>Total Absorption sabins<input id="s4a" value="420" type="number" step="any"></label>
+<label>Total Surface sf<input id="s4b" value="1500" type="number" step="any"></label>
+</div>
+<div class="card-row"><button class="btn" onclick="document.getElementById('s4r').textContent=(parseFloat(document.getElementById('s4a').value)/parseFloat(document.getElementById('s4b').value)).toFixed(2)">Calc</button><span class="result"><span id="s4r">&#8212;</span> NRC</span></div>
+</div>
+
+<div class="card" data-tags="acoustic">
+<div class="card-title">5. STC of Wall Assembly</div>
+<div class="card-inputs">
+<label>Mass lbs/sf<input id="s5a" value="6.5" type="number" step="any"></label>
+</div>
+<div class="card-row"><button class="btn" onclick="document.getElementById('s5r').textContent=(14.5*Math.log10(parseFloat(document.getElementById('s5a').value))+23).toFixed(0)">Calc</button><span class="result"><span id="s5r">&#8212;</span> STC</span></div>
+</div>
+
+<div class="card" data-tags="acoustic">
+<div class="card-title">6. STC Improvement</div>
+<div class="card-inputs">
+<label>Base Wall STC<input id="s6a" value="35" type="number" step="any"></label>
+<label>Added Layer STC<input id="s6b" value="28" type="number" step="any"></label>
+</div>
+<div class="card-row"><button class="btn" onclick="document.getElementById('s6r').textContent=Math.round(Math.min(parseFloat(document.getElementById('s6a').value)+parseFloat(document.getElementById('s6b').value)*0.7,parseFloat(document.getElementById('s6a').value)+15))">Calc</button><span class="result"><span id="s6r">&#8212;</span> STC combined</span></div>
+</div>
+
+<div class="card" data-tags="acoustic">
+<div class="card-title">7. IIC of Floor Assembly</div>
+<div class="card-inputs">
+<label>Floor Mass lbs/sf<input id="s7a" value="8" type="number" step="any"></label>
+<label>Underlayment Î”IIC<input id="s7b" value="20" type="number" step="any"></label>
+</div>
+<div class="card-row"><button class="btn" onclick="document.getElementById('s7r').textContent=Math.round(14.5*Math.log10(parseFloat(document.getElementById('s7a').value))+28+parseFloat(document.getElementById('s7b').value))">Calc</button><span class="result"><span id="s7r">&#8212;</span> IIC</span></div>
+</div>
+
+<div class="card" data-tags="acoustic">
+<div class="card-title">8. Sound Transmission Loss</div>
+<div class="card-inputs">
+<label>Mass lbs/sf<input id="s8a" value="8" type="number" step="any"></label>
+<label>Frequency Hz<input id="s8b" value="500" type="number" step="any"></label>
+</div>
+<div class="card-row"><button class="btn" onclick="document.getElementById('s8r').textContent=(20*Math.log10(parseFloat(document.getElementById('s8a').value)*parseFloat(document.getElementById('s8b').value))-47).toFixed(1)">Calc</button><span class="result"><span id="s8r">&#8212;</span> dB TL</span></div>
+</div>
+
+<div class="card" data-tags="acoustic">
+<div class="card-title">9. Noise Reduction (NR)</div>
+<div class="card-inputs">
+<label>Source dB<input id="s9a" value="85" type="number" step="any"></label>
+<label>Receiver dB<input id="s9b" value="52" type="number" step="any"></label>
+</div>
+<div class="card-row"><button class="btn" onclick="document.getElementById('s9r').textContent=(parseFloat(document.getElementById('s9a').value)-parseFloat(document.getElementById('s9b').value)).toFixed(1)">Calc</button><span class="result"><span id="s9r">&#8212;</span> dB NR</span></div>
+</div>
+
+<div class="card" data-tags="acoustic">
+<div class="card-title">10. Barrier Insertion Loss</div>
+<div class="card-inputs">
+<label>Barrier Height ft<input id="s10a" value="12" type="number" step="any"></label>
+<label>Source Dist ft<input id="s10b" value="50" type="number" step="any"></label>
+<label>Receiver Dist ft<input id="s10c" value="80" type="number" step="any"></label>
+<label>Frequency Hz<input id="s10d" value="500" type="number" step="any"></label>
+</div>
+<div class="card-row"><button class="btn" onclick="let h=parseFloat(document.getElementById('s10a').value);let d1=parseFloat(document.getElementById('s10b').value);let d2=parseFloat(document.getElementById('s10c').value);let f=parseFloat(document.getElementById('s10d').value);let N=2*h*h*f/(1125*(d1+d2));document.getElementById('s10r').textContent=N>0?(5+20*Math.log10(Math.sqrt(2*Math.PI*N)/Math.tanh(Math.sqrt(2*Math.PI*N)))).toFixed(1):'0.0'">Calc</button><span class="result"><span id="s10r">&#8212;</span> dB IL</span></div>
+</div>
+
+<div class="card" data-tags="acoustic">
+<div class="card-title">11. Distance Attenuation</div>
+<div class="card-inputs">
+<label>Source dB @ Ref Dist<input id="s11a" value="90" type="number" step="any"></label>
+<label>New Distance ft<input id="s11b" value="100" type="number" step="any"></label>
+<label>Ref Distance ft<input id="s11c" value="10" type="number" step="any"></label>
+</div>
+<div class="card-row"><button class="btn" onclick="document.getElementById('s11r').textContent=(parseFloat(document.getElementById('s11a').value)-20*Math.log10(parseFloat(document.getElementById('s11b').value)/parseFloat(document.getElementById('s11c').value))).toFixed(1)">Calc</button><span class="result"><span id="s11r">&#8212;</span> dB at dist</span></div>
+</div>
+
+<div class="card" data-tags="acoustic">
+<div class="card-title">12. Duct Breakout Noise</div>
+<div class="card-inputs">
+<label>Internal dB<input id="s12a" value="75" type="number" step="any"></label>
+<label>Duct TL dB<input id="s12b" value="20" type="number" step="any"></label>
+<label>Surface Area sf<input id="s12c" value="45" type="number" step="any"></label>
+<label>Room Absorption sabins<input id="s12d" value="180" type="number" step="any"></label>
+</div>
+<div class="card-row"><button class="btn" onclick="document.getElementById('s12r').textContent=(parseFloat(document.getElementById('s12a').value)-parseFloat(document.getElementById('s12b').value)+10*Math.log10(parseFloat(document.getElementById('s12c').value)/parseFloat(document.getElementById('s12d').value))).toFixed(1)">Calc</button><span class="result"><span id="s12r">&#8212;</span> dB room</span></div>
+</div>
+
+<div class="card" data-tags="acoustic">
+<div class="card-title">13. Ductborne Noise</div>
+<div class="card-inputs">
+<label>Fan Lw dB<input id="s13a" value="85" type="number" step="any"></label>
+<label>Duct Insertion Loss dB<input id="s13b" value="12" type="number" step="any"></label>
+<label>End Reflection dB<input id="s13c" value="5" type="number" step="any"></label>
+<label>Room Effect dB<input id="s13d" value="3" type="number" step="any"></label>
+</div>
+<div class="card-row"><button class="btn" onclick="document.getElementById('s13r').textContent=(parseFloat(document.getElementById('s13a').value)-parseFloat(document.getElementById('s13b').value)-parseFloat(document.getElementById('s13c').value)+parseFloat(document.getElementById('s13d').value)).toFixed(1)">Calc</button><span class="result"><span id="s13r">&#8212;</span> dB SPL</span></div>
+</div>
+
+<div class="card" data-tags="acoustic">
+<div class="card-title">14. Silencer Insertion Loss</div>
+<div class="card-inputs">
+<label>Silencer Length ft<input id="s14a" value="5" type="number" step="any"></label>
+<label>IL per ft dB<input id="s14b" value="5" type="number" step="any"></label>
+</div>
+<div class="card-row"><button class="btn" onclick="document.getElementById('s14r').textContent=(parseFloat(document.getElementById('s14a').value)*parseFloat(document.getElementById('s14b').value)).toFixed(0)">Calc</button><span class="result"><span id="s14r">&#8212;</span> dB</span></div>
+</div>
+
+<div class="card" data-tags="acoustic">
+<div class="card-title">15. Background Noise - NC</div>
+<div class="card-inputs">
+<label>dB @ 500Hz<input id="s15a" value="42" type="number" step="any"></label>
+<label>dB @ 1000Hz<input id="s15b" value="35" type="number" step="any"></label>
+<label>dB @ 2000Hz<input id="s15c" value="28" type="number" step="any"></label>
+<label>dB @ 4000Hz<input id="s15d" value="22" type="number" step="any"></label>
+</div>
+<div class="card-row"><button class="btn" onclick="document.getElementById('s15r').textContent='NC-'+Math.round(Math.max(parseFloat(document.getElementById('s15a').value)-25,parseFloat(document.getElementById('s15b').value)-20,parseFloat(document.getElementById('s15c').value)-15,parseFloat(document.getElementById('s15d').value)-10,0))">Calc</button><span class="result"><span id="s15r">&#8212;</span></span></div>
+</div>
+
+<div class="card" data-tags="acoustic">
+<div class="card-title">16. Background Noise - RC</div>
+<div class="card-inputs">
+<label>dB @ 500Hz<input id="s16a" value="40" type="number" step="any"></label>
+<label>dB @ 1000Hz<input id="s16b" value="33" type="number" step="any"></label>
+</div>
+<div class="card-row"><button class="btn" onclick="let a=(parseFloat(document.getElementById('s16a').value)+parseFloat(document.getElementById('s16b').value))/2;document.getElementById('s16r').textContent='RC-'+Math.round(a)">Calc</button><span class="result"><span id="s16r">&#8212;</span></span></div>
+</div>
+
+<div class="card" data-tags="acoustic">
+<div class="card-title">17. Speech Intelligibility (STI)</div>
+<div class="card-inputs">
+<label>Signal dB<input id="s17a" value="65" type="number" step="any"></label>
+<label>Noise dB<input id="s17b" value="55" type="number" step="any"></label>
+<label>RT60 sec<input id="s17c" value="0.8" type="number" step="any"></label>
+</div>
+<div class="card-row"><button class="btn" onclick="let snr=parseFloat(document.getElementById('s17a').value)-parseFloat(document.getElementById('s17b').value);let rt=parseFloat(document.getElementById('s17c').value);let sti=Math.min(1,Math.max(0,(snr+15)/30*(1-rt/3)));document.getElementById('s17r').textContent=sti.toFixed(2)+' '+(sti>=0.75?'Excellent':sti>=0.6?'Good':sti>=0.45?'Fair':'Poor')">Calc</button><span class="result"><span id="s17r">&#8212;</span></span></div>
+</div>
+
+<div class="card" data-tags="acoustic">
+<div class="card-title">18. Speech Privacy (AI)</div>
+<div class="card-inputs">
+<label>Signal dB<input id="s18a" value="55" type="number" step="any"></label>
+<label>Noise dB<input id="s18b" value="48" type="number" step="any"></label>
+</div>
+<div class="card-row"><button class="btn" onclick="let ai=parseFloat(document.getElementById('s18b').value)-parseFloat(document.getElementById('s18a').value);document.getElementById('s18r').textContent=ai>=10?'Confidential':ai>=3?'Normal':'Poor'+' (AI='+(parseFloat(document.getElementById('s18b').value)-parseFloat(document.getElementById('s18a').value)).toFixed(0)+')'">Calc</button><span class="result"><span id="s18r">&#8212;</span></span></div>
+</div>
+
+<div class="card" data-tags="acoustic">
+<div class="card-title">19. Sound Masking Level</div>
+<div class="card-inputs">
+<label>Background NC<input id="s19a" value="35" type="number" step="any"></label>
+<label>Desired dB<input id="s19b" value="45" type="number" step="any"></label>
+</div>
+<div class="card-row"><button class="btn" onclick="document.getElementById('s19r').textContent=(parseFloat(document.getElementById('s19b').value)-parseFloat(document.getElementById('s19a').value)).toFixed(0)+' dB masking needed'">Calc</button><span class="result"><span id="s19r">&#8212;</span></span></div>
+</div>
+
+<div class="card" data-tags="acoustic">
+<div class="card-title">20. Loudspeaker Coverage</div>
+<div class="card-inputs">
+<label>Coverage Angle °<input id="s20a" value="90" type="number" step="any"></label>
+<label>Mount Height ft<input id="s20b" value="12" type="number" step="any"></label>
+<label>Ear Height ft<input id="s20c" value="4" type="number" step="any"></label>
+</div>
+<div class="card-row"><button class="btn" onclick="document.getElementById('s20r').textContent=(2*(parseFloat(document.getElementById('s20b').value)-parseFloat(document.getElementById('s20c').value))*Math.tan(parseFloat(document.getElementById('s20a').value)/2*Math.PI/180)).toFixed(1)">Calc</button><span class="result"><span id="s20r">&#8212;</span> ft coverage</span></div>
+</div>
+
+<div class="card" data-tags="acoustic">
+<div class="card-title">21. Amplifier Power</div>
+<div class="card-inputs">
+<label>Speaker Sensitivity dB<input id="s21a" value="92" type="number" step="any"></label>
+<label>Desired SPL dB<input id="s21b" value="105" type="number" step="any"></label>
+<label>Distance ft<input id="s21c" value="30" type="number" step="any"></label>
+</div>
+<div class="card-row"><button class="btn" onclick="document.getElementById('s21r').textContent=Math.pow(10,(parseFloat(document.getElementById('s21b').value)-parseFloat(document.getElementById('s21a').value)+20*Math.log10(parseFloat(document.getElementById('s21c').value)/3.28))/10).toFixed(1)">Calc</button><span class="result"><span id="s21r">&#8212;</span> watts</span></div>
+</div>
+
+<div class="card" data-tags="acoustic">
+<div class="card-title">22. Speaker SPL at Distance</div>
+<div class="card-inputs">
+<label>1W/1m SPL dB<input id="s22a" value="95" type="number" step="any"></label>
+<label>Watts<input id="s22b" value="100" type="number" step="any"></label>
+<label>Distance ft<input id="s22c" value="20" type="number" step="any"></label>
+</div>
+<div class="card-row"><button class="btn" onclick="document.getElementById('s22r').textContent=(parseFloat(document.getElementById('s22a').value)+10*Math.log10(parseFloat(document.getElementById('s22b').value))-20*Math.log10(parseFloat(document.getElementById('s22c').value)/3.28)).toFixed(1)">Calc</button><span class="result"><span id="s22r">&#8212;</span> dB</span></div>
+</div>
+
+<div class="card" data-tags="acoustic">
+<div class="card-title">23. Sound Pressure Level Addition</div>
+<div class="card-inputs">
+<label>dB Source 1<input id="s23a" value="80" type="number" step="any"></label>
+<label>dB Source 2<input id="s23b" value="85" type="number" step="any"></label>
+</div>
+<div class="card-row"><button class="btn" onclick="document.getElementById('s23r').textContent=(10*Math.log10(Math.pow(10,parseFloat(document.getElementById('s23a').value)/10)+Math.pow(10,parseFloat(document.getElementById('s23b').value)/10))).toFixed(1)">Calc</button><span class="result"><span id="s23r">&#8212;</span> dB combined</span></div>
+</div>
+
+<div class="card" data-tags="acoustic">
+<div class="card-title">24. Octave Band Analysis</div>
+<div class="card-inputs">
+<label>Center Freq Hz<input id="s24a" value="1000" type="number" step="any"></label>
+</div>
+<div class="card-row"><button class="btn" onclick="let f=parseFloat(document.getElementById('s24a').value);document.getElementById('s24r').textContent='Low:'+(f*Math.pow(2,-0.5)).toFixed(0)+'Hz High:'+(f*Math.pow(2,0.5)).toFixed(0)+'Hz'">Calc</button><span class="result"><span id="s24r">&#8212;</span></span></div>
+</div>
+
+<div class="card" data-tags="acoustic">
+<div class="card-title">25. A-Weighted Level</div>
+<div class="card-inputs">
+<label>Unweighted dB<input id="s25a" value="75" type="number" step="any"></label>
+<label>Frequency Hz<input id="s25b" value="500" type="number" step="any"></label>
+</div>
+<div class="card-row"><button class="btn" onclick="let f=parseFloat(document.getElementById('s25b').value);let a=f<=125?-16.1:f<=250?-8.6:f<=500?-3.2:f<=1000?0:f<=2000?1.2:f<=4000?1:-1.1;document.getElementById('s25r').textContent=(parseFloat(document.getElementById('s25a').value)+a).toFixed(1)">Calc</button><span class="result"><span id="s25r">&#8212;</span> dBA</span></div>
+</div>
+</div>
+
+<h2 class="section-title" data-section="thermal">Thermal &amp; Moisture</h2>
+<div class="grid" data-section="thermal">
+
+<div class="card" data-tags="thermal">
+<div class="card-title">26. U-Value Wall</div>
+<div class="card-inputs">
+<label>Total R-Value<input id="s26a" value="19" type="number" step="any"></label>
+</div>
+<div class="card-row"><button class="btn" onclick="document.getElementById('s26r').textContent=(1/parseFloat(document.getElementById('s26a').value)).toFixed(3)">Calc</button><span class="result"><span id="s26r">&#8212;</span> U</span></div>
+</div>
+
+<div class="card" data-tags="thermal">
+<div class="card-title">27. U-Value Roof</div>
+<div class="card-inputs">
+<label>Insul R-Value<input id="s27a" value="38" type="number" step="any"></label>
+<label>Other R (deck, air)<input id="s27b" value="2.5" type="number" step="any"></label>
+</div>
+<div class="card-row"><button class="btn" onclick="document.getElementById('s27r').textContent=(1/(parseFloat(document.getElementById('s27a').value)+parseFloat(document.getElementById('s27b').value))).toFixed(3)">Calc</button><span class="result"><span id="s27r">&#8212;</span> U</span></div>
+</div>
+
+<div class="card" data-tags="thermal">
+<div class="card-title">28. U-Value Window</div>
+<div class="card-inputs">
+<label>Glass U-factor<input id="s28a" value="0.28" type="number" step="any"></label>
+<label>Frame U-factor<input id="s28b" value="0.45" type="number" step="any"></label>
+<label>Frame %<input id="s28c" value="15" type="number" step="any"></label>
+</div>
+<div class="card-row"><button class="btn" onclick="let g=parseFloat(document.getElementById('s28a').value);let f=parseFloat(document.getElementById('s28b').value);let p=parseFloat(document.getElementById('s28c').value)/100;document.getElementById('s28r').textContent=(g*(1-p)+f*p).toFixed(3)">Calc</button><span class="result"><span id="s28r">&#8212;</span> U overall</span></div>
+</div>
+
+<div class="card" data-tags="thermal">
+<div class="card-title">29. R-Value from U-Value</div>
+<div class="card-inputs">
+<label>U-Value<input id="s29a" value="0.053" type="number" step="any"></label>
+</div>
+<div class="card-row"><button class="btn" onclick="document.getElementById('s29r').textContent=(1/parseFloat(document.getElementById('s29a').value)).toFixed(1)">Calc</button><span class="result"><span id="s29r">&#8212;</span> R</span></div>
+</div>
+
+<div class="card" data-tags="thermal">
+<div class="card-title">30. Effective R-Value</div>
+<div class="card-inputs">
+<label>Nominal R<input id="s30a" value="19" type="number" step="any"></label>
+<label>Framing Factor %<input id="s30b" value="18" type="number" step="any"></label>
+<label>Framing R<input id="s30c" value="4.5" type="number" step="any"></label>
+</div>
+<div class="card-row"><button class="btn" onclick="let ff=parseFloat(document.getElementById('s30b').value)/100;let r=1/(ff/parseFloat(document.getElementById('s30c').value)+(1-ff)/parseFloat(document.getElementById('s30a').value));document.getElementById('s30r').textContent=r.toFixed(1)">Calc</button><span class="result"><span id="s30r">&#8212;</span> R effective</span></div>
+</div>
+
+<div class="card" data-tags="thermal">
+<div class="card-title">31. Whole Wall R-Value</div>
+<div class="card-inputs">
+<label>Total Wall Area sf<input id="s31a" value="100" type="number" step="any"></label>
+<label>Cavity R<input id="s31b" value="19" type="number" step="any"></label>
+<label>Framing %<input id="s31c" value="20" type="number" step="any"></label>
+<label>Framing R<input id="s31d" value="4.5" type="number" step="any"></label>
+</div>
+<div class="card-row"><button class="btn" onclick="let ff=parseFloat(document.getElementById('s31c').value)/100;let u=ff/parseFloat(document.getElementById('s31d').value)+(1-ff)/parseFloat(document.getElementById('s31b').value);document.getElementById('s31r').textContent=(1/u).toFixed(1)">Calc</button><span class="result"><span id="s31r">&#8212;</span> R</span></div>
+</div>
+
+<div class="card" data-tags="thermal">
+<div class="card-title">32. Thermal Bridging Factor</div>
+<div class="card-inputs">
+<label>Clear Wall R<input id="s32a" value="19" type="number" step="any"></label>
+<label>Whole Wall R<input id="s32b" value="15" type="number" step="any"></label>
+</div>
+<div class="card-row"><button class="btn" onclick="document.getElementById('s32r').textContent=((1-parseFloat(document.getElementById('s32b').value)/parseFloat(document.getElementById('s32a').value))*100).toFixed(1)+'% degradation'">Calc</button><span class="result"><span id="s32r">&#8212;</span></span></div>
+</div>
+
+<div class="card" data-tags="thermal">
+<div class="card-title">33. Dew Point in Wall</div>
+<div class="card-inputs">
+<label>Indoor Temp °F<input id="s33a" value="70" type="number" step="any"></label>
+<label>Indoor RH %<input id="s33b" value="40" type="number" step="any"></label>
+</div>
+<div class="card-row"><button class="btn" onclick="let t=parseFloat(document.getElementById('s33a').value);let rh=parseFloat(document.getElementById('s33b').value);let a=17.27;let b=237.7;let g=(a*t)/(b+t)+Math.log(rh/100);document.getElementById('s33r').textContent=((b*g)/(a-g)).toFixed(1)+' °F'">Calc</button><span class="result"><span id="s33r">&#8212;</span></span></div>
+</div>
+
+<div class="card" data-tags="thermal">
+<div class="card-title">34. Condensation Risk</div>
+<div class="card-inputs">
+<label>Surface Temp °F<input id="s34a" value="48" type="number" step="any"></label>
+<label>Room Dew Point °F<input id="s34b" value="45" type="number" step="any"></label>
+</div>
+<div class="card-row"><button class="btn" onclick="let s=parseFloat(document.getElementById('s34a').value);let d=parseFloat(document.getElementById('s34b').value);document.getElementById('s34r').textContent=s<=d?'RISK - '+d.toFixed(1)+'°F dew point':'SAFE - margin '+(s-d).toFixed(1)+'°F'">Calc</button><span class="result"><span id="s34r">&#8212;</span></span></div>
+</div>
+
+<div class="card" data-tags="thermal">
+<div class="card-title">35. Vapor Drive</div>
+<div class="card-inputs">
+<label>Inside Vapor Pressure inHg<input id="s35a" value="0.38" type="number" step="any"></label>
+<label>Outside Vapor Pressure inHg<input id="s35b" value="0.12" type="number" step="any"></label>
+</div>
+<div class="card-row"><button class="btn" onclick="let d=parseFloat(document.getElementById('s35a').value)-parseFloat(document.getElementById('s35b').value);document.getElementById('s35r').textContent=d>0?'Drives OUTWARD '+d.toFixed(3):'Drives INWARD '+Math.abs(d).toFixed(3)+' inHg'">Calc</button><span class="result"><span id="s35r">&#8212;</span></span></div>
+</div>
+
+<div class="card" data-tags="thermal">
+<div class="card-title">36. Perm Rating Needed</div>
+<div class="card-inputs">
+<label>Moisture Load grains/hr<input id="s36a" value="120" type="number" step="any"></label>
+<label>Area sf<input id="s36b" value="100" type="number" step="any"></label>
+<label>Î” Vapor Pressure inHg<input id="s36c" value="0.25" type="number" step="any"></label>
+</div>
+<div class="card-row"><button class="btn" onclick="document.getElementById('s36r').textContent=(parseFloat(document.getElementById('s36a').value)/parseFloat(document.getElementById('s36b').value)/parseFloat(document.getElementById('s36c').value)/7000*100).toFixed(1)">Calc</button><span class="result"><span id="s36r">&#8212;</span> perms</span></div>
+</div>
+
+<div class="card" data-tags="thermal">
+<div class="card-title">37. Drying Potential</div>
+<div class="card-inputs">
+<label>Material MC %<input id="s37a" value="18" type="number" step="any"></label>
+<label>EMC at Ambient %<input id="s37b" value="12" type="number" step="any"></label>
+<label>Perm Rating<input id="s37c" value="5" type="number" step="any"></label>
+</div>
+<div class="card-row"><button class="btn" onclick="let d=parseFloat(document.getElementById('s37a').value)-parseFloat(document.getElementById('s37b').value);document.getElementById('s37r').textContent=d>0?d.toFixed(1)+'% excess, '+(d/parseFloat(document.getElementById('s37c').value)).toFixed(1)+' days est': 'No drying needed'">Calc</button><span class="result"><span id="s37r">&#8212;</span></span></div>
+</div>
+
+<div class="card" data-tags="thermal">
+<div class="card-title">38. Simple Hygrothermal Analysis</div>
+<div class="card-inputs">
+<label>Outdoor T °F<input id="s38a" value="25" type="number" step="any"></label>
+<label>Indoor T °F<input id="s38b" value="72" type="number" step="any"></label>
+<label>Wall R<input id="s38c" value="19" type="number" step="any"></label>
+<label>Layer % from inside<input id="s38d" value="30" type="number" step="any"></label>
+</div>
+<div class="card-row"><button class="btn" onclick="let p=parseFloat(document.getElementById('s38d').value)/100;let ti=parseFloat(document.getElementById('s38b').value);let to=parseFloat(document.getElementById('s38a').value);document.getElementById('s38r').textContent=(ti-(ti-to)*p).toFixed(1)+' °F at layer'">Calc</button><span class="result"><span id="s38r">&#8212;</span></span></div>
+</div>
+
+<div class="card" data-tags="thermal">
+<div class="card-title">39. Solar Reflectance Index (SRI)</div>
+<div class="card-inputs">
+<label>Solar Reflectance<input id="s39a" value="0.65" type="number" step="any"></label>
+<label>Thermal Emittance<input id="s39b" value="0.85" type="number" step="any"></label>
+</div>
+<div class="card-row"><button class="btn" onclick="let r=parseFloat(document.getElementById('s39a').value);let e=parseFloat(document.getElementById('s39b').value);document.getElementById('s39r').textContent=Math.round(100*(0.82*r-0.18*e+0.35)/(0.82-0.18+0.35))">Calc</button><span class="result"><span id="s39r">&#8212;</span> SRI</span></div>
+</div>
+
+<div class="card" data-tags="thermal">
+<div class="card-title">40. Cool Roof SRI</div>
+<div class="card-inputs">
+<label>Roof Reflectance<input id="s40a" value="0.75" type="number" step="any"></label>
+<label>Emittance<input id="s40b" value="0.9" type="number" step="any"></label>
+</div>
+<div class="card-row"><button class="btn" onclick="let r=parseFloat(document.getElementById('s40a').value);let e=parseFloat(document.getElementById('s40b').value);document.getElementById('s40r').textContent=Math.round(123.97-141.35*(1-e)+54.57*Math.log(1-r))+' SRI'">Calc</button><span class="result"><span id="s40r">&#8212;</span></span></div>
+</div>
+
+<div class="card" data-tags="thermal">
+<div class="card-title">41. Thermal Mass Benefit</div>
+<div class="card-inputs">
+<label>Mass sq ft (concrete equiv)<input id="s41a" value="1500" type="number" step="any"></label>
+<label>Total Floor Area sf<input id="s41b" value="2500" type="number" step="any"></label>
+</div>
+<div class="card-row"><button class="btn" onclick="let r=parseFloat(document.getElementById('s41a').value)/parseFloat(document.getElementById('s41b').value);document.getElementById('s41r').textContent=r>0.6?'High mass benefit':r>0.3?'Medium mass':'Low mass'">Calc</button><span class="result"><span id="s41r">&#8212;</span></span></div>
+</div>
+
+<div class="card" data-tags="thermal">
+<div class="card-title">42. Phase Change Material Sizing</div>
+<div class="card-inputs">
+<label>Floor Area sf<input id="s42a" value="150" type="number" step="any"></label>
+<label>PCM Latent BTU/sf<input id="s42b" value="100" type="number" step="any"></label>
+<label>Daily Heat Gain BTU/sf<input id="s42c" value="40" type="number" step="any"></label>
+</div>
+<div class="card-row"><button class="btn" onclick="document.getElementById('s42r').textContent=(parseFloat(document.getElementById('s42a').value)*parseFloat(document.getElementById('s42c').value)/parseFloat(document.getElementById('s42b').value)).toFixed(0)+' sf PCM'">Calc</button><span class="result"><span id="s42r">&#8212;</span></span></div>
+</div>
+
+<div class="card" data-tags="thermal">
+<div class="card-title">43. Radiant Barrier Effectiveness</div>
+<div class="card-inputs">
+<label>Attic R-Value<input id="s43a" value="30" type="number" step="any"></label>
+<label>Emittance of Barrier<input id="s43b" value="0.05" type="number" step="any"></label>
+</div>
+<div class="card-row"><button class="btn" onclick="let r=parseFloat(document.getElementById('s43a').value);let e=parseFloat(document.getElementById('s43b').value);let eff=Math.max(0,35*(1-e/0.9));document.getElementById('s43r').textContent=r>30?eff.toFixed(0)+'% heat reduction':(eff*1.4).toFixed(0)+'% heat reduction'">Calc</button><span class="result"><span id="s43r">&#8212;</span></span></div>
+</div>
+
+<div class="card" data-tags="thermal">
+<div class="card-title">44. Attic Ventilation Effectiveness</div>
+<div class="card-inputs">
+<label>Attic Area sf<input id="s44a" value="1200" type="number" step="any"></label>
+<label>Net Free Vent Area sf<input id="s44b" value="4" type="number" step="any"></label>
+</div>
+<div class="card-row"><button class="btn" onclick="let req=parseFloat(document.getElementById('s44a').value)/300;let has=parseFloat(document.getElementById('s44b').value);document.getElementById('s44r').textContent=has>=req?'OK: '+has.toFixed(1)+' sf':('Need '+(req-has).toFixed(1)+' more sf')">Calc</button><span class="result"><span id="s44r">&#8212;</span></span></div>
+</div>
+
+<div class="card" data-tags="thermal">
+<div class="card-title">45. Crawl Space Ventilation</div>
+<div class="card-inputs">
+<label>Crawl Area sf<input id="s45a" value="900" type="number" step="any"></label>
+</div>
+<div class="card-row"><button class="btn" onclick="document.getElementById('s45r').textContent=(parseFloat(document.getElementById('s45a').value)/150).toFixed(1)+' sf vent needed (1:150)'">Calc</button><span class="result"><span id="s45r">&#8212;</span></span></div>
+</div>
+
+<div class="card" data-tags="thermal">
+<div class="card-title">46. Basement Moisture Load</div>
+<div class="card-inputs">
+<label>Wall Area sf<input id="s46a" value="600" type="number" step="any"></label>
+<label>Floor Area sf<input id="s46b" value="800" type="number" step="any"></label>
+<label>Permeance perms<input id="s46c" value="0.5" type="number" step="any"></label>
+</div>
+<div class="card-row"><button class="btn" onclick="document.getElementById('s46r').textContent=((parseFloat(document.getElementById('s46a').value)+parseFloat(document.getElementById('s46b').value))*parseFloat(document.getElementById('s46c').value)*0.67).toFixed(0)+' pints/day'">Calc</button><span class="result"><span id="s46r">&#8212;</span></span></div>
+</div>
+
+<div class="card" data-tags="thermal">
+<div class="card-title">47. Indoor Humidity Control</div>
+<div class="card-inputs">
+<label>Outdoor Temp °F<input id="s47a" value="35" type="number" step="any"></label>
+<label>Outdoor RH %<input id="s47b" value="70" type="number" step="any"></label>
+<label>Indoor Temp °F<input id="s47c" value="72" type="number" step="any"></label>
+</div>
+<div class="card-row"><button class="btn" onclick="let oa=parseFloat(document.getElementById('s47a').value);let orh=parseFloat(document.getElementById('s47b').value);let it=parseFloat(document.getElementById('s47c').value);let ovp=orh/100*0.611*Math.exp(17.27*oa/(oa+237.3));let ivp=0.611*Math.exp(17.27*it/(it+237.3));document.getElementById('s47r').textContent=(ovp/ivp*100).toFixed(1)+'% max indoor RH'">Calc</button><span class="result"><span id="s47r">&#8212;</span></span></div>
+</div>
+
+<div class="card" data-tags="thermal">
+<div class="card-title">48. Mold Growth Potential</div>
+<div class="card-inputs">
+<label>Surface RH %<input id="s48a" value="78" type="number" step="any"></label>
+<label>Temperature °F<input id="s48b" value="68" type="number" step="any"></label>
+<label>Days Wet<input id="s48c" value="14" type="number" step="any"></label>
+</div>
+<div class="card-row"><button class="btn" onclick="let rh=parseFloat(document.getElementById('s48a').value);let d=parseFloat(document.getElementById('s48c').value);let r=rh>=80&&d>3?'HIGH RISK':rh>=70&&d>5?'MEDIUM RISK':rh>=60?'LOW RISK':'MINIMAL';document.getElementById('s48r').textContent=r">Calc</button><span class="result"><span id="s48r">&#8212;</span></span></div>
+</div>
+
+<div class="card" data-tags="thermal">
+<div class="card-title">49. Psychrometric Chart Point</div>
+<div class="card-inputs">
+<label>Dry Bulb °F<input id="s49a" value="75" type="number" step="any"></label>
+<label>RH %<input id="s49b" value="50" type="number" step="any"></label>
+</div>
+<div class="card-row"><button class="btn" onclick="let t=parseFloat(document.getElementById('s49a').value);let rh=parseFloat(document.getElementById('s49b').value);let es=0.611*Math.exp(17.27*t/(t+237.3));let w=0.622*rh/100*es/(101.325-rh/100*es);let h=1.006*t+w*(2501+1.86*t);document.getElementById('s49r').textContent='HR:'+(w*7000).toFixed(0)+' gr/lb, h:'+h.toFixed(1)+' kJ/kg'">Calc</button><span class="result"><span id="s49r">&#8212;</span></span></div>
+</div>
+
+<div class="card" data-tags="thermal">
+<div class="card-title">50. Enthalpy</div>
+<div class="card-inputs">
+<label>Dry Bulb °F<input id="s50a" value="75" type="number" step="any"></label>
+<label>Humidity Ratio gr/lb<input id="s50b" value="65" type="number" step="any"></label>
+</div>
+<div class="card-row"><button class="btn" onclick="let t=parseFloat(document.getElementById('s50a').value);let w=parseFloat(document.getElementById('s50b').value)/7000;document.getElementById('s50r').textContent=(0.24*t+w*(1061+0.444*t)).toFixed(1)">Calc</button><span class="result"><span id="s50r">&#8212;</span> BTU/lb</span></div>
+</div>
+</div>
+
+<h2 class="section-title" data-section="lighting">Lighting Design</h2>
+<div class="grid" data-section="lighting">
+
+<div class="card" data-tags="lighting">
+<div class="card-title">51. Lumens Needed Per Room</div>
+<div class="card-inputs">
+<label>Room SF<input id="s51a" value="180" type="number" step="any"></label>
+<label>Footcandles needed<input id="s51b" value="35" type="number" step="any"></label>
+</div>
+<div class="card-row"><button class="btn" onclick="document.getElementById('s51r').textContent=(parseFloat(document.getElementById('s51a').value)*parseFloat(document.getElementById('s51b').value)).toFixed(0)">Calc</button><span class="result"><span id="s51r">&#8212;</span> lumens</span></div>
+</div>
+
+<div class="card" data-tags="lighting">
+<div class="card-title">52. Fixture Lumens</div>
+<div class="card-inputs">
+<label># Lamps/Fixture<input id="s52a" value="2" type="number" step="any"></label>
+<label>Lumens/Lamp<input id="s52b" value="2800" type="number" step="any"></label>
+<label>Ballast Factor<input id="s52c" value="0.92" type="number" step="any"></label>
+</div>
+<div class="card-row"><button class="btn" onclick="document.getElementById('s52r').textContent=(parseFloat(document.getElementById('s52a').value)*parseFloat(document.getElementById('s52b').value)*parseFloat(document.getElementById('s52c').value)).toFixed(0)">Calc</button><span class="result"><span id="s52r">&#8212;</span> lumens</span></div>
+</div>
+
+<div class="card" data-tags="lighting">
+<div class="card-title">53. Fixture Count from Lumens</div>
+<div class="card-inputs">
+<label>Total Lumens Needed<input id="s53a" value="6300" type="number" step="any"></label>
+<label>Lumens/Fixture<input id="s53b" value="5152" type="number" step="any"></label>
+<label>Light Loss Factor<input id="s53c" value="0.8" type="number" step="any"></label>
+</div>
+<div class="card-row"><button class="btn" onclick="document.getElementById('s53r').textContent=Math.ceil(parseFloat(document.getElementById('s53a').value)/(parseFloat(document.getElementById('s53b').value)*parseFloat(document.getElementById('s53c').value)))">Calc</button><span class="result"><span id="s53r">&#8212;</span> fixtures</span></div>
+</div>
+
+<div class="card" data-tags="lighting">
+<div class="card-title">54. Illuminance at Point</div>
+<div class="card-inputs">
+<label>Luminous Intensity cd<input id="s54a" value="3000" type="number" step="any"></label>
+<label>Distance ft<input id="s54b" value="8" type="number" step="any"></label>
+<label>Angle from normal °<input id="s54c" value="25" type="number" step="any"></label>
+</div>
+<div class="card-row"><button class="btn" onclick="document.getElementById('s54r').textContent=(parseFloat(document.getElementById('s54a').value)*Math.cos(parseFloat(document.getElementById('s54c').value)*Math.PI/180)/Math.pow(parseFloat(document.getElementById('s54b').value),2)).toFixed(1)">Calc</button><span class="result"><span id="s54r">&#8212;</span> fc</span></div>
+</div>
+
+<div class="card" data-tags="lighting">
+<div class="card-title">55. Beam Angle Coverage</div>
+<div class="card-inputs">
+<label>Beam Angle °<input id="s55a" value="36" type="number" step="any"></label>
+<label>Distance ft<input id="s55b" value="10" type="number" step="any"></label>
+</div>
+<div class="card-row"><button class="btn" onclick="document.getElementById('s55r').textContent=(2*parseFloat(document.getElementById('s55b').value)*Math.tan(parseFloat(document.getElementById('s55a').value)/2*Math.PI/180)).toFixed(1)">Calc</button><span class="result"><span id="s55r">&#8212;</span> ft diameter</span></div>
+</div>
+
+<div class="card" data-tags="lighting">
+<div class="card-title">56. Throw Distance</div>
+<div class="card-inputs">
+<label>Beam Angle °<input id="s56a" value="24" type="number" step="any"></label>
+<label>Desired Coverage ft<input id="s56b" value="6" type="number" step="any"></label>
+</div>
+<div class="card-row"><button class="btn" onclick="document.getElementById('s56r').textContent=(parseFloat(document.getElementById('s56b').value)/(2*Math.tan(parseFloat(document.getElementById('s56a').value)/2*Math.PI/180))).toFixed(1)">Calc</button><span class="result"><span id="s56r">&#8212;</span> ft max</span></div>
+</div>
+
+<div class="card" data-tags="lighting">
+<div class="card-title">57. CRI Selection Guide</div>
+<div class="card-inputs">
+<label>Application<select id="s57a"><option value="office">Office</option><option value="retail">Retail</option><option value="art">Art/Museum</option><option value="warehouse">Warehouse</option><option value="residential">Residential</option></select></label>
+</div>
+<div class="card-row"><button class="btn" onclick="let a=document.getElementById('s57a').value;let c=a=='art'?95:a=='retail'?90:a=='residential'?85:a=='office'?80:65;document.getElementById('s57r').textContent='CRI '+c+' recommended'">Calc</button><span class="result"><span id="s57r">&#8212;</span></span></div>
+</div>
+
+<div class="card" data-tags="lighting">
+<div class="card-title">58. CCT Selection</div>
+<div class="card-inputs">
+<label>Room Type<select id="s58a"><option value="living">Living/Bedroom</option><option value="kitchen">Kitchen/Bath</option><option value="office">Office</option><option value="retail">Retail</option><option value="industrial">Industrial</option></select></label>
+</div>
+<div class="card-row"><button class="btn" onclick="let a=document.getElementById('s58a').value;let c=a=='living'?2700:a=='kitchen'?3000:a=='office'?4000:a=='retail'?3500:5000;document.getElementById('s58r').textContent=c+'K '+'('+(c<=3000?'Warm':c<=4000?'Neutral':'Cool')+')'">Calc</button><span class="result"><span id="s58r">&#8212;</span></span></div>
+</div>
+
+<div class="card" data-tags="lighting">
+<div class="card-title">59. Lighting Power Density (LPD)</div>
+<div class="card-inputs">
+<label>Total Fixture Watts<input id="s59a" value="480" type="number" step="any"></label>
+<label>Room SF<input id="s59b" value="400" type="number" step="any"></label>
+</div>
+<div class="card-row"><button class="btn" onclick="document.getElementById('s59r').textContent=(parseFloat(document.getElementById('s59a').value)/parseFloat(document.getElementById('s59b').value)).toFixed(2)">Calc</button><span class="result"><span id="s59r">&#8212;</span> W/sf</span></div>
+</div>
+
+<div class="card" data-tags="lighting">
+<div class="card-title">60. LPD Compliance Check</div>
+<div class="card-inputs">
+<label>Actual LPD W/sf<input id="s60a" value="0.95" type="number" step="any"></label>
+<label>Code Max W/sf<input id="s60b" value="1.0" type="number" step="any"></label>
+</div>
+<div class="card-row"><button class="btn" onclick="let a=parseFloat(document.getElementById('s60a').value);let m=parseFloat(document.getElementById('s60b').value);document.getElementById('s60r').textContent=a<=m?'PASS ('+((1-a/m)*100).toFixed(0)+'% under)':'FAIL '+(a-m).toFixed(2)+' W/sf over'">Calc</button><span class="result"><span id="s60r">&#8212;</span></span></div>
+</div>
+
+<div class="card" data-tags="lighting">
+<div class="card-title">61. Daylight Harvesting Savings</div>
+<div class="card-inputs">
+<label>Window Area sf<input id="s61a" value="45" type="number" step="any"></label>
+<label>Room SF<input id="s61b" value="300" type="number" step="any"></label>
+<label>Annual Lighting kWh<input id="s61c" value="2400" type="number" step="any"></label>
+</div>
+<div class="card-row"><button class="btn" onclick="let r=parseFloat(document.getElementById('s61a').value)/parseFloat(document.getElementById('s61b').value);let s=r>0.15?0.4:r>0.1?0.25:r>0.05?0.1:0;document.getElementById('s61r').textContent=(parseFloat(document.getElementById('s61c').value)*s).toFixed(0)+' kWh/yr saved'">Calc</button><span class="result"><span id="s61r">&#8212;</span></span></div>
+</div>
+
+<div class="card" data-tags="lighting">
+<div class="card-title">62. Occupancy Sensor Savings</div>
+<div class="card-inputs">
+<label>Annual Lighting kWh<input id="s62a" value="1800" type="number" step="any"></label>
+<label>Hours Unoccupied %<input id="s62b" value="35" type="number" step="any"></label>
+</div>
+<div class="card-row"><button class="btn" onclick="document.getElementById('s62r').textContent=(parseFloat(document.getElementById('s62a').value)*parseFloat(document.getElementById('s62b').value)/100*0.7).toFixed(0)+' kWh saved'">Calc</button><span class="result"><span id="s62r">&#8212;</span></span></div>
+</div>
+
+<div class="card" data-tags="lighting">
+<div class="card-title">63. Dimming Energy Savings</div>
+<div class="card-inputs">
+<label>Dim Level %<input id="s63a" value="30" type="number" step="any"></label>
+<label>Hours/Day at Dim<input id="s63b" value="6" type="number" step="any"></label>
+<label>Fixture Watts<input id="s63c" value="120" type="number" step="any"></label>
+</div>
+<div class="card-row"><button class="btn" onclick="document.getElementById('s63r').textContent=(parseFloat(document.getElementById('s63c').value)*parseFloat(document.getElementById('s63b').value)*365*parseFloat(document.getElementById('s63a').value)/100/1000).toFixed(0)+' kWh/yr'">Calc</button><span class="result"><span id="s63r">&#8212;</span></span></div>
+</div>
+
+<div class="card" data-tags="lighting">
+<div class="card-title">64. Lighting Controls Payback</div>
+<div class="card-inputs">
+<label>Control Cost $<input id="s64a" value="1200" type="number" step="any"></label>
+<label>Annual Savings $<input id="s64b" value="380" type="number" step="any"></label>
+</div>
+<div class="card-row"><button class="btn" onclick="document.getElementById('s64r').textContent=(parseFloat(document.getElementById('s64a').value)/parseFloat(document.getElementById('s64b').value)).toFixed(1)+' years'">Calc</button><span class="result"><span id="s64r">&#8212;</span></span></div>
+</div>
+
+<div class="card" data-tags="lighting">
+<div class="card-title">65. Emergency Egress Lighting</div>
+<div class="card-inputs">
+<label>Path Length LF<input id="s65a" value="80" type="number" step="any"></label>
+<label>Illuminance fc<input id="s65b" value="1" type="number" step="any"></label>
+<label>Fixture Lumens<input id="s65c" value="800" type="number" step="any"></label>
+</div>
+<div class="card-row"><button class="btn" onclick="document.getElementById('s65r').textContent=Math.ceil(parseFloat(document.getElementById('s65a').value)*3*parseFloat(document.getElementById('s65b').value)/parseFloat(document.getElementById('s65c').value))">Calc</button><span class="result"><span id="s65r">&#8212;</span> fixtures</span></div>
+</div>
+
+<div class="card" data-tags="lighting">
+<div class="card-title">66. Stairwell Lighting</div>
+<div class="card-inputs">
+<label>Stairwell SF<input id="s66a" value="120" type="number" step="any"></label>
+<label>Required fc<input id="s66b" value="10" type="number" step="any"></label>
+</div>
+<div class="card-row"><button class="btn" onclick="document.getElementById('s66r').textContent=(parseFloat(document.getElementById('s66a').value)*parseFloat(document.getElementById('s66b').value)).toFixed(0)+' lumens needed'">Calc</button><span class="result"><span id="s66r">&#8212;</span></span></div>
+</div>
+
+<div class="card" data-tags="lighting">
+<div class="card-title">67. Parking Lot Lighting</div>
+<div class="card-inputs">
+<label>Lot Area sf<input id="s67a" value="20000" type="number" step="any"></label>
+<label>Required fc<input id="s67b" value="2" type="number" step="any"></label>
+<label>Fixture Lumens<input id="s67c" value="15000" type="number" step="any"></label>
+</div>
+<div class="card-row"><button class="btn" onclick="document.getElementById('s67r').textContent=Math.ceil(parseFloat(document.getElementById('s67a').value)*parseFloat(document.getElementById('s67b').value)/parseFloat(document.getElementById('s67c').value))">Calc</button><span class="result"><span id="s67r">&#8212;</span> poles</span></div>
+</div>
+
+<div class="card" data-tags="lighting">
+<div class="card-title">68. Sports Field Lighting</div>
+<div class="card-inputs">
+<label>Field SF<input id="s68a" value="60000" type="number" step="any"></label>
+<label>Required fc<input id="s68b" value="50" type="number" step="any"></label>
+<label>Fixture Lumens<input id="s68c" value="35000" type="number" step="any"></label>
+</div>
+<div class="card-row"><button class="btn" onclick="document.getElementById('s68r').textContent=Math.ceil(parseFloat(document.getElementById('s68a').value)*parseFloat(document.getElementById('s68b').value)/parseFloat(document.getElementById('s68c').value))">Calc</button><span class="result"><span id="s68r">&#8212;</span> fixtures</span></div>
+</div>
+
+<div class="card" data-tags="lighting">
+<div class="card-title">69. Accent Lighting Ratio</div>
+<div class="card-inputs">
+<label>Accent fc<input id="s69a" value="75" type="number" step="any"></label>
+<label>Ambient fc<input id="s69b" value="15" type="number" step="any"></label>
+</div>
+<div class="card-row"><button class="btn" onclick="let r=parseFloat(document.getElementById('s69a').value)/parseFloat(document.getElementById('s69b').value);document.getElementById('s69r').textContent=r.toFixed(1)+':1 '+(r>=5?'Dramatic':r>=3?'Good accent':r>=1.5?'Subtle':'Flat')">Calc</button><span class="result"><span id="s69r">&#8212;</span></span></div>
+</div>
+
+<div class="card" data-tags="lighting">
+<div class="card-title">70. Task Lighting Level</div>
+<div class="card-inputs">
+<label>Task Type<select id="s70a"><option value="simple">Simple visual</option><option value="moderate">Moderate detail</option><option value="fine">Fine detail</option><option value="precise">Precision work</option></select></label>
+</div>
+<div class="card-row"><button class="btn" onclick="let t=document.getElementById('s70a').value;let f=t=='simple'?30:t=='moderate'?50:t=='fine'?100:200;document.getElementById('s70r').textContent=f+' fc recommended'">Calc</button><span class="result"><span id="s70r">&#8212;</span></span></div>
+</div>
+
+<div class="card" data-tags="lighting">
+<div class="card-title">71. Uniformity Gradient Ratio</div>
+<div class="card-inputs">
+<label>Max fc<input id="s71a" value="55" type="number" step="any"></label>
+<label>Min fc<input id="s71b" value="25" type="number" step="any"></label>
+<label>Avg fc<input id="s71c" value="40" type="number" step="any"></label>
+</div>
+<div class="card-row"><button class="btn" onclick="let r=parseFloat(document.getElementById('s71a').value)/parseFloat(document.getElementById('s71b').value);document.getElementById('s71r').textContent=r.toFixed(1)+':1 '+(r<=2?'Good':r<=3?'Acceptable':'Poor')">Calc</button><span class="result"><span id="s71r">&#8212;</span></span></div>
+</div>
+
+<div class="card" data-tags="lighting">
+<div class="card-title">72. Glare Rating (UGR)</div>
+<div class="card-inputs">
+<label>Luminaire Luminance cd/m&#178;<input id="s72a" value="3500" type="number" step="any"></label>
+<label>Background L cd/m&#178;<input id="s72b" value="80" type="number" step="any"></label>
+<label>Solid Angle sr<input id="s72c" value="0.02" type="number" step="any"></label>
+</div>
+<div class="card-row"><button class="btn" onclick="document.getElementById('s72r').textContent=(8*Math.log10(0.25/parseFloat(document.getElementById('s72b').value)*Math.pow(parseFloat(document.getElementById('s72a').value),2)*parseFloat(document.getElementById('s72c').value))).toFixed(0)+' '+(parseFloat(document.getElementById('s72r').textContent||0)<=19?'Good':'Poor')">Calc</button><span class="result"><span id="s72r">&#8212;</span></span></div>
+</div>
+
+<div class="card" data-tags="lighting">
+<div class="card-title">73. Flicker Percent</div>
+<div class="card-inputs">
+<label>Max Amplitude<input id="s73a" value="100" type="number" step="any"></label>
+<label>Min Amplitude<input id="s73b" value="65" type="number" step="any"></label>
+</div>
+<div class="card-row"><button class="btn" onclick="document.getElementById('s73r').textContent=((parseFloat(document.getElementById('s73a').value)-parseFloat(document.getElementById('s73b').value))/(parseFloat(document.getElementById('s73a').value)+parseFloat(document.getElementById('s73b').value))*100).toFixed(1)+'%'">Calc</button><span class="result"><span id="s73r">&#8212;</span></span></div>
+</div>
+
+<div class="card" data-tags="lighting">
+<div class="card-title">74. Flicker Index</div>
+<div class="card-inputs">
+<label>Area Above Avg<input id="s74a" value="12" type="number" step="any"></label>
+<label>Total Area<input id="s74b" value="38" type="number" step="any"></label>
+</div>
+<div class="card-row"><button class="btn" onclick="document.getElementById('s74r').textContent=(parseFloat(document.getElementById('s74a').value)/parseFloat(document.getElementById('s74b').value)).toFixed(2)">Calc</button><span class="result"><span id="s74r">&#8212;</span></span></div>
+</div>
+
+<div class="card" data-tags="lighting">
+<div class="card-title">75. TM-30 Fidelity (Rf)</div>
+<div class="card-inputs">
+<label>R1-R8 Avg Score<input id="s75a" value="88" type="number" step="any"></label>
+<label>R9-R15 Avg Score<input id="s75b" value="82" type="number" step="any"></label>
+</div>
+<div class="card-row"><button class="btn" onclick="let rf=(parseFloat(document.getElementById('s75a').value)*0.6+parseFloat(document.getElementById('s75b').value)*0.4).toFixed(0);document.getElementById('s75r').textContent='Rf '+rf+' '+(rf>=85?'Excellent':rf>=75?'Good':'Fair')">Calc</button><span class="result"><span id="s75r">&#8212;</span></span></div>
+</div>
+</div>
+
+<h2 class="section-title" data-section="green">Sustainable &amp; Green</h2>
+<div class="grid" data-section="green">
+
+<div class="card" data-tags="green">
+<div class="card-title">76. Embodied Carbon - Concrete</div>
+<div class="card-inputs">
+<label>Concrete CY<input id="s76a" value="200" type="number" step="any"></label>
+</div>
+<div class="card-row"><button class="btn" onclick="document.getElementById('s76r').textContent=(parseFloat(document.getElementById('s76a').value)*405*0.32).toFixed(0)+' kg CO&#8322;'">Calc</button><span class="result"><span id="s76r">&#8212;</span></span></div>
+</div>
+
+<div class="card" data-tags="green">
+<div class="card-title">77. Embodied Carbon - Steel</div>
+<div class="card-inputs">
+<label>Steel tons<input id="s77a" value="45" type="number" step="any"></label>
+</div>
+<div class="card-row"><button class="btn" onclick="document.getElementById('s77r').textContent=(parseFloat(document.getElementById('s77a').value)*1850).toFixed(0)+' kg CO&#8322;'">Calc</button><span class="result"><span id="s77r">&#8212;</span></span></div>
+</div>
+
+<div class="card" data-tags="green">
+<div class="card-title">78. Embodied Carbon - Wood</div>
+<div class="card-inputs">
+<label>Wood Volume m&#179;<input id="s78a" value="30" type="number" step="any"></label>
+</div>
+<div class="card-row"><button class="btn" onclick="document.getElementById('s78r').textContent=(parseFloat(document.getElementById('s78a').value)*420*0.18).toFixed(0)+' kg CO&#8322;'">Calc</button><span class="result"><span id="s78r">&#8212;</span></span></div>
+</div>
+
+<div class="card" data-tags="green">
+<div class="card-title">79. Carbon Sequestration - Wood</div>
+<div class="card-inputs">
+<label>Wood Volume m&#179;<input id="s79a" value="30" type="number" step="any"></label>
+<label>Density kg/m&#179;<input id="s79b" value="500" type="number" step="any"></label>
+</div>
+<div class="card-row"><button class="btn" onclick="document.getElementById('s79r').textContent=(parseFloat(document.getElementById('s79a').value)*parseFloat(document.getElementById('s79b').value)*0.5*44/12).toFixed(0)+' kg CO&#8322; stored'">Calc</button><span class="result"><span id="s79r">&#8212;</span></span></div>
+</div>
+
+<div class="card" data-tags="green">
+<div class="card-title">80. Operational Carbon</div>
+<div class="card-inputs">
+<label>Annual kWh<input id="s80a" value="120000" type="number" step="any"></label>
+<label>Grid Factor kgCO&#8322;/kWh<input id="s80b" value="0.4" type="number" step="any"></label>
+<label>Building Life years<input id="s80c" value="50" type="number" step="any"></label>
+</div>
+<div class="card-row"><button class="btn" onclick="document.getElementById('s80r').textContent=(parseFloat(document.getElementById('s80a').value)*parseFloat(document.getElementById('s80b').value)*parseFloat(document.getElementById('s80c').value)/1000).toFixed(1)+' metric tons'">Calc</button><span class="result"><span id="s80r">&#8212;</span></span></div>
+</div>
+
+<div class="card" data-tags="green">
+<div class="card-title">81. Net Zero Energy Gap</div>
+<div class="card-inputs">
+<label>Annual Energy Use kWh<input id="s81a" value="85000" type="number" step="any"></label>
+<label>On-site Renewable kWh<input id="s81b" value="52000" type="number" step="any"></label>
+</div>
+<div class="card-row"><button class="btn" onclick="let g=parseFloat(document.getElementById('s81a').value)-parseFloat(document.getElementById('s81b').value);document.getElementById('s81r').textContent=g>0?g.toFixed(0)+' kWh gap ('+(g/parseFloat(document.getElementById('s81a').value)*100).toFixed(0)+'%)':'Net Zero Achieved!'">Calc</button><span class="result"><span id="s81r">&#8212;</span></span></div>
+</div>
+
+<div class="card" data-tags="green">
+<div class="card-title">82. Solar Array Size for Net Zero</div>
+<div class="card-inputs">
+<label>Annual kWh Needed<input id="s82a" value="85000" type="number" step="any"></label>
+<label>Peak Sun Hours/day<input id="s82b" value="4.5" type="number" step="any"></label>
+<label>System Efficiency %<input id="s82c" value="78" type="number" step="any"></label>
+</div>
+<div class="card-row"><button class="btn" onclick="document.getElementById('s82r').textContent=(parseFloat(document.getElementById('s82a').value)/(parseFloat(document.getElementById('s82b').value)*365*parseFloat(document.getElementById('s82c').value)/100)).toFixed(1)+' kW'">Calc</button><span class="result"><span id="s82r">&#8212;</span></span></div>
+</div>
+
+<div class="card" data-tags="green">
+<div class="card-title">83. Wind Turbine Annual Output</div>
+<div class="card-inputs">
+<label>Rotor Diameter ft<input id="s83a" value="15" type="number" step="any"></label>
+<label>Avg Wind Speed mph<input id="s83b" value="12" type="number" step="any"></label>
+</div>
+<div class="card-row"><button class="btn" onclick="let d=parseFloat(document.getElementById('s83a').value)/2;let a=Math.PI*d*d;let w=parseFloat(document.getElementById('s83b').value)*0.447;document.getElementById('s83r').textContent=(0.35*0.5*1.225*a*0.093*Math.pow(w,3)*8760/1000).toFixed(0)+' kWh/yr'">Calc</button><span class="result"><span id="s83r">&#8212;</span></span></div>
+</div>
+
+<div class="card" data-tags="green">
+<div class="card-title">84. Geothermal Loop Length</div>
+<div class="card-inputs">
+<label>Heating Load kBtu/hr<input id="s84a" value="45" type="number" step="any"></label>
+<label>Soil Conductivity<input id="s84b" value="1.2" type="number" step="any"></label>
+</div>
+<div class="card-row"><button class="btn" onclick="document.getElementById('s84r').textContent=(parseFloat(document.getElementById('s84a').value)*1000/(parseFloat(document.getElementById('s84b').value)*12000)*200).toFixed(0)+' ft bore'">Calc</button><span class="result"><span id="s84r">&#8212;</span></span></div>
+</div>
+
+<div class="card" data-tags="green">
+<div class="card-title">85. Rainwater Harvesting Size</div>
+<div class="card-inputs">
+<label>Roof Area sf<input id="s85a" value="2000" type="number" step="any"></label>
+<label>Annual Rain in<input id="s85b" value="35" type="number" step="any"></label>
+<label>Collection Eff %<input id="s85c" value="85" type="number" step="any"></label>
+<label>Weeks Storage<input id="s85d" value="8" type="number" step="any"></label>
+</div>
+<div class="card-row"><button class="btn" onclick="document.getElementById('s85r').textContent=(parseFloat(document.getElementById('s85a').value)*parseFloat(document.getElementById('s85b').value)*parseFloat(document.getElementById('s85c').value)/100/12*7.48*parseFloat(document.getElementById('s85d').value)/52).toFixed(0)+' gal tank'">Calc</button><span class="result"><span id="s85r">&#8212;</span></span></div>
+</div>
+
+<div class="card" data-tags="green">
+<div class="card-title">86. Greywater System Size</div>
+<div class="card-inputs">
+<label># Occupants<input id="s86a" value="4" type="number" step="any"></label>
+<label>GPCD greywater<input id="s86b" value="25" type="number" step="any"></label>
+<label>Days Storage<input id="s86c" value="1" type="number" step="any"></label>
+</div>
+<div class="card-row"><button class="btn" onclick="document.getElementById('s86r').textContent=(parseFloat(document.getElementById('s86a').value)*parseFloat(document.getElementById('s86b').value)*parseFloat(document.getElementById('s86c').value)).toFixed(0)+' gal/day'">Calc</button><span class="result"><span id="s86r">&#8212;</span></span></div>
+</div>
+
+<div class="card" data-tags="green">
+<div class="card-title">87. Composting Toilet Size</div>
+<div class="card-inputs">
+<label># Users<input id="s87a" value="4" type="number" step="any"></label>
+<label>Usage type<select id="s87b"><option value="res">Residential</option><option value="week">Weekend</option><option value="pub">Public</option></select></label>
+</div>
+<div class="card-row"><button class="btn" onclick="let u=parseFloat(document.getElementById('s87a').value);let t=document.getElementById('s87b').value;let f=t=='res'?0.8:t=='week'?0.4:4;document.getElementById('s87r').textContent=(u*f).toFixed(1)+' gal/day capacity'">Calc</button><span class="result"><span id="s87r">&#8212;</span></span></div>
+</div>
+
+<div class="card" data-tags="green">
+<div class="card-title">88. Living Wall Irrigation</div>
+<div class="card-inputs">
+<label>Wall Area sf<input id="s88a" value="120" type="number" step="any"></label>
+<label>Climate factor<select id="s88b"><option value="0.5">Cool/Humid</option><option value="0.75">Temperate</option><option value="1.0">Warm</option><option value="1.25">Hot/Dry</option></select></label>
+</div>
+<div class="card-row"><button class="btn" onclick="document.getElementById('s88r').textContent=(parseFloat(document.getElementById('s88a').value)*parseFloat(document.getElementById('s88b').value)*0.15).toFixed(1)+' gal/day'">Calc</button><span class="result"><span id="s88r">&#8212;</span></span></div>
+</div>
+
+<div class="card" data-tags="green">
+<div class="card-title">89. Green Roof Structural Load</div>
+<div class="card-inputs">
+<label>Depth in<input id="s89a" value="6" type="number" step="any"></label>
+<label>Roof Area sf<input id="s89b" value="2000" type="number" step="any"></label>
+</div>
+<div class="card-row"><button class="btn" onclick="document.getElementById('s89r').textContent=(parseFloat(document.getElementById('s89a').value)/12*120*parseFloat(document.getElementById('s89b').value)).toFixed(0)+' lbs saturated'">Calc</button><span class="result"><span id="s89r">&#8212;</span></span></div>
+</div>
+
+<div class="card" data-tags="green">
+<div class="card-title">90. Passive Solar Gain</div>
+<div class="card-inputs">
+<label>South Glass sf<input id="s90a" value="80" type="number" step="any"></label>
+<label>SHGC<input id="s90b" value="0.6" type="number" step="any"></label>
+<label>Daily Solar BTU/sf<input id="s90c" value="1200" type="number" step="any"></label>
+</div>
+<div class="card-row"><button class="btn" onclick="document.getElementById('s90r').textContent=(parseFloat(document.getElementById('s90a').value)*parseFloat(document.getElementById('s90b').value)*parseFloat(document.getElementById('s90c').value)).toFixed(0)+' BTU/day'">Calc</button><span class="result"><span id="s90r">&#8212;</span></span></div>
+</div>
+
+<div class="card" data-tags="green">
+<div class="card-title">91. Shading Device Depth</div>
+<div class="card-inputs">
+<label>Window Height in<input id="s91a" value="48" type="number" step="any"></label>
+<label>Latitude °<input id="s91b" value="35" type="number" step="any"></label>
+</div>
+<div class="card-row"><button class="btn" onclick="document.getElementById('s91r').textContent=(parseFloat(document.getElementById('s91a').value)*Math.tan((90-parseFloat(document.getElementById('s91b').value)-23.5)*Math.PI/180)).toFixed(1)+' in'">Calc</button><span class="result"><span id="s91r">&#8212;</span></span></div>
+</div>
+
+<div class="card" data-tags="green">
+<div class="card-title">92. Natural Ventilation Area</div>
+<div class="card-inputs">
+<label>Floor Area sf<input id="s92a" value="800" type="number" step="any"></label>
+<label>Window Opening %<input id="s92b" value="25" type="number" step="any"></label>
+</div>
+<div class="card-row"><button class="btn" onclick="let r=parseFloat(document.getElementById('s92a').value)*parseFloat(document.getElementById('s92b').value)/100;document.getElementById('s92r').textContent=r>=40?'Adequate: '+r.toFixed(0)+' sf':('Need '+(40-r).toFixed(0)+' more sf opening')">Calc</button><span class="result"><span id="s92r">&#8212;</span></span></div>
+</div>
+
+<div class="card" data-tags="green">
+<div class="card-title">93. Stack Effect Ventilation</div>
+<div class="card-inputs">
+<label>Stack Height ft<input id="s93a" value="20" type="number" step="any"></label>
+<label>ΔT (in-out) °F<input id="s93b" value="15" type="number" step="any"></label>
+<label>Opening Area sf<input id="s93c" value="4" type="number" step="any"></label>
+</div>
+<div class="card-row"><button class="btn" onclick="document.getElementById('s93r').textContent=(parseFloat(document.getElementById('s93c').value)*0.6*Math.sqrt(2*32.2*parseFloat(document.getElementById('s93a').value)*parseFloat(document.getElementById('s93b').value)/(parseFloat(document.getElementById('s93b').value)+460+70))).toFixed(0)+' CFM'">Calc</button><span class="result"><span id="s93r">&#8212;</span></span></div>
+</div>
+
+<div class="card" data-tags="green">
+<div class="card-title">94. Berm Insulation R-Value</div>
+<div class="card-inputs">
+<label>Earth Cover ft<input id="s94a" value="3" type="number" step="any"></label>
+</div>
+<div class="card-row"><button class="btn" onclick="document.getElementById('s94r').textContent=(parseFloat(document.getElementById('s94a').value)*12*0.25).toFixed(0)">Calc</button><span class="result"><span id="s94r">&#8212;</span> R effective</span></div>
+</div>
+
+<div class="card" data-tags="green">
+<div class="card-title">95. Earth Tube Length</div>
+<div class="card-inputs">
+<label>Airflow CFM<input id="s95a" value="300" type="number" step="any"></label>
+<label>Tube Diam in<input id="s95b" value="12" type="number" step="any"></label>
+<label>ΔT °F<input id="s95c" value="20" type="number" step="any"></label>
+</div>
+<div class="card-row"><button class="btn" onclick="document.getElementById('s95r').textContent=(parseFloat(document.getElementById('s95a').value)*1.08*parseFloat(document.getElementById('s95c').value)/(Math.PI*parseFloat(document.getElementById('s95b').value)/12*0.5)*0.06).toFixed(0)+' ft'">Calc</button><span class="result"><span id="s95r">&#8212;</span></span></div>
+</div>
+
+<div class="card" data-tags="green">
+<div class="card-title">96. Solar Hot Water Collector Area</div>
+<div class="card-inputs">
+<label>Daily Hot Water gal<input id="s96a" value="50" type="number" step="any"></label>
+<label>ΔT °F<input id="s96b" value="70" type="number" step="any"></label>
+<label>Solar Radiation BTU/sf/day<input id="s96c" value="1500" type="number" step="any"></label>
+</div>
+<div class="card-row"><button class="btn" onclick="document.getElementById('s96r').textContent=(parseFloat(document.getElementById('s96a').value)*8.34*parseFloat(document.getElementById('s96b').value)/(parseFloat(document.getElementById('s96c').value)*0.6)).toFixed(1)+' sf'">Calc</button><span class="result"><span id="s96r">&#8212;</span></span></div>
+</div>
+
+<div class="card" data-tags="green">
+<div class="card-title">97. PV Battery Storage</div>
+<div class="card-inputs">
+<label>Daily kWh Usage<input id="s97a" value="30" type="number" step="any"></label>
+<label>Days Autonomy<input id="s97b" value="2" type="number" step="any"></label>
+<label>Depth of Discharge %<input id="s97c" value="80" type="number" step="any"></label>
+</div>
+<div class="card-row"><button class="btn" onclick="document.getElementById('s97r').textContent=(parseFloat(document.getElementById('s97a').value)*parseFloat(document.getElementById('s97b').value)/(parseFloat(document.getElementById('s97c').value)/100)).toFixed(1)+' kWh'">Calc</button><span class="result"><span id="s97r">&#8212;</span></span></div>
+</div>
+
+<div class="card" data-tags="green">
+<div class="card-title">98. EV Charging Solar Match</div>
+<div class="card-inputs">
+<label>Daily EV Miles<input id="s98a" value="40" type="number" step="any"></label>
+<label>kWh/mile<input id="s98b" value="0.3" type="number" step="any"></label>
+<label>Peak Sun Hours<input id="s98c" value="4.5" type="number" step="any"></label>
+</div>
+<div class="card-row"><button class="btn" onclick="document.getElementById('s98r').textContent=(parseFloat(document.getElementById('s98a').value)*parseFloat(document.getElementById('s98b').value)/(parseFloat(document.getElementById('s98c').value)*0.78)+0.3).toFixed(1)+' kW PV needed'">Calc</button><span class="result"><span id="s98r">&#8212;</span></span></div>
+</div>
+
+<div class="card" data-tags="green">
+<div class="card-title">99. Building EUI (Energy Use Intensity)</div>
+<div class="card-inputs">
+<label>Annual kBtu<input id="s99a" value="450000" type="number" step="any"></label>
+<label>Building SF<input id="s99b" value="8500" type="number" step="any"></label>
+</div>
+<div class="card-row"><button class="btn" onclick="document.getElementById('s99r').textContent=(parseFloat(document.getElementById('s99a').value)/parseFloat(document.getElementById('s99b').value)).toFixed(1)+' kBtu/sf/yr'">Calc</button><span class="result"><span id="s99r">&#8212;</span></span></div>
+</div>
+
+<div class="card" data-tags="green">
+<div class="card-title">100. LEED Points Calculator</div>
+<div class="card-inputs">
+<label>Location/Trans points<input id="s100a" value="10" type="number" step="any" min="0" max="16"></label>
+<label>Sustainable Sites<input id="s100b" value="7" type="number" step="any" min="0" max="10"></label>
+<label>Water Eff<input id="s100c" value="8" type="number" step="any" min="0" max="11"></label>
+<label>Energy &amp; Atm<input id="s100d" value="22" type="number" step="any" min="0" max="33"></label>
+<label>Materials<input id="s100e" value="9" type="number" step="any" min="0" max="13"></label>
+<label>Indoor Env<input id="s100f" value="11" type="number" step="any" min="0" max="16"></label>
+<label>Innovation<input id="s100g" value="3" type="number" step="any" min="0" max="6"></label>
+<label>Regional Priority<input id="s100h" value="2" type="number" step="any" min="0" max="4"></label>
+</div>
+<div class="card-row"><button class="btn" onclick="let t=parseFloat(document.getElementById('s100a').value)+parseFloat(document.getElementById('s100b').value)+parseFloat(document.getElementById('s100c').value)+parseFloat(document.getElementById('s100d').value)+parseFloat(document.getElementById('s100e').value)+parseFloat(document.getElementById('s100f').value)+parseFloat(document.getElementById('s100g').value)+parseFloat(document.getElementById('s100h').value);document.getElementById('s100r').textContent=t.toFixed(0)+' = '+(t>=80?'Platinum':t>=60?'Gold':t>=50?'Silver':t>=40?'Certified':'Not Certified')">Calc</button><span class="result"><span id="s100r">&#8212;</span></span></div>
+</div>
+</div>
+
+</div>
+<button class="back-top" onclick="window.scrollTo({top:0,behavior:'smooth'})">&#8593;‘</button>
+
+<script src="../temp-toggle.js"></script><script src="../custom-select.js"></script><script src="../favorites.js"></script><script src="../remember-inputs.js"></script><script src="../mega-cat.js"></script><script src="../auto-calc.js"></script><script src="../sticky-header.js"></script><script src="../ui-fix.js"></script><script src="../link-fix.js"></script><script src="../dark-persist.js"></script><script src="../admob-banner.js"></script></body>
+</html>
+
+
+
+
+
+
+
+
+

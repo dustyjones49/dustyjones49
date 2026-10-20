@@ -1,0 +1,272 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>Drywall Calculator - Sheets & Mud | FieldMath</title>
+<meta name="description" content="Drywall sheet calculator for rooms. Get wall area, ceiling area and 4x8 sheet count with waste.">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Segoe UI',system-ui,-apple-system,sans-serif;color:var(--text);line-height:1.6;background:var(--bg)}
+a{color:#f97316;text-decoration:none}
+a:hover{text-decoration:underline}
+.container{max-width:900px;margin:0 auto;padding:0 20px}
+header{background:#1a2332;color:#fff;padding:24px 0;text-align:center}
+header .logo{font-size:1.5rem;font-weight:700;color:#f97316}
+header p{font-size:.9rem;color:#94a3b8;margin-top:4px}
+.back-link{display:inline-block;margin:12px 0;font-size:.85rem;color:#f97316}
+.back-link:hover{color:#ea580c}
+h1{font-size:2rem;color:#1a2332;margin:16px 0 8px}
+h2{font-size:1.25rem;color:#1a2332;margin:24px 0 12px;border-bottom:2px solid #f97316;padding-bottom:6px}
+h3{font-size:1rem;color:#1a2332;margin:12px 0 8px}
+.card{background:#fff;border-radius:12px;box-shadow:0 1px 3px rgba(0,0,0,.08);padding:24px;margin-bottom:20px}
+.form-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+@media(max-width:600px){.form-grid{grid-template-columns:1fr}}
+.form-group{display:flex;flex-direction:column}
+.form-group label{font-weight:600;font-size:.85rem;margin-bottom:4px;color:#374151}
+.form-group input,.form-group select{padding:10px 12px;border:1px solid #d1d5db;border-radius:8px;font-size:1rem;transition:border-color .15s}
+.form-group input:focus,.form-group select:focus{outline:none;border-color:#f97316;box-shadow:0 0 0 3px rgba(249,115,22,.15)}
+.results{margin-top:20px;padding:20px;background:#fff7ed;border-left:4px solid #f97316;border-radius:0 8px 8px 0}
+.results p{font-size:1.1rem;margin:8px 0}
+.results span{font-weight:700;color:#f97316}
+.formula-box{background:#f1f5f9;border-radius:8px;padding:16px;font-family:'Courier New',Consolas,monospace;font-size:.9rem;overflow-x:auto;white-space:pre-wrap}
+.example-box{background:#fefce8;border-radius:8px;padding:16px;font-size:.9rem}
+.badge{display:inline-block;background:#f97316;color:#fff;font-size:.75rem;font-weight:600;padding:3px 10px;border-radius:20px;vertical-align:middle;margin-left:8px}
+.faq-item{border:1px solid #e5e7eb;border-radius:8px;margin-bottom:8px;overflow:hidden}
+.faq-question{background:#fff;padding:14px 16px;font-weight:600;font-size:.95rem;cursor:pointer;display:flex;justify-content:space-between;align-items:center;user-select:none}
+.faq-question:hover{background:#f8fafc}
+.faq-question::after{content:'+';font-size:1.3rem;color:#f97316;font-weight:700;min-width:24px;text-align:center;transition:transform .2s}
+.faq-item.open .faq-question::after{content:'\2212'}
+.faq-answer{max-height:0;overflow:hidden;transition:max-height .35s ease,padding .35s ease}
+.faq-item.open .faq-answer{max-height:400px;padding:0 16px 16px}
+.faq-answer p{font-size:.9rem;color:#4b5563;line-height:1.7}
+.products-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:12px}
+.product-link{display:block;background:#fff;border:1px solid #e5e7eb;border-radius:10px;padding:16px;text-align:center;transition:border-color .15s,box-shadow .15s}
+.product-link:hover{border-color:#f97316;box-shadow:0 2px 8px rgba(249,115,22,.12);text-decoration:none}
+.product-link strong{display:block;color:#1a2332;margin-bottom:4px}
+.product-link span{font-size:.8rem;color:#6b7280}
+.ref-table{width:100%;border-collapse:collapse;font-size:.9rem}
+.ref-table th{background:#1a2332;color:#fff;padding:10px 12px;text-align:left}
+.ref-table td{padding:10px 12px;border-bottom:1px solid #e5e7eb}
+.ref-table tr:nth-child(even){background:#f8fafc}
+footer{background:#1a2332;color:#94a3b8;text-align:center;padding:24px 0;margin-top:40px;font-size:.85rem}
+footer a{color:#f97316}
+:root{--bg:#f5f5f5;--card:#fff;--text:#333;--text-light:#666;--border:#ddd;--header-bg:#1a2332;--header-text:#fff;--muted-bg:#f8f9fa}
+body.dark{--bg:#1a1a2e;--card:#16213e;--text:#e0e0e0;--text-light:#aaa;--border:#333;--header-bg:#0f3460;--header-text:#e0e0e0;--muted-bg:#1a1a2e}
+.card{background:var(--card);border-color:var(--border)}
+header{background:var(--header-bg);color:var(--header-text)}
+@media print{header .back-link,.dark-toggle,footer,#ad-slot,button{display:none!important}body{background:var(--bg);color:#000;font-size:12pt}.card{box-shadow:none;border:1px solid #ccc;break-inside:avoid}.results{border:2px solid var(--orange,#f97316)}[id$="-slot"]{display:none!important}@page{margin:0.5in}}
+</style>
+<link rel="canonical" href="https://dustyjones49.github.io/dustyjones49/drywall-calculator/">
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"WebApplication",
+  "name":"Drywall Calculator",
+  "url":"https://dustyjones49.github.io/dustyjones49/drywall-calculator/",
+  "description":"Drywall sheet calculator for rooms. Get wall area, ceiling area and 4x8 sheet count with waste.",
+  "applicationCategory":"EducationalApplication",
+  "operatingSystem":"All"
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"FAQPage",
+  "mainEntity":[
+    {"@type":"Question","name":"How many drywall sheets for a 12x12 room?","acceptedAnswer":{"@type":"Answer","text":"A 12x12x8 room needs about 12 sheets of 4x8 drywall for walls (448 sq ft) plus 5 sheets for ceiling (144 sq ft) = 17 sheets before waste. With 10% waste order 19 sheets. Use 4x12 sheets if you have help to reduce seams."}},
+    {"@type":"Question","name":"What size drywall sheet should I use?","acceptedAnswer":{"@type":"Answer","text":"4x8 sheets are easy for DIY and fit through doors. 4x12 sheets mean fewer butt joints on tall walls and faster finishing but require two people and a lift for ceilings. Half-inch is standard for walls and ceilings."}},
+    {"@type":"Question","name":"How many screws per drywall sheet?","acceptedAnswer":{"@type":"Answer","text":"Use about 32 screws per 4x8 sheet -- screws every 12 in on ceilings and 16 in on walls. That's roughly 28 screws per field and edge pattern. One pound box of 1-1/4 in coarse thread covers about 10 sheets."}}
+  ]
+}
+</script><style id="bc-theme">/* FieldMath - Light Theme
+   All pages use this single light theme. No dark mode. */
+:root{
+  --bg:#f5f5f5;
+  --card:#ffffff;
+  --text:#333333;
+  --text-light:#666666;
+  --muted:#f1f3f7;
+  --muted-bg:#f8f9fa;
+  --border:#dde3ea;
+  --navy:#1a2332;
+  --header-bg:#1a2332;
+  --header-text:#ffffff;
+  --orange:#f97316;
+  --accent:#f97316;
+  --success:#16a34a;
+  --warning:#d97706;
+  --danger:#dc2626;
+}
+</style>
+<style id="bc-darkflash">html,html body{background:#f5f5f5 !important;color:#333 !important}body .card,body .panel,body .box,body .calculator,body .container,body .c,body .result,body .results,body .res,body .formula,body .example,body .faq,body .faq-item,body input,body select,body textarea{background:#ffffff !important;color:#333 !important;border-color:#ddd !important}</style></head>
+<body>
+<header>
+  <div class="logo">FieldMath</div>
+  <p>Free Construction Calculators</p>
+</header>
+<div class="container">
+  <h1>Drywall Calculator <span class="badge">Painting &amp; Finishing</span></h1>
+  <p>Sheet count for 4&times;8 and 4&times;12.</p>
+
+  <div class="card">
+    <h2>Enter Room Dimensions</h2>
+    <div class="form-grid">
+      <div class="form-group">
+        <label for="length">Room Length (ft)</label>
+        <input type="number" id="length" value="12" min="1" step="0.1">
+      </div>
+      <div class="form-group">
+        <label for="width">Room Width (ft)</label>
+        <input type="number" id="width" value="14" min="1" step="0.1">
+      </div>
+      <div class="form-group">
+        <label for="wallHeight">Wall Height (ft)</label>
+        <input type="number" id="wallHeight" value="8" min="1" step="0.1">
+      </div>
+      <div class="form-group">
+        <label for="sheetSize">Sheet Size</label>
+        <select id="sheetSize">
+          <option value="32">4&times;8 (32 sq ft)</option>
+          <option value="40">4&times;10 (40 sq ft)</option>
+          <option value="48" selected>4&times;12 (48 sq ft)</option>
+        </select>
+      </div>
+    </div>
+    <div class="results" id="results">
+      <p>Wall Area: <span id="wallArea">416.00</span> sq ft</p>
+      <p>Ceiling Area: <span id="ceilingArea">168.00</span> sq ft</p>
+      <p>Total Area: <span id="totalArea">584.00</span> sq ft</p>
+      <p>Sheets Needed (w/ 10% waste): <span id="sheets">14.00</span></p>
+      <p>Joint Compound (buckets): <span id="mudBuckets">2</span></p>
+    </div>
+  </div>
+
+  <div class="card" style="margin-top:8px">
+<h2>Share This Calculation</h2>
+<div style="display:flex;gap:8px;flex-wrap:wrap">
+<button onclick="navigator.clipboard.writeText(window.location.href);this.textContent='Copied!';setTimeout(()=>this.textContent='&#128203; Copy Link',2000)" style="padding:8px 16px;background:#f97316;color:#fff;border:none;border-radius:6px;cursor:pointer;font-size:0.9rem">&#128203; Copy Link</button>
+<button onclick="window.open('https://twitter.com/intent/tweet?url='+encodeURIComponent(window.location.href)+'&text='+encodeURIComponent(document.title),'_blank')" style="padding:8px 16px;background:#1a2332;color:#fff;border:none;border-radius:6px;cursor:pointer;font-size:0.9rem">ð• Tweet</button>
+<button onclick="window.open('https://www.facebook.com/sharer/sharer.php?u='+encodeURIComponent(window.location.href),'_blank')" style="padding:8px 16px;background:#1877f2;color:#fff;border:none;border-radius:6px;cursor:pointer;font-size:0.9rem"> Share</button>
+<button onclick="window.open('https://pinterest.com/pin/create/button/?url='+encodeURIComponent(window.location.href)+'&description='+encodeURIComponent(document.title),'_blank')" style="padding:8px 16px;background:#e60023;color:#fff;border:none;border-radius:6px;cursor:pointer;font-size:0.9rem"> Pin</button>
+</div>
+</div>
+<div class="card">
+<h2>Embed This Calculator</h2>
+<p style="color:var(--text-light);font-size:0.85rem;margin-bottom:8px">Add this calculator to your website:</p>
+<textarea readonly onclick="this.select()" style="width:100%;height:60px;padding:8px;border:2px solid #ddd;border-radius:6px;font-family:monospace;font-size:0.8rem;background:var(--muted-bg);color:var(--text)" rows="3">&lt;iframe src="https://dustyjones49.github.io/dustyjones49/drywall-calculator/" width="100%" height="800" frameborder="0"&gt;&lt;/iframe&gt;</textarea>
+</div>
+<div class="card" style="text-align:center">
+<div id="ad-slot" style="min-height:90px;border:2px dashed var(--border);display:flex;align-items:center;justify-content:center;color:var(--text-light);border-radius:6px;font-size:0.85rem">Ad Slot &#8212; Replace with AdSense Code</div>
+</div>
+
+  <div class="card">
+    <h2>Formula</h2>
+    <div class="formula-box">walls = 2 &times; (L&times;H + W&times;H)
+ceiling = L &times; W
+total = walls + ceiling
+sheets = ceil(total / sheetSize &times; 1.1)
+mud_buckets = ceil(sheets / 12)</div>
+  </div>
+
+  <div class="card">
+    <h2>Sheet Size Reference</h2>
+    <table class="ref-table">
+      <tr><th>Sheet</th><th>Sq Ft</th><th>Best For</th></tr>
+      <tr><td>4&times;8</td><td>32</td><td>Small rooms</td></tr>
+      <tr><td>4&times;10</td><td>40</td><td>8&ndash;9 ft walls</td></tr>
+      <tr><td>4&times;12</td><td>48</td><td>Large, tall walls</td></tr>
+    </table>
+  </div>
+
+  <div class="card">
+    <h2>Example Calculation</h2>
+    <div class="example-box">12&times;14&times;8 room:
+<br>Walls = 2&times;(12&times;8 + 14&times;8) = <strong>416 sq ft</strong>
+<br>Ceiling = 12&times;14 = <strong>168 sq ft</strong>
+<br>Total = 416 + 168 = <strong>584 sq ft</strong>
+<br>4&times;8 sheets = 584 / 32 &times; 1.1 = 20.1 &rarr; <strong>21 sheets</strong> with waste.</div>
+  </div>
+
+  <h2>Frequently Asked Questions</h2>
+  <div class="faq-item">
+    <div class="faq-question">How many drywall sheets for a 12&times;12 room?</div>
+    <div class="faq-answer"><p>A 12&times;12&times;8 room needs about 12 sheets of 4&times;8 drywall for walls (448 sq ft) plus 5 sheets for ceiling (144 sq ft) = 17 sheets before waste. With 10% waste order 19 sheets. Use 4&times;12 sheets if you have help to reduce seams.</p></div>
+  </div>
+  <div class="faq-item">
+    <div class="faq-question">What size drywall sheet should I use?</div>
+    <div class="faq-answer"><p>4&times;8 sheets are easy for DIY and fit through doors. 4&times;12 sheets mean fewer butt joints on tall walls and faster finishing but require two people and a lift for ceilings. Half-inch is standard for walls and ceilings.</p></div>
+  </div>
+  <div class="faq-item">
+    <div class="faq-question">How many screws per drywall sheet?</div>
+    <div class="faq-answer"><p>Use about 32 screws per 4&times;8 sheet &mdash; screws every 12 in on ceilings and 16 in on walls. That's roughly 28 screws per field and edge pattern. One pound box of 1-1/4 in coarse thread covers about 10 sheets.</p></div>
+  </div>
+
+  <div class="card">
+    <h2>Recommended Products</h2>
+    <div class="products-grid">
+      <a href="https://www.homedepot.com/s/Drywall%20Panel%20Lift%2011%20ft" target="_blank" rel="nofollow noopener" class="product-link">
+        <strong>Drywall Panel Lift 11 ft</strong>
+        <span>Home Depot &rarr;</span>
+      </a>
+      <a href="https://www.amazon.com/s?k=drywall+screws+1-1/4+in+1lb&tag=buildcalc-20" target="_blank" rel="nofollow noopener" class="product-link">
+        <strong>Drywall Screws 1-1/4 in 1lb</strong>
+        <span>Amazon &rarr;</span>
+      </a>
+      <a href="https://www.homedepot.com/s/Joint%20Knife%20Set%206%2010%2012%20in" target="_blank" rel="nofollow noopener" class="product-link">
+        <strong>Joint Knife Set 6,10,12 in</strong>
+        <span>Home Depot &rarr;</span>
+      </a>
+    </div>
+  </div>
+
+  <footer>
+<p>2026 FieldMath - Calculators are reference only. Always verify with your local code.</p>
+</footer>
+</div>
+<script>
+(function(){
+  var length=document.getElementById('length');
+  var width=document.getElementById('width');
+  var wallHeight=document.getElementById('wallHeight');
+  var sheetSize=document.getElementById('sheetSize');
+  var wallAreaEl=document.getElementById('wallArea');
+  var ceilingAreaEl=document.getElementById('ceilingArea');
+  var totalAreaEl=document.getElementById('totalArea');
+  var sheetsEl=document.getElementById('sheets');
+  var mudBucketsEl=document.getElementById('mudBuckets');
+  function calc(){
+    var L=parseFloat(length.value)||0;
+    var W=parseFloat(width.value)||0;
+    var H=parseFloat(wallHeight.value)||0;
+    var ss=parseFloat(sheetSize.value)||32;
+    var walls=2*(L*H+W*H);
+    var ceiling=L*W;
+    var total=walls+ceiling;
+    var sheets=Math.ceil(total/ss*1.1);
+    var mud=Math.ceil(sheets/12);
+    wallAreaEl.textContent=walls.toFixed(2);
+    ceilingAreaEl.textContent=ceiling.toFixed(2);
+    totalAreaEl.textContent=total.toFixed(2);
+    sheetsEl.textContent=sheets.toFixed(2);
+    mudBucketsEl.textContent=mud;
+  }
+  [length,width,wallHeight,sheetSize].forEach(function(el){el.addEventListener('input',calc);el.addEventListener('change',calc)});
+  calc();
+  document.querySelectorAll('.faq-question').forEach(function(q){
+    q.addEventListener('click',function(){this.parentElement.classList.toggle('open')});
+  });
+})();
+(function(){
+  var inputs=document.querySelectorAll('input,select');
+  function save(){var p=new URLSearchParams();inputs.forEach(function(e,i){if(e.value)p.set('i'+i,e.value)});if(p.toString())history.replaceState(null,'','?'+p.toString())}
+  function load(){var p=new URLSearchParams(location.search);inputs.forEach(function(e,i){if(p.has('i'+i))e.value=p.get('i'+i);e.addEventListener('input',save);e.addEventListener('change',save)});if(p.toString()){var ev=new Event('input');inputs[inputs.length-1].dispatchEvent(ev)}}
+  load();
+})();
+</script>
+<script src="../custom-select.js"></script><script src="../favorites.js"></script><script src="../remember-inputs.js"></script><script src="../sticky-header.js"></script><script src="../ui-fix.js"></script><script src="../link-fix.js"></script><script src="../auto-calc.js"></script><script src="../dark-persist.js"></script><script src="../admob-banner.js"></script></body>
+</html>
+
+
+
+

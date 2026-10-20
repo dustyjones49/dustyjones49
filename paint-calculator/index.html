@@ -1,0 +1,249 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>Paint Calculator - Gallons & Coverage | FieldMath</title>
+<meta name="description" content="How much paint do you need? Calculates paintable area minus doors and windows and gallons at 350 sq ft per gallon.">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Segoe UI',system-ui,-apple-system,sans-serif;color:var(--text);line-height:1.6;background:var(--bg)}
+a{color:#f97316;text-decoration:none}
+a:hover{text-decoration:underline}
+.container{max-width:900px;margin:0 auto;padding:0 20px}
+header{background:#1a2332;color:#fff;padding:24px 0;text-align:center}
+header .logo{font-size:1.5rem;font-weight:700;color:#f97316}
+header p{font-size:.9rem;color:#94a3b8;margin-top:4px}
+.back-link{display:inline-block;margin:12px 0;font-size:.85rem;color:#f97316}
+.back-link:hover{color:#ea580c}
+h1{font-size:2rem;color:#1a2332;margin:16px 0 8px}
+h2{font-size:1.25rem;color:#1a2332;margin:24px 0 12px;border-bottom:2px solid #f97316;padding-bottom:6px}
+h3{font-size:1rem;color:#1a2332;margin:12px 0 8px}
+.card{background:#fff;border-radius:12px;box-shadow:0 1px 3px rgba(0,0,0,.08);padding:24px;margin-bottom:20px}
+.form-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+@media(max-width:600px){.form-grid{grid-template-columns:1fr}}
+.form-group{display:flex;flex-direction:column}
+.form-group label{font-weight:600;font-size:.85rem;margin-bottom:4px;color:#374151}
+.form-group input,.form-group select{padding:10px 12px;border:1px solid #d1d5db;border-radius:8px;font-size:1rem;transition:border-color .15s}
+.form-group input:focus,.form-group select:focus{outline:none;border-color:#f97316;box-shadow:0 0 0 3px rgba(249,115,22,.15)}
+.results{margin-top:20px;padding:20px;background:#fff7ed;border-left:4px solid #f97316;border-radius:0 8px 8px 0}
+.results p{font-size:1.1rem;margin:8px 0}
+.results span{font-weight:700;color:#f97316}
+.formula-box{background:#f1f5f9;border-radius:8px;padding:16px;font-family:'Courier New',Consolas,monospace;font-size:.9rem;overflow-x:auto;white-space:pre-wrap}
+.example-box{background:#fefce8;border-radius:8px;padding:16px;font-size:.9rem}
+.badge{display:inline-block;background:#f97316;color:#fff;font-size:.75rem;font-weight:600;padding:3px 10px;border-radius:20px;vertical-align:middle;margin-left:8px}
+.faq-item{border:1px solid #e5e7eb;border-radius:8px;margin-bottom:8px;overflow:hidden}
+.faq-question{background:#fff;padding:14px 16px;font-weight:600;font-size:.95rem;cursor:pointer;display:flex;justify-content:space-between;align-items:center;user-select:none}
+.faq-question:hover{background:#f8fafc}
+.faq-question::after{content:'+';font-size:1.3rem;color:#f97316;font-weight:700;min-width:24px;text-align:center;transition:transform .2s}
+.faq-item.open .faq-question::after{content:'\2212'}
+.faq-answer{max-height:0;overflow:hidden;transition:max-height .35s ease,padding .35s ease}
+.faq-item.open .faq-answer{max-height:400px;padding:0 16px 16px}
+.faq-answer p{font-size:.9rem;color:#4b5563;line-height:1.7}
+.products-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:12px}
+.product-link{display:block;background:#fff;border:1px solid #e5e7eb;border-radius:10px;padding:16px;text-align:center;transition:border-color .15s,box-shadow .15s}
+.product-link:hover{border-color:#f97316;box-shadow:0 2px 8px rgba(249,115,22,.12);text-decoration:none}
+.product-link strong{display:block;color:#1a2332;margin-bottom:4px}
+.product-link span{font-size:.8rem;color:#6b7280}
+footer{background:#1a2332;color:#94a3b8;text-align:center;padding:24px 0;margin-top:40px;font-size:.85rem}
+footer a{color:#f97316}
+:root{--bg:#f5f5f5;--card:#fff;--text:#333;--text-light:#666;--border:#ddd;--header-bg:#1a2332;--header-text:#fff;--muted-bg:#f8f9fa}
+body.dark{--bg:#1a1a2e;--card:#16213e;--text:#e0e0e0;--text-light:#aaa;--border:#333;--header-bg:#0f3460;--header-text:#e0e0e0;--muted-bg:#1a1a2e}
+.card{background:var(--card);border-color:var(--border)}
+header{background:var(--header-bg);color:var(--header-text)}
+@media print{header .back-link,.dark-toggle,footer,#ad-slot,button{display:none!important}body{background:var(--bg);color:#000;font-size:12pt}.card{box-shadow:none;border:1px solid #ccc;break-inside:avoid}.results{border:2px solid var(--orange,#f97316)}[id$="-slot"]{display:none!important}@page{margin:0.5in}}
+</style>
+<link rel="canonical" href="https://dustyjones49.github.io/dustyjones49/paint-calculator/">
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"WebApplication",
+  "name":"Paint Calculator",
+  "url":"https://dustyjones49.github.io/dustyjones49/paint-calculator/",
+  "description":"How much paint do you need? Calculates paintable area minus doors and windows and gallons at 350 sq ft per gallon.",
+  "applicationCategory":"EducationalApplication",
+  "operatingSystem":"All"
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"FAQPage",
+  "mainEntity":[
+    {"@type":"Question","name":"How much paint covers 350 sq ft?","acceptedAnswer":{"@type":"Answer","text":"One US gallon covers about 350 sq ft on smooth previously painted drywall with a roller. New drywall or textured walls use 300 sq ft per gallon, while second coat stretches to 400 sq ft per gallon. Buy a quart extra for touch-ups."}},
+    {"@type":"Question","name":"How many coats of paint do you need?","acceptedAnswer":{"@type":"Answer","text":"Plan for two coats for color change or new drywall, plus primer. If painting same color in good condition, one coat may be enough. Dark over light always needs primer and two coats to avoid show-through."}},
+    {"@type":"Question","name":"How do you account for doors and windows?","acceptedAnswer":{"@type":"Answer","text":"Subtract 21 sq ft per standard interior door and 15 sq ft per 3x5 ft window from wall area. For large sliding doors subtract 40 sq ft. Our calculator does this automatically and adds 10% waste."}}
+  ]
+}
+</script><style id="bc-theme">/* FieldMath - Light Theme
+   All pages use this single light theme. No dark mode. */
+:root{
+  --bg:#f5f5f5;
+  --card:#ffffff;
+  --text:#333333;
+  --text-light:#666666;
+  --muted:#f1f3f7;
+  --muted-bg:#f8f9fa;
+  --border:#dde3ea;
+  --navy:#1a2332;
+  --header-bg:#1a2332;
+  --header-text:#ffffff;
+  --orange:#f97316;
+  --accent:#f97316;
+  --success:#16a34a;
+  --warning:#d97706;
+  --danger:#dc2626;
+}
+</style>
+<style id="bc-darkflash">html,html body{background:#f5f5f5 !important;color:#333 !important}body .card,body .panel,body .box,body .calculator,body .container,body .c,body .result,body .results,body .res,body .formula,body .example,body .faq,body .faq-item,body input,body select,body textarea{background:#ffffff !important;color:#333 !important;border-color:#ddd !important}</style></head>
+<body>
+<header>
+  <div class="logo">FieldMath</div>
+  <p>Free Construction Calculators</p>
+</header>
+<div class="container">
+  <h1>Paint Calculator <span class="badge">Painting &amp; Finishing</span></h1>
+  <p>Gallons for walls from length, height, coats.</p>
+
+  <div class="card">
+    <h2>Enter Your Room</h2>
+    <div class="form-grid">
+      <div class="form-group">
+        <label for="perimeter">Wall Perimeter (ft)</label>
+        <input type="number" id="perimeter" value="40" min="1" step="0.1">
+      </div>
+      <div class="form-group">
+        <label for="height">Wall Height (ft)</label>
+        <input type="number" id="height" value="8" min="1" step="0.1">
+      </div>
+      <div class="form-group">
+        <label for="coats">Number of Coats</label>
+        <input type="number" id="coats" value="2" min="1" max="4">
+      </div>
+      <div class="form-group">
+        <label for="doors">Number of Doors</label>
+        <input type="number" id="doors" value="1" min="0" max="20">
+      </div>
+      <div class="form-group">
+        <label for="windows">Number of Windows</label>
+        <input type="number" id="windows" value="1" min="0" max="30">
+      </div>
+    </div>
+    <div class="results" id="results">
+      <p>Paintable Wall Area: <span id="paintable">604.00</span> sq ft</p>
+      <p>Gallons Needed: <span id="gallons">1.73</span> gallons</p>
+      <p>Buy: <span id="gallonsBuy">2.0</span> gallons</p>
+    </div>
+  </div>
+
+  <div class="card" style="margin-top:8px">
+<h2>Share This Calculation</h2>
+<div style="display:flex;gap:8px;flex-wrap:wrap">
+<button onclick="navigator.clipboard.writeText(window.location.href);this.textContent='Copied!';setTimeout(()=>this.textContent='&#128203; Copy Link',2000)" style="padding:8px 16px;background:#f97316;color:#fff;border:none;border-radius:6px;cursor:pointer;font-size:0.9rem">&#128203; Copy Link</button>
+<button onclick="window.open('https://twitter.com/intent/tweet?url='+encodeURIComponent(window.location.href)+'&text='+encodeURIComponent(document.title),'_blank')" style="padding:8px 16px;background:#1a2332;color:#fff;border:none;border-radius:6px;cursor:pointer;font-size:0.9rem">ð• Tweet</button>
+<button onclick="window.open('https://www.facebook.com/sharer/sharer.php?u='+encodeURIComponent(window.location.href),'_blank')" style="padding:8px 16px;background:#1877f2;color:#fff;border:none;border-radius:6px;cursor:pointer;font-size:0.9rem"> Share</button>
+<button onclick="window.open('https://pinterest.com/pin/create/button/?url='+encodeURIComponent(window.location.href)+'&description='+encodeURIComponent(document.title),'_blank')" style="padding:8px 16px;background:#e60023;color:#fff;border:none;border-radius:6px;cursor:pointer;font-size:0.9rem"> Pin</button>
+</div>
+</div>
+<div class="card">
+<h2>Embed This Calculator</h2>
+<p style="color:var(--text-light);font-size:0.85rem;margin-bottom:8px">Add this calculator to your website:</p>
+<textarea readonly onclick="this.select()" style="width:100%;height:60px;padding:8px;border:2px solid #ddd;border-radius:6px;font-family:monospace;font-size:0.8rem;background:var(--muted-bg);color:var(--text)" rows="3">&lt;iframe src="https://dustyjones49.github.io/dustyjones49/paint-calculator/" width="100%" height="800" frameborder="0"&gt;&lt;/iframe&gt;</textarea>
+</div>
+<div class="card" style="text-align:center">
+<div id="ad-slot" style="min-height:90px;border:2px dashed var(--border);display:flex;align-items:center;justify-content:center;color:var(--text-light);border-radius:6px;font-size:0.85rem">Ad Slot &#8212; Replace with AdSense Code</div>
+</div>
+
+  <div class="card">
+    <h2>Formula</h2>
+    <div class="formula-box">paintable = Perimeter &times; Height &times; Coats &minus; Doors &times; 21 &minus; Windows &times; 15
+gallons = paintable / 350
+gallons_to_buy = round up to nearest 0.1 gallon</div>
+  </div>
+
+  <div class="card">
+    <h2>Example Calculation</h2>
+    <div class="example-box">Room 40 ft perimeter, 8 ft high, 2 coats, 1 door, 1 window:
+<br>Paintable = 40&times;8&times;2 &minus; 1&times;21 &minus; 1&times;15 = <strong>604 sq ft</strong>
+<br>Gallons = 604 / 350 = <strong>1.73 gal</strong> &rarr; buy <strong>2 gallons</strong>.</div>
+  </div>
+
+  <h2>Frequently Asked Questions</h2>
+  <div class="faq-item">
+    <div class="faq-question">How much paint covers 350 sq ft?</div>
+    <div class="faq-answer"><p>One US gallon covers about 350 sq ft on smooth previously painted drywall with a roller. New drywall or textured walls use 300 sq ft per gallon, while second coat stretches to 400 sq ft per gallon. Buy a quart extra for touch-ups.</p></div>
+  </div>
+  <div class="faq-item">
+    <div class="faq-question">How many coats of paint do you need?</div>
+    <div class="faq-answer"><p>Plan for two coats for color change or new drywall, plus primer. If painting same color in good condition, one coat may be enough. Dark over light always needs primer and two coats to avoid show-through.</p></div>
+  </div>
+  <div class="faq-item">
+    <div class="faq-question">How do you account for doors and windows?</div>
+    <div class="faq-answer"><p>Subtract 21 sq ft per standard interior door and 15 sq ft per 3&times;5 ft window from wall area. For large sliding doors subtract 40 sq ft. Our calculator does this automatically and adds 10% waste.</p></div>
+  </div>
+
+  <div class="card">
+    <h2>Recommended Products</h2>
+    <div class="products-grid">
+      <a href="https://www.homedepot.com/s/Airless%20Paint%20Sprayer%203000%20PSI" target="_blank" rel="nofollow noopener" class="product-link">
+        <strong>Airless Paint Sprayer 3000 PSI</strong>
+        <span>Home Depot &rarr;</span>
+      </a>
+      <a href="https://www.amazon.com/s?k=drop+cloths+9x12+canvas&tag=buildcalc-20" target="_blank" rel="nofollow noopener" class="product-link">
+        <strong>Drop Cloths 9&times;12 ft Canvas</strong>
+        <span>Amazon &rarr;</span>
+      </a>
+      <a href="https://www.homedepot.com/s/Blue%20Painters%20Tape%201.88%20in" target="_blank" rel="nofollow noopener" class="product-link">
+        <strong>Blue Painter's Tape 1.88 in</strong>
+        <span>Home Depot &rarr;</span>
+      </a>
+    </div>
+  </div>
+
+  <footer>
+<p>2026 FieldMath - Calculators are reference only. Always verify with your local code.</p>
+</footer>
+</div>
+<script>
+(function(){
+  var perimeter=document.getElementById('perimeter');
+  var height=document.getElementById('height');
+  var coats=document.getElementById('coats');
+  var doors=document.getElementById('doors');
+  var windows=document.getElementById('windows');
+  var paintableEl=document.getElementById('paintable');
+  var gallonsEl=document.getElementById('gallons');
+  var gallonsBuyEl=document.getElementById('gallonsBuy');
+  function calc(){
+    var p=parseFloat(perimeter.value)||0;
+    var h=parseFloat(height.value)||0;
+    var c=parseInt(coats.value)||1;
+    var d=parseInt(doors.value)||0;
+    var w=parseInt(windows.value)||0;
+    var paintable=p*h*c-d*21-w*15;
+    var gallons=paintable/350;
+    var buy=Math.ceil(gallons*10)/10;
+    paintableEl.textContent=paintable.toFixed(2);
+    gallonsEl.textContent=gallons.toFixed(2);
+    gallonsBuyEl.textContent=buy.toFixed(1);
+  }
+  [perimeter,height,coats,doors,windows].forEach(function(el){el.addEventListener('input',calc)});
+  calc();
+  // FAQ accordion
+  document.querySelectorAll('.faq-question').forEach(function(q){
+    q.addEventListener('click',function(){this.parentElement.classList.toggle('open')});
+  });
+})();
+(function(){
+  var inputs=document.querySelectorAll('input,select');
+  function save(){var p=new URLSearchParams();inputs.forEach(function(e,i){if(e.value)p.set('i'+i,e.value)});if(p.toString())history.replaceState(null,'','?'+p.toString())}
+  function load(){var p=new URLSearchParams(location.search);inputs.forEach(function(e,i){if(p.has('i'+i))e.value=p.get('i'+i);e.addEventListener('input',save);e.addEventListener('change',save)});if(p.toString()){var ev=new Event('input');inputs[inputs.length-1].dispatchEvent(ev)}}
+  load();
+})();
+</script>
+<script src="../custom-select.js"></script><script src="../favorites.js"></script><script src="../remember-inputs.js"></script><script src="../sticky-header.js"></script><script src="../ui-fix.js"></script><script src="../link-fix.js"></script><script src="../auto-calc.js"></script><script src="../dark-persist.js"></script><script src="../admob-banner.js"></script></body>
+</html>
+
+
+
+

@@ -1,0 +1,54 @@
+/* FieldMath - Unified Theme
+   Injected into every page. Defines ONE canonical set of variables
+   plus aliases for all legacy variable names so every page renders
+   identically in light and dark mode. */
+:root{
+  --bg:#f5f5f5;
+  --card:#ffffff;
+  --text:#333333;
+  --text-light:#666666;
+  --muted:#f1f3f7;
+  --muted-bg:#f8f9fa;
+  --border:#dde3ea;
+  --navy:#1a2332;
+  --header-bg:#1a2332;
+  --header-text:#ffffff;
+  --orange:#f97316;
+  --accent:#f97316;
+  --success:#16a34a;
+  --warning:#d97706;
+  --danger:#dc2626;
+  /* Legacy aliases (map old names to canonical) */
+  --dark-bg:#12141d;
+  --dark-card:#1e2130;
+  --dark-text:#e5e7eb;
+  --dark-muted:#181b28;
+  --dark-border:#33364a;
+  --dark-navy:#0f1a2e;
+  --dark-header:#0f1a2e;
+}
+body.dark{
+  --bg:#12141d;
+  --card:#1e2130;
+  --text:#e5e7eb;
+  --text-light:#9ca3af;
+  --muted:#181b28;
+  --muted-bg:#181b28;
+  --border:#33364a;
+  --navy:#0f1a2e;
+  --header-bg:#0f1a2e;
+  --header-text:#ffffff;
+  --orange:#fb923c;
+  --accent:#fb923c;
+  --success:#4ade80;
+  --warning:#fbbf24;
+  --danger:#f87171;
+  /* Legacy aliases in dark */
+  --dark-bg:#12141d;
+  --dark-card:#1e2130;
+  --dark-text:#e5e7eb;
+  --dark-muted:#181b28;
+  --dark-border:#33364a;
+  --dark-navy:#0f1a2e;
+  --dark-header:#0f1a2e;
+}

@@ -1,0 +1,1064 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta name="description" content="Equipment and tools calculators for contractors. Enter your values for instant, accurate results.">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<link rel="canonical" href="https://dustyjones49.github.io/dustyjones49/equipment-calculators/">
+<title>Equipment &amp; Tools</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'Segoe UI',Arial,sans-serif;background:var(--bg);color:#1a1a2e}
+.header{background:#0a1628;color:#fff;padding:18px 28px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px;position:sticky;top:0;z-index:100;box-shadow:0 2px 12px rgba(0,0,0,0.3)}
+.header h1{font-size:1.3em;font-weight:700;letter-spacing:0.3px}
+.header h1 span{color:#f90}
+.nav-links{display:flex;gap:16px}
+.nav-links a{color:#ccc;text-decoration:none;font-size:0.85em;transition:color 0.2s}
+.nav-links a:hover{color:#f90}
+.search-wrap{background:#162447;padding:14px 28px;position:sticky;top:68px;z-index:99;display:flex;gap:12px;flex-wrap:wrap;align-items:center}
+.search-wrap input{padding:8px 14px;border:2px solid #1e3a5f;border-radius:6px;font-size:0.92em;width:280px;background:#1a2d4a;color:#fff;outline:none;transition:border-color 0.2s}
+.search-wrap input:focus{border-color:#f90}
+.search-wrap input::placeholder{color:#8899aa}
+.section-tag{display:inline-block;padding:4px 10px;border-radius:12px;font-size:0.72em;font-weight:600;margin-right:6px;cursor:pointer;transition:all 0.2s;border:1px solid transparent}
+.tag-rental{background:#1a3a2a;color:#4ecca3;border-color:#4ecca3}
+.tag-rental.active,.tag-rental:hover{background:#4ecca3;color:#000}
+.tag-prod{background:#1a2e4a;color:#5b9bd5;border-color:#5b9bd5}
+.tag-prod.active,.tag-prod:hover{background:#5b9bd5;color:#000}
+.tag-power{background:#3a2a1a;color:#f4a460;border-color:#f4a460}
+.tag-power.active,.tag-power:hover{background:#f4a460;color:#000}
+.tag-sched{background:#2a1a3a;color:#c084fc;border-color:#c084fc}
+.tag-sched.active,.tag-sched:hover{background:#c084fc;color:#000}
+.container{padding:20px 28px;max-width:1400px;margin:0 auto}
+.section-title{color:#0a1628;font-size:1.1em;font-weight:700;margin:28px 0 14px;padding-bottom:6px;border-bottom:3px solid #f90;display:inline-block}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(310px,1fr));gap:14px}
+.card{background:#fff;border-radius:8px;padding:16px 18px;box-shadow:0 1px 4px rgba(0,0,0,0.08);border-left:4px solid #f90;transition:transform 0.15s,box-shadow 0.15s}
+.card:hover{transform:translateY(-2px);box-shadow:0 4px 14px rgba(0,0,0,0.12)}
+.card-title{font-weight:700;font-size:0.88em;color:#0a1628;margin-bottom:10px}
+.card-inputs{display:flex;flex-wrap:wrap;gap:7px;margin-bottom:10px}
+.card-inputs input, .card-inputs select{padding:6px 8px;border:1.5px solid #d0d5dd;border-radius:5px;font-size:0.82em;width:100px;background:#f9fafb;color:#1a1a2e}
+.card-inputs input:focus, .card-inputs select:focus{border-color:#f90;outline:none;background:#fff}
+.card-inputs label{font-size:0.72em;color:#667;display:flex;align-items:center;gap:4px}
+.card-row{display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+.btn{background:#f90;color:#000;border:none;padding:7px 16px;border-radius:5px;cursor:pointer;font-weight:700;font-size:0.8em;transition:background 0.2s}
+.btn:hover{background:#e68a00}
+.result{font-weight:700;font-size:0.9em;color:#0a1628;margin-left:6px}
+.result span{color:#f90;font-size:1.05em}
+.hidden{display:none}
+.back-top{position:fixed;bottom:24px;right:24px;background:#f90;color:#000;border:none;border-radius:50%;width:40px;height:40px;font-size:1.2em;font-weight:700;cursor:pointer;box-shadow:0 2px 8px rgba(0,0,0,0.3);z-index:200;transition:transform 0.2s}
+.back-top:hover{transform:scale(1.1)}
+@media(max-width:600px){
+  .grid{grid-template-columns:1fr}
+  .header h1{font-size:1.1em}
+  .search-wrap input{width:100%}
+}
+</style>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"Equipment &amp; Tools <span>Calculators</span>","url":"https://dustyjones49.github.io/dustyjones49/equipment-calculators/","description":"Equipment &amp; Tools <span>Calculators</span> calculator. Enter your values for instant, accurate results with clear formulas and helpful references.","applicationCategory":"UtilityApplication","operatingSystem":"Any"}</script><style id="bc-theme">/* FieldMath - Light Theme
+   All pages use this single light theme. No dark mode. */
+:root{
+  --bg:#f5f5f5;
+  --card:#ffffff;
+  --text:#333333;
+  --text-light:#666666;
+  --muted:#f1f3f7;
+  --muted-bg:#f8f9fa;
+  --border:#dde3ea;
+  --navy:#1a2332;
+  --header-bg:#1a2332;
+  --header-text:#ffffff;
+  --orange:#f97316;
+  --accent:#f97316;
+  --success:#16a34a;
+  --warning:#d97706;
+  --danger:#dc2626;
+}
+</style>
+<style id="bc-darkflash">html,html body{background:#f5f5f5 !important;color:#333 !important}body .card,body .panel,body .box,body .calculator,body .container,body .c,body .result,body .results,body .res,body .formula,body .example,body .faq,body .faq-item,body input,body select,body textarea{background:#ffffff !important;color:#333 !important;border-color:#ddd !important}</style></head>
+<body class="mega-cat"><style>body.mega-cat .c > .card{display:none !important}body.mega-cat .c > .srch{display:none !important}</style>
+<header><h1>Equipment &amp; Tools</h1></header>
+
+<div class="container" id="calcContainer">
+
+<h2 class="section-title" data-section="rental">Rental &amp; Ownership</h2>
+<div class="grid" data-section="rental">
+
+<div class="card" data-tags="rental">
+<div class="card-title">1. Equipment Rental Daily Cost</div>
+<div class="card-inputs">
+<label>Weekly Rate $<input id="e1a" value="1500" type="number" step="any"></label>
+</div>
+<div class="card-row"><button class="btn" onclick="document.getElementById('e1r').textContent=(parseFloat(document.getElementById('e1a').value)/7).toFixed(2)">Calc</button><span class="result">$<span id="e1r">&#8212;</span>/day</span></div>
+</div>
+
+<div class="card" data-tags="rental">
+<div class="card-title">2. Weekly vs Daily Rental Savings</div>
+<div class="card-inputs">
+<label>Daily $<input id="e2a" value="280" type="number" step="any"></label>
+<label>Weekly $<input id="e2b" value="1500" type="number" step="any"></label>
+<label>Days<input id="e2c" value="5" type="number" step="any"></label>
+</div>
+<div class="card-row"><button class="btn" onclick="let d=parseFloat(document.getElementById('e2a').value)*parseFloat(document.getElementById('e2c').value);let w=parseFloat(document.getElementById('e2b').value);document.getElementById('e2r').textContent=(d-w).toFixed(2)">Calc</button><span class="result">Save $<span id="e2r">&#8212;</span></span></div>
+</div>
+
+<div class="card" data-tags="rental">
+<div class="card-title">3. Monthly Rental vs Buy</div>
+<div class="card-inputs">
+<label>Monthly Rent $<input id="e3a" value="3800" type="number" step="any"></label>
+<label>Purchase $<input id="e3b" value="85000" type="number" step="any"></label>
+<label>Months<input id="e3c" value="24" type="number" step="any"></label>
+</div>
+<div class="card-row"><button class="btn" onclick="let r=parseFloat(document.getElementById('e3a').value)*parseFloat(document.getElementById('e3c').value);let b=parseFloat(document.getElementById('e3b').value);document.getElementById('e3r').textContent=r<b?'Rent saves $'+(b-r).toFixed(0):'Buy saves $'+(r-b).toFixed(0)">Calc</button><span class="result"><span id="e3r">&#8212;</span></span></div>
+</div>
+
+<div class="card" data-tags="rental">
+<div class="card-title">4. Equipment Cost Per Hour</div>
+<div class="card-inputs">
+<label>Total Cost $<input id="e4a" value="85000" type="number" step="any"></label>
+<label>Life Hours<input id="e4b" value="10000" type="number" step="any"></label>
+</div>
+<div class="card-row"><button class="btn" onclick="document.getElementById('e4r').textContent=(parseFloat(document.getElementById('e4a').value)/parseFloat(document.getElementById('e4b').value)).toFixed(2)">Calc</button><span class="result">$<span id="e4r">&#8212;</span>/hr</span></div>
+</div>
+
+<div class="card" data-tags="rental">
+<div class="card-title">5. Equipment Cost Per Day</div>
+<div class="card-inputs">
+<label>Hourly Rate $<input id="e5a" value="45" type="number" step="any"></label>
+<label>Hours/Day<input id="e5b" value="8" type="number" step="any"></label>
+</div>
+<div class="card-row"><button class="btn" onclick="document.getElementById('e5r').textContent=(parseFloat(document.getElementById('e5a').value)*parseFloat(document.getElementById('e5b').value)).toFixed(2)">Calc</button><span class="result">$<span id="e5r">&#8212;</span>/day</span></div>
+</div>
+
+<div class="card" data-tags="rental">
+<div class="card-title">6. Fuel Cost Per Hour</div>
+<div class="card-inputs">
+<label>Fuel Rate GPH<input id="e6a" value="4.5" type="number" step="any"></label>
+<label>Fuel $/gal<input id="e6b" value="4.25" type="number" step="any"></label>
+</div>
+<div class="card-row"><button class="btn" onclick="document.getElementById('e6r').textContent=(parseFloat(document.getElementById('e6a').value)*parseFloat(document.getElementById('e6b').value)).toFixed(2)">Calc</button><span class="result">$<span id="e6r">&#8212;</span>/hr</span></div>
+</div>
+
+<div class="card" data-tags="rental">
+<div class="card-title">7. Maintenance Cost Per Hour</div>
+<div class="card-inputs">
+<label>Annual Maint $<input id="e7a" value="8500" type="number" step="any"></label>
+<label>Annual Hours<input id="e7b" value="2000" type="number" step="any"></label>
+</div>
+<div class="card-row"><button class="btn" onclick="document.getElementById('e7r').textContent=(parseFloat(document.getElementById('e7a').value)/parseFloat(document.getElementById('e7b').value)).toFixed(2)">Calc</button><span class="result">$<span id="e7r">&#8212;</span>/hr</span></div>
+</div>
+
+<div class="card" data-tags="rental">
+<div class="card-title">8. Total Ownership Cost</div>
+<div class="card-inputs">
+<label>Purchase $<input id="e8a" value="95000" type="number" step="any"></label>
+<label>Annual Maint $<input id="e8b" value="8500" type="number" step="any"></label>
+<label>Annual Fuel $<input id="e8c" value="18000" type="number" step="any"></label>
+<label>Years<input id="e8d" value="7" type="number" step="any"></label>
+</div>
+<div class="card-row"><button class="btn" onclick="let p=parseFloat(document.getElementById('e8a').value);let m=parseFloat(document.getElementById('e8b').value)*parseFloat(document.getElementById('e8d').value);let f=parseFloat(document.getElementById('e8c').value)*parseFloat(document.getElementById('e8d').value);document.getElementById('e8r').textContent=(p+m+f).toFixed(0)">Calc</button><span class="result">$<span id="e8r">&#8212;</span> total</span></div>
+</div>
+
+<div class="card" data-tags="rental">
+<div class="card-title">9. Depreciation - Straight Line</div>
+<div class="card-inputs">
+<label>Purchase $<input id="e9a" value="95000" type="number" step="any"></label>
+<label>Salvage $<input id="e9b" value="15000" type="number" step="any"></label>
+<label>Life Years<input id="e9c" value="7" type="number" step="any"></label>
+</div>
+<div class="card-row"><button class="btn" onclick="document.getElementById('e9r').textContent=((parseFloat(document.getElementById('e9a').value)-parseFloat(document.getElementById('e9b').value))/parseFloat(document.getElementById('e9c').value)).toFixed(2)">Calc</button><span class="result">$<span id="e9r">&#8212;</span>/yr</span></div>
+</div>
+
+<div class="card" data-tags="rental">
+<div class="card-title">10. Depreciation - Accelerated (DDB)</div>
+<div class="card-inputs">
+<label>Book Value $<input id="e10a" value="95000" type="number" step="any"></label>
+<label>Life Years<input id="e10b" value="7" type="number" step="any"></label>
+<label>Year #<input id="e10c" value="1" type="number" step="any"></label>
+</div>
+<div class="card-row"><button class="btn" onclick="let bv=parseFloat(document.getElementById('e10a').value);let l=parseFloat(document.getElementById('e10b').value);let r=2/l;let dep=bv*r;for(let i=1;i<parseFloat(document.getElementById('e10c').value);i++)bv-=bv*r;document.getElementById('e10r').textContent=(bv*r).toFixed(2)">Calc</button><span class="result">$<span id="e10r">&#8212;</span> yr dep</span></div>
+</div>
+
+<div class="card" data-tags="rental">
+<div class="card-title">11. Equipment Resale Value</div>
+<div class="card-inputs">
+<label>Original $<input id="e11a" value="95000" type="number" step="any"></label>
+<label>Depreciation %/yr<input id="e11b" value="12" type="number" step="any"></label>
+<label>Years Old<input id="e11c" value="5" type="number" step="any"></label>
+</div>
+<div class="card-row"><button class="btn" onclick="let v=parseFloat(document.getElementById('e11a').value);let d=parseFloat(document.getElementById('e11b').value)/100;let y=parseFloat(document.getElementById('e11c').value);document.getElementById('e11r').textContent=(v*Math.pow(1-d,y)).toFixed(0)">Calc</button><span class="result">$<span id="e11r">&#8212;</span></span></div>
+</div>
+
+<div class="card" data-tags="rental">
+<div class="card-title">12. Equipment Utilization Rate</div>
+<div class="card-inputs">
+<label>Hours Used<input id="e12a" value="1600" type="number" step="any"></label>
+<label>Hours Available<input id="e12b" value="2000" type="number" step="any"></label>
+</div>
+<div class="card-row"><button class="btn" onclick="document.getElementById('e12r').textContent=(parseFloat(document.getElementById('e12a').value)/parseFloat(document.getElementById('e12b').value)*100).toFixed(1)+'%'">Calc</button><span class="result"><span id="e12r">&#8212;</span></span></div>
+</div>
+
+<div class="card" data-tags="rental">
+<div class="card-title">13. Fleet Size Needed</div>
+<div class="card-inputs">
+<label>Daily Demand Units<input id="e13a" value="12" type="number" step="any"></label>
+<label>Utilization Rate %<input id="e13b" value="85" type="number" step="any"></label>
+</div>
+<div class="card-row"><button class="btn" onclick="document.getElementById('e13r').textContent=Math.ceil(parseFloat(document.getElementById('e13a').value)/(parseFloat(document.getElementById('e13b').value)/100))">Calc</button><span class="result"><span id="e13r">&#8212;</span> units</span></div>
+</div>
+
+<div class="card" data-tags="rental">
+<div class="card-title">14. Crew Size Calculator</div>
+<div class="card-inputs">
+<label>Total Man-Hours<input id="e14a" value="320" type="number" step="any"></label>
+<label>Available Days<input id="e14b" value="10" type="number" step="any"></label>
+<label>Hours/Day<input id="e14c" value="8" type="number" step="any"></label>
+</div>
+<div class="card-row"><button class="btn" onclick="document.getElementById('e14r').textContent=Math.ceil(parseFloat(document.getElementById('e14a').value)/(parseFloat(document.getElementById('e14b').value)*parseFloat(document.getElementById('e14c').value)))">Calc</button><span class="result"><span id="e14r">&#8212;</span> workers</span></div>
+</div>
+
+<div class="card" data-tags="rental">
+<div class="card-title">15. Labor Cost Per Hour</div>
+<div class="card-inputs">
+<label>Hourly Wage $<input id="e15a" value="35" type="number" step="any"></label>
+<label>Benefits %<input id="e15b" value="30" type="number" step="any"></label>
+</div>
+<div class="card-row"><button class="btn" onclick="document.getElementById('e15r').textContent=(parseFloat(document.getElementById('e15a').value)*(1+parseFloat(document.getElementById('e15b').value)/100)).toFixed(2)">Calc</button><span class="result">$<span id="e15r">&#8212;</span>/hr</span></div>
+</div>
+
+<div class="card" data-tags="rental">
+<div class="card-title">16. Burdened Labor Rate</div>
+<div class="card-inputs">
+<label>Base Rate $<input id="e16a" value="35" type="number" step="any"></label>
+<label>Payroll Tax %<input id="e16b" value="9.5" type="number" step="any"></label>
+<label>Ins/Benefits %<input id="e16c" value="18" type="number" step="any"></label>
+<label>Overhead %<input id="e16d" value="12" type="number" step="any"></label>
+</div>
+<div class="card-row"><button class="btn" onclick="let b=parseFloat(document.getElementById('e16a').value);let t=b*parseFloat(document.getElementById('e16b').value)/100;let i=b*parseFloat(document.getElementById('e16c').value)/100;let o=b*parseFloat(document.getElementById('e16d').value)/100;document.getElementById('e16r').textContent=(b+t+i+o).toFixed(2)">Calc</button><span class="result">$<span id="e16r">&#8212;</span>/hr</span></div>
+</div>
+
+<div class="card" data-tags="rental">
+<div class="card-title">17. Overtime Cost</div>
+<div class="card-inputs">
+<label>Regular Rate $<input id="e17a" value="35" type="number" step="any"></label>
+<label>OT Hours<input id="e17b" value="10" type="number" step="any"></label>
+<label>OT Multiplier<input id="e17c" value="1.5" type="number" step="any"></label>
+</div>
+<div class="card-row"><button class="btn" onclick="document.getElementById('e17r').textContent=(parseFloat(document.getElementById('e17a').value)*parseFloat(document.getElementById('e17b').value)*parseFloat(document.getElementById('e17c').value)).toFixed(2)">Calc</button><span class="result">$<span id="e17r">&#8212;</span></span></div>
+</div>
+
+<div class="card" data-tags="rental">
+<div class="card-title">18. Workers Comp Rate</div>
+<div class="card-inputs">
+<label>Payroll $<input id="e18a" value="280000" type="number" step="any"></label>
+<label>Class Rate $/100<input id="e18b" value="8.50" type="number" step="any"></label>
+</div>
+<div class="card-row"><button class="btn" onclick="document.getElementById('e18r').textContent=(parseFloat(document.getElementById('e18a').value)/100*parseFloat(document.getElementById('e18b').value)).toFixed(2)">Calc</button><span class="result">$<span id="e18r">&#8212;</span>/yr</span></div>
+</div>
+
+<div class="card" data-tags="rental">
+<div class="card-title">19. Equipment Downtime Cost</div>
+<div class="card-inputs">
+<label>Hourly Rate $<input id="e19a" value="185" type="number" step="any"></label>
+<label>Downtime Hours<input id="e19b" value="8" type="number" step="any"></label>
+<label>Standby Crew $/hr<input id="e19c" value="65" type="number" step="any"></label>
+</div>
+<div class="card-row"><button class="btn" onclick="document.getElementById('e19r').textContent=((parseFloat(document.getElementById('e19a').value)+parseFloat(document.getElementById('e19c').value))*parseFloat(document.getElementById('e19b').value)).toFixed(2)">Calc</button><span class="result">$<span id="e19r">&#8212;</span> lost</span></div>
+</div>
+
+<div class="card" data-tags="rental">
+<div class="card-title">20. Standby Cost</div>
+<div class="card-inputs">
+<label>Daily Rate $<input id="e20a" value="1200" type="number" step="any"></label>
+<label>Standby Days<input id="e20b" value="3" type="number" step="any"></label>
+<label>Standby % of rate<input id="e20c" value="65" type="number" step="any"></label>
+</div>
+<div class="card-row"><button class="btn" onclick="document.getElementById('e20r').textContent=(parseFloat(document.getElementById('e20a').value)*parseFloat(document.getElementById('e20b').value)*parseFloat(document.getElementById('e20c').value)/100).toFixed(2)">Calc</button><span class="result">$<span id="e20r">&#8212;</span></span></div>
+</div>
+
+<div class="card" data-tags="rental">
+<div class="card-title">21. Mobilization Cost</div>
+<div class="card-inputs">
+<label>Transport $<input id="e21a" value="2500" type="number" step="any"></label>
+<label>Setup Hrs<input id="e21b" value="4" type="number" step="any"></label>
+<label>Labor $/hr<input id="e21c" value="65" type="number" step="any"></label>
+</div>
+<div class="card-row"><button class="btn" onclick="document.getElementById('e21r').textContent=(parseFloat(document.getElementById('e21a').value)+parseFloat(document.getElementById('e21b').value)*parseFloat(document.getElementById('e21c').value)).toFixed(2)">Calc</button><span class="result">$<span id="e21r">&#8212;</span></span></div>
+</div>
+
+<div class="card" data-tags="rental">
+<div class="card-title">22. Demobilization Cost</div>
+<div class="card-inputs">
+<label>Transport $<input id="e22a" value="2200" type="number" step="any"></label>
+<label>Teardown Hrs<input id="e22b" value="3" type="number" step="any"></label>
+<label>Labor $/hr<input id="e22c" value="65" type="number" step="any"></label>
+</div>
+<div class="card-row"><button class="btn" onclick="document.getElementById('e22r').textContent=(parseFloat(document.getElementById('e22a').value)+parseFloat(document.getElementById('e22b').value)*parseFloat(document.getElementById('e22c').value)).toFixed(2)">Calc</button><span class="result">$<span id="e22r">&#8212;</span></span></div>
+</div>
+
+<div class="card" data-tags="rental">
+<div class="card-title">23. Equipment Transport Cost</div>
+<div class="card-inputs">
+<label>Weight Tons<input id="e23a" value="22" type="number" step="any"></label>
+<label>Miles<input id="e23b" value="85" type="number" step="any"></label>
+<label>Rate $/ton-mi<input id="e23c" value="3.50" type="number" step="any"></label>
+</div>
+<div class="card-row"><button class="btn" onclick="document.getElementById('e23r').textContent=(parseFloat(document.getElementById('e23a').value)*parseFloat(document.getElementById('e23b').value)*parseFloat(document.getElementById('e23c').value)).toFixed(2)">Calc</button><span class="result">$<span id="e23r">&#8212;</span></span></div>
+</div>
+
+<div class="card" data-tags="rental">
+<div class="card-title">24. Rigging Cost</div>
+<div class="card-inputs">
+<label>Rigging Labor Hrs<input id="e24a" value="6" type="number" step="any"></label>
+<label>Rigger Rate $/hr<input id="e24b" value="95" type="number" step="any"></label>
+<label>Rigging Gear $<input id="e24c" value="450" type="number" step="any"></label>
+</div>
+<div class="card-row"><button class="btn" onclick="document.getElementById('e24r').textContent=(parseFloat(document.getElementById('e24a').value)*parseFloat(document.getElementById('e24b').value)+parseFloat(document.getElementById('e24c').value)).toFixed(2)">Calc</button><span class="result">$<span id="e24r">&#8212;</span></span></div>
+</div>
+
+<div class="card" data-tags="rental">
+<div class="card-title">25. Crane Rental Cost</div>
+<div class="card-inputs">
+<label>Tonnage<input id="e25a" value="80" type="number" step="any"></label>
+<label>Days<input id="e25b" value="5" type="number" step="any"></label>
+<label>Rate $/day<input id="e25c" value="2400" type="number" step="any"></label>
+<label>Operator $/hr<input id="e25d" value="85" type="number" step="any"></label>
+<label>Hrs/Day<input id="e25e" value="8" type="number" step="any"></label>
+</div>
+<div class="card-row"><button class="btn" onclick="let d=parseFloat(document.getElementById('e25b').value);document.getElementById('e25r').textContent=(d*parseFloat(document.getElementById('e25c').value)+d*parseFloat(document.getElementById('e25d').value)*parseFloat(document.getElementById('e25e').value)).toFixed(2)">Calc</button><span class="result">$<span id="e25r">&#8212;</span></span></div>
+</div>
+</div>
+
+<h2 class="section-title" data-section="prod">Production Rates</h2>
+<div class="grid" data-section="prod">
+
+<div class="card" data-tags="prod">
+<div class="card-title">26. Excavation Rate (CY/hr)</div>
+<div class="card-inputs">
+<label>Bucket CY<input id="e26a" value="2.5" type="number" step="any"></label>
+<label>Cycles/min<input id="e26b" value="2" type="number" step="any"></label>
+<label>Efficiency %<input id="e26c" value="80" type="number" step="any"></label>
+</div>
+<div class="card-row"><button class="btn" onclick="document.getElementById('e26r').textContent=(parseFloat(document.getElementById('e26a').value)*parseFloat(document.getElementById('e26b').value)*60*parseFloat(document.getElementById('e26c').value)/100).toFixed(1)">Calc</button><span class="result"><span id="e26r">&#8212;</span> CY/hr</span></div>
+</div>
+
+<div class="card" data-tags="prod">
+<div class="card-title">27. Trenching Rate (LF/hr)</div>
+<div class="card-inputs">
+<label>Depth ft<input id="e27a" value="4" type="number" step="any"></label>
+<label>Width ft<input id="e27b" value="2" type="number" step="any"></label>
+<label>Trench CY/hr<input id="e27c" value="45" type="number" step="any"></label>
+</div>
+<div class="card-row"><button class="btn" onclick="document.getElementById('e27r').textContent=(parseFloat(document.getElementById('e27c').value)*27/(parseFloat(document.getElementById('e27a').value)*parseFloat(document.getElementById('e27b').value))).toFixed(1)">Calc</button><span class="result"><span id="e27r">&#8212;</span> LF/hr</span></div>
+</div>
+
+<div class="card" data-tags="prod">
+<div class="card-title">28. Backfill Rate (CY/hr)</div>
+<div class="card-inputs">
+<label>Bucket CY<input id="e28a" value="1.8" type="number" step="any"></label>
+<label>Cycles/min<input id="e28b" value="1.8" type="number" step="any"></label>
+<label>Efficiency %<input id="e28c" value="75" type="number" step="any"></label>
+</div>
+<div class="card-row"><button class="btn" onclick="document.getElementById('e28r').textContent=(parseFloat(document.getElementById('e28a').value)*parseFloat(document.getElementById('e28b').value)*60*parseFloat(document.getElementById('e28c').value)/100).toFixed(1)">Calc</button><span class="result"><span id="e28r">&#8212;</span> CY/hr</span></div>
+</div>
+
+<div class="card" data-tags="prod">
+<div class="card-title">29. Compaction Rate (SF/hr)</div>
+<div class="card-inputs">
+<label>Drum Width ft<input id="e29a" value="4.5" type="number" step="any"></label>
+<label>Speed mph<input id="e29b" value="2.5" type="number" step="any"></label>
+<label>Efficiency %<input id="e29c" value="80" type="number" step="any"></label>
+<label>Passes<input id="e29d" value="4" type="number" step="any"></label>
+</div>
+<div class="card-row"><button class="btn" onclick="document.getElementById('e29r').textContent=(parseFloat(document.getElementById('e29a').value)*parseFloat(document.getElementById('e29b').value)*5280*parseFloat(document.getElementById('e29c').value)/100/parseFloat(document.getElementById('e29d').value)).toFixed(0)">Calc</button><span class="result"><span id="e29r">&#8212;</span> SF/hr</span></div>
+</div>
+
+<div class="card" data-tags="prod">
+<div class="card-title">30. Concrete Pour Rate (CY/hr)</div>
+<div class="card-inputs">
+<label>Pump Output CY/hr<input id="e30a" value="55" type="number" step="any"></label>
+<label>Placement Eff %<input id="e30b" value="85" type="number" step="any"></label>
+</div>
+<div class="card-row"><button class="btn" onclick="document.getElementById('e30r').textContent=(parseFloat(document.getElementById('e30a').value)*parseFloat(document.getElementById('e30b').value)/100).toFixed(1)">Calc</button><span class="result"><span id="e30r">&#8212;</span> CY/hr</span></div>
+</div>
+
+<div class="card" data-tags="prod">
+<div class="card-title">31. Concrete Finishing Rate (SF/hr)</div>
+<div class="card-inputs">
+<label>Crew Size<input id="e31a" value="4" type="number" step="any"></label>
+<label>SF/hr per person<input id="e31b" value="250" type="number" step="any"></label>
+</div>
+<div class="card-row"><button class="btn" onclick="document.getElementById('e31r').textContent=(parseFloat(document.getElementById('e31a').value)*parseFloat(document.getElementById('e31b').value)).toFixed(0)">Calc</button><span class="result"><span id="e31r">&#8212;</span> SF/hr</span></div>
+</div>
+
+<div class="card" data-tags="prod">
+<div class="card-title">32. Rebar Placing Rate (tons/hr)</div>
+<div class="card-inputs">
+<label>Crew Size<input id="e32a" value="3" type="number" step="any"></label>
+<label>lbs/hr per person<input id="e32b" value="350" type="number" step="any"></label>
+</div>
+<div class="card-row"><button class="btn" onclick="document.getElementById('e32r').textContent=(parseFloat(document.getElementById('e32a').value)*parseFloat(document.getElementById('e32b').value)/2000).toFixed(2)">Calc</button><span class="result"><span id="e32r">&#8212;</span> tons/hr</span></div>
+</div>
+
+<div class="card" data-tags="prod">
+<div class="card-title">33. Form Setting Rate (SF/hr)</div>
+<div class="card-inputs">
+<label>Crew Size<input id="e33a" value="4" type="number" step="any"></label>
+<label>SF/hr per person<input id="e33b" value="60" type="number" step="any"></label>
+</div>
+<div class="card-row"><button class="btn" onclick="document.getElementById('e33r').textContent=(parseFloat(document.getElementById('e33a').value)*parseFloat(document.getElementById('e33b').value)).toFixed(0)">Calc</button><span class="result"><span id="e33r">&#8212;</span> SF/hr</span></div>
+</div>
+
+<div class="card" data-tags="prod">
+<div class="card-title">34. Framing Rate (SF/hr)</div>
+<div class="card-inputs">
+<label>Crew Size<input id="e34a" value="4" type="number" step="any"></label>
+<label>SF/hr per person<input id="e34b" value="80" type="number" step="any"></label>
+</div>
+<div class="card-row"><button class="btn" onclick="document.getElementById('e34r').textContent=(parseFloat(document.getElementById('e34a').value)*parseFloat(document.getElementById('e34b').value)).toFixed(0)">Calc</button><span class="result"><span id="e34r">&#8212;</span> SF/hr</span></div>
+</div>
+
+<div class="card" data-tags="prod">
+<div class="card-title">35. Drywall Hanging Rate (sheets/hr)</div>
+<div class="card-inputs">
+<label>Crew Size<input id="e35a" value="2" type="number" step="any"></label>
+<label>Sheets/hr per person<input id="e35b" value="6" type="number" step="any"></label>
+</div>
+<div class="card-row"><button class="btn" onclick="document.getElementById('e35r').textContent=(parseFloat(document.getElementById('e35a').value)*parseFloat(document.getElementById('e35b').value)).toFixed(1)">Calc</button><span class="result"><span id="e35r">&#8212;</span> sheets/hr</span></div>
+</div>
+
+<div class="card" data-tags="prod">
+<div class="card-title">36. Drywall Finishing Rate (LF/hr)</div>
+<div class="card-inputs">
+<label>Crew Size<input id="e36a" value="2" type="number" step="any"></label>
+<label>LF/hr per person<input id="e36b" value="85" type="number" step="any"></label>
+</div>
+<div class="card-row"><button class="btn" onclick="document.getElementById('e36r').textContent=(parseFloat(document.getElementById('e36a').value)*parseFloat(document.getElementById('e36b').value)).toFixed(0)">Calc</button><span class="result"><span id="e36r">&#8212;</span> LF/hr</span></div>
+</div>
+
+<div class="card" data-tags="prod">
+<div class="card-title">37. Painting Rate - Spray (SF/hr)</div>
+<div class="card-inputs">
+<label>Sprayer Coverage SF/min<input id="e37a" value="65" type="number" step="any"></label>
+<label>Efficiency %<input id="e37b" value="72" type="number" step="any"></label>
+</div>
+<div class="card-row"><button class="btn" onclick="document.getElementById('e37r').textContent=(parseFloat(document.getElementById('e37a').value)*60*parseFloat(document.getElementById('e37b').value)/100).toFixed(0)">Calc</button><span class="result"><span id="e37r">&#8212;</span> SF/hr</span></div>
+</div>
+
+<div class="card" data-tags="prod">
+<div class="card-title">38. Painting Rate - Roller (SF/hr)</div>
+<div class="card-inputs">
+<label>Roller Coverage SF/min<input id="e38a" value="30" type="number" step="any"></label>
+<label>Efficiency %<input id="e38b" value="80" type="number" step="any"></label>
+</div>
+<div class="card-row"><button class="btn" onclick="document.getElementById('e38r').textContent=(parseFloat(document.getElementById('e38a').value)*60*parseFloat(document.getElementById('e38b').value)/100).toFixed(0)">Calc</button><span class="result"><span id="e38r">&#8212;</span> SF/hr</span></div>
+</div>
+
+<div class="card" data-tags="prod">
+<div class="card-title">39. Flooring Install Rate (SF/hr)</div>
+<div class="card-inputs">
+<label>Crew Size<input id="e39a" value="2" type="number" step="any"></label>
+<label>SF/hr per person<input id="e39b" value="75" type="number" step="any"></label>
+</div>
+<div class="card-row"><button class="btn" onclick="document.getElementById('e39r').textContent=(parseFloat(document.getElementById('e39a').value)*parseFloat(document.getElementById('e39b').value)).toFixed(0)">Calc</button><span class="result"><span id="e39r">&#8212;</span> SF/hr</span></div>
+</div>
+
+<div class="card" data-tags="prod">
+<div class="card-title">40. Tile Setting Rate (SF/hr)</div>
+<div class="card-inputs">
+<label>Crew Size<input id="e40a" value="2" type="number" step="any"></label>
+<label>SF/hr per person<input id="e40b" value="35" type="number" step="any"></label>
+</div>
+<div class="card-row"><button class="btn" onclick="document.getElementById('e40r').textContent=(parseFloat(document.getElementById('e40a').value)*parseFloat(document.getElementById('e40b').value)).toFixed(0)">Calc</button><span class="result"><span id="e40r">&#8212;</span> SF/hr</span></div>
+</div>
+
+<div class="card" data-tags="prod">
+<div class="card-title">41. Roofing Rate (squares/hr)</div>
+<div class="card-inputs">
+<label>Crew Size<input id="e41a" value="4" type="number" step="any"></label>
+<label>Squares/hr per person<input id="e41b" value="0.5" type="number" step="any"></label>
+</div>
+<div class="card-row"><button class="btn" onclick="document.getElementById('e41r').textContent=(parseFloat(document.getElementById('e41a').value)*parseFloat(document.getElementById('e41b').value)).toFixed(1)">Calc</button><span class="result"><span id="e41r">&#8212;</span> sq/hr</span></div>
+</div>
+
+<div class="card" data-tags="prod">
+<div class="card-title">42. Siding Rate (SF/hr)</div>
+<div class="card-inputs">
+<label>Crew Size<input id="e42a" value="3" type="number" step="any"></label>
+<label>SF/hr per person<input id="e42b" value="80" type="number" step="any"></label>
+</div>
+<div class="card-row"><button class="btn" onclick="document.getElementById('e42r').textContent=(parseFloat(document.getElementById('e42a').value)*parseFloat(document.getElementById('e42b').value)).toFixed(0)">Calc</button><span class="result"><span id="e42r">&#8212;</span> SF/hr</span></div>
+</div>
+
+<div class="card" data-tags="prod">
+<div class="card-title">43. Insulation Rate (SF/hr)</div>
+<div class="card-inputs">
+<label>Crew Size<input id="e43a" value="2" type="number" step="any"></label>
+<label>SF/hr per person<input id="e43b" value="300" type="number" step="any"></label>
+</div>
+<div class="card-row"><button class="btn" onclick="document.getElementById('e43r').textContent=(parseFloat(document.getElementById('e43a').value)*parseFloat(document.getElementById('e43b').value)).toFixed(0)">Calc</button><span class="result"><span id="e43r">&#8212;</span> SF/hr</span></div>
+</div>
+
+<div class="card" data-tags="prod">
+<div class="card-title">44. Demolition Rate (SF/hr)</div>
+<div class="card-inputs">
+<label>Machine CY/hr<input id="e44a" value="55" type="number" step="any"></label>
+<label>Wall Thickness ft<input id="e44b" value="0.67" type="number" step="any"></label>
+</div>
+<div class="card-row"><button class="btn" onclick="document.getElementById('e44r').textContent=(parseFloat(document.getElementById('e44a').value)*27/parseFloat(document.getElementById('e44b').value)).toFixed(0)">Calc</button><span class="result"><span id="e44r">&#8212;</span> SF/hr</span></div>
+</div>
+
+<div class="card" data-tags="prod">
+<div class="card-title">45. Debris Removal (CY)</div>
+<div class="card-inputs">
+<label>Demolished SF<input id="e45a" value="2500" type="number" step="any"></label>
+<label>Thickness ft<input id="e45b" value="0.67" type="number" step="any"></label>
+<label>Swell Factor %<input id="e45c" value="35" type="number" step="any"></label>
+</div>
+<div class="card-row"><button class="btn" onclick="document.getElementById('e45r').textContent=(parseFloat(document.getElementById('e45a').value)*parseFloat(document.getElementById('e45b').value)/27*(1+parseFloat(document.getElementById('e45c').value)/100)).toFixed(1)">Calc</button><span class="result"><span id="e45r">&#8212;</span> CY</span></div>
+</div>
+
+<div class="card" data-tags="prod">
+<div class="card-title">46. Dumpster Size</div>
+<div class="card-inputs">
+<label>Debris CY<input id="e46a" value="85" type="number" step="any"></label>
+<label>Fill Efficiency %<input id="e46b" value="80" type="number" step="any"></label>
+</div>
+<div class="card-row"><button class="btn" onclick="let s=parseFloat(document.getElementById('e46a').value)/(parseFloat(document.getElementById('e46b').value)/100);let o=[10,15,20,30,40];let r=o.find(v=>v>=s)||40;document.getElementById('e46r').textContent=r+' yard'">Calc</button><span class="result"><span id="e46r">&#8212;</span></span></div>
+</div>
+
+<div class="card" data-tags="prod">
+<div class="card-title">47. Dumpster Weight</div>
+<div class="card-inputs">
+<label>Debris CY<input id="e47a" value="30" type="number" step="any"></label>
+<label>lbs/CY<input id="e47b" value="1450" type="number" step="any"></label>
+</div>
+<div class="card-row"><button class="btn" onclick="document.getElementById('e47r').textContent=(parseFloat(document.getElementById('e47a').value)*parseFloat(document.getElementById('e47b').value)/2000).toFixed(2)">Calc</button><span class="result"><span id="e47r">&#8212;</span> tons</span></div>
+</div>
+
+<div class="card" data-tags="prod">
+<div class="card-title">48. Truck Cycle Time</div>
+<div class="card-inputs">
+<label>Load Time min<input id="e48a" value="5" type="number" step="any"></label>
+<label>Haul Time min<input id="e48b" value="18" type="number" step="any"></label>
+<label>Dump Time min<input id="e48c" value="3" type="number" step="any"></label>
+<label>Return Time min<input id="e48d" value="15" type="number" step="any"></label>
+</div>
+<div class="card-row"><button class="btn" onclick="document.getElementById('e48r').textContent=(parseFloat(document.getElementById('e48a').value)+parseFloat(document.getElementById('e48b').value)+parseFloat(document.getElementById('e48c').value)+parseFloat(document.getElementById('e48d').value)).toFixed(1)">Calc</button><span class="result"><span id="e48r">&#8212;</span> min/cycle</span></div>
+</div>
+
+<div class="card" data-tags="prod">
+<div class="card-title">49. Haul Distance Time</div>
+<div class="card-inputs">
+<label>Distance mi<input id="e49a" value="8" type="number" step="any"></label>
+<label>Speed mph<input id="e49b" value="30" type="number" step="any"></label>
+</div>
+<div class="card-row"><button class="btn" onclick="document.getElementById('e49r').textContent=(parseFloat(document.getElementById('e49a').value)/parseFloat(document.getElementById('e49b').value)*60).toFixed(1)">Calc</button><span class="result"><span id="e49r">&#8212;</span> min</span></div>
+</div>
+
+<div class="card" data-tags="prod">
+<div class="card-title">50. Loader Bucket Count</div>
+<div class="card-inputs">
+<label>Truck Capacity CY<input id="e50a" value="14" type="number" step="any"></label>
+<label>Bucket CY<input id="e50b" value="3.5" type="number" step="any"></label>
+<label>Bucket Fill %<input id="e50c" value="90" type="number" step="any"></label>
+</div>
+<div class="card-row"><button class="btn" onclick="document.getElementById('e50r').textContent=Math.ceil(parseFloat(document.getElementById('e50a').value)/(parseFloat(document.getElementById('e50b').value)*parseFloat(document.getElementById('e50c').value)/100))">Calc</button><span class="result"><span id="e50r">&#8212;</span> buckets</span></div>
+</div>
+</div>
+
+<h2 class="section-title" data-section="power">Power &amp; Fuel</h2>
+<div class="grid" data-section="power">
+
+<div class="card" data-tags="power">
+<div class="card-title">51. Generator Fuel - Diesel (GPH)</div>
+<div class="card-inputs">
+<label>kW Load<input id="e51a" value="45" type="number" step="any"></label>
+</div>
+<div class="card-row"><button class="btn" onclick="document.getElementById('e51r').textContent=(parseFloat(document.getElementById('e51a').value)*0.073).toFixed(2)">Calc</button><span class="result"><span id="e51r">&#8212;</span> GPH</span></div>
+</div>
+
+<div class="card" data-tags="power">
+<div class="card-title">52. Generator Fuel - Gas (GPH)</div>
+<div class="card-inputs">
+<label>kW Load<input id="e52a" value="45" type="number" step="any"></label>
+</div>
+<div class="card-row"><button class="btn" onclick="document.getElementById('e52r').textContent=(parseFloat(document.getElementById('e52a').value)*0.12).toFixed(2)">Calc</button><span class="result"><span id="e52r">&#8212;</span> GPH</span></div>
+</div>
+
+<div class="card" data-tags="power">
+<div class="card-title">53. Generator Fuel - Propane (GPH)</div>
+<div class="card-inputs">
+<label>kW Load<input id="e53a" value="45" type="number" step="any"></label>
+</div>
+<div class="card-row"><button class="btn" onclick="document.getElementById('e53r').textContent=(parseFloat(document.getElementById('e53a').value)*0.095).toFixed(2)">Calc</button><span class="result"><span id="e53r">&#8212;</span> GPH</span></div>
+</div>
+
+<div class="card" data-tags="power">
+<div class="card-title">54. Generator Runtime from Tank</div>
+<div class="card-inputs">
+<label>Tank gal<input id="e54a" value="120" type="number" step="any"></label>
+<label>Fuel GPH<input id="e54b" value="3.3" type="number" step="any"></label>
+</div>
+<div class="card-row"><button class="btn" onclick="document.getElementById('e54r').textContent=(parseFloat(document.getElementById('e54a').value)/parseFloat(document.getElementById('e54b').value)).toFixed(1)">Calc</button><span class="result"><span id="e54r">&#8212;</span> hours</span></div>
+</div>
+
+<div class="card" data-tags="power">
+<div class="card-title">55. Fuel Cost Per kWh</div>
+<div class="card-inputs">
+<label>Fuel $/gal<input id="e55a" value="4.25" type="number" step="any"></label>
+<label>GPH at load<input id="e55b" value="3.3" type="number" step="any"></label>
+<label>kW Output<input id="e55c" value="45" type="number" step="any"></label>
+</div>
+<div class="card-row"><button class="btn" onclick="document.getElementById('e55r').textContent=(parseFloat(document.getElementById('e55a').value)*parseFloat(document.getElementById('e55b').value)/parseFloat(document.getElementById('e55c').value)).toFixed(3)">Calc</button><span class="result">$<span id="e55r">&#8212;</span>/kWh</span></div>
+</div>
+
+<div class="card" data-tags="power">
+<div class="card-title">56. Equipment HP Requirement</div>
+<div class="card-inputs">
+<label>Torque ft-lbs<input id="e56a" value="180" type="number" step="any"></label>
+<label>RPM<input id="e56b" value="2400" type="number" step="any"></label>
+</div>
+<div class="card-row"><button class="btn" onclick="document.getElementById('e56r').textContent=(parseFloat(document.getElementById('e56a').value)*parseFloat(document.getElementById('e56b').value)/5252).toFixed(1)">Calc</button><span class="result"><span id="e56r">&#8212;</span> HP</span></div>
+</div>
+
+<div class="card" data-tags="power">
+<div class="card-title">57. Electric Motor vs Gas Engine Cost</div>
+<div class="card-inputs">
+<label>Motor kW<input id="e57a" value="15" type="number" step="any"></label>
+<label>Electric $/kWh<input id="e57b" value="0.12" type="number" step="any"></label>
+<label>Gas Engine HP<input id="e57c" value="20" type="number" step="any"></label>
+<label>Gas $/gal<input id="e57d" value="4.25" type="number" step="any"></label>
+</div>
+<div class="card-row"><button class="btn" onclick="let e=parseFloat(document.getElementById('e57a').value)*parseFloat(document.getElementById('e57b').value);let g=parseFloat(document.getElementById('e57c').value)*0.06*parseFloat(document.getElementById('e57d').value);document.getElementById('e57r').textContent='Elec $'+e.toFixed(2)+' Gas $'+g.toFixed(2)+'/hr'">Calc</button><span class="result"><span id="e57r">&#8212;</span></span></div>
+</div>
+
+<div class="card" data-tags="power">
+<div class="card-title">58. Air Compressor CFM Requirement</div>
+<div class="card-inputs">
+<label>Tool CFM each<input id="e58a" value="8" type="number" step="any"></label>
+<label># Tools<input id="e58b" value="3" type="number" step="any"></label>
+<label>Simultaneity %<input id="e58c" value="85" type="number" step="any"></label>
+</div>
+<div class="card-row"><button class="btn" onclick="document.getElementById('e58r').textContent=(parseFloat(document.getElementById('e58a').value)*parseFloat(document.getElementById('e58b').value)*parseFloat(document.getElementById('e58c').value)/100).toFixed(1)">Calc</button><span class="result"><span id="e58r">&#8212;</span> CFM</span></div>
+</div>
+
+<div class="card" data-tags="power">
+<div class="card-title">59. Air Compressor HP Size</div>
+<div class="card-inputs">
+<label>Required CFM<input id="e59a" value="22" type="number" step="any"></label>
+<label>PSI<input id="e59b" value="125" type="number" step="any"></label>
+</div>
+<div class="card-row"><button class="btn" onclick="document.getElementById('e59r').textContent=(parseFloat(document.getElementById('e59a').value)*parseFloat(document.getElementById('e59b').value)/1100*0.746).toFixed(1)">Calc</button><span class="result"><span id="e59r">&#8212;</span> HP</span></div>
+</div>
+
+<div class="card" data-tags="power">
+<div class="card-title">60. Air Tool Consumption</div>
+<div class="card-inputs">
+<label>Bore diameter in<input id="e60a" value="2" type="number" step="any"></label>
+<label>Stroke in<input id="e60b" value="3" type="number" step="any"></label>
+<label>BPM<input id="e60c" value="1800" type="number" step="any"></label>
+</div>
+<div class="card-row"><button class="btn" onclick="document.getElementById('e60r').textContent=(Math.PI*Math.pow(parseFloat(document.getElementById('e60a').value)/2,2)*parseFloat(document.getElementById('e60b').value)*parseFloat(document.getElementById('e60c').value)/1728).toFixed(1)">Calc</button><span class="result"><span id="e60r">&#8212;</span> CFM</span></div>
+</div>
+
+<div class="card" data-tags="power">
+<div class="card-title">61. Pneumatic Tool Count</div>
+<div class="card-inputs">
+<label>Compressor CFM<input id="e61a" value="55" type="number" step="any"></label>
+<label>CFM per tool<input id="e61b" value="8" type="number" step="any"></label>
+</div>
+<div class="card-row"><button class="btn" onclick="document.getElementById('e61r').textContent=Math.floor(parseFloat(document.getElementById('e61a').value)/parseFloat(document.getElementById('e61b').value))">Calc</button><span class="result"><span id="e61r">&#8212;</span> tools</span></div>
+</div>
+
+<div class="card" data-tags="power">
+<div class="card-title">62. Hydraulic Flow Requirement</div>
+<div class="card-inputs">
+<label>Motor Displ in&#179;/rev<input id="e62a" value="4.5" type="number" step="any"></label>
+<label>RPM<input id="e62b" value="1800" type="number" step="any"></label>
+</div>
+<div class="card-row"><button class="btn" onclick="document.getElementById('e62r').textContent=(parseFloat(document.getElementById('e62a').value)*parseFloat(document.getElementById('e62b').value)/231).toFixed(1)">Calc</button><span class="result"><span id="e62r">&#8212;</span> GPM</span></div>
+</div>
+
+<div class="card" data-tags="power">
+<div class="card-title">63. Hydraulic Pressure</div>
+<div class="card-inputs">
+<label>Force lbs<input id="e63a" value="25000" type="number" step="any"></label>
+<label>Cylinder Area in&#178;<input id="e63b" value="12.57" type="number" step="any"></label>
+</div>
+<div class="card-row"><button class="btn" onclick="document.getElementById('e63r').textContent=(parseFloat(document.getElementById('e63a').value)/parseFloat(document.getElementById('e63b').value)).toFixed(0)">Calc</button><span class="result"><span id="e63r">&#8212;</span> PSI</span></div>
+</div>
+
+<div class="card" data-tags="power">
+<div class="card-title">64. Hydraulic Horsepower</div>
+<div class="card-inputs">
+<label>PSI<input id="e64a" value="3000" type="number" step="any"></label>
+<label>GPM<input id="e64b" value="25" type="number" step="any"></label>
+</div>
+<div class="card-row"><button class="btn" onclick="document.getElementById('e64r').textContent=(parseFloat(document.getElementById('e64a').value)*parseFloat(document.getElementById('e64b').value)/1714).toFixed(1)">Calc</button><span class="result"><span id="e64r">&#8212;</span> HP</span></div>
+</div>
+
+<div class="card" data-tags="power">
+<div class="card-title">65. Pump Flow Rate</div>
+<div class="card-inputs">
+<label>Pipe ID in<input id="e65a" value="3" type="number" step="any"></label>
+<label>Velocity ft/s<input id="e65b" value="6" type="number" step="any"></label>
+</div>
+<div class="card-row"><button class="btn" onclick="document.getElementById('e65r').textContent=(Math.PI*Math.pow(parseFloat(document.getElementById('e65a').value)/2,2)*parseFloat(document.getElementById('e65b').value)*60*7.48/144).toFixed(1)">Calc</button><span class="result"><span id="e65r">&#8212;</span> GPM</span></div>
+</div>
+
+<div class="card" data-tags="power">
+<div class="card-title">66. Pump Head Pressure</div>
+<div class="card-inputs">
+<label>Head ft<input id="e66a" value="80" type="number" step="any"></label>
+<label>Specific Gravity<input id="e66b" value="1" type="number" step="any"></label>
+</div>
+<div class="card-row"><button class="btn" onclick="document.getElementById('e66r').textContent=(parseFloat(document.getElementById('e66a').value)*parseFloat(document.getElementById('e66b').value)*0.433).toFixed(1)">Calc</button><span class="result"><span id="e66r">&#8212;</span> PSI</span></div>
+</div>
+
+<div class="card" data-tags="power">
+<div class="card-title">67. Pump Efficiency</div>
+<div class="card-inputs">
+<label>Water HP<input id="e67a" value="15" type="number" step="any"></label>
+<label>Input HP<input id="e67b" value="20" type="number" step="any"></label>
+</div>
+<div class="card-row"><button class="btn" onclick="document.getElementById('e67r').textContent=(parseFloat(document.getElementById('e67a').value)/parseFloat(document.getElementById('e67b').value)*100).toFixed(1)+'%'">Calc</button><span class="result"><span id="e67r">&#8212;</span></span></div>
+</div>
+
+<div class="card" data-tags="power">
+<div class="card-title">68. Conveyor Capacity (tons/hr)</div>
+<div class="card-inputs">
+<label>Belt Width in<input id="e68a" value="24" type="number" step="any"></label>
+<label>Speed FPM<input id="e68b" value="300" type="number" step="any"></label>
+<label>Mat Density lbs/ft&#179;<input id="e68c" value="95" type="number" step="any"></label>
+</div>
+<div class="card-row"><button class="btn" onclick="document.getElementById('e68r').textContent=(parseFloat(document.getElementById('e68a').value)/12*0.7*parseFloat(document.getElementById('e68b').value)*parseFloat(document.getElementById('e68c').value)*60/2000).toFixed(1)">Calc</button><span class="result"><span id="e68r">&#8212;</span> tons/hr</span></div>
+</div>
+
+<div class="card" data-tags="power">
+<div class="card-title">69. Conveyor HP</div>
+<div class="card-inputs">
+<label>Load lbs/ft<input id="e69a" value="35" type="number" step="any"></label>
+<label>Length ft<input id="e69b" value="120" type="number" step="any"></label>
+<label>Speed FPM<input id="e69c" value="300" type="number" step="any"></label>
+</div>
+<div class="card-row"><button class="btn" onclick="document.getElementById('e69r').textContent=(parseFloat(document.getElementById('e69a').value)*parseFloat(document.getElementById('e69b').value)*parseFloat(document.getElementById('e69c').value)/33000).toFixed(1)">Calc</button><span class="result"><span id="e69r">&#8212;</span> HP</span></div>
+</div>
+
+<div class="card" data-tags="power">
+<div class="card-title">70. Hoist Capacity</div>
+<div class="card-inputs">
+<label>Motor HP<input id="e70a" value="10" type="number" step="any"></label>
+<label>Speed FPM<input id="e70b" value="25" type="number" step="any"></label>
+</div>
+<div class="card-row"><button class="btn" onclick="document.getElementById('e70r').textContent=(parseFloat(document.getElementById('e70a').value)*33000/parseFloat(document.getElementById('e70b').value)).toFixed(0)">Calc</button><span class="result"><span id="e70r">&#8212;</span> lbs</span></div>
+</div>
+
+<div class="card" data-tags="power">
+<div class="card-title">71. Winch Line Pull</div>
+<div class="card-inputs">
+<label>Torque ft-lbs<input id="e71a" value="350" type="number" step="any"></label>
+<label>Drum Radius ft<input id="e71b" value="0.33" type="number" step="any"></label>
+<label>Gear Ratio<input id="e71c" value="36" type="number" step="any"></label>
+</div>
+<div class="card-row"><button class="btn" onclick="document.getElementById('e71r').textContent=(parseFloat(document.getElementById('e71a').value)*parseFloat(document.getElementById('e71c').value)/parseFloat(document.getElementById('e71b').value)).toFixed(0)">Calc</button><span class="result"><span id="e71r">&#8212;</span> lbs</span></div>
+</div>
+
+<div class="card" data-tags="power">
+<div class="card-title">72. Jack Capacity</div>
+<div class="card-inputs">
+<label>Cylinder Diam in<input id="e72a" value="3" type="number" step="any"></label>
+<label>Max PSI<input id="e72b" value="10000" type="number" step="any"></label>
+</div>
+<div class="card-row"><button class="btn" onclick="document.getElementById('e72r').textContent=(Math.PI*Math.pow(parseFloat(document.getElementById('e72a').value)/2,2)*parseFloat(document.getElementById('e72b').value)/2000).toFixed(1)">Calc</button><span class="result"><span id="e72r">&#8212;</span> tons</span></div>
+</div>
+
+<div class="card" data-tags="power">
+<div class="card-title">73. Scaffold Load</div>
+<div class="card-inputs">
+<label>Planks<input id="e73a" value="5" type="number" step="any"></label>
+<label>Plank Width in<input id="e73b" value="10" type="number" step="any"></label>
+<label>Span ft<input id="e73c" value="8" type="number" step="any"></label>
+<label>Rating psf<input id="e73d" value="75" type="number" step="any"></label>
+</div>
+<div class="card-row"><button class="btn" onclick="document.getElementById('e73r').textContent=(parseFloat(document.getElementById('e73a').value)*parseFloat(document.getElementById('e73b').value)/12*parseFloat(document.getElementById('e73c').value)*parseFloat(document.getElementById('e73d').value)).toFixed(0)">Calc</button><span class="result"><span id="e73r">&#8212;</span> lbs</span></div>
+</div>
+
+<div class="card" data-tags="power">
+<div class="card-title">74. Ladder Load Rating</div>
+<div class="card-inputs">
+<label>Worker Weight lbs<input id="e74a" value="200" type="number" step="any"></label>
+<label>Tool Weight lbs<input id="e74b" value="40" type="number" step="any"></label>
+<label>Material lbs<input id="e74c" value="25" type="number" step="any"></label>
+</div>
+<div class="card-row"><button class="btn" onclick="let t=parseFloat(document.getElementById('e74a').value)+parseFloat(document.getElementById('e74b').value)+parseFloat(document.getElementById('e74c').value);let r=t<=250?'Type III':t<=300?'Type II':t<=375?'Type I':t<=500?'Type IA':'Type IAA';document.getElementById('e74r').textContent=r+' ('+t+' lbs)'">Calc</button><span class="result"><span id="e74r">&#8212;</span></span></div>
+</div>
+
+<div class="card" data-tags="power">
+<div class="card-title">75. Manlift Capacity</div>
+<div class="card-inputs">
+<label>Platform Area sf<input id="e75a" value="24" type="number" step="any"></label>
+<label>Rating psf<input id="e75b" value="50" type="number" step="any"></label>
+<label>Workers<input id="e75c" value="2" type="number" step="any"></label>
+</div>
+<div class="card-row"><button class="btn" onclick="let c=parseFloat(document.getElementById('e75a').value)*parseFloat(document.getElementById('e75b').value);let w=parseFloat(document.getElementById('e75c').value)*250;document.getElementById('e75r').textContent='Cap '+c.toFixed(0)+' lbs, Load '+w+' lbs '+(w<=c?'OK':'OVER')">Calc</button><span class="result"><span id="e75r">&#8212;</span></span></div>
+</div>
+</div>
+
+<h2 class="section-title" data-section="sched">Scheduling &amp; Logistics</h2>
+<div class="grid" data-section="sched">
+
+<div class="card" data-tags="sched">
+<div class="card-title">76. Project Duration</div>
+<div class="card-inputs">
+<label>Total Man-Hours<input id="e76a" value="4800" type="number" step="any"></label>
+<label>Crew Size<input id="e76b" value="8" type="number" step="any"></label>
+<label>Hours/Day<input id="e76c" value="8" type="number" step="any"></label>
+</div>
+<div class="card-row"><button class="btn" onclick="document.getElementById('e76r').textContent=(parseFloat(document.getElementById('e76a').value)/(parseFloat(document.getElementById('e76b').value)*parseFloat(document.getElementById('e76c').value))).toFixed(1)">Calc</button><span class="result"><span id="e76r">&#8212;</span> days</span></div>
+</div>
+
+<div class="card" data-tags="sched">
+<div class="card-title">77. Activity Duration (PERT)</div>
+<div class="card-inputs">
+<label>Optimistic days<input id="e77a" value="8" type="number" step="any"></label>
+<label>Most Likely days<input id="e77b" value="12" type="number" step="any"></label>
+<label>Pessimistic days<input id="e77c" value="22" type="number" step="any"></label>
+</div>
+<div class="card-row"><button class="btn" onclick="document.getElementById('e77r').textContent=((parseFloat(document.getElementById('e77a').value)+4*parseFloat(document.getElementById('e77b').value)+parseFloat(document.getElementById('e77c').value))/6).toFixed(1)">Calc</button><span class="result"><span id="e77r">&#8212;</span> days</span></div>
+</div>
+
+<div class="card" data-tags="sched">
+<div class="card-title">78. Critical Path Length</div>
+<div class="card-inputs">
+<label>Activity Durations (comma)<textarea id="e78a" rows="2" style="width:100%;font-size:0.78em;padding:4px">5,8,3,12,6,4,9,7</textarea></label>
+</div>
+<div class="card-row"><button class="btn" onclick="let v=document.getElementById('e78a').value.split(',').map(Number);document.getElementById('e78r').textContent=v.reduce((a,b)=>a+b,0)">Calc</button><span class="result"><span id="e78r">&#8212;</span> days</span></div>
+</div>
+
+<div class="card" data-tags="sched">
+<div class="card-title">79. Resource Leveling</div>
+<div class="card-inputs">
+<label>Peak Resource Need<input id="e79a" value="18" type="number" step="any"></label>
+<label>Available Resources<input id="e79b" value="12" type="number" step="any"></label>
+</div>
+<div class="card-row"><button class="btn" onclick="let p=parseFloat(document.getElementById('e79a').value);let a=parseFloat(document.getElementById('e79b').value);document.getElementById('e79r').textContent=p>a?'Extend by '+Math.ceil(p/a*100-100)+'%':'OK, '+Math.floor(a-p)+' spares'">Calc</button><span class="result"><span id="e79r">&#8212;</span></span></div>
+</div>
+
+<div class="card" data-tags="sched">
+<div class="card-title">80. Crew Balancing</div>
+<div class="card-inputs">
+<label>Total Work Hours<input id="e80a" value="640" type="number" step="any"></label>
+<label># Tasks<input id="e80b" value="8" type="number" step="any"></label>
+<label>Hours/Day<input id="e80c" value="8" type="number" step="any"></label>
+</div>
+<div class="card-row"><button class="btn" onclick="document.getElementById('e80r').textContent=(parseFloat(document.getElementById('e80a').value)/parseFloat(document.getElementById('e80b').value)/parseFloat(document.getElementById('e80c').value)).toFixed(1)">Calc</button><span class="result"><span id="e80r">&#8212;</span> workers/task</span></div>
+</div>
+
+<div class="card" data-tags="sched">
+<div class="card-title">81. Material Lead Time</div>
+<div class="card-inputs">
+<label>Order Processing days<input id="e81a" value="2" type="number" step="any"></label>
+<label>Manufacturing days<input id="e81b" value="10" type="number" step="any"></label>
+<label>Shipping days<input id="e81c" value="5" type="number" step="any"></label>
+<label>Buffer days<input id="e81d" value="3" type="number" step="any"></label>
+</div>
+<div class="card-row"><button class="btn" onclick="document.getElementById('e81r').textContent=(parseFloat(document.getElementById('e81a').value)+parseFloat(document.getElementById('e81b').value)+parseFloat(document.getElementById('e81c').value)+parseFloat(document.getElementById('e81d').value))">Calc</button><span class="result"><span id="e81r">&#8212;</span> days</span></div>
+</div>
+
+<div class="card" data-tags="sched">
+<div class="card-title">82. Order Quantity (EOQ)</div>
+<div class="card-inputs">
+<label>Annual Demand<input id="e82a" value="5000" type="number" step="any"></label>
+<label>Order Cost $<input id="e82b" value="75" type="number" step="any"></label>
+<label>Holding Cost $/unit<input id="e82c" value="3.50" type="number" step="any"></label>
+</div>
+<div class="card-row"><button class="btn" onclick="document.getElementById('e82r').textContent=Math.round(Math.sqrt(2*parseFloat(document.getElementById('e82a').value)*parseFloat(document.getElementById('e82b').value)/parseFloat(document.getElementById('e82c').value)))">Calc</button><span class="result"><span id="e82r">&#8212;</span> units</span></div>
+</div>
+
+<div class="card" data-tags="sched">
+<div class="card-title">83. Safety Stock</div>
+<div class="card-inputs">
+<label>Max Daily Use<input id="e83a" value="25" type="number" step="any"></label>
+<label>Max Lead Time days<input id="e83b" value="12" type="number" step="any"></label>
+<label>Avg Daily Use<input id="e83c" value="15" type="number" step="any"></label>
+<label>Avg Lead Time days<input id="e83d" value="7" type="number" step="any"></label>
+</div>
+<div class="card-row"><button class="btn" onclick="document.getElementById('e83r').textContent=Math.ceil(parseFloat(document.getElementById('e83a').value)*parseFloat(document.getElementById('e83b').value)-parseFloat(document.getElementById('e83c').value)*parseFloat(document.getElementById('e83d').value))">Calc</button><span class="result"><span id="e83r">&#8212;</span> units</span></div>
+</div>
+
+<div class="card" data-tags="sched">
+<div class="card-title">84. Reorder Point</div>
+<div class="card-inputs">
+<label>Avg Daily Use<input id="e84a" value="15" type="number" step="any"></label>
+<label>Lead Time days<input id="e84b" value="7" type="number" step="any"></label>
+<label>Safety Stock<input id="e84c" value="30" type="number" step="any"></label>
+</div>
+<div class="card-row"><button class="btn" onclick="document.getElementById('e84r').textContent=(parseFloat(document.getElementById('e84a').value)*parseFloat(document.getElementById('e84b').value)+parseFloat(document.getElementById('e84c').value)).toFixed(0)">Calc</button><span class="result"><span id="e84r">&#8212;</span> units</span></div>
+</div>
+
+<div class="card" data-tags="sched">
+<div class="card-title">85. Material Waste Factor</div>
+<div class="card-inputs">
+<label>Net Qty Needed<input id="e85a" value="1200" type="number" step="any"></label>
+<label>Waste %<input id="e85b" value="10" type="number" step="any"></label>
+</div>
+<div class="card-row"><button class="btn" onclick="document.getElementById('e85r').textContent=(parseFloat(document.getElementById('e85a').value)*(1+parseFloat(document.getElementById('e85b').value)/100)).toFixed(0)">Calc</button><span class="result"><span id="e85r">&#8212;</span> order</span></div>
+</div>
+
+<div class="card" data-tags="sched">
+<div class="card-title">86. Material Delivery Schedule</div>
+<div class="card-inputs">
+<label>Total Qty<input id="e86a" value="8000" type="number" step="any"></label>
+<label>Site Storage Units<input id="e86b" value="1500" type="number" step="any"></label>
+</div>
+<div class="card-row"><button class="btn" onclick="document.getElementById('e86r').textContent=Math.ceil(parseFloat(document.getElementById('e86a').value)/parseFloat(document.getElementById('e86b').value))">Calc</button><span class="result"><span id="e86r">&#8212;</span> deliveries</span></div>
+</div>
+
+<div class="card" data-tags="sched">
+<div class="card-title">87. Concrete Order Timing</div>
+<div class="card-inputs">
+<label>Pour CY<input id="e87a" value="45" type="number" step="any"></label>
+<label>Pump Rate CY/hr<input id="e87b" value="55" type="number" step="any"></label>
+<label>Truck CY each<input id="e87c" value="10" type="number" step="any"></label>
+<label>Travel Time min<input id="e87d" value="25" type="number" step="any"></label>
+</div>
+<div class="card-row"><button class="btn" onclick="let tc=Math.ceil(parseFloat(document.getElementById('e87a').value)/parseFloat(document.getElementById('e87c').value));let gap=parseFloat(document.getElementById('e87c').value)/parseFloat(document.getElementById('e87b').value)*60;document.getElementById('e87r').textContent=tc+' trucks, '+gap.toFixed(0)+'min apart'">Calc</button><span class="result"><span id="e87r">&#8212;</span></span></div>
+</div>
+
+<div class="card" data-tags="sched">
+<div class="card-title">88. Pump Truck Arrival</div>
+<div class="card-inputs">
+<label>Pour Start Time (hr)<input id="e88a" value="7" type="number" step="any"></label>
+<label>Setup Time min<input id="e88b" value="45" type="number" step="any"></label>
+<label>Travel Time min<input id="e88c" value="30" type="number" step="any"></label>
+</div>
+<div class="card-row"><button class="btn" onclick="let s=parseFloat(document.getElementById('e88a').value)*60-parseFloat(document.getElementById('e88b').value)-parseFloat(document.getElementById('e88c').value);let h=Math.floor(s/60);let m=s%60;document.getElementById('e88r').textContent=h+':'+m.toString().padStart(2,'0')+' arrival'">Calc</button><span class="result"><span id="e88r">&#8212;</span></span></div>
+</div>
+
+<div class="card" data-tags="sched">
+<div class="card-title">89. Ready Mix Truck Count</div>
+<div class="card-inputs">
+<label>Pour CY<input id="e89a" value="80" type="number" step="any"></label>
+<label>Time Limit min<input id="e89b" value="90" type="number" step="any"></label>
+<label>Pump Rate CY/hr<input id="e89c" value="50" type="number" step="any"></label>
+<label>Truck CY<input id="e89d" value="10" type="number" step="any"></label>
+</div>
+<div class="card-row"><button class="btn" onclick="document.getElementById('e89r').textContent=Math.ceil(parseFloat(document.getElementById('e89a').value)/Math.min(parseFloat(document.getElementById('e89d').value),parseFloat(document.getElementById('e89c').value)/60*parseFloat(document.getElementById('e89b').value)))">Calc</button><span class="result"><span id="e89r">&#8212;</span> trucks</span></div>
+</div>
+
+<div class="card" data-tags="sched">
+<div class="card-title">90. Material Hoist Cycles</div>
+<div class="card-inputs">
+<label>Total Material lbs<input id="e90a" value="28000" type="number" step="any"></label>
+<label>Hoist Capacity lbs<input id="e90b" value="4000" type="number" step="any"></label>
+<label>Cycle Time min<input id="e90c" value="5" type="number" step="any"></label>
+</div>
+<div class="card-row"><button class="btn" onclick="let c=Math.ceil(parseFloat(document.getElementById('e90a').value)/parseFloat(document.getElementById('e90b').value));document.getElementById('e90r').textContent=c+' cycles, '+(c*parseFloat(document.getElementById('e90c').value)).toFixed(0)+' min'">Calc</button><span class="result"><span id="e90r">&#8212;</span></span></div>
+</div>
+
+<div class="card" data-tags="sched">
+<div class="card-title">91. Crane Picks Per Hour</div>
+<div class="card-inputs">
+<label>Pick+Place min<input id="e91a" value="8" type="number" step="any"></label>
+<label>Swing+Hoist min<input id="e91b" value="4" type="number" step="any"></label>
+</div>
+<div class="card-row"><button class="btn" onclick="document.getElementById('e91r').textContent=(60/(parseFloat(document.getElementById('e91a').value)+parseFloat(document.getElementById('e91b').value))).toFixed(1)">Calc</button><span class="result"><span id="e91r">&#8212;</span> picks/hr</span></div>
+</div>
+
+<div class="card" data-tags="sched">
+<div class="card-title">92. Scaffold Erection Time</div>
+<div class="card-inputs">
+<label>Tiers<input id="e92a" value="8" type="number" step="any"></label>
+<label>Bays<input id="e92b" value="6" type="number" step="any"></label>
+<label>Min per bay/tier<input id="e92c" value="18" type="number" step="any"></label>
+</div>
+<div class="card-row"><button class="btn" onclick="document.getElementById('e92r').textContent=(parseFloat(document.getElementById('e92a').value)*parseFloat(document.getElementById('e92b').value)*parseFloat(document.getElementById('e92c').value)/60).toFixed(1)">Calc</button><span class="result"><span id="e92r">&#8212;</span> hours</span></div>
+</div>
+
+<div class="card" data-tags="sched">
+<div class="card-title">93. Form Cycling Time</div>
+<div class="card-inputs">
+<label>Stripping hrs<input id="e93a" value="4" type="number" step="any"></label>
+<label>Cleaning hrs<input id="e93b" value="2" type="number" step="any"></label>
+<label>Resetting hrs<input id="e93c" value="6" type="number" step="any"></label>
+<label>Pouring hrs<input id="e93d" value="3" type="number" step="any"></label>
+</div>
+<div class="card-row"><button class="btn" onclick="document.getElementById('e93r').textContent=(parseFloat(document.getElementById('e93a').value)+parseFloat(document.getElementById('e93b').value)+parseFloat(document.getElementById('e93c').value)+parseFloat(document.getElementById('e93d').value)).toFixed(0)">Calc</button><span class="result"><span id="e93r">&#8212;</span> hrs/cycle</span></div>
+</div>
+
+<div class="card" data-tags="sched">
+<div class="card-title">94. Cure Time - Temperature Adjusted</div>
+<div class="card-inputs">
+<label>Base Cure hrs<input id="e94a" value="24" type="number" step="any"></label>
+<label>Actual Temp °F<input id="e94b" value="45" type="number" step="any"></label>
+<label>Ref Temp °F<input id="e94c" value="70" type="number" step="any"></label>
+</div>
+<div class="card-row"><button class="btn" onclick="document.getElementById('e94r').textContent=(parseFloat(document.getElementById('e94a').value)*parseFloat(document.getElementById('e94c').value)/Math.max(parseFloat(document.getElementById('e94b').value),32)).toFixed(1)">Calc</button><span class="result"><span id="e94r">&#8212;</span> hrs</span></div>
+</div>
+
+<div class="card" data-tags="sched">
+<div class="card-title">95. Weather Days Lost</div>
+<div class="card-inputs">
+<label>Rain Days/mo<input id="e95a" value="6" type="number" step="any"></label>
+<label>Project Months<input id="e95b" value="8" type="number" step="any"></label>
+<label>Lost per rain day<input id="e95c" value="0.7" type="number" step="any"></label>
+</div>
+<div class="card-row"><button class="btn" onclick="document.getElementById('e95r').textContent=(parseFloat(document.getElementById('e95a').value)*parseFloat(document.getElementById('e95b').value)*parseFloat(document.getElementById('e95c').value)).toFixed(0)">Calc</button><span class="result"><span id="e95r">&#8212;</span> days lost</span></div>
+</div>
+
+<div class="card" data-tags="sched">
+<div class="card-title">96. Productivity Factor - Cold</div>
+<div class="card-inputs">
+<label>Temperature °F<input id="e96a" value="25" type="number" step="any"></label>
+</div>
+<div class="card-row"><button class="btn" onclick="let t=parseFloat(document.getElementById('e96a').value);let f=t>=50?1:t>=40?0.9:t>=30?0.75:t>=20?0.6:t>=10?0.45:0.3;document.getElementById('e96r').textContent=(f*100).toFixed(0)+'%'">Calc</button><span class="result"><span id="e96r">&#8212;</span> efficiency</span></div>
+</div>
+
+<div class="card" data-tags="sched">
+<div class="card-title">97. Productivity Factor - Heat</div>
+<div class="card-inputs">
+<label>Temperature °F<input id="e97a" value="95" type="number" step="any"></label>
+</div>
+<div class="card-row"><button class="btn" onclick="let t=parseFloat(document.getElementById('e97a').value);let f=t<=80?1:t<=90?0.85:t<=100?0.7:t<=110?0.5:0.35;document.getElementById('e97r').textContent=(f*100).toFixed(0)+'%'">Calc</button><span class="result"><span id="e97r">&#8212;</span> efficiency</span></div>
+</div>
+
+<div class="card" data-tags="sched">
+<div class="card-title">98. Overtime Productivity Loss</div>
+<div class="card-inputs">
+<label>OT Hours/week<input id="e98a" value="12" type="number" step="any"></label>
+</div>
+<div class="card-row"><button class="btn" onclick="let h=parseFloat(document.getElementById('e98a').value);let l=h<=4?0.02:h<=8?0.05:h<=16?0.12:h<=24?0.2:0.3;document.getElementById('e98r').textContent=(l*100).toFixed(0)+'% loss/hr'">Calc</button><span class="result"><span id="e98r">&#8212;</span></span></div>
+</div>
+
+<div class="card" data-tags="sched">
+<div class="card-title">99. Learning Curve Time</div>
+<div class="card-inputs">
+<label>First Unit hrs<input id="e99a" value="10" type="number" step="any"></label>
+<label>Learning Rate %<input id="e99b" value="85" type="number" step="any"></label>
+<label>Unit #<input id="e99c" value="50" type="number" step="any"></label>
+</div>
+<div class="card-row"><button class="btn" onclick="document.getElementById('e99r').textContent=(parseFloat(document.getElementById('e99a').value)*Math.pow(parseFloat(document.getElementById('e99c').value),Math.log(parseFloat(document.getElementById('e99b').value)/100)/Math.LN2)).toFixed(2)">Calc</button><span class="result"><span id="e99r">&#8212;</span> hrs</span></div>
+</div>
+
+<div class="card" data-tags="sched">
+<div class="card-title">100. Shift Work Efficiency</div>
+<div class="card-inputs">
+<label>Day Shift Output<input id="e100a" value="100" type="number" step="any"></label>
+<label>Shift #<input id="e100b" value="2" type="number" step="any"></label>
+</div>
+<div class="card-row"><button class="btn" onclick="let d=parseFloat(document.getElementById('e100a').value);let s=parseFloat(document.getElementById('e100b').value);let f=s==1?1:s==2?0.85:s==3?0.7:0.6;document.getElementById('e100r').textContent=(d*f).toFixed(0)+' ('+(f*100).toFixed(0)+'%)'">Calc</button><span class="result"><span id="e100r">&#8212;</span></span></div>
+</div>
+</div>
+
+</div>
+<button class="back-top" onclick="window.scrollTo({top:0,behavior:'smooth'})">&#8593;‘</button>
+
+<script src="../temp-toggle.js"></script><script src="../custom-select.js"></script><script src="../favorites.js"></script><script src="../remember-inputs.js"></script><script src="../mega-cat.js"></script><script src="../auto-calc.js"></script><script src="../sticky-header.js"></script><script src="../ui-fix.js"></script><script src="../link-fix.js"></script><script src="../dark-persist.js"></script><script src="../admob-banner.js"></script></body>
+</html>
+
+
+
+
+
+
+
+
+

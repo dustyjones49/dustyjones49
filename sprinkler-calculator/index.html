@@ -1,0 +1,200 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>Sprinkler Zone Calculator - Heads &amp; Pipe</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<meta name="description" content="Calculate sprinkler heads per zone, GPM and pipe size. Plan your lawn irrigation system layout.">
+<link rel="canonical" href="https://buildcalc.com/sprinkler-calculator/">
+<meta property="og:title" content="Sprinkler Zone Calculator - Heads &amp; Pipe">
+<meta property="og:description" content="Calculate sprinkler heads per zone, GPM and pipe size. Plan your lawn irrigation system layout.">
+<meta property="og:url" content="https://buildcalc.com/sprinkler-calculator/">
+<meta property="og:type" content="website">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Sprinkler Zone Calculator - Heads &amp; Pipe">
+<meta name="twitter:description" content="Calculate sprinkler heads per zone, GPM and pipe size. Plan your lawn irrigation system layout.">
+<style>
+:root{--bg:#fff;--text:#1a1a1a;--card:#f8f9fa;--input:#fff;--border:#dee2e6;--primary:#16a34a;--primary-hover:#15803d;--result-bg:#f0fdf4;--accent:#ea580c;--faq-bg:#dcfce7;--shadow:0 2px 8px rgba(0,0,0,0.1)}
+.dark{--bg:#1a1a2e;--text:#e0e0e0;--card:#16213e;--input:#0f3460;--border:#2a2a4a;--primary:#4ade80;--primary-hover:#86efac;--result-bg:#14532d;--accent:#f97316;--faq-bg:#1e2a3a;--shadow:0 2px 8px rgba(0,0,0,0.4)}
+body{font-family:system-ui,-apple-system,sans-serif;background:var(--bg);color:var(--text);margin:0;padding:0;line-height:1.6;transition:background .3s,color .3s}
+.container{max-width:720px;margin:0 auto;padding:16px}
+h1{font-size:1.8rem;margin:0 0 4px;color:var(--primary)}
+header p{margin:0 0 16px;color:var(--text);opacity:.8}
+.breadcrumb{font-size:.85rem;margin-bottom:12px;color:var(--text);opacity:.7}
+.breadcrumb a{color:var(--primary);text-decoration:none}
+.breadcrumb a:hover{text-decoration:underline}
+.card{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:20px;margin-bottom:16px;box-shadow:var(--shadow)}
+.card h2{font-size:1.2rem;margin:0 0 12px;color:var(--primary)}
+.input-group{margin-bottom:12px}
+.input-group label{display:block;font-weight:600;margin-bottom:4px;font-size:.9rem}
+.input-group input,.input-group select{width:100%;padding:10px 12px;border:1px solid var(--border);border-radius:8px;font-size:1rem;background:var(--input);color:var(--text);box-sizing:border-box}
+.input-group input:focus,.input-group select:focus{outline:2px solid var(--primary);outline-offset:-1px}
+.btn{display:inline-block;padding:12px 24px;font-size:1rem;font-weight:600;border:none;border-radius:8px;cursor:pointer;transition:background .2s}
+.btn-primary{background:var(--primary);color:#fff;width:100%}
+.btn-primary:hover{background:var(--primary-hover)}
+.result{background:var(--result-bg);border:1px solid var(--primary);border-radius:8px;padding:12px 16px;margin-top:12px}
+.result .row{display:flex;justify-content:space-between;align-items:center;padding:6px 0;border-bottom:1px solid var(--border)}
+.result .row:last-child{border-bottom:none}
+.result .label{font-weight:600}
+.result .value{font-size:1.1rem;font-weight:700;color:var(--accent)}
+.formula-box{background:var(--result-bg);border:1px dashed var(--primary);border-radius:8px;padding:12px;margin-top:12px;font-size:.85rem}
+.formula-box code{display:block;margin:4px 0}
+.faq-item{border:1px solid var(--border);border-radius:8px;margin-bottom:8px;overflow:hidden}
+.faq-question{width:100%;text-align:left;padding:14px 16px;background:var(--faq-bg);border:none;cursor:pointer;font-weight:600;font-size:.95rem;color:var(--text);display:flex;justify-content:space-between;align-items:center}
+.faq-question:hover{opacity:.85}
+.faq-question .arrow{transition:transform .2s;font-size:1.2rem}
+.faq-question.open .arrow{transform:rotate(180deg)}
+.faq-answer{display:none;padding:0 16px 14px;font-size:.9rem;line-height:1.5}
+.faq-answer.open{display:block}
+.share-row{display:flex;gap:8px;flex-wrap:wrap;margin-top:8px}
+.share-btn{flex:1;min-width:100px;padding:10px;border:none;border-radius:8px;cursor:pointer;font-size:.85rem;font-weight:600;text-align:center;color:#fff}
+.share-fb{background:#1877f2}.share-tw{background:#000}.share-wa{background:#25d366}.share-em{background:#555}
+.embed-box{width:100%;background:var(--input);border:1px solid var(--border);border-radius:8px;padding:10px;font-size:.8rem;font-family:monospace;box-sizing:border-box;margin-top:4px;color:var(--text)}
+.products{margin-top:12px}
+.products a{display:block;padding:10px 12px;background:var(--card);border:1px solid var(--border);border-radius:8px;margin-bottom:6px;text-decoration:none;color:var(--primary);font-weight:600;font-size:.9rem;transition:background .2s}
+.products a:hover{background:var(--result-bg)}
+.related-links{display:flex;flex-wrap:wrap;gap:8px;margin-top:8px}
+.related-links a{background:var(--card);border:1px solid var(--border);padding:8px 14px;border-radius:20px;text-decoration:none;color:var(--primary);font-size:.85rem;font-weight:500}
+.related-links a:hover{background:var(--result-bg)}
+.ad-slot{background:var(--card);border:1px dashed var(--border);padding:60px 20px;text-align:center;border-radius:12px;margin:16px 0;color:var(--text);opacity:.6;font-size:.9rem}
+#backToTop{position:fixed;bottom:24px;right:24px;width:44px;height:44px;background:var(--primary);color:#fff;border:none;border-radius:50%;font-size:1.3rem;cursor:pointer;display:none;box-shadow:0 2px 8px rgba(0,0,0,.3);z-index:999}
+#backToTop:hover{background:var(--primary-hover)}
+.dark-toggle{position:fixed;top:16px;right:16px;z-index:1000;background:var(--card);border:1px solid var(--border);border-radius:50%;width:40px;height:40px;cursor:pointer;font-size:1.2rem;display:flex;align-items:center;justify-content:center;box-shadow:var(--shadow)}
+@media print{.share-row,.embed-box,.ad-slot,.dark-toggle,#backToTop,.products,.related-links{display:none!important}body{background:var(--bg);color:#000;font-size:12px}.card{box-shadow:none;border:1px solid #ccc;break-inside:avoid}}
+@media(max-width:480px){.container{padding:10px}h1{font-size:1.4rem}}
+</style>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebApplication","name":"Sprinkler System Calculator","description":"Calculate sprinkler heads per zone, GPM and pipe size. Plan your lawn irrigation system layout.","url":"https://buildcalc.com/sprinkler-calculator/","applicationCategory":"EducationalApplication"}
+</script>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"How many sprinkler heads per zone?","acceptedAnswer":{"@type":"Answer","text":"Divide available GPM by head GPM. A typical residential zone: 10 GPM / 2.5 GPM per head = 4 heads per zone. Stick to same type and brand in each zone for even coverage. 1 zone = 1 valve."}},{"@type":"Question","name":"What size pipe for sprinkler system?","acceptedAnswer":{"@type":"Answer","text":"3/4 inch PVC for zones under 10 GPM. 1 inch for 10-15 GPM. 1-1/4 inch for 15-20 GPM. Main line carries all zones combined and is usually 1 inch or larger. Use Schedule 40 PVC rated for pressure."}},{"@type":"Question","name":"How much does a sprinkler system cost?","acceptedAnswer":{"@type":"Answer","text":"DIY: $1,500-3,000 for an average 5,000 sq ft lawn (heads, pipe, controller, backflow preventer). Professional install: $3,000-6,000 or $0.60-1.20/sq ft. The controller is $50-200 and a backflow preventer is required by code ($100-300)."}}]}
+</script>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://buildcalc.com/"},{"@type":"ListItem","position":2,"name":"Landscaping","item":"https://buildcalc.com/category/landscaping/"},{"@type":"ListItem","position":3,"name":"Sprinkler System Calculator","item":"https://buildcalc.com/sprinkler-calculator/"}]}
+</script><style id="bc-theme">/* FieldMath - Light Theme
+   All pages use this single light theme. No dark mode. */
+:root{
+  --bg:#f5f5f5;
+  --card:#ffffff;
+  --text:#333333;
+  --text-light:#666666;
+  --muted:#f1f3f7;
+  --muted-bg:#f8f9fa;
+  --border:#dde3ea;
+  --navy:#1a2332;
+  --header-bg:#1a2332;
+  --header-text:#ffffff;
+  --orange:#f97316;
+  --accent:#f97316;
+  --success:#16a34a;
+  --warning:#d97706;
+  --danger:#dc2626;
+}
+</style>
+<style id="bc-darkflash">html,html body{background:#f5f5f5 !important;color:#333 !important}body .card,body .panel,body .box,body .calculator,body .container,body .c,body .result,body .results,body .res,body .formula,body .example,body .faq,body .faq-item,body input,body select,body textarea{background:#ffffff !important;color:#333 !important;border-color:#ddd !important}</style></head>
+<body>
+<button class="dark-toggle" onclick="toggleDark()" aria-label="Toggle dark mode">&#9788;</button>
+<div class="container">
+
+<header><h1>Sprinkler System Calculator</h1></header>
+<div class="card">
+<h2>Irrigation Layout</h2>
+<div class="input-group"><label for="area">Lawn Area (sq ft)</label><input type="number" id="area" value="5000" min="100" step="1"></div>
+<div class="input-group"><label for="coverage">Head Coverage (sq ft)</label><input type="number" id="coverage" value="100" min="1" step="1"></div>
+<div class="input-group"><label for="availGPM">Available GPM</label><input type="number" id="availGPM" value="10" min="1" step="0.5"></div>
+<div class="input-group"><label for="headGPM">Head GPM</label><input type="number" id="headGPM" value="2.5" min="0.25" step="0.25"></div>
+<button class="btn btn-primary" onclick="calculate()">Calculate</button>
+<div class="result" id="result"></div>
+<div class="formula-box">
+<strong>Formula:</strong>
+<code>heads = ceil(area / headCoverage)</code>
+<code>headsPerZone = floor(availGPM / headGPM)</code>
+<code>zones = ceil(heads / headsPerZone)</code>
+<strong>Example:</strong> 5000 sq ft lawn, 100 sq ft per head, 10 GPM available, 2.5 GPM per head: 50 heads, 4 per zone, 13 zones, 3/4 in pipe.
+</div>
+</div>
+<div class="ad-slot">Advertisement</div>
+<div class="card">
+<h2>FAQ</h2>
+<div class="faq-item"><button class="faq-question" onclick="toggleFAQ(this)">How many sprinkler heads per zone? <span class="arrow">&#9660;</span></button><div class="faq-answer">Divide available GPM by head GPM. A typical residential zone: 10 GPM / 2.5 GPM per head = 4 heads per zone. Stick to same type and brand in each zone for even coverage. 1 zone = 1 valve.</div></div>
+<div class="faq-item"><button class="faq-question" onclick="toggleFAQ(this)">What size pipe for sprinkler system? <span class="arrow">&#9660;</span></button><div class="faq-answer">3/4 inch PVC for zones under 10 GPM. 1 inch for 10-15 GPM. 1-1/4 inch for 15-20 GPM. Main line carries all zones combined and is usually 1 inch or larger. Use Schedule 40 PVC rated for pressure.</div></div>
+<div class="faq-item"><button class="faq-question" onclick="toggleFAQ(this)">How much does a sprinkler system cost? <span class="arrow">&#9660;</span></button><div class="faq-answer">DIY: $1,500-3,000 for an average 5,000 sq ft lawn (heads, pipe, controller, backflow preventer). Professional install: $3,000-6,000 or $0.60-1.20/sq ft. The controller is $50-200 and a backflow preventer is required by code ($100-300).</div></div>
+</div>
+<div class="card">
+<h2>Recommended Products</h2>
+<div class="products">
+<a href="https://www.homedepot.com/s/sprinkler+head+rotary+4in?NCNI-5" target="_blank" rel="nofollow sponsored">Sprinkler Head Rotary 4 in (Home Depot)</a>
+<a href="https://www.amazon.com/s?k=sprinkler+controller+6+zone&tag=buildcalc-20" target="_blank" rel="nofollow sponsored">Sprinkler Controller 6-Zone (Amazon)</a>
+<a href="https://www.homedepot.com/s/pvc+pipe+3%2F4+schedule+40?NCNI-5" target="_blank" rel="nofollow sponsored">PVC Pipe 3/4 in Schedule 40 (Home Depot)</a>
+</div>
+</div>
+<div class="card">
+<h2>Share</h2>
+<div class="share-row">
+<button class="share-btn share-fb" onclick="share('facebook')">Facebook</button>
+<button class="share-btn share-tw" onclick="share('twitter')">X / Twitter</button>
+<button class="share-btn share-wa" onclick="share('whatsapp')">WhatsApp</button>
+<button class="share-btn share-em" onclick="share('email')">Email</button>
+</div>
+<h2 style="margin-top:16px">Embed</h2>
+<textarea class="embed-box" rows="3" readonly><iframe src="https://buildcalc.com/sprinkler-calculator/" width="100%" height="600" style="border:none;border-radius:12px" title="Sprinkler System Calculator"></iframe></textarea>
+</div>
+<div class="card">
+<h2>Related Calculators</h2>
+<div class="related-links">
+<a href="../sod-calculator/">Sod Calculator</a>
+<a href="../soil-calculator/">Soil Calculator</a>
+<a href="../french-drain-calculator/">French Drain Calculator</a>
+</div>
+</div>
+</div>
+<button id="backToTop" onclick="window.scrollTo({top:0,behavior:'smooth'})">&#9650;</button>
+<script>
+function calculate(){
+  var area=parseFloat(document.getElementById('area').value)||0;
+  var coverage=parseFloat(document.getElementById('coverage').value)||1;
+  var availGPM=parseFloat(document.getElementById('availGPM').value)||0;
+  var headGPM=parseFloat(document.getElementById('headGPM').value)||1;
+  var heads=Math.ceil(area/coverage);
+  var headsPerZone=Math.floor(availGPM/headGPM);
+  if(headsPerZone<1)headsPerZone=1;
+  var zones=Math.ceil(heads/headsPerZone);
+  var pipeSize=availGPM<=10?'3/4 in':availGPM<=15?'1 in':'1-1/4 in';
+  var totalGPM=heads*headGPM;
+  document.getElementById('result').innerHTML=
+  '<div class="row"><span class="label">Heads Needed</span><span class="value">'+heads+' heads</span></div>'+
+  '<div class="row"><span class="label">Zones Needed</span><span class="value">'+zones+' zones</span></div>'+
+  '<div class="row"><span class="label">Heads per Zone</span><span class="value">'+headsPerZone+' heads</span></div>'+
+  '<div class="row"><span class="label">Pipe Size per Zone</span><span class="value">'+pipeSize+'</span></div>'+
+  '<div class="row"><span class="label">Total GPM Required</span><span class="value">'+totalGPM.toFixed(1)+' GPM</span></div>';
+  var p=new URLSearchParams(window.location.search);
+  p.set('area',area);p.set('coverage',coverage);p.set('availGPM',availGPM);p.set('headGPM',headGPM);
+  window.history.replaceState({},'',location.pathname+'?'+p.toString());
+}
+function toggleFAQ(el){el.classList.toggle('open');el.nextElementSibling.classList.toggle('open')}
+function toggleDark(){document.documentElement.classList.toggle('dark');localStorage.setItem('dark',document.documentElement.classList.contains('dark')?'1':'0')}
+function share(p){
+  var u=encodeURIComponent(location.href),t=encodeURIComponent(document.title);
+  if(p==='facebook')window.open('https://www.facebook.com/sharer.php?u='+u);
+  else if(p==='twitter')window.open('https://twitter.com/intent/tweet?url='+u+'&text='+t);
+  else if(p==='whatsapp')window.open('https://wa.me/?text='+t+' '+u);
+  else if(p==='email')window.open('mailto:?subject='+t+'&body='+u);
+}
+window.onscroll=function(){document.getElementById('backToTop').style.display=window.scrollY>300?'block':'none'};
+window.onload=function(){
+  if(localStorage.getItem('dark')==='1')document.documentElement.classList.add('dark');
+  var p=new URLSearchParams(window.location.search);
+  if(p.get('area'))document.getElementById('area').value=p.get('area');
+  if(p.get('coverage'))document.getElementById('coverage').value=p.get('coverage');
+  if(p.get('availGPM'))document.getElementById('availGPM').value=p.get('availGPM');
+  if(p.get('headGPM'))document.getElementById('headGPM').value=p.get('headGPM');
+  calculate();
+};
+</script>
+<script id='__CALC_AUTO__'>(function(){try{if(typeof calculate==='function')calculate();}catch(e){}})();</script><script src="../custom-select.js"></script><script src="../favorites.js"></script><script src="../remember-inputs.js"></script><script src="../sticky-header.js"></script><script src="../ui-fix.js"></script><script src="../link-fix.js"></script><script src="../auto-calc.js"></script><script src="../dark-persist.js"></script><script src="../admob-banner.js"></script></body>
+</html>
+
+
+
+
+

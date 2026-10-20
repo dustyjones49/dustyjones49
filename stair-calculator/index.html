@@ -1,0 +1,183 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<meta name="description" content="Calculate stair risers, treads and stringer length. Ensures code-compliant stairs with 7-8 inch rise and 10-11 inch run.">
+<title>Stair Calculator - Risers, Treads &amp;... | FieldMath</title>
+<link rel="canonical" href="https://dustyjones49.github.io/dustyjones49/stair-calculator/">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"Stair Calculator","url":"https://dustyjones49.github.io/dustyjones49/stair-calculator/","description":"Calculate stair risers, treads and stringer length. Ensures code-compliant stairs with 7-8 inch rise and 10-11 inch run.","applicationCategory":"EducationalApplication","operatingSystem":"All"}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"What is the ideal stair rise and run?","acceptedAnswer":{"@type":"Answer","text":"Code requires 7-8 inch rise and minimum 10 inch run. The sweet spot is 7.5 inch rise with 10.5 inch run. The formula 2R + T = 24-25 inches ensures comfortable stairs. Steeper than 8 inch rise feels like a ladder."}},{"@type":"Question","name":"How many stringers do I need?","acceptedAnswer":{"@type":"Answer","text":"Use 3 stringers for stairs up to 36 inches wide, 4 stringers for 36-48 inches, and space them 16 inches apart max. Cut stringers from 2x12 lumber and notch carefully - a bad notch ruins the whole board."}},{"@type":"Question","name":"Do stair risers need to be all the same height?","acceptedAnswer":{"@type":"Answer","text":"Yes - code requires riser height variation no more than 3/8 inch between any two risers. If your floor isn't level, adjust the bottom or top riser slightly but keep all others identical."}}]}</script>
+<style>
+:root{--bg:#f5f5f5;--card:#fff;--text:#333;--text-light:#666;--border:#ddd;--header-bg:#1a2332;--header-text:#fff;--muted-bg:#f8f9fa}
+body.dark{--bg:#1a1a2e;--card:#16213e;--text:#e0e0e0;--text-light:#aaa;--border:#333;--header-bg:#0f3460;--header-text:#e0e0e0;--muted-bg:#1a1a2e}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;background:var(--bg);color:var(--text);line-height:1.6}
+header{background:var(--header-bg);color:var(--header-text);padding:24px 16px;text-align:center}
+header a{color:#f97316;text-decoration:none;font-size:0.9rem}
+header a:hover{text-decoration:underline}
+header h1{font-size:2rem;margin:8px 0}
+header .cat{color:#f97316;font-size:0.85rem;text-transform:uppercase;letter-spacing:1px}
+header .desc{color:#ccc;font-size:0.95rem;margin-top:4px}
+.container{max-width:840px;margin:24px auto;padding:0 16px}
+.card{background:var(--card);border-radius:10px;padding:24px;margin-bottom:20px;box-shadow:0 2px 8px rgba(0,0,0,0.06);border:1px solid var(--border)}
+.card h2{color:var(--text);font-size:1.25rem;margin-bottom:16px;border-bottom:3px solid #f97316;padding-bottom:8px;display:inline-block}
+.form-group{margin-bottom:16px}
+.form-group label{display:block;font-weight:600;margin-bottom:6px;color:var(--text)}
+.form-group input{width:100%;padding:10px 12px;border:2px solid var(--border);border-radius:6px;font-size:1rem;background:var(--card);color:var(--text);transition:border-color 0.2s}
+.form-group input:focus{outline:none;border-color:#f97316}
+.form-row{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:16px}
+.results{background:linear-gradient(135deg,#fff7ed,var(--card));border:2px solid #f97316;border-radius:10px;padding:20px;margin-top:20px}
+.results h3{color:#f97316;margin-bottom:12px}
+.result-item{display:flex;justify-content:space-between;padding:8px 0;border-bottom:1px solid var(--border)}
+.result-item:last-child{border-bottom:none}
+.result-label{font-weight:600;color:var(--text)}
+.result-value{font-weight:700;color:#f97316}
+.code-ok{color:#22c55e;font-weight:700}
+.code-warn{color:#ef4444;font-weight:700}
+.formula-box{background:var(--muted-bg);border-left:4px solid #f97316;padding:16px;border-radius:0 6px 6px 0;margin-top:12px;font-family:monospace;font-size:0.9rem}
+.example-box{background:var(--muted-bg);padding:16px;border-radius:6px;font-size:0.95rem}
+.faq-item{border:1px solid var(--border);border-radius:6px;margin-bottom:8px;overflow:hidden}
+.faq-q{width:100%;text-align:left;padding:14px 16px;background:var(--card);border:none;font-size:1rem;font-weight:600;color:var(--text);cursor:pointer;display:flex;justify-content:space-between;align-items:center}
+.faq-q:hover{background:var(--muted-bg)}
+.faq-q::after{content:'+';font-size:1.3rem;color:#f97316;transition:transform 0.3s}
+.faq-q.open::after{content:'-';transform:rotate(180deg)}
+.faq-a{max-height:0;overflow:hidden;transition:max-height 0.3s ease}
+.faq-a.open{max-height:300px;padding:0 16px 14px}
+.faq-a p{font-size:0.95rem;color:var(--text-light)}
+.share-btns{display:flex;gap:8px;flex-wrap:wrap}
+.share-btns button{padding:8px 16px;border:none;border-radius:6px;cursor:pointer;font-size:0.9rem;color:#fff}
+.embed-ta{width:100%;height:60px;padding:8px;border:2px solid var(--border);border-radius:6px;font-family:monospace;font-size:0.8rem;background:var(--muted-bg);color:var(--text);resize:none}
+.products{list-style:none;padding:0}
+.products li{padding:8px 0;border-bottom:1px solid var(--border)}
+.products li:last-child{border-bottom:none}
+.products a{color:#f97316;text-decoration:none;font-weight:600}
+.products a:hover{text-decoration:underline}
+table{width:100%;border-collapse:collapse;margin-top:12px}
+th{background:#1a2332;color:#fff;padding:10px;text-align:left}
+td{padding:10px;border-bottom:1px solid var(--border)}
+tr:nth-child(even){background:var(--muted-bg)}
+footer{background:var(--header-bg);color:#888;text-align:center;padding:24px 16px;font-size:0.85rem}
+footer a{color:#f97316;text-decoration:none}
+@media print{header a,footer,.share-btns button,button.dark-btn,#ad-slot{display:none!important}body{background:var(--bg);color:#000;font-size:12pt}.card{box-shadow:none;border:1px solid #ccc;break-inside:avoid}.results{border:2px solid var(--orange,#f97316)}@page{margin:0.5in}}
+@media(max-width:600px){header h1{font-size:1.5rem}.card{padding:16px}}
+</style><style id="bc-theme">/* FieldMath - Light Theme
+   All pages use this single light theme. No dark mode. */
+:root{
+  --bg:#f5f5f5;
+  --card:#ffffff;
+  --text:#333333;
+  --text-light:#666666;
+  --muted:#f1f3f7;
+  --muted-bg:#f8f9fa;
+  --border:#dde3ea;
+  --navy:#1a2332;
+  --header-bg:#1a2332;
+  --header-text:#ffffff;
+  --orange:#f97316;
+  --accent:#f97316;
+  --success:#16a34a;
+  --warning:#d97706;
+  --danger:#dc2626;
+}
+</style>
+<style id="bc-darkflash">html,html body{background:#f5f5f5 !important;color:#333 !important}body .card,body .panel,body .box,body .calculator,body .container,body .c,body .result,body .results,body .res,body .formula,body .example,body .faq,body .faq-item,body input,body select,body textarea{background:#ffffff !important;color:#333 !important;border-color:#ddd !important}</style></head>
+<body>
+
+<header><h1>Stair Calculator</h1></header>
+<div class="container">
+<div class="card">
+<h2>Enter Your Stair Dimensions</h2>
+<div class="form-row">
+<div class="form-group"><label>Total Rise (in)</label><input type="number" id="rise" value="105" min="24" step="0.5"></div>
+<div class="form-group"><label>Floor Thickness (in)</label><input type="number" id="floor" value="1" min="0" step="0.25"></div>
+<div class="form-group"><label>Desired Tread Depth (in)</label><input type="number" id="tread" value="10.5" min="9" max="14" step="0.25"></div>
+</div>
+<div class="results">
+<h3>Results</h3>
+<div class="result-item"><span class="result-label">Number of Risers</span><span class="result-value" id="rRisers">0</span></div>
+<div class="result-item"><span class="result-label">Riser Height</span><span class="result-value" id="rRiseH">0</span></div>
+<div class="result-item"><span class="result-label">Number of Treads</span><span class="result-value" id="rTreads">0</span></div>
+<div class="result-item"><span class="result-label">Total Run</span><span class="result-value" id="rRun">0</span></div>
+<div class="result-item"><span class="result-label">Stringer Length</span><span class="result-value" id="rStringer">0</span></div>
+<div class="result-item"><span class="result-label">Comfort Ratio (2R+T)</span><span class="result-value" id="rComfort">0</span></div>
+<div class="result-item"><span class="result-label">Code Status</span><span class="result-value" id="rCode">&#8212;</span></div>
+</div>
+<div class="formula-box"><strong>Formula:</strong> risers &#8776; totalRise / 7 (ideal); actualRise = totalRise / risers; treads = risers - 1; stringer = âˆš(rise&#178; + run&#178;); comfort = 2R + T (ideal 24-25)</div>
+<div class="example-box"><strong>Example:</strong> Total rise 105 in: 15 risers at 7.0 in, 14 treads at 10.5 in, total run 147 in, stringer length 180.5 in. Comfort ratio = 24.5 (ideal).</div>
+</div>
+<div class="card">
+<h2>Share This Calculation</h2>
+<div class="share-btns">
+<button onclick="navigator.clipboard.writeText(location.href);this.textContent='Copied!';setTimeout(()=>this.textContent='&#128203; Copy',2000)" style="background:#f97316">&#128203; Copy</button>
+<button onclick="window.open('https://twitter.com/intent/tweet?url='+encodeURIComponent(location.href)+'&text='+encodeURIComponent(document.title),'_blank')" style="background:#1da1f2">ð• Tweet</button>
+<button onclick="window.open('https://www.facebook.com/sharer/sharer.php?u='+encodeURIComponent(location.href),'_blank')" style="background:#1877f2"> Share</button>
+<button onclick="window.open('https://pinterest.com/pin/create/button/?url='+encodeURIComponent(location.href)+'&description='+encodeURIComponent(document.title),'_blank')" style="background:#e60023"> Pin</button>
+</div>
+</div>
+<div class="card">
+<h2>Embed This Calculator</h2>
+<textarea class="embed-ta" readonly onclick="this.select()">&lt;iframe src="https://dustyjones49.github.io/dustyjones49/stair-calculator/" width="100%" height="800" frameborder="0"&gt;&lt;/iframe&gt;</textarea>
+</div>
+<div id="ad-slot" class="card" style="text-align:center;min-height:90px;border:2px dashed var(--border);display:flex;align-items:center;justify-content:center;color:var(--text-light);font-size:0.85rem">Ad Slot &#8212; Replace with AdSense Code</div>
+<div class="card">
+<h2>Reference Table</h2>
+<table>
+<tr><th>Rise (in)</th><th>Run (in)</th><th>2R+T</th><th>Comfort Level</th></tr>
+<tr><td>7.0</td><td>11.0</td><td>25.0</td><td>Ideal</td></tr>
+<tr><td>7.25</td><td>10.5</td><td>25.0</td><td>Ideal</td></tr>
+<tr><td>7.5</td><td>10.0</td><td>25.0</td><td>Ideal</td></tr>
+<tr><td>7.75</td><td>10.0</td><td>25.5</td><td>Acceptable</td></tr>
+<tr><td>8.0</td><td>9.0</td><td>25.0</td><td>Min Code</td></tr>
+</table>
+</div>
+<div class="card">
+<h2>Frequently Asked Questions</h2>
+<div class="faq-item"><button class="faq-q">What is the ideal stair rise and run?</button><div class="faq-a"><p>Building code requires 7-8 inch rise and minimum 10 inch run (tread depth). The sweet spot is 7.5 inch rise with 10.5 inch run. Use the comfort formula: 2 × Rise + Run should equal 24-25 inches. Steeper than 8 inch rise feels like a ladder and is uncomfortable.</p></div></div>
+<div class="faq-item"><button class="faq-q">How many stringers do I need?</button><div class="faq-a"><p>Use 3 stringers for stairs up to 36 inches wide, 4 stringers for 36-48 inches wide, and space them no more than 16 inches apart. Cut stringers from 2x12 lumber and notch carefully &#8212; one bad notch and you'll need to start over with a new board.</p></div></div>
+<div class="faq-item"><button class="faq-q">Do stair risers need to be all the same height?</button><div class="faq-a"><p>Yes &#8212; code requires riser height variation of no more than 3/8 inch between any two risers. Your first riser may differ from the rest. If your floor isn't perfectly level, adjust the bottom riser slightly but keep all other risers identical to maintain a safe, comfortable staircase.</p></div></div>
+</div>
+<div class="card">
+<h2>Recommended Products</h2>
+<ul class="products">
+<li><a href="https://www.homedepot.com/s/stair%20stringer%202x12x12" target="_blank" rel="nofollow">Stair Stringer 2x12x12</a> &#8212; Home Depot</li>
+<li><a href="https://www.amazon.com/s?k=stair+treads+oak+36+inch&tag=buildcalc-20" target="_blank" rel="nofollow">Stair Treads Oak 36 in</a> &#8212; Amazon</li>
+<li><a href="https://www.amazon.com/s?k=stair+gauges+brass&tag=buildcalc-20" target="_blank" rel="nofollow">Stair Gauges Brass</a> &#8212; Amazon</li>
+</ul>
+</div>
+</div>
+<footer>
+<p>2026 FieldMath - Calculators are reference only. Always verify with your local code.</p>
+</footer>
+<script>
+(function(){
+var r=document.getElementById('rise'),f=document.getElementById('floor'),t=document.getElementById('tread');
+var rr=document.getElementById('rRisers'),rh=document.getElementById('rRiseH'),rt=document.getElementById('rTreads'),ru=document.getElementById('rRun'),rs=document.getElementById('rStringer'),rc=document.getElementById('rComfort'),rcd=document.getElementById('rCode');
+function calc(){
+var totalRise=parseFloat(r.value)||105,floorThick=parseFloat(f.value)||0,dt=parseFloat(t.value)||10.5;
+var adjRise=totalRise+floorThick;
+var approxRisers=Math.round(adjRise/7);
+if(approxRisers<2)approxRisers=2;
+var actualRise=adjRise/approxRisers,treads=approxRisers-1,totalRun=treads*dt;
+var stringer=Math.sqrt(Math.pow(adjRise,2)+Math.pow(totalRun,2));
+var comfort=2*actualRise+dt;
+rr.textContent=approxRisers;rh.textContent=actualRise.toFixed(2)+' in';rt.textContent=treads;
+ru.textContent=totalRun.toFixed(1)+' in';rs.textContent=stringer.toFixed(1)+' in';rc.textContent=comfort.toFixed(1);
+if(actualRise>=7&&actualRise<=8&&dt>=10)rcd.innerHTML='<span class="code-ok">&#10003; Code Compliant</span>';
+else rcd.innerHTML='<span class="code-warn">âš  Check local code</span>';
+}
+[r,f,t].forEach(function(e){e.addEventListener('input',calc);e.addEventListener('change',calc)});
+calc();
+document.querySelectorAll('.faq-q').forEach(function(b){b.addEventListener('click',function(){this.classList.toggle('open');this.nextElementSibling.classList.toggle('open')})});
+var inputs=document.querySelectorAll('input,select');
+function save(){var params=new URLSearchParams();inputs.forEach(function(e,i){if(e.value)params.set('i'+i,e.value)});if(params.toString())history.replaceState(null,'','?'+params.toString())}
+function load(){var params=new URLSearchParams(location.search);inputs.forEach(function(e,i){if(params.has('i'+i))e.value=params.get('i'+i);e.addEventListener('input',save);e.addEventListener('change',save)});if(params.toString())calc()}
+load();
+})();
+</script>
+<script src="../custom-select.js"></script><script src="../favorites.js"></script><script src="../remember-inputs.js"></script><script src="../sticky-header.js"></script><script src="../ui-fix.js"></script><script src="../link-fix.js"></script><script src="../auto-calc.js"></script><script src="../dark-persist.js"></script><script src="../admob-banner.js"></script></body>
+</html>
+
+
+
+

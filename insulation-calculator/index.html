@@ -1,0 +1,229 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>Insulation Calculator - Batts &amp; Rolls | FieldMath</title>
+<meta name="description" content="Insulation batt calculator. Area divided by 15 sq ft per bag/batt pack, includes wall and ceiling.">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Segoe UI',system-ui,-apple-system,sans-serif;background:var(--bg);color:var(--text);line-height:1.6}
+header{background:#1a2332;color:#fff;padding:1.5rem 1rem;text-align:center}
+header a{color:#f97316;text-decoration:none;font-size:0.9rem}
+header a:hover{text-decoration:underline}
+header h1{font-size:1.8rem;margin:0.5rem 0 0}
+header .category{color:#f97316;font-size:0.85rem;text-transform:uppercase;letter-spacing:1px;margin-top:0.25rem}
+header .desc{color:#ccc;font-size:0.95rem;margin-top:0.25rem}
+.container{max-width:800px;margin:2rem auto;padding:0 1rem}
+.card{background:#fff;border-radius:8px;box-shadow:0 2px 12px rgba(0,0,0,0.08);padding:2rem;margin-bottom:2rem}
+.card h2{color:#1a2332;font-size:1.3rem;margin-bottom:1rem;border-bottom:2px solid #f97316;padding-bottom:0.5rem;display:inline-block}
+.form-group{margin-bottom:1.2rem}
+.form-group label{display:block;font-weight:600;margin-bottom:0.4rem;color:#1a2332}
+.form-group input,.form-group select{width:100%;padding:0.65rem 0.8rem;border:2px solid #ddd;border-radius:6px;font-size:1rem;transition:border-color 0.2s}
+.form-group input:focus,.form-group select:focus{outline:none;border-color:#f97316}
+.results{background:#fff8f3;border-left:4px solid #f97316;padding:1.2rem;border-radius:0 8px 8px 0;margin-top:1.5rem}
+.results p{margin:0.5rem 0;font-size:1.05rem}
+.results span{font-weight:700;color:#1a2332}
+.formula-box{background:#1a2332;color:#fff;padding:1rem 1.2rem;border-radius:6px;text-align:center;font-size:1.1rem;margin-top:1rem;word-break:break-word}
+.formula-box code{color:#f97316;font-weight:600}
+.example-box{background:#f0f4f8;padding:1rem 1.2rem;border-radius:6px;margin-top:1rem}
+.example-box h4{color:#1a2332;margin-bottom:0.5rem}
+.example-box p{font-size:0.95rem;color:#555}
+.faq-item{margin-bottom:0.5rem;border:1px solid #e0e0e0;border-radius:6px;overflow:hidden}
+.faq-q{background:#f9f9f9;padding:0.9rem 1.2rem;font-weight:600;color:#1a2332;cursor:pointer;display:flex;justify-content:space-between;align-items:center;user-select:none;transition:background 0.2s}
+.faq-q:hover{background:#f0f0f0}
+.faq-q::after{content:'+';font-size:1.3rem;color:#f97316;font-weight:700;transition:transform 0.3s}
+.faq-q.open::after{content:'\2212';transform:rotate(180deg)}
+.faq-a{max-height:0;overflow:hidden;transition:max-height 0.35s ease,padding 0.35s ease}
+.faq-a-inner{padding:0 1.2rem 1rem;color:#555;font-size:0.95rem;line-height:1.5}
+.faq-a.open{max-height:400px}
+.products{list-style:none}
+.products li{margin-bottom:0.6rem}
+.products a{color:#f97316;text-decoration:none;font-weight:500}
+.products a:hover{text-decoration:underline}
+footer{background:#1a2332;color:#aaa;text-align:center;padding:2rem 1rem;margin-top:3rem;font-size:0.85rem}
+footer a{color:#f97316;text-decoration:none}
+@media(max-width:600px){
+  header h1{font-size:1.4rem}
+  .card{padding:1.2rem}
+  .formula-box{font-size:0.95rem}
+}
+:root{--bg:#f5f5f5;--card:#fff;--text:#333;--text-light:#666;--border:#ddd;--header-bg:#1a2332;--header-text:#fff;--muted-bg:#f8f9fa}
+body.dark{--bg:#1a1a2e;--card:#16213e;--text:#e0e0e0;--text-light:#aaa;--border:#333;--header-bg:#0f3460;--header-text:#e0e0e0;--muted-bg:#1a1a2e}
+.card{background:var(--card);border-color:var(--border)}
+header{background:var(--header-bg);color:var(--header-text)}
+@media print{header .back-link,.dark-toggle,footer,#ad-slot,button{display:none!important}body{background:var(--bg);color:#000;font-size:12pt}.card{box-shadow:none;border:1px solid #ccc;break-inside:avoid}.results{border:2px solid var(--orange,#f97316)}[id$="-slot"]{display:none!important}@page{margin:0.5in}}
+</style>
+<link rel="canonical" href="https://dustyjones49.github.io/dustyjones49/insulation-calculator/">
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"WebApplication",
+  "name":"Insulation Calculator",
+  "url":"https://dustyjones49.github.io/dustyjones49/insulation-calculator/",
+  "description":"Insulation batt calculator. Area divided by 15 sq ft per bag/batt pack, includes wall and ceiling.",
+  "applicationCategory":"EducationalApplication",
+  "operatingSystem":"All"
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"FAQPage",
+  "mainEntity":[
+    {"@type":"Question","name":"What R-value do I need for walls and attic?","acceptedAnswer":{"@type":"Answer","text":"Use R-13 batts for 2x4 walls, R-19 or R-21 for 2x6 walls, and R-38 to R-49 for attics depending on climate zone. Colder zones need higher R-values. Check DOE map for your zip code - attics are the best bang for buck."}},
+    {"@type":"Question","name":"How many insulation batts per 1000 sq ft?","acceptedAnswer":{"@type":"Answer","text":"At 15 sq ft per batt pack, you need 67 packs per 1000 sq ft. For 2x4 walls that's R-13, for attics R-38 batts cover less area per bag (about 30 sq ft). Always buy faced for walls and unfaced for second attic layer."}},
+    {"@type":"Question","name":"Do you need vapor barrier with insulation?","acceptedAnswer":{"@type":"Answer","text":"In cold climates use faced batts with kraft paper facing the warm interior side to act as vapor retarder. In hot-humid climates use unfaced plus separate poly if required by code. Never double vapor barrier or you trap moisture."}}
+  ]
+}
+</script><style id="bc-theme">/* FieldMath - Light Theme
+   All pages use this single light theme. No dark mode. */
+:root{
+  --bg:#f5f5f5;
+  --card:#ffffff;
+  --text:#333333;
+  --text-light:#666666;
+  --muted:#f1f3f7;
+  --muted-bg:#f8f9fa;
+  --border:#dde3ea;
+  --navy:#1a2332;
+  --header-bg:#1a2332;
+  --header-text:#ffffff;
+  --orange:#f97316;
+  --accent:#f97316;
+  --success:#16a34a;
+  --warning:#d97706;
+  --danger:#dc2626;
+}
+</style>
+<style id="bc-darkflash">html,html body{background:#f5f5f5 !important;color:#333 !important}body .card,body .panel,body .box,body .calculator,body .container,body .c,body .result,body .results,body .res,body .formula,body .example,body .faq,body .faq-item,body input,body select,body textarea{background:#ffffff !important;color:#333 !important;border-color:#ddd !important}</style></head>
+<body>
+<header><h1>Insulation Calculator</h1></header>
+<div class="container">
+  <div class="card">
+    <h2>Calculate Insulation Batts</h2>
+    <div class="form-group">
+      <label for="length">Wall or Attic Length (ft)</label>
+      <input type="number" id="length" value="40" min="1" step="any" placeholder="e.g. 40">
+    </div>
+    <div class="form-group">
+      <label for="width">Wall or Attic Width (ft)</label>
+      <input type="number" id="width" value="8" min="1" step="any" placeholder="e.g. 8">
+    </div>
+    <div class="form-group">
+      <label for="coverage">Coverage per Pack (sq ft)</label>
+      <input type="number" id="coverage" value="15" min="1" step="any" placeholder="e.g. 15">
+    </div>
+    <div class="results" id="results">
+      <p>Total Area: <span id="area">320.00</span> sq ft</p>
+      <p>Batt Packs Needed: <span id="batts">22</span></p>
+    </div>
+  </div>
+
+  <div class="card" style="margin-top:8px">
+<h2>Share This Calculation</h2>
+<div style="display:flex;gap:8px;flex-wrap:wrap">
+<button onclick="navigator.clipboard.writeText(window.location.href);this.textContent='Copied!';setTimeout(()=>this.textContent='&#128203; Copy Link',2000)" style="padding:8px 16px;background:#f97316;color:#fff;border:none;border-radius:6px;cursor:pointer;font-size:0.9rem">&#128203; Copy Link</button>
+<button onclick="window.open('https://twitter.com/intent/tweet?url='+encodeURIComponent(window.location.href)+'&text='+encodeURIComponent(document.title),'_blank')" style="padding:8px 16px;background:#1a2332;color:#fff;border:none;border-radius:6px;cursor:pointer;font-size:0.9rem">ð• Tweet</button>
+<button onclick="window.open('https://www.facebook.com/sharer/sharer.php?u='+encodeURIComponent(window.location.href),'_blank')" style="padding:8px 16px;background:#1877f2;color:#fff;border:none;border-radius:6px;cursor:pointer;font-size:0.9rem"> Share</button>
+<button onclick="window.open('https://pinterest.com/pin/create/button/?url='+encodeURIComponent(window.location.href)+'&description='+encodeURIComponent(document.title),'_blank')" style="padding:8px 16px;background:#e60023;color:#fff;border:none;border-radius:6px;cursor:pointer;font-size:0.9rem"> Pin</button>
+</div>
+</div>
+<div class="card">
+<h2>Embed This Calculator</h2>
+<p style="color:var(--text-light);font-size:0.85rem;margin-bottom:8px">Add this calculator to your website:</p>
+<textarea readonly onclick="this.select()" style="width:100%;height:60px;padding:8px;border:2px solid #ddd;border-radius:6px;font-family:monospace;font-size:0.8rem;background:var(--muted-bg);color:var(--text)" rows="3">&lt;iframe src="https://dustyjones49.github.io/dustyjones49/insulation-calculator/" width="100%" height="800" frameborder="0"&gt;&lt;/iframe&gt;</textarea>
+</div>
+<div class="card" style="text-align:center">
+<div id="ad-slot" style="min-height:90px;border:2px dashed var(--border);display:flex;align-items:center;justify-content:center;color:var(--text-light);border-radius:6px;font-size:0.85rem">Ad Slot &#8212; Replace with AdSense Code</div>
+</div>
+
+  <div class="card">
+    <h2>Formula</h2>
+    <div class="formula-box">
+      <code>batts = ceil( area &divide; coverage )</code>
+    </div>
+    <p style="margin-top:0.8rem;font-size:0.9rem;color:#666;">Standard batt pack covers ~15 sq ft. Rounded up to whole packs.</p>
+  </div>
+
+  <div class="card">
+    <h2>Example Calculation</h2>
+    <div class="example-box">
+      <h4>Wall 40 ft &times; 8 ft = 320 sq ft at 15 sq ft/pack</h4>
+      <p>Batts = ceil(320 &divide; 15) = <strong>22 packs</strong><br>
+      Attic 1000 sq ft = ceil(1000 &divide; 15) = <strong>67 packs</strong></p>
+    </div>
+  </div>
+
+  <div class="card">
+    <h2>FAQ</h2>
+    <div class="faq-item">
+      <div class="faq-q" onclick="toggleFaq(this)">What R-value do I need for walls and attic?</div>
+      <div class="faq-a"><div class="faq-a-inner">Use R-13 batts for 2x4 walls, R-19 or R-21 for 2x6 walls, and R-38 to R-49 for attics depending on climate zone. Colder zones need higher R-values. Check DOE map for your zip code - attics are the best bang for buck.</div></div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q" onclick="toggleFaq(this)">How many insulation batts per 1000 sq ft?</div>
+      <div class="faq-a"><div class="faq-a-inner">At 15 sq ft per batt pack, you need 67 packs per 1000 sq ft. For 2x4 walls that's R-13, for attics R-38 batts cover less area per bag (about 30 sq ft). Always buy faced for walls and unfaced for second attic layer.</div></div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q" onclick="toggleFaq(this)">Do you need vapor barrier with insulation?</div>
+      <div class="faq-a"><div class="faq-a-inner">In cold climates use faced batts with kraft paper facing the warm interior side to act as vapor retarder. In hot-humid climates use unfaced plus separate poly if required by code. Never double vapor barrier or you trap moisture.</div></div>
+    </div>
+  </div>
+
+  <div class="card">
+    <h2>Recommended Products</h2>
+    <ul class="products">
+      <li><a href="https://www.homedepot.com/s/fiberglass%20batts%20r-13%2015%20in" target="_blank" rel="nofollow">Fiberglass Batts R-13 15 in</a> &mdash; Home Depot</li>
+      <li><a href="https://www.amazon.com/s?k=vapor+barrier+poly+10+mil&tag=buildcalc-20" target="_blank" rel="nofollow">Vapor Barrier Poly 10 mil</a> &mdash; Amazon</li>
+      <li><a href="https://www.homedepot.com/s/staple%20gun%20t50%20heavy%20duty" target="_blank" rel="nofollow">Staple Gun T50 Heavy Duty</a> &mdash; Home Depot</li>
+    </ul>
+  </div>
+</div>
+<footer>
+<p>2026 FieldMath - Calculators are reference only. Always verify with your local code.</p>
+</footer>
+
+<script>
+(function(){
+  var len = document.getElementById('length');
+  var wid = document.getElementById('width');
+  var cov = document.getElementById('coverage');
+  var areaEl = document.getElementById('area');
+  var battsEl = document.getElementById('batts');
+
+  function calc(){
+    var L = parseFloat(len.value) || 0;
+    var W = parseFloat(wid.value) || 0;
+    var C = parseFloat(cov.value) || 15;
+    var area = L * W;
+    var batts = Math.ceil(area / C);
+    areaEl.textContent = area.toFixed(2);
+    battsEl.textContent = Math.max(0, batts);
+  }
+
+  len.addEventListener('input', calc);
+  wid.addEventListener('input', calc);
+  cov.addEventListener('input', calc);
+  calc();
+})();
+
+function toggleFaq(el){
+  el.classList.toggle('open');
+  el.nextElementSibling.classList.toggle('open');
+}
+(function(){
+  var inputs=document.querySelectorAll('input,select');
+  function save(){var p=new URLSearchParams();inputs.forEach(function(e,i){if(e.value)p.set('i'+i,e.value)});if(p.toString())history.replaceState(null,'','?'+p.toString())}
+  function load(){var p=new URLSearchParams(location.search);inputs.forEach(function(e,i){if(p.has('i'+i))e.value=p.get('i'+i);e.addEventListener('input',save);e.addEventListener('change',save)});if(p.toString()){var ev=new Event('input');inputs[inputs.length-1].dispatchEvent(ev)}}
+  load();
+})();
+</script>
+<script src="../temp-toggle.js"></script><script src="../custom-select.js"></script><script src="../favorites.js"></script><script src="../remember-inputs.js"></script><script src="../sticky-header.js"></script><script src="../ui-fix.js"></script><script src="../link-fix.js"></script><script src="../auto-calc.js"></script><script src="../dark-persist.js"></script><script src="../admob-banner.js"></script></body>
+</html>
+
+
+
+
+
+

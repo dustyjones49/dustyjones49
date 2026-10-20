@@ -1,0 +1,196 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>Soil Calculator - Cubic Yards for Planters</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<meta name="description" content="Calculate soil needed for raised beds, planters and garden beds. Cubic yards and bags by depth and dimensions.">
+<link rel="canonical" href="https://buildcalc.com/soil-calculator/">
+<meta property="og:title" content="Soil Calculator - Cubic Yards for Planters">
+<meta property="og:description" content="Calculate soil needed for raised beds, planters and garden beds. Cubic yards and bags by depth and dimensions.">
+<meta property="og:url" content="https://buildcalc.com/soil-calculator/">
+<meta property="og:type" content="website">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Soil Calculator - Cubic Yards for Planters">
+<meta name="twitter:description" content="Calculate soil needed for raised beds, planters and garden beds. Cubic yards and bags by depth and dimensions.">
+<style>
+:root{--bg:#fff;--text:#1a1a1a;--card:#f8f9fa;--input:#fff;--border:#dee2e6;--primary:#059669;--primary-hover:#047857;--result-bg:#ecfdf5;--accent:#ea580c;--faq-bg:#f0fdf4;--shadow:0 2px 8px rgba(0,0,0,0.1)}
+.dark{--bg:#1a1a2e;--text:#e0e0e0;--card:#16213e;--input:#0f3460;--border:#2a2a4a;--primary:#34d399;--primary-hover:#6ee7b7;--result-bg:#064e3b;--accent:#f97316;--faq-bg:#1e2a3a;--shadow:0 2px 8px rgba(0,0,0,0.4)}
+body{font-family:system-ui,-apple-system,sans-serif;background:var(--bg);color:var(--text);margin:0;padding:0;line-height:1.6;transition:background .3s,color .3s}
+.container{max-width:720px;margin:0 auto;padding:16px}
+h1{font-size:1.8rem;margin:0 0 4px;color:var(--primary)}
+header p{margin:0 0 16px;color:var(--text);opacity:.8}
+.breadcrumb{font-size:.85rem;margin-bottom:12px;color:var(--text);opacity:.7}
+.breadcrumb a{color:var(--primary);text-decoration:none}
+.breadcrumb a:hover{text-decoration:underline}
+.card{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:20px;margin-bottom:16px;box-shadow:var(--shadow)}
+.card h2{font-size:1.2rem;margin:0 0 12px;color:var(--primary)}
+.input-group{margin-bottom:12px}
+.input-group label{display:block;font-weight:600;margin-bottom:4px;font-size:.9rem}
+.input-group input,.input-group select{width:100%;padding:10px 12px;border:1px solid var(--border);border-radius:8px;font-size:1rem;background:var(--input);color:var(--text);box-sizing:border-box}
+.input-group input:focus,.input-group select:focus{outline:2px solid var(--primary);outline-offset:-1px}
+.btn{display:inline-block;padding:12px 24px;font-size:1rem;font-weight:600;border:none;border-radius:8px;cursor:pointer;transition:background .2s}
+.btn-primary{background:var(--primary);color:#fff;width:100%}
+.btn-primary:hover{background:var(--primary-hover)}
+.result{background:var(--result-bg);border:1px solid var(--primary);border-radius:8px;padding:12px 16px;margin-top:12px}
+.result .row{display:flex;justify-content:space-between;align-items:center;padding:6px 0;border-bottom:1px solid var(--border)}
+.result .row:last-child{border-bottom:none}
+.result .label{font-weight:600}
+.result .value{font-size:1.1rem;font-weight:700;color:var(--accent)}
+.formula-box{background:var(--result-bg);border:1px dashed var(--primary);border-radius:8px;padding:12px;margin-top:12px;font-size:.85rem}
+.formula-box code{display:block;margin:4px 0}
+.faq-item{border:1px solid var(--border);border-radius:8px;margin-bottom:8px;overflow:hidden}
+.faq-question{width:100%;text-align:left;padding:14px 16px;background:var(--faq-bg);border:none;cursor:pointer;font-weight:600;font-size:.95rem;color:var(--text);display:flex;justify-content:space-between;align-items:center}
+.faq-question:hover{opacity:.85}
+.faq-question .arrow{transition:transform .2s;font-size:1.2rem}
+.faq-question.open .arrow{transform:rotate(180deg)}
+.faq-answer{display:none;padding:0 16px 14px;font-size:.9rem;line-height:1.5}
+.faq-answer.open{display:block}
+.share-row{display:flex;gap:8px;flex-wrap:wrap;margin-top:8px}
+.share-btn{flex:1;min-width:100px;padding:10px;border:none;border-radius:8px;cursor:pointer;font-size:.85rem;font-weight:600;text-align:center;color:#fff}
+.share-fb{background:#1877f2}.share-tw{background:#000}.share-wa{background:#25d366}.share-em{background:#555}
+.embed-box{width:100%;background:var(--input);border:1px solid var(--border);border-radius:8px;padding:10px;font-size:.8rem;font-family:monospace;box-sizing:border-box;margin-top:4px;color:var(--text)}
+.products{margin-top:12px}
+.products a{display:block;padding:10px 12px;background:var(--card);border:1px solid var(--border);border-radius:8px;margin-bottom:6px;text-decoration:none;color:var(--primary);font-weight:600;font-size:.9rem;transition:background .2s}
+.products a:hover{background:var(--result-bg)}
+.related-links{display:flex;flex-wrap:wrap;gap:8px;margin-top:8px}
+.related-links a{background:var(--card);border:1px solid var(--border);padding:8px 14px;border-radius:20px;text-decoration:none;color:var(--primary);font-size:.85rem;font-weight:500}
+.related-links a:hover{background:var(--result-bg)}
+.ad-slot{background:var(--card);border:1px dashed var(--border);padding:60px 20px;text-align:center;border-radius:12px;margin:16px 0;color:var(--text);opacity:.6;font-size:.9rem}
+#backToTop{position:fixed;bottom:24px;right:24px;width:44px;height:44px;background:var(--primary);color:#fff;border:none;border-radius:50%;font-size:1.3rem;cursor:pointer;display:none;box-shadow:0 2px 8px rgba(0,0,0,.3);z-index:999}
+#backToTop:hover{background:var(--primary-hover)}
+.dark-toggle{position:fixed;top:16px;right:16px;z-index:1000;background:var(--card);border:1px solid var(--border);border-radius:50%;width:40px;height:40px;cursor:pointer;font-size:1.2rem;display:flex;align-items:center;justify-content:center;box-shadow:var(--shadow)}
+@media print{.share-row,.embed-box,.ad-slot,.dark-toggle,#backToTop,.products,.related-links{display:none!important}body{background:var(--bg);color:#000;font-size:12px}.card{box-shadow:none;border:1px solid #ccc;break-inside:avoid}}
+@media(max-width:480px){.container{padding:10px}h1{font-size:1.4rem}}
+</style>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebApplication","name":"Soil Calculator","description":"Calculate soil needed for raised beds, planters and garden beds. Cubic yards and bags by depth and dimensions.","url":"https://buildcalc.com/soil-calculator/","applicationCategory":"EducationalApplication"}
+</script>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"What soil mix for raised beds?","acceptedAnswer":{"@type":"Answer","text":"Use 60% topsoil + 30% compost + 10% perlite or vermiculite. Don't use 100% bagged potting mix&#8212;it's too light and expensive for large beds. For veggies, add 2 inches of compost annually."}},{"@type":"Question","name":"How deep should raised bed soil be?","acceptedAnswer":{"@type":"Answer","text":"Minimum 6 inches for lettuce and shallow roots. 12 inches for tomatoes, peppers, and most vegetables. 18-24 inches for root crops like carrots and potatoes. Deeper is always better for root development and moisture retention."}},{"@type":"Question","name":"Soil vs topsoil vs garden soil?","acceptedAnswer":{"@type":"Answer","text":"Topsoil is cheap fill with some organic matter. Garden soil is enriched topsoil with compost added. Potting soil is lightweight soilless mix for containers. For raised beds: buy bulk garden soil blend by the yard&#8212;it's 40-60% cheaper than bagged."}}]}
+</script>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://buildcalc.com/"},{"@type":"ListItem","position":2,"name":"Landscaping","item":"https://buildcalc.com/category/landscaping/"},{"@type":"ListItem","position":3,"name":"Soil Calculator","item":"https://buildcalc.com/soil-calculator/"}]}
+</script><style id="bc-theme">/* FieldMath - Light Theme
+   All pages use this single light theme. No dark mode. */
+:root{
+  --bg:#f5f5f5;
+  --card:#ffffff;
+  --text:#333333;
+  --text-light:#666666;
+  --muted:#f1f3f7;
+  --muted-bg:#f8f9fa;
+  --border:#dde3ea;
+  --navy:#1a2332;
+  --header-bg:#1a2332;
+  --header-text:#ffffff;
+  --orange:#f97316;
+  --accent:#f97316;
+  --success:#16a34a;
+  --warning:#d97706;
+  --danger:#dc2626;
+}
+</style>
+<style id="bc-darkflash">html,html body{background:#f5f5f5 !important;color:#333 !important}body .card,body .panel,body .box,body .calculator,body .container,body .c,body .result,body .results,body .res,body .formula,body .example,body .faq,body .faq-item,body input,body select,body textarea{background:#ffffff !important;color:#333 !important;border-color:#ddd !important}</style></head>
+<body>
+<button class="dark-toggle" onclick="toggleDark()" aria-label="Toggle dark mode">&#9788;</button>
+<div class="container">
+
+<header><h1>Soil Calculator</h1></header>
+<div class="card">
+<h2>Bed Dimensions</h2>
+<div class="input-group"><label for="length">Bed Length (ft)</label><input type="number" id="length" value="8" min="1" step="0.1"></div>
+<div class="input-group"><label for="width">Bed Width (ft)</label><input type="number" id="width" value="4" min="1" step="0.1"></div>
+<div class="input-group"><label for="depth">Soil Depth (in)</label><input type="number" id="depth" value="12" min="1" step="0.5"></div>
+<div class="input-group"><label for="numBeds">Number of Beds</label><input type="number" id="numBeds" value="1" min="1" step="1"></div>
+<button class="btn btn-primary" onclick="calculate()">Calculate</button>
+<div class="result" id="result"></div>
+<div class="formula-box">
+<strong>Formula:</strong>
+<code>cf = L &times; W &times; (D/12) &times; numBeds</code>
+<code>cy = cf / 27</code>
+<strong>Example:</strong> 8&times;4 ft bed, 12 in deep: cf=32, cy=1.2, bags=22 &times; 1.5 cu ft or 16 &times; 2 cu ft.
+</div>
+</div>
+<div class="ad-slot">Advertisement</div>
+<div class="card">
+<h2>FAQ</h2>
+<div class="faq-item"><button class="faq-question" onclick="toggleFAQ(this)">What soil mix for raised beds? <span class="arrow">&#9660;</span></button><div class="faq-answer">Use 60% topsoil + 30% compost + 10% perlite or vermiculite. Don't use 100% bagged potting mix&#8212;it's too light and expensive for large beds. For veggies, add 2 inches of compost annually.</div></div>
+<div class="faq-item"><button class="faq-question" onclick="toggleFAQ(this)">How deep should raised bed soil be? <span class="arrow">&#9660;</span></button><div class="faq-answer">Minimum 6 inches for lettuce and shallow roots. 12 inches for tomatoes, peppers, and most vegetables. 18-24 inches for root crops like carrots and potatoes. Deeper is always better for root development and moisture retention.</div></div>
+<div class="faq-item"><button class="faq-question" onclick="toggleFAQ(this)">Soil vs topsoil vs garden soil? <span class="arrow">&#9660;</span></button><div class="faq-answer">Topsoil is cheap fill with some organic matter. Garden soil is enriched topsoil with compost added. Potting soil is lightweight soilless mix for containers. For raised beds: buy bulk garden soil blend by the yard&#8212;it's 40-60% cheaper than bagged.</div></div>
+</div>
+<div class="card">
+<h2>Recommended Products</h2>
+<div class="products">
+<a href="https://www.homedepot.com/s/garden+soil+1.5+cu+ft?NCNI-5" target="_blank" rel="nofollow sponsored">Garden Soil 1.5 cu ft (Home Depot)</a>
+<a href="https://www.amazon.com/s?k=compost+cow+manure+40lb&tag=buildcalc-20" target="_blank" rel="nofollow sponsored">Compost Cow Manure 40lb (Amazon)</a>
+<a href="https://www.homedepot.com/s/raised+bed+kit+4x8?NCNI-5" target="_blank" rel="nofollow sponsored">Raised Bed Kit 4x8 ft (Home Depot)</a>
+</div>
+</div>
+<div class="card">
+<h2>Share</h2>
+<div class="share-row">
+<button class="share-btn share-fb" onclick="share('facebook')">Facebook</button>
+<button class="share-btn share-tw" onclick="share('twitter')">X / Twitter</button>
+<button class="share-btn share-wa" onclick="share('whatsapp')">WhatsApp</button>
+<button class="share-btn share-em" onclick="share('email')">Email</button>
+</div>
+<h2 style="margin-top:16px">Embed</h2>
+<textarea class="embed-box" rows="3" readonly><iframe src="https://buildcalc.com/soil-calculator/" width="100%" height="600" style="border:none;border-radius:12px" title="Soil Calculator"></iframe></textarea>
+</div>
+<div class="card">
+<h2>Related Calculators</h2>
+<div class="related-links">
+<a href="../mulch-calculator/">Mulch Calculator</a>
+<a href="../topsoil-calculator/">Topsoil Calculator</a>
+<a href="../sand-calculator/">Sand Calculator</a>
+</div>
+</div>
+</div>
+<button id="backToTop" onclick="window.scrollTo({top:0,behavior:'smooth'})">&#9650;</button>
+<script>
+function calculate(){
+  var L=parseFloat(document.getElementById('length').value)||0;
+  var W=parseFloat(document.getElementById('width').value)||0;
+  var D=parseFloat(document.getElementById('depth').value)||0;
+  var n=parseInt(document.getElementById('numBeds').value)||0;
+  var cf=L*W*(D/12)*n;
+  var cy=cf/27;
+  var bags15=Math.ceil(cf/1.5);
+  var bags2=Math.ceil(cf/2);
+  document.getElementById('result').innerHTML=
+  '<div class="row"><span class="label">Cubic Feet</span><span class="value">'+cf.toFixed(1)+' cu ft</span></div>'+
+  '<div class="row"><span class="label">Cubic Yards</span><span class="value">'+cy.toFixed(2)+' cu yd</span></div>'+
+  '<div class="row"><span class="label">1.5 cu ft Bags</span><span class="value">'+bags15+' bags</span></div>'+
+  '<div class="row"><span class="label">2 cu ft Bags</span><span class="value">'+bags2+' bags</span></div>';
+  var p=new URLSearchParams(window.location.search);
+  p.set('length',L);p.set('width',W);p.set('depth',D);p.set('numBeds',n);
+  window.history.replaceState({},'',location.pathname+'?'+p.toString());
+}
+function toggleFAQ(el){el.classList.toggle('open');el.nextElementSibling.classList.toggle('open')}
+function toggleDark(){document.documentElement.classList.toggle('dark');localStorage.setItem('dark',document.documentElement.classList.contains('dark')?'1':'0')}
+function share(p){
+  var u=encodeURIComponent(location.href),t=encodeURIComponent(document.title);
+  if(p==='facebook')window.open('https://www.facebook.com/sharer.php?u='+u);
+  else if(p==='twitter')window.open('https://twitter.com/intent/tweet?url='+u+'&text='+t);
+  else if(p==='whatsapp')window.open('https://wa.me/?text='+t+' '+u);
+  else if(p==='email')window.open('mailto:?subject='+t+'&body='+u);
+}
+window.onscroll=function(){document.getElementById('backToTop').style.display=window.scrollY>300?'block':'none'};
+window.onload=function(){
+  if(localStorage.getItem('dark')==='1')document.documentElement.classList.add('dark');
+  var p=new URLSearchParams(window.location.search);
+  if(p.get('length'))document.getElementById('length').value=p.get('length');
+  if(p.get('width'))document.getElementById('width').value=p.get('width');
+  if(p.get('depth'))document.getElementById('depth').value=p.get('depth');
+  if(p.get('numBeds'))document.getElementById('numBeds').value=p.get('numBeds');
+  calculate();
+};
+</script>
+<script id='__CALC_AUTO__'>(function(){try{if(typeof calculate==='function')calculate();}catch(e){}})();</script><script src="../custom-select.js"></script><script src="../favorites.js"></script><script src="../remember-inputs.js"></script><script src="../sticky-header.js"></script><script src="../ui-fix.js"></script><script src="../link-fix.js"></script><script src="../auto-calc.js"></script><script src="../dark-persist.js"></script><script src="../admob-banner.js"></script></body>
+</html>
+
+
+
+
+

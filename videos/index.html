@@ -1,0 +1,563 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<link rel="canonical" href="https://dustyjones49.github.io/dustyjones49/videos/">
+<title>Construction & DIY Video Library | 50 Tutorials</title>
+<meta name="description" content="Curated construction and DIY video tutorials: concrete, framing, electrical, plumbing, flooring, drywall, roofing, and more. Filter by difficulty level.">
+<style>
+:root {
+  --navy: #0a1628;
+  --navy-light: #152240;
+  --gold: #c9a84c;
+  --gold-light: #e0c97a;
+  --white: #ffffff;
+  --text: #1a1a2e;
+  --muted: #e8ecf1;
+  --card-bg: #ffffff;
+  --border: #d5dbe3;
+  --shadow: 0 2px 8px rgba(0,0,0,0.08);
+  --shadow-hover: 0 4px 16px rgba(0,0,0,0.14);
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: 'Segoe UI', system-ui, -apple-system, sans-serif; background: #f4f6f9; color: var(--text); line-height: 1.6; }
+header { background: var(--navy); color: var(--white); padding: 1.2rem 0; position: sticky; top: 0; z-index: 100; box-shadow: 0 2px 12px rgba(0,0,0,0.25); }
+header .wrap { max-width: 1200px; margin: 0 auto; padding: 0 1.5rem; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; }
+header h1 { font-size: 1.5rem; font-weight: 700; letter-spacing: -0.3px; }
+header h1 span { color: var(--gold); }
+nav a { color: var(--white); text-decoration: none; margin-left: 1.5rem; font-size: 0.95rem; opacity: 0.85; transition: opacity 0.2s; }
+nav a:hover { opacity: 1; color: var(--gold-light); }
+.hero { background: linear-gradient(135deg, var(--navy) 0%, var(--navy-light) 100%); color: var(--white); padding: 3rem 1.5rem; text-align: center; }
+.hero h2 { font-size: 2.2rem; font-weight: 700; margin-bottom: 0.5rem; }
+.hero h2 span { color: var(--gold); }
+.hero p { font-size: 1.1rem; opacity: 0.9; max-width: 700px; margin: 0 auto; }
+.hero .filters { margin-top: 2rem; display: flex; justify-content: center; flex-wrap: wrap; gap: 0.6rem; }
+.hero .filters button { padding: 0.55rem 1.2rem; border: 2px solid rgba(255,255,255,0.3); border-radius: 20px; background: transparent; color: var(--white); cursor: pointer; font-size: 0.9rem; transition: all 0.2s; font-family: inherit; }
+.hero .filters button:hover { border-color: var(--gold); color: var(--gold-light); }
+.hero .filters button.active { background: var(--gold); color: var(--navy); border-color: var(--gold); font-weight: 600; }
+.container { max-width: 1200px; margin: 0 auto; padding: 2rem 1.5rem; }
+.grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(350px, 1fr)); gap: 1.5rem; }
+.card { background: var(--card-bg); border: 1px solid var(--border); border-radius: 10px; overflow: hidden; box-shadow: var(--shadow); transition: box-shadow 0.2s; }
+.card:hover { box-shadow: var(--shadow-hover); }
+.thumb { position: relative; background: #1a1a2e; aspect-ratio: 16/9; overflow: hidden; }
+.thumb iframe { width: 100%; height: 100%; border: 0; }
+.thumb .placeholder { width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; background: linear-gradient(135deg, #1a1a2e, #2a3a5e); color: var(--gold); font-size: 1.5rem; font-weight: 700; text-align: center; padding: 1rem; }
+.card-body { padding: 1.2rem; }
+.card-body h3 { font-size: 1.05rem; color: var(--navy); margin-bottom: 0.4rem; font-weight: 600; }
+.card-body p { font-size: 0.9rem; color: #555; margin-bottom: 0.8rem; line-height: 1.5; }
+.card-body .meta { display: flex; flex-wrap: wrap; gap: 0.6rem; align-items: center; font-size: 0.8rem; }
+.diff { padding: 0.2rem 0.55rem; border-radius: 4px; font-weight: 600; font-size: 0.75rem; text-transform: uppercase; }
+.diff-beginner { background: #eafaf1; color: #27ae60; }
+.diff-intermediate { background: #fef9e7; color: #d4a017; }
+.diff-pro { background: #fdecea; color: #c0392b; }
+.duration { color: #888; }
+.no-results { display: none; text-align: center; padding: 3rem; color: #888; font-size: 1.1rem; }
+.no-results.show { display: block; }
+footer { background: var(--navy); color: var(--white); text-align: center; padding: 2rem 1.5rem; font-size: 0.9rem; opacity: 0.8; }
+@media (max-width: 768px) {
+  .grid { grid-template-columns: 1fr; }
+  header .wrap { flex-direction: column; text-align: center; }
+  .hero h2 { font-size: 1.6rem; }
+}
+</style>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"Construction<span>Calc</span>","url":"https://dustyjones49.github.io/dustyjones49/videos/","description":"Curated construction and DIY video tutorials: concrete, framing, electrical, plumbing, flooring, drywall, roofing, and more. Filter by difficulty level.","applicationCategory":"UtilityApplication","operatingSystem":"Any"}</script><style id="bc-theme">/* FieldMath - Light Theme
+   All pages use this single light theme. No dark mode. */
+:root{
+  --bg:#f5f5f5;
+  --card:#ffffff;
+  --text:#333333;
+  --text-light:#666666;
+  --muted:#f1f3f7;
+  --muted-bg:#f8f9fa;
+  --border:#dde3ea;
+  --navy:#1a2332;
+  --header-bg:#1a2332;
+  --header-text:#ffffff;
+  --orange:#f97316;
+  --accent:#f97316;
+  --success:#16a34a;
+  --warning:#d97706;
+  --danger:#dc2626;
+}
+</style>
+<style id="bc-darkflash">html,html body{background:#f5f5f5 !important;color:#333 !important}body .card,body .panel,body .box,body .calculator,body .container,body .c,body .result,body .results,body .res,body .formula,body .example,body .faq,body .faq-item,body input,body select,body textarea{background:#ffffff !important;color:#333 !important;border-color:#ddd !important}</style></head>
+<body>
+<header><h1>Construction<span>Calc</span></h1></header>
+
+<section class="hero">
+  <h2>DIY <span>Video Library</span></h2>
+  <p>50 curated construction and home improvement tutorials. Filter by difficulty to find projects that match your skill level.</p>
+  <div class="filters">
+    <button class="active" data-filter="all">All Levels</button>
+    <button data-filter="beginner">Beginner</button>
+    <button data-filter="intermediate">Intermediate</button>
+    <button data-filter="pro">Pro</button>
+  </div>
+</section>
+
+<div class="container">
+<div class="grid" id="videoGrid">
+
+<div class="card" data-level="beginner">
+  <div class="thumb"><div class="placeholder">How to Pour a Concrete Slab</div></div>
+  <div class="card-body">
+    <h3>How to Pour a Concrete Slab</h3>
+    <p>Complete walkthrough of forming, pouring, screeding, and finishing a concrete slab for a shed or patio. Covers rebar placement and expansion joints.</p>
+    <div class="meta"><span class="diff diff-beginner">Beginner</span><span class="duration">22 min</span></div>
+  </div>
+</div>
+
+<div class="card" data-level="beginner">
+  <div class="thumb"><div class="placeholder">How to Paint a Room Like a Pro</div></div>
+  <div class="card-body">
+    <h3>How to Paint a Room Like a Pro</h3>
+    <p>Learn cutting in, rolling techniques, proper prep work, and cleanup. Tips for smooth, even coverage with no drips or roller marks.</p>
+    <div class="meta"><span class="diff diff-beginner">Beginner</span><span class="duration">15 min</span></div>
+  </div>
+</div>
+
+<div class="card" data-level="beginner">
+  <div class="thumb"><div class="placeholder">How to Install Vinyl Plank Flooring</div></div>
+  <div class="card-body">
+    <h3>How to Install Vinyl Plank Flooring</h3>
+    <p>Step-by-step floating vinyl plank installation including subfloor prep, layout planning, click-lock technique, and cutting around doorways.</p>
+    <div class="meta"><span class="diff diff-beginner">Beginner</span><span class="duration">18 min</span></div>
+  </div>
+</div>
+
+<div class="card" data-level="beginner">
+  <div class="thumb"><div class="placeholder">How to Unclog Any Drain</div></div>
+  <div class="card-body">
+    <h3>How to Unclog Any Drain</h3>
+    <p>From plungers and drain snakes to removing P-traps, this guide shows you how to clear kitchen, bathroom, and shower clogs without chemicals.</p>
+    <div class="meta"><span class="diff diff-beginner">Beginner</span><span class="duration">12 min</span></div>
+  </div>
+</div>
+
+<div class="card" data-level="beginner">
+  <div class="thumb"><div class="placeholder">How to Install a Toilet</div></div>
+  <div class="card-body">
+    <h3>How to Install a Toilet</h3>
+    <p>Complete toilet replacement guide: removing the old unit, setting a new wax ring, bolting down, and connecting water supply without leaks.</p>
+    <div class="meta"><span class="diff diff-beginner">Beginner</span><span class="duration">16 min</span></div>
+  </div>
+</div>
+
+<div class="card" data-level="beginner">
+  <div class="thumb"><div class="placeholder">How to Caulk Like a Pro</div></div>
+  <div class="card-body">
+    <h3>How to Caulk Like a Pro</h3>
+    <p>Master the art of caulking baseboards, trim, tubs, and windows. Learn proper bead size, tooling techniques, and choosing the right caulk.</p>
+    <div class="meta"><span class="diff diff-beginner">Beginner</span><span class="duration">10 min</span></div>
+  </div>
+</div>
+
+<div class="card" data-level="beginner">
+  <div class="thumb"><div class="placeholder">How to Install a Ceiling Fan</div></div>
+  <div class="card-body">
+    <h3>How to Install a Ceiling Fan</h3>
+    <p>Replace a light fixture with a ceiling fan: electrical box inspection, mounting bracket, wiring, blade attachment, and balancing tips.</p>
+    <div class="meta"><span class="diff diff-beginner">Beginner</span><span class="duration">20 min</span></div>
+  </div>
+</div>
+
+<div class="card" data-level="beginner">
+  <div class="thumb"><div class="placeholder">How to Replace an Outlet</div></div>
+  <div class="card-body">
+    <h3>How to Replace an Electrical Outlet</h3>
+    <p>Safe outlet replacement from start to finish. Includes identifying hot/neutral/ground, proper screw vs. backstab connections, and testing.</p>
+    <div class="meta"><span class="diff diff-beginner">Beginner</span><span class="duration">8 min</span></div>
+  </div>
+</div>
+
+<div class="card" data-level="beginner">
+  <div class="thumb"><div class="placeholder">How to Replace a Light Switch</div></div>
+  <div class="card-body">
+    <h3>How to Replace a Light Switch</h3>
+    <p>Swap a standard or dimmer switch safely. Explains single-pole vs 3-way, identifying line and load wires, and proper grounding.</p>
+    <div class="meta"><span class="diff diff-beginner">Beginner</span><span class="duration">7 min</span></div>
+  </div>
+</div>
+
+<div class="card" data-level="beginner">
+  <div class="thumb"><div class="placeholder">How to Install a Programmable Thermostat</div></div>
+  <div class="card-body">
+    <h3>How to Install a Programmable Thermostat</h3>
+    <p>Upgrade your thermostat in under 30 minutes. Covers C-wire identification, terminal labeling, mounting, and basic programming.</p>
+    <div class="meta"><span class="diff diff-beginner">Beginner</span><span class="duration">14 min</span></div>
+  </div>
+</div>
+
+<div class="card" data-level="beginner">
+  <div class="thumb"><div class="placeholder">How to Install a Shower Head</div></div>
+  <div class="card-body">
+    <h3>How to Install a Shower Head</h3>
+    <p>Quick bathroom upgrade: remove old shower head, clean threads, apply plumber's tape, and install new fixture. Includes hand-held and rainfall options.</p>
+    <div class="meta"><span class="diff diff-beginner">Beginner</span><span class="duration">5 min</span></div>
+  </div>
+</div>
+
+<div class="card" data-level="beginner">
+  <div class="thumb"><div class="placeholder">How to Fix a Leaky Faucet</div></div>
+  <div class="card-body">
+    <h3>How to Fix a Leaky Faucet</h3>
+    <p>Diagnose and repair common faucet leaks: cartridge replacement, O-ring replacement, and valve seat cleaning. Saves money on water bills.</p>
+    <div class="meta"><span class="diff diff-beginner">Beginner</span><span class="duration">11 min</span></div>
+  </div>
+</div>
+
+<div class="card" data-level="beginner">
+  <div class="thumb"><div class="placeholder">How to Install Weatherstripping</div></div>
+  <div class="card-body">
+    <h3>How to Install Weatherstripping</h3>
+    <p>Seal doors and windows to stop drafts and lower energy bills. Covers adhesive foam, V-strip, door sweeps, and threshold adjustments.</p>
+    <div class="meta"><span class="diff diff-beginner">Beginner</span><span class="duration">9 min</span></div>
+  </div>
+</div>
+
+<div class="card" data-level="beginner">
+  <div class="thumb"><div class="placeholder">How to Hang Shelving</div></div>
+  <div class="card-body">
+    <h3>How to Hang Shelving</h3>
+    <p>Install floating shelves and bracket shelves securely. Learn to find studs, use drywall anchors, and level shelves properly on any wall.</p>
+    <div class="meta"><span class="diff diff-beginner">Beginner</span><span class="duration">13 min</span></div>
+  </div>
+</div>
+
+<div class="card" data-level="beginner">
+  <div class="thumb"><div class="placeholder">Drywall Repair: Holes to Patches</div></div>
+  <div class="card-body">
+    <h3>Drywall Repair: Small Holes to Large Patches</h3>
+    <p>Everything from filling nail holes to cutting out and patching large damaged sections. Includes taping, mudding, and sanding for an invisible repair.</p>
+    <div class="meta"><span class="diff diff-beginner">Beginner</span><span class="duration">25 min</span></div>
+  </div>
+</div>
+
+<div class="card" data-level="beginner">
+  <div class="thumb"><div class="placeholder">How to Install a Bathroom Vanity</div></div>
+  <div class="card-body">
+    <h3>How to Install a Bathroom Vanity</h3>
+    <p>Vanity replacement from demo to finish. Includes shimming, securing to studs, reconnecting plumbing, and installing the backsplash.</p>
+    <div class="meta"><span class="diff diff-beginner">Beginner</span><span class="duration">19 min</span></div>
+  </div>
+</div>
+
+<div class="card" data-level="beginner">
+  <div class="thumb"><div class="placeholder">How to Install a Garbage Disposal</div></div>
+  <div class="card-body">
+    <h3>How to Install a Garbage Disposal</h3>
+    <p>Replace or install a new garbage disposal. Covers electrical connection, sink flange mounting, dishwasher drain hookup, and leak testing.</p>
+    <div class="meta"><span class="diff diff-beginner">Beginner</span><span class="duration">15 min</span></div>
+  </div>
+</div>
+
+<div class="card" data-level="beginner">
+  <div class="thumb"><div class="placeholder">How to Stain a Deck</div></div>
+  <div class="card-body">
+    <h3>How to Stain and Seal a Deck</h3>
+    <p>Deck refinishing guide: cleaning, brightening, choosing oil vs. water-based stain, proper application with brush and roller, and drying times.</p>
+    <div class="meta"><span class="diff diff-beginner">Beginner</span><span class="duration">17 min</span></div>
+  </div>
+</div>
+
+<div class="card" data-level="intermediate">
+  <div class="thumb"><div class="placeholder">How to Tile a Backsplash</div></div>
+  <div class="card-body">
+    <h3>How to Tile a Kitchen Backsplash</h3>
+    <p>Layout planning, thin-set mixing, subway tile installation, cutting around outlets, and grouting. Complete kitchen backsplash in a weekend.</p>
+    <div class="meta"><span class="diff diff-intermediate">Intermediate</span><span class="duration">28 min</span></div>
+  </div>
+</div>
+
+<div class="card" data-level="intermediate">
+  <div class="thumb"><div class="placeholder">How to Build Deck Stairs</div></div>
+  <div class="card-body">
+    <h3>How to Build Deck Stairs</h3>
+    <p>Framing code-compliant deck stairs: rise/run calculations, stringer layout and cutting, tread installation, and handrail attachment.</p>
+    <div class="meta"><span class="diff diff-intermediate">Intermediate</span><span class="duration">24 min</span></div>
+  </div>
+</div>
+
+<div class="card" data-level="intermediate">
+  <div class="thumb"><div class="placeholder">How to Install Recessed Lighting</div></div>
+  <div class="card-body">
+    <h3>How to Install Recessed Lighting</h3>
+    <p>Retrofit canless LED recessed lights in an existing ceiling. Covers layout, cutting holes, running wire, junction box connections, and dimmer compatibility.</p>
+    <div class="meta"><span class="diff diff-intermediate">Intermediate</span><span class="duration">22 min</span></div>
+  </div>
+</div>
+
+<div class="card" data-level="intermediate">
+  <div class="thumb"><div class="placeholder">How to Frame a Wall</div></div>
+  <div class="card-body">
+    <h3>How to Frame an Interior Wall</h3>
+    <p>Build a non-load-bearing partition wall: plate layout, stud spacing at 16" OC, door rough opening framing, and securing to existing structure.</p>
+    <div class="meta"><span class="diff diff-intermediate">Intermediate</span><span class="duration">26 min</span></div>
+  </div>
+</div>
+
+<div class="card" data-level="intermediate">
+  <div class="thumb"><div class="placeholder">How to Install Crown Molding</div></div>
+  <div class="card-body">
+    <h3>How to Install Crown Molding</h3>
+    <p>Master compound miter cuts, cope inside corners, and nail crown molding to ceilings and cabinets. Pro tips for seamless joints.</p>
+    <div class="meta"><span class="diff diff-intermediate">Intermediate</span><span class="duration">20 min</span></div>
+  </div>
+</div>
+
+<div class="card" data-level="intermediate">
+  <div class="thumb"><div class="placeholder">How to Install Baseboards</div></div>
+  <div class="card-body">
+    <h3>How to Install Baseboards</h3>
+    <p>Complete baseboard trim installation: measuring, mitering outside corners, coping inside corners, nailing, caulking, and filling nail holes for a painted finish.</p>
+    <div class="meta"><span class="diff diff-intermediate">Intermediate</span><span class="duration">18 min</span></div>
+  </div>
+</div>
+
+<div class="card" data-level="intermediate">
+  <div class="thumb"><div class="placeholder">How to Install Under Cabinet Lighting</div></div>
+  <div class="card-body">
+    <h3>How to Install Under Cabinet Lighting</h3>
+    <p>Hardwired and plug-in LED strip options. Covers transformer sizing, switch leg wiring, hiding wires, and dimmer compatibility for kitchen task lighting.</p>
+    <div class="meta"><span class="diff diff-intermediate">Intermediate</span><span class="duration">16 min</span></div>
+  </div>
+</div>
+
+<div class="card" data-level="intermediate">
+  <div class="thumb"><div class="placeholder">Paver Patio Installation Tips</div></div>
+  <div class="card-body">
+    <h3>How to Install a Paver Patio</h3>
+    <p>Full paver patio build: excavation, gravel base compaction, sand screeding, paver laying patterns, cutting edge pavers, and polymeric sand jointing.</p>
+    <div class="meta"><span class="diff diff-intermediate">Intermediate</span><span class="duration">32 min</span></div>
+  </div>
+</div>
+
+<div class="card" data-level="intermediate">
+  <div class="thumb"><div class="placeholder">How to Build Raised Garden Beds</div></div>
+  <div class="card-body">
+    <h3>How to Build Raised Garden Beds</h3>
+    <p>Cedar raised bed construction: corner joinery, soil volume calculation, weed barrier installation, and irrigation drip line setup.</p>
+    <div class="meta"><span class="diff diff-intermediate">Intermediate</span><span class="duration">14 min</span></div>
+  </div>
+</div>
+
+<div class="card" data-level="intermediate">
+  <div class="thumb"><div class="placeholder">How to Texture Drywall</div></div>
+  <div class="card-body">
+    <h3>How to Texture Drywall</h3>
+    <p>Orange peel, knockdown, and skip trowel texture techniques. Equipment setup, mix consistency, application methods, and blending patches with existing texture.</p>
+    <div class="meta"><span class="diff diff-intermediate">Intermediate</span><span class="duration">21 min</span></div>
+  </div>
+</div>
+
+<div class="card" data-level="intermediate">
+  <div class="thumb"><div class="placeholder">How to Hang Drywall</div></div>
+  <div class="card-body">
+    <h3>How to Hang Drywall</h3>
+    <p>Professional drywall hanging techniques: sheet layout to minimize butt joints, screw pattern and depth, cutting outlet holes, and stairwell installation tricks.</p>
+    <div class="meta"><span class="diff diff-intermediate">Intermediate</span><span class="duration">27 min</span></div>
+  </div>
+</div>
+
+<div class="card" data-level="intermediate">
+  <div class="thumb"><div class="placeholder">How to Install Wainscoting</div></div>
+  <div class="card-body">
+    <h3>How to Install Wainscoting</h3>
+    <p>DIY board and batten wainscoting: layout math, chair rail height, vertical stile spacing, panel molding, and caulking for a built-in look.</p>
+    <div class="meta"><span class="diff diff-intermediate">Intermediate</span><span class="duration">23 min</span></div>
+  </div>
+</div>
+
+<div class="card" data-level="intermediate">
+  <div class="thumb"><div class="placeholder">How to Install Laminate Countertops</div></div>
+  <div class="card-body">
+    <h3>How to Install Laminate Countertops</h3>
+    <p>Post-form laminate countertop installation: scribing to walls, mitering corners with miter bolts, sink cutout, and end cap finishing.</p>
+    <div class="meta"><span class="diff diff-intermediate">Intermediate</span><span class="duration">19 min</span></div>
+  </div>
+</div>
+
+<div class="card" data-level="intermediate">
+  <div class="thumb"><div class="placeholder">How to Install a Dishwasher</div></div>
+  <div class="card-body">
+    <h3>How to Install a Dishwasher</h3>
+    <p>Dishwasher replacement: electrical connection, water supply line, drain hose high loop, leveling, and securing to countertop. Testing for leaks.</p>
+    <div class="meta"><span class="diff diff-intermediate">Intermediate</span><span class="duration">17 min</span></div>
+  </div>
+</div>
+
+<div class="card" data-level="intermediate">
+  <div class="thumb"><div class="placeholder">How to Build a Retaining Wall</div></div>
+  <div class="card-body">
+    <h3>How to Build a Retaining Wall</h3>
+    <p>Small block retaining wall under 4 feet: base preparation, first course leveling, backfill drainage, geogrid reinforcement, and cap block installation.</p>
+    <div class="meta"><span class="diff diff-intermediate">Intermediate</span><span class="duration">30 min</span></div>
+  </div>
+</div>
+
+<div class="card" data-level="intermediate">
+  <div class="thumb"><div class="placeholder">How to Paint Kitchen Cabinets</div></div>
+  <div class="card-body">
+    <h3>How to Paint Kitchen Cabinets</h3>
+    <p>Cabinet painting transformation: door removal and labeling, degreasing, sanding, priming, spray vs brush technique, and reassembly with new hardware.</p>
+    <div class="meta"><span class="diff diff-intermediate">Intermediate</span><span class="duration">24 min</span></div>
+  </div>
+</div>
+
+<div class="card" data-level="intermediate">
+  <div class="thumb"><div class="placeholder">How to Build a Fire Pit</div></div>
+  <div class="card-body">
+    <h3>How to Build a Fire Pit</h3>
+    <p>DIY stone fire pit with gravel base: layout, excavation, retaining wall block stacking, metal fire ring insert, and pea gravel surround.</p>
+    <div class="meta"><span class="diff diff-intermediate">Intermediate</span><span class="duration">20 min</span></div>
+  </div>
+</div>
+
+<div class="card" data-level="pro">
+  <div class="thumb"><div class="placeholder">How to Build a Deck</div></div>
+  <div class="card-body">
+    <h3>Complete Deck Building Guide</h3>
+    <p>Full ground-level deck build: footing excavation and concrete piers, ledger board flashing, beam and joist framing, decking installation, and railing.</p>
+    <div class="meta"><span class="diff diff-pro">Pro</span><span class="duration">45 min</span></div>
+  </div>
+</div>
+
+<div class="card" data-level="pro">
+  <div class="thumb"><div class="placeholder">Basement Finishing Complete Guide</div></div>
+  <div class="card-body">
+    <h3>Basement Finishing: Start to Finish</h3>
+    <p>Full basement finish: moisture testing, subfloor system, framing, electrical rough-in, plumbing, insulation, drywall, and trim carpentry.</p>
+    <div class="meta"><span class="diff diff-pro">Pro</span><span class="duration">52 min</span></div>
+  </div>
+</div>
+
+<div class="card" data-level="pro">
+  <div class="thumb"><div class="placeholder">How to Install an EV Charger</div></div>
+  <div class="card-body">
+    <h3>How to Install a Level 2 EV Charger</h3>
+    <p>50-amp circuit installation from panel to garage: breaker selection, conduit run, NEMA 14-50 outlet or hardwired charger, and load calculation.</p>
+    <div class="meta"><span class="diff diff-pro">Pro</span><span class="duration">25 min</span></div>
+  </div>
+</div>
+
+<div class="card" data-level="pro">
+  <div class="thumb"><div class="placeholder">Electrical Panel Upgrade</div></div>
+  <div class="card-body">
+    <h3>Electrical Panel Upgrade: 100A to 200A</h3>
+    <p>Service upgrade overview: meter disconnect, panel swap, grounding electrode system, AFCI/GFCI requirements, and utility coordination.</p>
+    <div class="meta"><span class="diff diff-pro">Pro</span><span class="duration">35 min</span></div>
+  </div>
+</div>
+
+<div class="card" data-level="pro">
+  <div class="thumb"><div class="placeholder">How to Build a Shed from Scratch</div></div>
+  <div class="card-body">
+    <h3>How to Build a Shed from Scratch</h3>
+    <p>8x12 shed complete build: gravel pad foundation, floor framing and sheathing, wall framing, truss roof, sheathing, siding, and shingle roofing.</p>
+    <div class="meta"><span class="diff diff-pro">Pro</span><span class="duration">48 min</span></div>
+  </div>
+</div>
+
+<div class="card" data-level="pro">
+  <div class="thumb"><div class="placeholder">French Drain Installation</div></div>
+  <div class="card-body">
+    <h3>French Drain Installation Guide</h3>
+    <p>Solve yard drainage issues: trenching, slope calculation, perforated pipe and gravel installation, filter fabric, and connecting to daylight or dry well.</p>
+    <div class="meta"><span class="diff diff-pro">Pro</span><span class="duration">22 min</span></div>
+  </div>
+</div>
+
+<div class="card" data-level="pro">
+  <div class="thumb"><div class="placeholder">How to Install a Sump Pump</div></div>
+  <div class="card-body">
+    <h3>Sump Pump Installation Guide</h3>
+    <p>Basement sump pump system: breaking concrete, basin installation, pump selection, check valve, discharge line routing, and backup pump options.</p>
+    <div class="meta"><span class="diff diff-pro">Pro</span><span class="duration">28 min</span></div>
+  </div>
+</div>
+
+<div class="card" data-level="pro">
+  <div class="thumb"><div class="placeholder">Garage Conversion to Living Space</div></div>
+  <div class="card-body">
+    <h3>Garage Conversion to Living Space</h3>
+    <p>Convert a garage to an ADU or bonus room: floor raising, insulation, HVAC extension, electrical subpanel, drywall, and permitting considerations.</p>
+    <div class="meta"><span class="diff diff-pro">Pro</span><span class="duration">40 min</span></div>
+  </div>
+</div>
+
+<div class="card" data-level="pro">
+  <div class="thumb"><div class="placeholder">How to Build a Pergola</div></div>
+  <div class="card-body">
+    <h3>How to Build a Pergola</h3>
+    <p>Free-standing cedar pergola: post footings, notched beam connections, rafter spacing, knee bracing, and finishing. Adds shade and structure to any patio.</p>
+    <div class="meta"><span class="diff diff-pro">Pro</span><span class="duration">33 min</span></div>
+  </div>
+</div>
+
+<div class="card" data-level="pro">
+  <div class="thumb"><div class="placeholder">How to Build a Workbench</div></div>
+  <div class="card-body">
+    <h3>Heavy-Duty Workbench Build</h3>
+    <p>Sturdy garage workbench: 2x4 framing, double-layer 3/4" plywood top, lower shelf, vise mounting, and optional casters. Can support 1,000+ lbs.</p>
+    <div class="meta"><span class="diff diff-pro">Pro</span><span class="duration">18 min</span></div>
+  </div>
+</div>
+
+<div class="card" data-level="pro">
+  <div class="thumb"><div class="placeholder">How to Remove a Popcorn Ceiling</div></div>
+  <div class="card-body">
+    <h3>How to Remove a Popcorn Ceiling</h3>
+    <p>Popcorn ceiling removal: asbestos testing, room prep, spraying and scraping technique, skim coating, sanding, and priming for a smooth modern finish.</p>
+    <div class="meta"><span class="diff diff-pro">Pro</span><span class="duration">26 min</span></div>
+  </div>
+</div>
+
+<div class="card" data-level="pro">
+  <div class="thumb"><div class="placeholder">How to Install a Water Softener</div></div>
+  <div class="card-body">
+    <h3>Water Softener Installation Guide</h3>
+    <p>Whole-house water softener install: locating main line, cutting into copper or PEX, drain line connection, brine tank setup, and programming.</p>
+    <div class="meta"><span class="diff diff-pro">Pro</span><span class="duration">23 min</span></div>
+  </div>
+</div>
+
+<div class="card" data-level="pro">
+  <div class="thumb"><div class="placeholder">How to Install Outdoor Lighting</div></div>
+  <div class="card-body">
+    <h3>How to Install Low-Voltage Outdoor Lighting</h3>
+    <p>Landscape lighting system: transformer sizing, wire gauge selection, path light and spotlight placement, waterproof connections, and timer setup.</p>
+    <div class="meta"><span class="diff diff-pro">Pro</span><span class="duration">19 min</span></div>
+  </div>
+</div>
+
+</div>
+
+<div class="no-results" id="noResults">No videos match the selected difficulty level.</div>
+</div>
+
+<footer>
+<p>2026 FieldMath - Calculators are reference only. Always verify with your local code.</p>
+</footer>
+
+<script>
+document.querySelectorAll('.filters button').forEach(function(btn){
+  btn.onclick=function(){
+    document.querySelectorAll('.filters button').forEach(function(b){b.classList.remove('active')});
+    this.classList.add('active');
+    var level=this.getAttribute('data-filter');
+    var cards=document.querySelectorAll('#videoGrid .card');
+    var anyVisible=false;
+    cards.forEach(function(c){
+      if(level==='all'||c.getAttribute('data-level')===level){c.style.display='';anyVisible=true}else{c.style.display='none';}
+    });
+    document.getElementById('noResults').className=anyVisible?'no-results':'no-results show';
+  };
+});
+</script>
+<script src="../custom-select.js"></script><script src="../favorites.js"></script><script src="../remember-inputs.js"></script><script src="../sticky-header.js"></script><script src="../ui-fix.js"></script><script src="../link-fix.js"></script><script src="../dark-persist.js"></script><script src="../admob-banner.js"></script></body>
+</html>
+
+
+
+

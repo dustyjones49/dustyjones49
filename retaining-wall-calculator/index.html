@@ -1,0 +1,161 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<meta name="description" content="Calculate retaining wall blocks, base gravel and drainage. Works for segmental block walls up to 4 ft.">
+<title>Retaining Wall Calculator - Blocks &amp;... | FieldMath</title>
+<link rel="canonical" href="https://dustyjones49.github.io/dustyjones49/retaining-wall-calculator/">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"Retaining Wall Calculator","url":"https://dustyjones49.github.io/dustyjones49/retaining-wall-calculator/","description":"Calculate retaining wall blocks, base gravel and drainage. Works for segmental block walls up to 4 ft.","applicationCategory":"EducationalApplication","operatingSystem":"All"}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"How high can a retaining wall be without engineering?","acceptedAnswer":{"@type":"Answer","text":"Most jurisdictions allow 3-4 ft without a permit or engineering. Over 4 ft needs a structural engineer, geogrid reinforcement, and permits. Always check local codes before building."}},{"@type":"Question","name":"Do I need drainage behind a retaining wall?","acceptedAnswer":{"@type":"Answer","text":"YES - always. Without drainage, water pressure will push the wall over. Install 4-inch perforated pipe at base, cover with 12 in of gravel behind the wall, and use filter fabric to separate soil from gravel."}},{"@type":"Question","name":"How deep should a retaining wall base be?","acceptedAnswer":{"@type":"Answer","text":"Bury the first course at least 6 inches below grade on 6 inches of compacted gravel. For walls over 3 ft, bury 1/8 of total wall height. Add geogrid reinforcement every 2 courses above 3 ft."}}]}</script>
+<style>
+:root{--bg:#f5f5f5;--card:#fff;--text:#333;--text-light:#666;--border:#ddd;--header-bg:#1a2332;--header-text:#fff;--muted-bg:#f8f9fa}
+body.dark{--bg:#1a1a2e;--card:#16213e;--text:#e0e0e0;--text-light:#aaa;--border:#333;--header-bg:#0f3460;--header-text:#e0e0e0;--muted-bg:#1a1a2e}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;background:var(--bg);color:var(--text);line-height:1.6}
+header{background:var(--header-bg);color:var(--header-text);padding:24px 16px;text-align:center}
+header a{color:#f97316;text-decoration:none;font-size:0.9rem}
+header a:hover{text-decoration:underline}
+header h1{font-size:2rem;margin:8px 0}
+header .cat{color:#f97316;font-size:0.85rem;text-transform:uppercase;letter-spacing:1px}
+header .desc{color:#ccc;font-size:0.95rem;margin-top:4px}
+.container{max-width:840px;margin:24px auto;padding:0 16px}
+.card{background:var(--card);border-radius:10px;padding:24px;margin-bottom:20px;box-shadow:0 2px 8px rgba(0,0,0,0.06);border:1px solid var(--border)}
+.card h2{color:var(--text);font-size:1.25rem;margin-bottom:16px;border-bottom:3px solid #f97316;padding-bottom:8px;display:inline-block}
+.form-group{margin-bottom:16px}
+.form-group label{display:block;font-weight:600;margin-bottom:6px;color:var(--text)}
+.form-group input{width:100%;padding:10px 12px;border:2px solid var(--border);border-radius:6px;font-size:1rem;background:var(--card);color:var(--text);transition:border-color 0.2s}
+.form-group input:focus{outline:none;border-color:#f97316}
+.form-row{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:16px}
+.results{background:linear-gradient(135deg,#fff7ed,var(--card));border:2px solid #f97316;border-radius:10px;padding:20px;margin-top:20px}
+.results h3{color:#f97316;margin-bottom:12px}
+.result-item{display:flex;justify-content:space-between;padding:8px 0;border-bottom:1px solid var(--border)}
+.result-item:last-child{border-bottom:none}
+.result-label{font-weight:600;color:var(--text)}
+.result-value{font-weight:700;color:#f97316}
+.formula-box{background:var(--muted-bg);border-left:4px solid #f97316;padding:16px;border-radius:0 6px 6px 0;margin-top:12px;font-family:monospace;font-size:0.9rem}
+.example-box{background:var(--muted-bg);padding:16px;border-radius:6px;font-size:0.95rem}
+.faq-item{border:1px solid var(--border);border-radius:6px;margin-bottom:8px;overflow:hidden}
+.faq-q{width:100%;text-align:left;padding:14px 16px;background:var(--card);border:none;font-size:1rem;font-weight:600;color:var(--text);cursor:pointer;display:flex;justify-content:space-between;align-items:center}
+.faq-q:hover{background:var(--muted-bg)}
+.faq-q::after{content:'+';font-size:1.3rem;color:#f97316;transition:transform 0.3s}
+.faq-q.open::after{content:'-';transform:rotate(180deg)}
+.faq-a{max-height:0;overflow:hidden;transition:max-height 0.3s ease}
+.faq-a.open{max-height:300px;padding:0 16px 14px}
+.faq-a p{font-size:0.95rem;color:var(--text-light)}
+.share-btns{display:flex;gap:8px;flex-wrap:wrap}
+.share-btns button{padding:8px 16px;border:none;border-radius:6px;cursor:pointer;font-size:0.9rem;color:#fff}
+.embed-ta{width:100%;height:60px;padding:8px;border:2px solid var(--border);border-radius:6px;font-family:monospace;font-size:0.8rem;background:var(--muted-bg);color:var(--text);resize:none}
+.products{list-style:none;padding:0}
+.products li{padding:8px 0;border-bottom:1px solid var(--border)}
+.products li:last-child{border-bottom:none}
+.products a{color:#f97316;text-decoration:none;font-weight:600}
+.products a:hover{text-decoration:underline}
+footer{background:var(--header-bg);color:#888;text-align:center;padding:24px 16px;font-size:0.85rem}
+footer a{color:#f97316;text-decoration:none}
+@media print{header a,footer,.share-btns button,button.dark-btn,#ad-slot{display:none!important}body{background:var(--bg);color:#000;font-size:12pt}.card{box-shadow:none;border:1px solid #ccc;break-inside:avoid}.results{border:2px solid var(--orange,#f97316)}@page{margin:0.5in}}
+@media(max-width:600px){header h1{font-size:1.5rem}.card{padding:16px}}
+</style><style id="bc-theme">/* FieldMath - Light Theme
+   All pages use this single light theme. No dark mode. */
+:root{
+  --bg:#f5f5f5;
+  --card:#ffffff;
+  --text:#333333;
+  --text-light:#666666;
+  --muted:#f1f3f7;
+  --muted-bg:#f8f9fa;
+  --border:#dde3ea;
+  --navy:#1a2332;
+  --header-bg:#1a2332;
+  --header-text:#ffffff;
+  --orange:#f97316;
+  --accent:#f97316;
+  --success:#16a34a;
+  --warning:#d97706;
+  --danger:#dc2626;
+}
+</style>
+<style id="bc-darkflash">html,html body{background:#f5f5f5 !important;color:#333 !important}body .card,body .panel,body .box,body .calculator,body .container,body .c,body .result,body .results,body .res,body .formula,body .example,body .faq,body .faq-item,body input,body select,body textarea{background:#ffffff !important;color:#333 !important;border-color:#ddd !important}</style></head>
+<body>
+
+<header><h1>Retaining Wall Calculator</h1></header>
+<div class="container">
+<div class="card">
+<h2>Enter Your Wall</h2>
+<div class="form-row">
+<div class="form-group"><label>Wall Length (ft)</label><input type="number" id="length" value="20" min="1" step="1"></div>
+<div class="form-group"><label>Wall Height (ft)</label><input type="number" id="height" value="3" min="0.5" step="0.5"></div>
+</div>
+<div class="form-row">
+<div class="form-group"><label>Block Length (in)</label><input type="number" id="blockL" value="12" min="4" step="0.5"></div>
+<div class="form-group"><label>Block Height (in)</label><input type="number" id="blockH" value="6" min="2" step="0.5"></div>
+<div class="form-group"><label>Base Gravel Depth (in)</label><input type="number" id="baseD" value="6" min="2" step="1"></div>
+</div>
+<div class="results">
+<h3>Results</h3>
+<div class="result-item"><span class="result-label">Number of Courses</span><span class="result-value" id="rCourses">0</span></div>
+<div class="result-item"><span class="result-label">Blocks per Course</span><span class="result-value" id="rPerCourse">0</span></div>
+<div class="result-item"><span class="result-label">Total Blocks</span><span class="result-value" id="rTotal">0</span></div>
+<div class="result-item"><span class="result-label">Base Gravel (tons)</span><span class="result-value" id="rGravel">0</span></div>
+</div>
+<div class="formula-box"><strong>Formula:</strong> courses = ceil(H × 12 / blockH); blocksPerCourse = ceil(L × 12 / blockL); totalBlocks = courses × blocksPerCourse; gravel = (L × baseDepth/12 × 2) / 27 × 1.4</div>
+<div class="example-box"><strong>Example:</strong> 20 ft long, 3 ft high, 12×6 inch blocks: courses=6, per course=20, total=120 blocks. Base gravel: 0.52 tons.</div>
+</div>
+<div class="card">
+<h2>Share This Calculation</h2>
+<div class="share-btns">
+<button onclick="navigator.clipboard.writeText(location.href);this.textContent='Copied!';setTimeout(()=>this.textContent='&#128203; Copy',2000)" style="background:#f97316">&#128203; Copy</button>
+<button onclick="window.open('https://twitter.com/intent/tweet?url='+encodeURIComponent(location.href)+'&text='+encodeURIComponent(document.title),'_blank')" style="background:#1da1f2">ð• Tweet</button>
+<button onclick="window.open('https://www.facebook.com/sharer/sharer.php?u='+encodeURIComponent(location.href),'_blank')" style="background:#1877f2"> Share</button>
+<button onclick="window.open('https://pinterest.com/pin/create/button/?url='+encodeURIComponent(location.href)+'&description='+encodeURIComponent(document.title),'_blank')" style="background:#e60023"> Pin</button>
+</div>
+</div>
+<div class="card">
+<h2>Embed This Calculator</h2>
+<textarea class="embed-ta" readonly onclick="this.select()">&lt;iframe src="https://dustyjones49.github.io/dustyjones49/retaining-wall-calculator/" width="100%" height="800" frameborder="0"&gt;&lt;/iframe&gt;</textarea>
+</div>
+<div id="ad-slot" class="card" style="text-align:center;min-height:90px;border:2px dashed var(--border);display:flex;align-items:center;justify-content:center;color:var(--text-light);font-size:0.85rem">Ad Slot &#8212; Replace with AdSense Code</div>
+<div class="card">
+<h2>Frequently Asked Questions</h2>
+<div class="faq-item"><button class="faq-q">How high can a retaining wall be without engineering?</button><div class="faq-a"><p>Most jurisdictions allow 3-4 ft without a permit or engineering. Over 4 ft needs a structural engineer, geogrid reinforcement, and building permits. Always check local codes before building &#8212; fines for unpermitted walls can exceed the cost of the wall itself.</p></div></div>
+<div class="faq-item"><button class="faq-q">Do I need drainage behind a retaining wall?</button><div class="faq-a"><p>YES &#8212; always. Without drainage, water pressure builds up and pushes the wall over. Install 4-inch perforated pipe at base of wall, cover with 12 inches of clean gravel behind the wall, and use filter fabric to separate soil from gravel. This adds $2-5 per linear foot.</p></div></div>
+<div class="faq-item"><button class="faq-q">How deep should a retaining wall base be?</button><div class="faq-a"><p>Bury the first course at least 6 inches below finished grade on 6 inches of compacted gravel. For walls over 3 ft, bury 1/8 of total wall height (a 4 ft wall needs 6+ inches buried). Add geogrid reinforcement every 2 courses above 3 ft for additional stability.</p></div></div>
+</div>
+<div class="card">
+<h2>Recommended Products</h2>
+<ul class="products">
+<li><a href="https://www.homedepot.com/s/retaining%20wall%20block%2012x6" target="_blank" rel="nofollow">Retaining Wall Block 12x6</a> &#8212; Home Depot</li>
+<li><a href="https://www.amazon.com/s?k=landscape+drain+pipe+4+inch+perforated&tag=buildcalc-20" target="_blank" rel="nofollow">Landscape Drain Pipe 4 in</a> &#8212; Amazon</li>
+<li><a href="https://www.homedepot.com/s/geogrid%20reinforcement%204x50" target="_blank" rel="nofollow">Geogrid Reinforcement 4x50 ft</a> &#8212; Home Depot</li>
+</ul>
+</div>
+</div>
+<footer>
+<p>2026 FieldMath - Calculators are reference only. Always verify with your local code.</p>
+</footer>
+<script>
+(function(){
+var l=document.getElementById('length'),h=document.getElementById('height'),bl=document.getElementById('blockL'),bh=document.getElementById('blockH'),bd=document.getElementById('baseD');
+var rc=document.getElementById('rCourses'),rp=document.getElementById('rPerCourse'),rt=document.getElementById('rTotal'),rg=document.getElementById('rGravel');
+function calc(){
+var len=parseFloat(l.value)||0,hei=parseFloat(h.value)||0,blkL=parseFloat(bl.value)||12,blkH=parseFloat(bh.value)||6,base=parseFloat(bd.value)||6;
+var courses=Math.ceil(hei*12/blkH),perCourse=Math.ceil(len*12/blkL),total=courses*perCourse;
+var gravelTons=(len*base/12*2)/27*1.4;
+rc.textContent=courses+' courses';rp.textContent=perCourse+' blocks';rt.textContent=total+' blocks';rg.textContent=gravelTons.toFixed(2)+' tons';
+}
+[l,h,bl,bh,bd].forEach(function(e){e.addEventListener('input',calc);e.addEventListener('change',calc)});
+calc();
+document.querySelectorAll('.faq-q').forEach(function(b){b.addEventListener('click',function(){this.classList.toggle('open');this.nextElementSibling.classList.toggle('open')})});
+var inputs=document.querySelectorAll('input,select');
+function save(){var params=new URLSearchParams();inputs.forEach(function(e,i){if(e.value)params.set('i'+i,e.value)});if(params.toString())history.replaceState(null,'','?'+params.toString())}
+function load(){var params=new URLSearchParams(location.search);inputs.forEach(function(e,i){if(params.has('i'+i))e.value=params.get('i'+i);e.addEventListener('input',save);e.addEventListener('change',save)});if(params.toString())calc()}
+load();
+})();
+</script>
+<script src="../custom-select.js"></script><script src="../favorites.js"></script><script src="../remember-inputs.js"></script><script src="../sticky-header.js"></script><script src="../ui-fix.js"></script><script src="../link-fix.js"></script><script src="../auto-calc.js"></script><script src="../dark-persist.js"></script><script src="../admob-banner.js"></script></body>
+</html>
+
+
+
+
+

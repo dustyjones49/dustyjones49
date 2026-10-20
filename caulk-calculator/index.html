@@ -1,0 +1,266 @@
+﻿<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>Caulk & Sealant Calculator - Tubes</title>
+<meta name="description" content="Calculate caulk tubes needed for baseboards, trim, windows and doors. Linear feet per 10 oz tube.">
+<link rel="canonical" href="https://example.com/caulk-calculator/">
+<meta property="og:title" content="Caulk & Sealant Calculator - Tubes">
+<meta property="og:description" content="Calculate caulk tubes needed for baseboards, trim, windows and doors. Linear feet per 10 oz tube.">
+<meta property="og:url" content="https://example.com/caulk-calculator/">
+<meta property="og:type" content="website">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Caulk & Sealant Calculator - Tubes">
+<meta name="twitter:description" content="Calculate caulk tubes needed for baseboards, trim, windows and doors. Linear feet per 10 oz tube.">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": ["WebApplication", "FAQPage"],
+  "name": "Caulk & Sealant Calculator",
+  "url": "https://example.com/caulk-calculator/",
+  "description": "Calculate caulk tubes needed for baseboards, trim, windows and doors. Linear feet per 10 oz tube.",
+  "applicationCategory": "EducationalApplication",
+  "operatingSystem": "All",
+  "breadcrumb": {
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {"@type": "ListItem", "position": 1, "name": "Home", "item": "https://example.com/"},
+      {"@type": "ListItem", "position": 2, "name": "Painting & Finishing", "item": "https://example.com/category/painting-finishing/"},
+      {"@type": "ListItem", "position": 3, "name": "Caulk & Sealant Calculator", "item": "https://example.com/caulk-calculator/"}
+    ]
+  },
+  "mainEntity": [
+    {"@type":"Question","name":"How many linear feet per tube of caulk?","acceptedAnswer":{"@type":"Answer","text":"A 10 oz tube covers about 30-50 linear ft with a 1/8 in bead, or 20-25 ft with 1/4 in bead. For a standard room with baseboards, budget 1 tube per door frame and 1 per window. Buy 2 extra &#8212; dried caulk is useless."}},
+    {"@type":"Question","name":"Silicone vs acrylic caulk?","acceptedAnswer":{"@type":"Answer","text":"100% silicone is waterproof and flexible &#8212; use for tubs, showers, sinks, and exterior. Acrylic (paintable) caulk is for baseboards, trim, crown molding and interior gaps. Don't use acrylic in wet areas &#8212; it'll fail."}},
+    {"@type":"Question","name":"How to apply caulk properly?","acceptedAnswer":{"@type":"Answer","text":"Cut tip at 45° angle to match bead size. Push, don't pull the gun. Smooth immediately with a wet finger or caulk tool. Tool within 2-3 minutes for acrylic, 30-60 seconds for silicone. Tape both sides for pro-looking lines."}}
+  ]
+}
+</script>
+<style>
+:root{--bg:#fff;--text:#1a1a1a;--card:#f8f9fa;--border:#dee2e6;--primary:#2563eb;--primary-hover:#1d4ed8;--results-bg:#eff6ff;--shadow:0 1px 3px rgba(0,0,0,.1);--radius:8px;}
+[data-theme="dark"]{--bg:#111827;--text:#f1f5f9;--card:#1e293b;--border:#334155;--primary:#3b82f6;--primary-hover:#60a5fa;--results-bg:#1e3a5f;--shadow:0 1px 3px rgba(0,0,0,.4);}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+body{font-family:system-ui,-apple-system,sans-serif;background:var(--bg);color:var(--text);line-height:1.6;transition:background .3s,color .3s;}
+.container{max-width:900px;margin:0 auto;padding:1rem;}
+header{text-align:center;padding:2rem 1rem;background:var(--card);border-bottom:1px solid var(--border);}
+header h1{font-size:2rem;font-weight:700;color:var(--primary);}
+header p{color:var(--text);opacity:.8;}
+nav.breadcrumb{padding:.75rem 0;font-size:.875rem;}
+nav.breadcrumb a{color:var(--primary);text-decoration:none;}
+nav.breadcrumb a:hover{text-decoration:underline;}
+nav.breadcrumb span{opacity:.6;}
+.theme-toggle{position:fixed;top:1rem;right:1rem;z-index:100;background:var(--card);border:1px solid var(--border);border-radius:50%;width:40px;height:40px;cursor:pointer;font-size:1.25rem;display:flex;align-items:center;justify-content:center;box-shadow:var(--shadow);}
+.calculator{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:1.5rem;margin:1rem 0;box-shadow:var(--shadow);}
+.calculator h2{font-size:1.25rem;margin-bottom:1rem;color:var(--text);}
+.form-group{margin-bottom:1rem;}
+.form-group label{display:block;font-weight:600;margin-bottom:.25rem;font-size:.9rem;}
+.form-group input,.form-group select{width:100%;padding:.6rem .75rem;border:1px solid var(--border);border-radius:6px;font-size:1rem;background:var(--bg);color:var(--text);}
+.form-group input:focus,.form-group select:focus{outline:2px solid var(--primary);outline-offset:1px;}
+.btn{display:inline-block;padding:.75rem 2rem;background:var(--primary);color:#fff;border:none;border-radius:6px;font-size:1rem;font-weight:600;cursor:pointer;width:100%;transition:background .2s;}
+.btn:hover{background:var(--primary-hover);}
+.results{background:var(--results-bg);border:1px solid var(--primary);border-radius:var(--radius);padding:1.25rem;margin:1rem 0;}
+.results h3{font-size:1.1rem;color:var(--primary);margin-bottom:.5rem;}
+.result-item{display:flex;justify-content:space-between;padding:.35rem 0;border-bottom:1px solid var(--border);font-size:.95rem;}
+.result-item:last-child{border-bottom:none;}
+.result-item strong{color:var(--primary);}
+.error{color:#dc2626;font-size:.875rem;margin-top:.25rem;display:none;}
+.share-buttons{display:flex;gap:.5rem;flex-wrap:wrap;margin:1rem 0;}
+.share-btn{padding:.5rem 1rem;border-radius:6px;font-size:.85rem;font-weight:600;text-decoration:none;color:#fff;display:inline-flex;align-items:center;gap:.25rem;border:none;cursor:pointer;}
+.share-fb{background:#1877f2;}
+.share-tw{background:#000;}
+.share-reddit{background:#ff4500;}
+.share-email{background:#555;}
+.ad-slot{background:var(--card);border:2px dashed var(--border);border-radius:var(--radius);padding:2rem;text-align:center;margin:1.5rem 0;color:var(--text);opacity:.7;font-size:.9rem;}
+.products{margin:1.5rem 0;}
+.products h3{font-size:1.15rem;margin-bottom:.75rem;color:var(--text);}
+.product-list{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:.75rem;}
+.product-card{background:var(--bg);border:1px solid var(--border);border-radius:var(--radius);padding:1rem;text-align:center;}
+.product-card a{color:var(--primary);text-decoration:none;font-weight:600;font-size:.9rem;}
+.product-card a:hover{text-decoration:underline;}
+.product-card small{display:block;opacity:.6;margin-top:.25rem;}
+.faq{margin:1.5rem 0;}
+.faq h3{font-size:1.15rem;margin-bottom:.75rem;color:var(--text);}
+.faq-item{border:1px solid var(--border);border-radius:var(--radius);margin-bottom:.5rem;overflow:hidden;background:var(--bg);}
+.faq-q{padding:.75rem 1rem;font-weight:600;cursor:pointer;display:flex;justify-content:space-between;align-items:center;font-size:.95rem;background:var(--card);user-select:none;}
+.faq-q::after{content:'+';font-size:1.25rem;color:var(--primary);}
+.faq-q.open::after{content:'\2212';}
+.faq-a{padding:0 1rem;max-height:0;overflow:hidden;transition:max-height .3s ease,padding .3s ease;font-size:.9rem;line-height:1.6;opacity:0;}
+.faq-a.open{padding:.75rem 1rem;max-height:500px;opacity:1;}
+.related{margin:1.5rem 0;padding:1rem;background:var(--card);border-radius:var(--radius);border:1px solid var(--border);}
+.related h3{font-size:1rem;margin-bottom:.5rem;}
+.related ul{list-style:none;display:flex;flex-wrap:wrap;gap:.5rem;}
+.related a{color:var(--primary);text-decoration:none;font-size:.9rem;}
+.related a:hover{text-decoration:underline;}
+.embed-code{background:var(--bg);border:1px solid var(--border);border-radius:var(--radius);padding:.75rem;overflow-x:auto;font-size:.8rem;white-space:pre-wrap;word-break:break-all;margin:.5rem 0;font-family:monospace;max-height:120px;overflow-y:auto;}
+.back-to-top{position:fixed;bottom:1.5rem;right:1.5rem;background:var(--primary);color:#fff;width:44px;height:44px;border-radius:50%;border:none;cursor:pointer;font-size:1.25rem;display:none;align-items:center;justify-content:center;box-shadow:var(--shadow);z-index:100;transition:opacity .3s;}
+.back-to-top.show{display:flex;}
+footer{text-align:center;padding:2rem 1rem;border-top:1px solid var(--border);font-size:.85rem;opacity:.7;margin-top:2rem;}
+@media print{
+body{font-size:12pt;background:var(--bg);color:#000;}
+nav,.theme-toggle,.share-buttons,.ad-slot,.products,.back-to-top,.embed-code{display:none!important;}
+.calculator,.results{border:1px solid #000;box-shadow:none;page-break-inside:avoid;}
+.results{background:#f0f0f0;}
+}
+@media(max-width:600px){
+.container{padding:.5rem;}
+header h1{font-size:1.5rem;}
+.calculator{padding:1rem;}
+}
+</style><style id="bc-theme">/* FieldMath - Light Theme
+   All pages use this single light theme. No dark mode. */
+:root{
+  --bg:#f5f5f5;
+  --card:#ffffff;
+  --text:#333333;
+  --text-light:#666666;
+  --muted:#f1f3f7;
+  --muted-bg:#f8f9fa;
+  --border:#dde3ea;
+  --navy:#1a2332;
+  --header-bg:#1a2332;
+  --header-text:#ffffff;
+  --orange:#f97316;
+  --accent:#f97316;
+  --success:#16a34a;
+  --warning:#d97706;
+  --danger:#dc2626;
+}
+</style>
+<style id="bc-darkflash">html,html body{background:#f5f5f5 !important;color:#333 !important}body .card,body .panel,body .box,body .calculator,body .container,body .c,body .result,body .results,body .res,body .formula,body .example,body .faq,body .faq-item,body input,body select,body textarea{background:#ffffff !important;color:#333 !important;border-color:#ddd !important}</style></head>
+<body>
+<button class="theme-toggle" onclick="toggleTheme()" aria-label="Toggle dark mode" title="Toggle dark mode"></button>
+<button class="back-to-top" onclick="window.scrollTo({top:0,behavior:'smooth'})" aria-label="Back to top" title="Back to top">&#8593;‘</button>
+
+<header><h1>Caulk &amp; Sealant Calculator</h1></header>
+
+<div class="container">
+
+<div class="calculator">
+<h2>Enter Caulk Details</h2>
+<form id="calc-form">
+<div class="form-group"><label for="linearFt">Total Linear Feet</label><input type="number" id="linearFt" value="100" step="0.01" min="0.01" required></div>
+<div class="form-group"><label for="beadSize">Bead Size</label><select id="beadSize"><option value="40">Small 1/8 in (40 ft/tube)</option><option value="25" selected>Medium 1/4 in (25 ft/tube)</option><option value="12">Large 3/8 in (12 ft/tube)</option></select></div>
+<div class="form-group"><label for="waste">Waste (%)</label><input type="number" id="waste" value="10" step="0.1" min="0" required></div>
+<button type="submit" class="btn">Calculate Tubes</button>
+</form>
+<div id="error" class="error"></div>
+
+<div class="results" id="results" style="display:none;">
+<h3>Results</h3>
+<div class="result-item"><span>Tubes Needed</span><strong id="tubesNeeded">-</strong></div>
+<div class="result-item"><span>Tubes to Buy</span><strong id="tubesBuy">-</strong></div>
+</div>
+</div>
+
+<div class="share-buttons">
+<span style="font-weight:600;font-size:.9rem;margin-right:.25rem;">Share:</span>
+<button class="share-btn share-fb" onclick="share('facebook')">Facebook</button>
+<button class="share-btn share-tw" onclick="share('twitter')">X</button>
+<button class="share-btn share-reddit" onclick="share('reddit')">Reddit</button>
+<button class="share-btn share-email" onclick="share('email')">Email</button>
+<button onclick="copyUrl()" class="share-btn" style="background:#6b7280;">Copy Link</button>
+</div>
+
+<div class="embed-code">Embed this calculator: &lt;iframe src="https://example.com/caulk-calculator/embed/" width="100%" height="600" frameborder="0"&gt;&lt;/iframe&gt;</div>
+
+<div class="ad-slot">Advertisement Space &#8212; 728×90 or 300×250</div>
+
+<div class="products">
+<h3>Recommended Products</h3>
+<div class="product-list">
+<div class="product-card"><a href="https://www.homedepot.com" target="_blank" rel="nofollow noopener">Silicone Caulk 10 oz Clear</a><small>Home Depot</small></div>
+<div class="product-card"><a href="https://www.amazon.com" target="_blank" rel="nofollow noopener">Paintable Acrylic Caulk</a><small>Amazon</small></div>
+<div class="product-card"><a href="https://www.amazon.com" target="_blank" rel="nofollow noopener">Caulk Gun Dripless</a><small>Amazon</small></div>
+</div>
+</div>
+
+<div class="faq">
+<h3>Frequently Asked Questions</h3>
+<div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)">How many linear feet per tube of caulk?</div><div class="faq-a">A 10 oz tube covers about 30-50 linear ft with a 1/8 in bead, or 20-25 ft with 1/4 in bead. For a standard room with baseboards, budget 1 tube per door frame and 1 per window. Buy 2 extra &#8212; dried caulk is useless.</div></div>
+<div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)">Silicone vs acrylic caulk?</div><div class="faq-a">100% silicone is waterproof and flexible &#8212; use for tubs, showers, sinks, and exterior. Acrylic (paintable) caulk is for baseboards, trim, crown molding and interior gaps. Don't use acrylic in wet areas &#8212; it'll fail.</div></div>
+<div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)">How to apply caulk properly?</div><div class="faq-a">Cut tip at 45° angle to match bead size. Push, don't pull the gun. Smooth immediately with a wet finger or caulk tool. Tool within 2-3 minutes for acrylic, 30-60 seconds for silicone. Tape both sides for pro-looking lines.</div></div>
+</div>
+
+<div class="related">
+<h3>Related Calculators</h3>
+<ul>
+<li><a href="../paint-calculator/">Paint Calculator</a></li>
+<li><a href="../tile-calculator/">Tile Calculator</a></li>
+<li><a href="../primer-calculator/">Primer Calculator</a></li>
+</ul>
+</div>
+
+<footer>
+<p>2026 FieldMath - Calculators are reference only. Always verify with your local code.</p>
+</footer>
+</div>
+
+<script>
+(function(){
+var params=new URLSearchParams(window.location.search);
+var fields=['linearFt','beadSize','waste'];
+fields.forEach(function(f){ var v=params.get(f); if(v!==null)document.getElementById(f).value=v; });
+})();
+
+function toggleTheme(){
+var html=document.documentElement;
+var current=html.getAttribute('data-theme');
+var next=current==='dark'?'light':'dark';
+html.setAttribute('data-theme',next);
+localStorage.setItem('theme',next);
+}
+(function(){
+var saved=localStorage.getItem('theme')||'light';
+document.documentElement.setAttribute('data-theme',saved);
+})();
+
+function toggleFaq(el){
+el.classList.toggle('open');
+el.nextElementSibling.classList.toggle('open');
+}
+
+document.getElementById('calc-form').addEventListener('submit',function(e){
+e.preventDefault();
+var err=document.getElementById('error');
+err.style.display='none';
+var ft=parseFloat(document.getElementById('linearFt').value);
+var beadCoverage=parseFloat(document.getElementById('beadSize').value);
+var waste=parseFloat(document.getElementById('waste').value);
+if(isNaN(ft)||isNaN(beadCoverage)||isNaN(waste)||ft<=0||beadCoverage<=0||waste<0){err.textContent='Please enter valid numbers.';err.style.display='block';return;}
+var tubes=ft/beadCoverage*(1+waste/100);
+var tubesBuy=Math.ceil(tubes);
+document.getElementById('tubesNeeded').textContent=tubes.toFixed(1)+' tubes';
+document.getElementById('tubesBuy').textContent=tubesBuy+' tube'+(tubesBuy!==1?'s':'');
+document.getElementById('results').style.display='block';
+updateUrlParams();
+});
+
+function updateUrlParams(){
+var p=['linearFt','beadSize','waste'];
+var params=new URLSearchParams();
+p.forEach(function(f){ params.set(f,document.getElementById(f).value); });
+window.history.replaceState({},'',window.location.pathname+'?'+params.toString());
+}
+
+function share(platform){
+var url=encodeURIComponent(window.location.href);
+var title=encodeURIComponent('Caulk & Sealant Calculator - Tubes');
+var maps={facebook:'https://www.facebook.com/sharer/sharer.php?u='+url,twitter:'https://x.com/intent/tweet?url='+url+'&text='+title,reddit:'https://www.reddit.com/submit?url='+url+'&title='+title,email:'mailto:?subject='+title+'&body='+url};
+window.open(maps[platform],'_blank','width=600,height=400');
+}
+
+function copyUrl(){navigator.clipboard.writeText(window.location.href).then(function(){alert('URL copied to clipboard!');});}
+
+window.addEventListener('scroll',function(){
+var btn=document.querySelector('.back-to-top');
+if(window.scrollY>300)btn.classList.add('show');else btn.classList.remove('show');
+});
+</script>
+<script src="../custom-select.js"></script><script src="../favorites.js"></script><script src="../remember-inputs.js"></script><script src="../sticky-header.js"></script><script src="../ui-fix.js"></script><script src="../link-fix.js"></script><script src="../auto-calc.js"></script><script src="../dark-persist.js"></script><script src="../admob-banner.js"></script></body>
+</html>
+
+
+
+
+

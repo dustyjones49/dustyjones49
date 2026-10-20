@@ -1,0 +1,251 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<link rel="canonical" href="https://dustyjones49.github.io/dustyjones49/pricing/">
+<title>Construction Material Price Tracker | 100+ Materials</title>
+<meta name="description" content="Current estimated prices for lumber, drywall, concrete, roofing, insulation, electrical, plumbing, paint, flooring, and more. Updated regularly.">
+<style>
+:root {
+  --navy: #0a1628;
+  --navy-light: #152240;
+  --gold: #c9a84c;
+  --gold-light: #e0c97a;
+  --white: #ffffff;
+  --text: #1a1a2e;
+  --muted: #e8ecf1;
+  --card-bg: #ffffff;
+  --border: #d5dbe3;
+  --shadow: 0 2px 8px rgba(0,0,0,0.08);
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: 'Segoe UI', system-ui, -apple-system, sans-serif; background: #f4f6f9; color: var(--text); line-height: 1.7; }
+header { background: var(--navy); color: var(--white); padding: 1.2rem 0; position: sticky; top: 0; z-index: 100; box-shadow: 0 2px 12px rgba(0,0,0,0.25); }
+header .wrap { max-width: 1200px; margin: 0 auto; padding: 0 1.5rem; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; }
+header h1 { font-size: 1.5rem; font-weight: 700; letter-spacing: -0.3px; }
+header h1 span { color: var(--gold); }
+nav a { color: var(--white); text-decoration: none; margin-left: 1.5rem; font-size: 0.95rem; opacity: 0.85; transition: opacity 0.2s; }
+nav a:hover { opacity: 1; color: var(--gold-light); }
+.hero { background: linear-gradient(135deg, var(--navy) 0%, var(--navy-light) 100%); color: var(--white); padding: 3rem 1.5rem; text-align: center; }
+.hero h2 { font-size: 2.2rem; font-weight: 700; margin-bottom: 0.5rem; }
+.hero h2 span { color: var(--gold); }
+.hero p { font-size: 1.1rem; opacity: 0.9; max-width: 700px; margin: 0 auto; }
+.container { max-width: 1200px; margin: 0 auto; padding: 2rem 1.5rem; }
+.disclaimer { background: #fef9e7; border-left: 4px solid var(--gold); padding: 1rem 1.2rem; border-radius: 0 8px 8px 0; margin-bottom: 2rem; font-size: 0.92rem; }
+.disclaimer strong { color: var(--navy); }
+.search-bar { margin-bottom: 1.5rem; }
+.search-bar input { width: 100%; max-width: 400px; padding: 0.75rem 1rem; border-radius: 8px; border: 2px solid var(--border); font-size: 1rem; outline: none; transition: border-color 0.2s; }
+.search-bar input:focus { border-color: var(--gold); }
+.cat-filter { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 1.5rem; }
+.cat-filter button { padding: 0.45rem 1rem; border: 1px solid var(--border); border-radius: 20px; background: var(--white); cursor: pointer; font-size: 0.85rem; transition: all 0.2s; color: var(--text); font-family: inherit; }
+.cat-filter button:hover { border-color: var(--gold); color: var(--navy); }
+.cat-filter button.active { background: var(--navy); color: var(--white); border-color: var(--navy); }
+.table-wrap { overflow-x: auto; background: var(--card-bg); border-radius: 10px; box-shadow: var(--shadow); border: 1px solid var(--border); }
+table { width: 100%; border-collapse: collapse; font-size: 0.93rem; min-width: 650px; }
+thead { background: var(--navy); color: var(--white); position: sticky; top: 0; }
+thead th { padding: 0.85rem 1rem; text-align: left; font-weight: 600; cursor: pointer; user-select: none; white-space: nowrap; }
+thead th:hover { background: var(--navy-light); }
+thead th .arrow { font-size: 0.7rem; margin-left: 0.3rem; opacity: 0.5; }
+thead th.sorted .arrow { opacity: 1; }
+tbody td { padding: 0.65rem 1rem; border-bottom: 1px solid var(--border); }
+tbody tr:hover { background: #f8f9fc; }
+tbody tr:nth-child(even) { background: #fafbfc; }
+tbody tr:nth-child(even):hover { background: #f0f2f6; }
+tbody tr.hidden { display: none; }
+.pct { padding: 0.15rem 0.5rem; border-radius: 4px; font-size: 0.8rem; font-weight: 600; }
+.pct-up { background: #fdecea; color: #c0392b; }
+.pct-down { background: #eafaf1; color: #27ae60; }
+.no-results { display: none; text-align: center; padding: 2rem; color: #888; }
+.no-results.show { display: table-row; }
+footer { background: var(--navy); color: var(--white); text-align: center; padding: 2rem 1.5rem; font-size: 0.9rem; opacity: 0.8; }
+@media (max-width: 768px) {
+  header .wrap { flex-direction: column; text-align: center; }
+  .hero h2 { font-size: 1.6rem; }
+}
+</style>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"Construction<span>Calc</span>","url":"https://dustyjones49.github.io/dustyjones49/pricing/","description":"Current estimated prices for lumber, drywall, concrete, roofing, insulation, electrical, plumbing, paint, flooring, and more. Updated regularly.","applicationCategory":"UtilityApplication","operatingSystem":"Any"}</script><style id="bc-theme">/* FieldMath - Light Theme
+   All pages use this single light theme. No dark mode. */
+:root{
+  --bg:#f5f5f5;
+  --card:#ffffff;
+  --text:#333333;
+  --text-light:#666666;
+  --muted:#f1f3f7;
+  --muted-bg:#f8f9fa;
+  --border:#dde3ea;
+  --navy:#1a2332;
+  --header-bg:#1a2332;
+  --header-text:#ffffff;
+  --orange:#f97316;
+  --accent:#f97316;
+  --success:#16a34a;
+  --warning:#d97706;
+  --danger:#dc2626;
+}
+</style>
+<style id="bc-darkflash">html,html body{background:#f5f5f5 !important;color:#333 !important}body .card,body .panel,body .box,body .calculator,body .container,body .c,body .result,body .results,body .res,body .formula,body .example,body .faq,body .faq-item,body input,body select,body textarea{background:#ffffff !important;color:#333 !important;border-color:#ddd !important}</style></head>
+<body>
+<header><h1>Construction<span>Calc</span></h1></header>
+
+<section class="hero">
+  <h2>Material <span>Price Tracker</span></h2>
+  <p>Current estimated prices for 100+ common building materials. Updated regularly to help you budget your construction project.</p>
+</section>
+
+<div class="container">
+
+<div class="disclaimer"><strong>Note:</strong> Prices are national estimates and may vary significantly by region, quantity purchased, and supplier. Always get local quotes. Prices updated as of <strong>January 2025</strong>.</div>
+
+<div class="cat-filter" id="catFilter">
+  <button class="active" data-cat="all">All</button>
+  <button data-cat="lumber">Lumber</button>
+  <button data-cat="plywood-sheathing">Plywood &amp; Sheathing</button>
+  <button data-cat="drywall">Drywall</button>
+  <button data-cat="concrete-masonry">Concrete &amp; Masonry</button>
+  <button data-cat="roofing">Roofing</button>
+  <button data-cat="siding">Siding &amp; Trim</button>
+  <button data-cat="insulation">Insulation</button>
+  <button data-cat="electrical">Electrical</button>
+  <button data-cat="plumbing">Plumbing</button>
+  <button data-cat="paint">Paint &amp; Coatings</button>
+  <button data-cat="flooring">Flooring</button>
+  <button data-cat="fasteners">Fasteners</button>
+  <button data-cat="tools">Tools</button>
+</div>
+
+<div class="table-wrap">
+<table id="priceTable">
+<thead>
+<tr>
+  <th data-sort="name">Material <span class="arrow">&#9650;&#9660;</span></th>
+  <th data-sort="cat">Category <span class="arrow">&#9650;&#9660;</span></th>
+  <th data-sort="unit">Unit <span class="arrow">&#9650;&#9660;</span></th>
+  <th data-sort="low">Low Price <span class="arrow">&#9650;&#9660;</span></th>
+  <th data-sort="high">High Price <span class="arrow">&#9650;&#9660;</span></th>
+  <th data-sort="updated">Last Updated <span class="arrow">&#9650;&#9660;</span></th>
+</tr>
+</thead>
+<tbody id="tableBody">
+<tr data-cat="lumber"><td>2x4 Stud (8 ft) - SPF</td><td>Lumber</td><td>each</td><td>$2.98</td><td>$4.50</td><td>Jan 2025</td></tr>
+<tr data-cat="lumber"><td>2x6 Stud (8 ft) - SPF</td><td>Lumber</td><td>each</td><td>$4.85</td><td>$6.75</td><td>Jan 2025</td></tr>
+<tr data-cat="lumber"><td>2x8 Joist (10 ft) - SPF</td><td>Lumber</td><td>each</td><td>$9.80</td><td>$13.40</td><td>Jan 2025</td></tr>
+<tr data-cat="lumber"><td>2x10 Joist (12 ft) - SPF</td><td>Lumber</td><td>each</td><td>$15.20</td><td>$19.80</td><td>Jan 2025</td></tr>
+<tr data-cat="lumber"><td>2x12 Joist (16 ft) - SPF</td><td>Lumber</td><td>each</td><td>$28.50</td><td>$36.00</td><td>Jan 2025</td></tr>
+<tr data-cat="lumber"><td>Pressure-Treated 2x4 (8 ft)</td><td>Lumber</td><td>each</td><td>$4.50</td><td>$6.50</td><td>Jan 2025</td></tr>
+<tr data-cat="lumber"><td>Pressure-Treated 2x6 (8 ft)</td><td>Lumber</td><td>each</td><td>$6.50</td><td>$9.00</td><td>Jan 2025</td></tr>
+<tr data-cat="lumber"><td>Pressure-Treated 4x4 (8 ft)</td><td>Lumber</td><td>each</td><td>$9.50</td><td>$14.00</td><td>Jan 2025</td></tr>
+<tr data-cat="lumber"><td>Pressure-Treated 6x6 (8 ft)</td><td>Lumber</td><td>each</td><td>$22.00</td><td>$30.00</td><td>Jan 2025</td></tr>
+<tr data-cat="lumber"><td>Cedar 1x6 Deck Board (8 ft)</td><td>Lumber</td><td>each</td><td>$7.50</td><td>$12.00</td><td>Jan 2025</td></tr>
+<tr data-cat="lumber"><td>Composite Deck Board (12 ft)</td><td>Lumber</td><td>each</td><td>$22.00</td><td>$38.00</td><td>Jan 2025</td></tr>
+<tr data-cat="lumber"><td>Douglas Fir 4x4 (8 ft)</td><td>Lumber</td><td>each</td><td>$12.00</td><td>$18.00</td><td>Jan 2025</td></tr>
+<tr data-cat="plywood-sheathing"><td>OSB Sheathing 7/16" (4x8)</td><td>Plywood &amp; Sheathing</td><td>sheet</td><td>$13.50</td><td>$22.00</td><td>Jan 2025</td></tr>
+<tr data-cat="plywood-sheathing"><td>OSB Sheathing 1/2" (4x8)</td><td>Plywood &amp; Sheathing</td><td>sheet</td><td>$15.50</td><td>$24.00</td><td>Jan 2025</td></tr>
+<tr data-cat="plywood-sheathing"><td>CDX Plywood 1/2" (4x8)</td><td>Plywood &amp; Sheathing</td><td>sheet</td><td>$22.00</td><td>$32.00</td><td>Jan 2025</td></tr>
+<tr data-cat="plywood-sheathing"><td>CDX Plywood 3/4" (4x8)</td><td>Plywood &amp; Sheathing</td><td>sheet</td><td>$28.00</td><td>$40.00</td><td>Jan 2025</td></tr>
+<tr data-cat="plywood-sheathing"><td>Birch Plywood 3/4" (4x8)</td><td>Plywood &amp; Sheathing</td><td>sheet</td><td>$55.00</td><td>$75.00</td><td>Jan 2025</td></tr>
+<tr data-cat="plywood-sheathing"><td>T1-11 Siding Panel (4x8)</td><td>Plywood &amp; Sheathing</td><td>sheet</td><td>$35.00</td><td>$48.00</td><td>Jan 2025</td></tr>
+<tr data-cat="plywood-sheathing"><td>Melamine White Panel (4x8)</td><td>Plywood &amp; Sheathing</td><td>sheet</td><td>$40.00</td><td>$55.00</td><td>Jan 2025</td></tr>
+<tr data-cat="plywood-sheathing"><td>MDF Panel 3/4" (4x8)</td><td>Plywood &amp; Sheathing</td><td>sheet</td><td>$38.00</td><td>$52.00</td><td>Jan 2025</td></tr>
+<tr data-cat="drywall"><td>Drywall 1/2" (4x8)</td><td>Drywall</td><td>sheet</td><td>$12.50</td><td>$17.00</td><td>Jan 2025</td></tr>
+<tr data-cat="drywall"><td>Drywall 1/2" (4x12)</td><td>Drywall</td><td>sheet</td><td>$18.00</td><td>$24.00</td><td>Jan 2025</td></tr>
+<tr data-cat="drywall"><td>Drywall 5/8" (4x8) Fire-Rated</td><td>Drywall</td><td>sheet</td><td>$16.00</td><td>$22.00</td><td>Jan 2025</td></tr>
+<tr data-cat="drywall"><td>Green Board 1/2" (4x8) MR</td><td>Drywall</td><td>sheet</td><td>$15.00</td><td>$20.00</td><td>Jan 2025</td></tr>
+<tr data-cat="drywall"><td>Cement Board 1/2" (3x5)</td><td>Drywall</td><td>sheet</td><td>$11.50</td><td>$16.00</td><td>Jan 2025</td></tr>
+<tr data-cat="drywall"><td>Joint Compound (5 gal)</td><td>Drywall</td><td>bucket</td><td>$14.00</td><td>$22.00</td><td>Jan 2025</td></tr>
+<tr data-cat="drywall"><td>Drywall Tape (250 ft roll)</td><td>Drywall</td><td>roll</td><td>$5.00</td><td>$9.00</td><td>Jan 2025</td></tr>
+<tr data-cat="concrete-masonry"><td>Ready-Mix Concrete (80 lb bag)</td><td>Concrete &amp; Masonry</td><td>bag</td><td>$4.50</td><td>$6.50</td><td>Jan 2025</td></tr>
+<tr data-cat="concrete-masonry"><td>Concrete (delivered, per yard)</td><td>Concrete &amp; Masonry</td><td>cu yd</td><td>$125.00</td><td>$165.00</td><td>Jan 2025</td></tr>
+<tr data-cat="concrete-masonry"><td>#3 Rebar (10 ft)</td><td>Concrete &amp; Masonry</td><td>each</td><td>$3.50</td><td>$5.50</td><td>Jan 2025</td></tr>
+<tr data-cat="concrete-masonry"><td>#4 Rebar (20 ft)</td><td>Concrete &amp; Masonry</td><td>each</td><td>$8.00</td><td>$12.00</td><td>Jan 2025</td></tr>
+<tr data-cat="concrete-masonry"><td>Concrete Block 8" (standard)</td><td>Concrete &amp; Masonry</td><td>each</td><td>$1.50</td><td>$2.50</td><td>Jan 2025</td></tr>
+<tr data-cat="concrete-masonry"><td>Concrete Pavers (12x12)</td><td>Concrete &amp; Masonry</td><td>each</td><td>$2.00</td><td>$4.00</td><td>Jan 2025</td></tr>
+<tr data-cat="concrete-masonry"><td>Mortar Mix (80 lb bag)</td><td>Concrete &amp; Masonry</td><td>bag</td><td>$7.00</td><td>$10.00</td><td>Jan 2025</td></tr>
+<tr data-cat="concrete-masonry"><td>Gravel (per ton, delivered)</td><td>Concrete &amp; Masonry</td><td>ton</td><td>$25.00</td><td>$45.00</td><td>Jan 2025</td></tr>
+<tr data-cat="concrete-masonry"><td>Sand (per ton, delivered)</td><td>Concrete &amp; Masonry</td><td>ton</td><td>$20.00</td><td>$38.00</td><td>Jan 2025</td></tr>
+<tr data-cat="roofing"><td>Asphalt Shingles (bundle)</td><td>Roofing</td><td>bundle</td><td>$30.00</td><td>$50.00</td><td>Jan 2025</td></tr>
+<tr data-cat="roofing"><td>Architectural Shingles (bundle)</td><td>Roofing</td><td>bundle</td><td>$38.00</td><td>$60.00</td><td>Jan 2025</td></tr>
+<tr data-cat="roofing"><td>Roofing Felt #30 (roll)</td><td>Roofing</td><td>roll</td><td>$22.00</td><td>$32.00</td><td>Jan 2025</td></tr>
+<tr data-cat="roofing"><td>Synthetic Underlayment (roll)</td><td>Roofing</td><td>roll</td><td>$65.00</td><td>$95.00</td><td>Jan 2025</td></tr>
+<tr data-cat="roofing"><td>Metal Roof Panel 3' (per ft)</td><td>Roofing</td><td>linear ft</td><td>$4.50</td><td>$8.00</td><td>Jan 2025</td></tr>
+<tr data-cat="roofing"><td>Ice &amp; Water Shield (roll)</td><td>Roofing</td><td>roll</td><td>$55.00</td><td>$80.00</td><td>Jan 2025</td></tr>
+<tr data-cat="roofing"><td>Ridge Vent (4 ft section)</td><td>Roofing</td><td>each</td><td>$12.00</td><td>$20.00</td><td>Jan 2025</td></tr>
+<tr data-cat="siding"><td>Vinyl Siding (square, 100 sq ft)</td><td>Siding &amp; Trim</td><td>square</td><td>$80.00</td><td>$140.00</td><td>Jan 2025</td></tr>
+<tr data-cat="siding"><td>Fiber Cement Siding (per sq ft)</td><td>Siding &amp; Trim</td><td>sq ft</td><td>$1.50</td><td>$3.00</td><td>Jan 2025</td></tr>
+<tr data-cat="siding"><td>Pine 1x4 Trim Board (8 ft)</td><td>Siding &amp; Trim</td><td>each</td><td>$5.00</td><td>$9.00</td><td>Jan 2025</td></tr>
+<tr data-cat="siding"><td>PVC Trim Board 1x4 (8 ft)</td><td>Siding &amp; Trim</td><td>each</td><td>$16.00</td><td>$24.00</td><td>Jan 2025</td></tr>
+<tr data-cat="siding"><td>House Wrap (9' x 100' roll)</td><td>Siding &amp; Trim</td><td>roll</td><td>$65.00</td><td>$90.00</td><td>Jan 2025</td></tr>
+<tr data-cat="insulation"><td>Fiberglass Batt R-13 (roll)</td><td>Insulation</td><td>roll</td><td>$40.00</td><td>$60.00</td><td>Jan 2025</td></tr>
+<tr data-cat="insulation"><td>Fiberglass Batt R-19 (roll)</td><td>Insulation</td><td>roll</td><td>$50.00</td><td>$75.00</td><td>Jan 2025</td></tr>
+<tr data-cat="insulation"><td>Fiberglass Batt R-30 (roll)</td><td>Insulation</td><td>roll</td><td>$65.00</td><td>$90.00</td><td>Jan 2025</td></tr>
+<tr data-cat="insulation"><td>Blown-In Cellulose (bag)</td><td>Insulation</td><td>bag</td><td>$12.00</td><td>$18.00</td><td>Jan 2025</td></tr>
+<tr data-cat="insulation"><td>Rigid Foam Board 1" (4x8)</td><td>Insulation</td><td>sheet</td><td>$20.00</td><td>$30.00</td><td>Jan 2025</td></tr>
+<tr data-cat="insulation"><td>Spray Foam Kit (600 board ft)</td><td>Insulation</td><td>kit</td><td>$350.00</td><td>$500.00</td><td>Jan 2025</td></tr>
+<tr data-cat="electrical"><td>Romex 12/2 NM-B (250 ft)</td><td>Electrical</td><td>roll</td><td>$65.00</td><td>$95.00</td><td>Jan 2025</td></tr>
+<tr data-cat="electrical"><td>Romex 14/2 NM-B (250 ft)</td><td>Electrical</td><td>roll</td><td>$50.00</td><td>$75.00</td><td>Jan 2025</td></tr>
+<tr data-cat="electrical"><td>Romex 10/2 NM-B (250 ft)</td><td>Electrical</td><td>roll</td><td>$115.00</td><td>$155.00</td><td>Jan 2025</td></tr>
+<tr data-cat="electrical"><td>15A Outlet (duplex, pack 10)</td><td>Electrical</td><td>10-pack</td><td>$8.00</td><td>$14.00</td><td>Jan 2025</td></tr>
+<tr data-cat="electrical"><td>20A GFCI Outlet</td><td>Electrical</td><td>each</td><td>$14.00</td><td>$22.00</td><td>Jan 2025</td></tr>
+<tr data-cat="electrical"><td>Single-Pole Switch (pack 10)</td><td>Electrical</td><td>10-pack</td><td>$12.00</td><td>$20.00</td><td>Jan 2025</td></tr>
+<tr data-cat="electrical"><td>200A Main Breaker Panel</td><td>Electrical</td><td>each</td><td>$150.00</td><td>$250.00</td><td>Jan 2025</td></tr>
+<tr data-cat="electrical"><td>LED Recessed Light (6" retrofit)</td><td>Electrical</td><td>each</td><td>$10.00</td><td>$25.00</td><td>Jan 2025</td></tr>
+<tr data-cat="electrical"><td>1/2" EMT Conduit (10 ft)</td><td>Electrical</td><td>each</td><td>$5.50</td><td>$8.50</td><td>Jan 2025</td></tr>
+<tr data-cat="electrical"><td>3/4" PVC Conduit (10 ft)</td><td>Electrical</td><td>each</td><td>$4.50</td><td>$7.00</td><td>Jan 2025</td></tr>
+<tr data-cat="plumbing"><td>1/2" Copper Pipe Type L (10 ft)</td><td>Plumbing</td><td>each</td><td>$18.00</td><td>$28.00</td><td>Jan 2025</td></tr>
+<tr data-cat="plumbing"><td>3/4" Copper Pipe Type L (10 ft)</td><td>Plumbing</td><td>each</td><td>$26.00</td><td>$38.00</td><td>Jan 2025</td></tr>
+<tr data-cat="plumbing"><td>1/2" PEX Tubing (100 ft)</td><td>Plumbing</td><td>roll</td><td>$35.00</td><td>$55.00</td><td>Jan 2025</td></tr>
+<tr data-cat="plumbing"><td>3/4" PEX Tubing (100 ft)</td><td>Plumbing</td><td>roll</td><td>$48.00</td><td>$70.00</td><td>Jan 2025</td></tr>
+<tr data-cat="plumbing"><td>1-1/2" PVC Sch.40 (10 ft)</td><td>Plumbing</td><td>each</td><td>$6.00</td><td>$10.00</td><td>Jan 2025</td></tr>
+<tr data-cat="plumbing"><td>3" PVC Sch.40 (10 ft)</td><td>Plumbing</td><td>each</td><td>$14.00</td><td>$22.00</td><td>Jan 2025</td></tr>
+<tr data-cat="plumbing"><td>4" PVC Sch.40 (10 ft)</td><td>Plumbing</td><td>each</td><td>$18.00</td><td>$28.00</td><td>Jan 2025</td></tr>
+<tr data-cat="plumbing"><td>Standard Toilet (2-piece)</td><td>Plumbing</td><td>each</td><td>$120.00</td><td>$300.00</td><td>Jan 2025</td></tr>
+<tr data-cat="plumbing"><td>Bathroom Faucet (widespread)</td><td>Plumbing</td><td>each</td><td>$60.00</td><td>$200.00</td><td>Jan 2025</td></tr>
+<tr data-cat="plumbing"><td>Kitchen Sink (stainless steel)</td><td>Plumbing</td><td>each</td><td>$150.00</td><td>$400.00</td><td>Jan 2025</td></tr>
+<tr data-cat="plumbing"><td>40 gal Electric Water Heater</td><td>Plumbing</td><td>each</td><td>$400.00</td><td>$700.00</td><td>Jan 2025</td></tr>
+<tr data-cat="plumbing"><td>50 gal Gas Water Heater</td><td>Plumbing</td><td>each</td><td>$550.00</td><td>$900.00</td><td>Jan 2025</td></tr>
+<tr data-cat="paint"><td>Interior Latex Paint (gallon)</td><td>Paint &amp; Coatings</td><td>gallon</td><td>$25.00</td><td>$55.00</td><td>Jan 2025</td></tr>
+<tr data-cat="paint"><td>Exterior Latex Paint (gallon)</td><td>Paint &amp; Coatings</td><td>gallon</td><td>$30.00</td><td>$60.00</td><td>Jan 2025</td></tr>
+<tr data-cat="paint"><td>Primer (gallon)</td><td>Paint &amp; Coatings</td><td>gallon</td><td>$18.00</td><td>$35.00</td><td>Jan 2025</td></tr>
+<tr data-cat="paint"><td>Deck Stain (gallon)</td><td>Paint &amp; Coatings</td><td>gallon</td><td>$35.00</td><td>$55.00</td><td>Jan 2025</td></tr>
+<tr data-cat="paint"><td>Polyurethane (gallon)</td><td>Paint &amp; Coatings</td><td>gallon</td><td>$40.00</td><td>$70.00</td><td>Jan 2025</td></tr>
+<tr data-cat="paint"><td>Wood Sealer (gallon)</td><td>Paint &amp; Coatings</td><td>gallon</td><td>$25.00</td><td>$45.00</td><td>Jan 2025</td></tr>
+<tr data-cat="paint"><td>Caulk (10 oz tube)</td><td>Paint &amp; Coatings</td><td>tube</td><td>$3.00</td><td>$8.00</td><td>Jan 2025</td></tr>
+<tr data-cat="paint"><td>Construction Adhesive (10 oz)</td><td>Paint &amp; Coatings</td><td>tube</td><td>$4.00</td><td>$9.00</td><td>Jan 2025</td></tr>
+<tr data-cat="flooring"><td>Vinyl Plank Flooring (per sq ft)</td><td>Flooring</td><td>sq ft</td><td>$1.50</td><td>$4.00</td><td>Jan 2025</td></tr>
+<tr data-cat="flooring"><td>Laminate Flooring (per sq ft)</td><td>Flooring</td><td>sq ft</td><td>$1.00</td><td>$3.50</td><td>Jan 2025</td></tr>
+<tr data-cat="flooring"><td>Engineered Hardwood (sq ft)</td><td>Flooring</td><td>sq ft</td><td>$4.00</td><td>$9.00</td><td>Jan 2025</td></tr>
+<tr data-cat="flooring"><td>Solid Hardwood Oak (sq ft)</td><td>Flooring</td><td>sq ft</td><td>$5.00</td><td>$12.00</td><td>Jan 2025</td></tr>
+<tr data-cat="flooring"><td>Ceramic Tile 12x12 (sq ft)</td><td>Flooring</td><td>sq ft</td><td>$1.50</td><td>$5.00</td><td>Jan 2025</td></tr>
+<tr data-cat="flooring"><td>Porcelain Tile (per sq ft)</td><td>Flooring</td><td>sq ft</td><td>$3.00</td><td>$8.00</td><td>Jan 2025</td></tr>
+<tr data-cat="flooring"><td>Carpet (per sq ft)</td><td>Flooring</td><td>sq ft</td><td>$1.50</td><td>$5.00</td><td>Jan 2025</td></tr>
+<tr data-cat="flooring"><td>Carpet Pad (per sq ft)</td><td>Flooring</td><td>sq ft</td><td>$0.40</td><td>$0.90</td><td>Jan 2025</td></tr>
+<tr data-cat="fasteners"><td>16d Common Nails (5 lb box)</td><td>Fasteners</td><td>box</td><td>$10.00</td><td>$16.00</td><td>Jan 2025</td></tr>
+<tr data-cat="fasteners"><td>3" Deck Screws (5 lb box)</td><td>Fasteners</td><td>box</td><td>$28.00</td><td>$42.00</td><td>Jan 2025</td></tr>
+<tr data-cat="fasteners"><td>1-5/8" Drywall Screws (5 lb)</td><td>Fasteners</td><td>box</td><td>$18.00</td><td>$28.00</td><td>Jan 2025</td></tr>
+<tr data-cat="fasteners"><td>3/8" x 3" Lag Bolts (box 25)</td><td>Fasteners</td><td>box</td><td>$15.00</td><td>$25.00</td><td>Jan 2025</td></tr>
+<tr data-cat="fasteners"><td>Framing Nails (coil, 3000 ct)</td><td>Fasteners</td><td>box</td><td>$65.00</td><td>$95.00</td><td>Jan 2025</td></tr>
+<tr data-cat="tools"><td>20V Cordless Drill/Driver</td><td>Tools</td><td>each</td><td>$99.00</td><td>$199.00</td><td>Jan 2025</td></tr>
+<tr data-cat="tools"><td>10" Miter Saw</td><td>Tools</td><td>each</td><td>$150.00</td><td>$350.00</td><td>Jan 2025</td></tr>
+<tr data-cat="tools"><td>Circular Saw 7-1/4"</td><td>Tools</td><td>each</td><td>$75.00</td><td>$180.00</td><td>Jan 2025</td></tr>
+<tr data-cat="tools"><td>18-Gauge Brad Nailer</td><td>Tools</td><td>each</td><td>$60.00</td><td>$150.00</td><td>Jan 2025</td></tr>
+<tr data-cat="tools"><td>Air Compressor 6 gal</td><td>Tools</td><td>each</td><td>$120.00</td><td>$250.00</td><td>Jan 2025</td></tr>
+<tr data-cat="tools"><td>Table Saw (portable 10")</td><td>Tools</td><td>each</td><td>$300.00</td><td>$600.00</td><td>Jan 2025</td></tr>
+<tr data-cat="tools"><td>Pressure Washer (electric)</td><td>Tools</td><td>each</td><td>$100.00</td><td>$250.00</td><td>Jan 2025</td></tr>
+<tr data-cat="tools"><td>Wet Tile Saw</td><td>Tools</td><td>each</td><td>$200.00</td><td>$500.00</td><td>Jan 2025</td></tr>
+<tr data-cat="tools"><td>Oscillating Multi-Tool</td><td>Tools</td><td>each</td><td>$60.00</td><td>$150.00</td><td>Jan 2025</td></tr>
+</tbody>
+</table>
+</div>
+
+</div>
+
+<footer>
+<p>2026 FieldMath - Calculators are reference only. Always verify with your local code.</p>
+</footer>
+
+<script src="../custom-select.js"></script><script src="../favorites.js"></script><script src="../remember-inputs.js"></script><script src="../sticky-header.js"></script><script src="../ui-fix.js"></script><script src="../link-fix.js"></script><script src="../dark-persist.js"></script><script src="../admob-banner.js"></script></body>
+</html>
+
+
+
+

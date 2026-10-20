@@ -1,0 +1,266 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>Concrete Block Calculator - CMU Count | FieldMath</title>
+<meta name="description" content="CMU block calculator for walls. Uses 0.89 sq ft per 8×16 block and adds mortar waste.">
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+body { font-family: 'Segoe UI', system-ui, -apple-system, sans-serif; background: var(--bg); color: var(--text); line-height: 1.6; }
+header { background: #1a2332; color: #fff; padding: 24px 16px; text-align: center; }
+header nav { margin-bottom: 8px; }
+header nav a { color: #f97316; text-decoration: none; font-weight: 600; font-size: 0.95rem; }
+header nav a:hover { text-decoration: underline; }
+header h1 { font-size: clamp(1.5rem, 4vw, 2.2rem); margin: 8px 0 4px; color: #fff; }
+header .subtitle { color: #94a3b8; font-size: 0.95rem; }
+.container { max-width: 800px; margin: 0 auto; padding: 24px 16px; }
+.card { background: #fff; border-radius: 10px; padding: 24px; margin-bottom: 24px; box-shadow: 0 1px 4px rgba(0,0,0,0.08); }
+.card h2 { color: #1a2332; font-size: 1.25rem; margin-bottom: 16px; padding-bottom: 8px; border-bottom: 2px solid #f97316; }
+.form-group { margin-bottom: 16px; }
+.form-group label { display: block; font-weight: 600; margin-bottom: 4px; color: #1a2332; font-size: 0.95rem; }
+.form-group input, .form-group select { width: 100%; padding: 10px 14px; border: 2px solid #e2e8f0; border-radius: 6px; font-size: 1rem; transition: border-color 0.2s; background: #fff; }
+.form-group input:focus, .form-group select:focus { outline: none; border-color: #f97316; box-shadow: 0 0 0 3px rgba(249,115,22,0.12); }
+.results { background: linear-gradient(135deg, #fff7ed 0%, #fff 100%); border: 2px solid #f97316; border-radius: 10px; padding: 20px; margin-top: 16px; }
+.results h3 { color: #f97316; margin-bottom: 12px; font-size: 1.1rem; }
+.result-row { display: flex; justify-content: space-between; padding: 8px 0; border-bottom: 1px solid #fed7aa; }
+.result-row:last-child { border-bottom: none; }
+.result-label { font-weight: 600; color: #1a2332; }
+.result-value { font-weight: 700; color: #f97316; }
+.formula-box { background: #f1f5f9; border-left: 4px solid #f97316; padding: 14px 18px; border-radius: 0 6px 6px 0; font-family: 'Consolas', 'Courier New', monospace; font-size: 0.92rem; line-height: 1.7; }
+.example-box { background: #f8fafc; padding: 16px 18px; border-radius: 6px; font-size: 0.94rem; line-height: 1.8; }
+.faq-item { margin-bottom: 8px; border: 1px solid #e2e8f0; border-radius: 8px; overflow: hidden; }
+.faq-q { width: 100%; text-align: left; padding: 14px 18px; background: #fff; border: none; font-size: 0.95rem; font-weight: 600; color: #1a2332; cursor: pointer; display: flex; justify-content: space-between; align-items: center; transition: background 0.2s; }
+.faq-q:hover { background: #fff7ed; }
+.faq-q::after { content: '+'; font-size: 1.3rem; color: #f97316; transition: transform 0.3s; }
+.faq-q.active { background: #fff7ed; }
+.faq-q.active::after { content: '\2212'; transform: rotate(0deg); }
+.faq-a { max-height: 0; overflow: hidden; transition: max-height 0.35s ease, padding 0.35s ease; padding: 0 18px; font-size: 0.92rem; color: #475569; line-height: 1.7; }
+.faq-a.open { max-height: 400px; padding: 0 18px 16px; }
+.products { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 12px; }
+.product-card { background: #f8fafc; border-radius: 8px; padding: 16px; text-align: center; border: 1px solid #e2e8f0; transition: border-color 0.2s; }
+.product-card:hover { border-color: #f97316; }
+.product-card a { color: #f97316; font-weight: 600; text-decoration: none; font-size: 0.9rem; }
+.product-card a:hover { text-decoration: underline; }
+.product-card .store { font-size: 0.8rem; color: #64748b; margin-bottom: 4px; }
+footer { text-align: center; padding: 24px 16px; color: #64748b; font-size: 0.85rem; }
+footer a { color: #f97316; text-decoration: none; }
+@media (max-width: 600px) {
+  .card { padding: 16px; }
+  .products { grid-template-columns: 1fr; }
+}
+:root{--bg:#f5f5f5;--card:#fff;--text:#333;--text-light:#666;--border:#ddd;--header-bg:#1a2332;--header-text:#fff;--muted-bg:#f8f9fa}
+body.dark{--bg:#1a1a2e;--card:#16213e;--text:#e0e0e0;--text-light:#aaa;--border:#333;--header-bg:#0f3460;--header-text:#e0e0e0;--muted-bg:#1a1a2e}
+.card{background:var(--card);border-color:var(--border)}
+header{background:var(--header-bg);color:var(--header-text)}
+@media print{header .back-link,.dark-toggle,footer,#ad-slot,button{display:none!important}body{background:var(--bg);color:#000;font-size:12pt}.card{box-shadow:none;border:1px solid #ccc;break-inside:avoid}.results{border:2px solid var(--orange,#f97316)}[id$="-slot"]{display:none!important}@page{margin:0.5in}}
+</style>
+<link rel="canonical" href="https://dustyjones49.github.io/dustyjones49/block-calculator/">
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"WebApplication",
+  "name":"Concrete Block Calculator",
+  "url":"https://dustyjones49.github.io/dustyjones49/block-calculator/",
+  "description":"CMU block calculator for walls. Uses 0.89 sq ft per 8x16 block and adds mortar waste.",
+  "applicationCategory":"EducationalApplication",
+  "operatingSystem":"All"
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"FAQPage",
+  "mainEntity":[
+    {"@type":"Question","name":"How many concrete blocks per 100 sq ft?","acceptedAnswer":{"@type":"Answer","text":"Standard 8x16 blocks cover 0.89 sq ft each with mortar joint, so you need 113 blocks per 100 sq ft of wall. With 5% waste, order 119 blocks per 100 sq ft. Half blocks fill at corners and ends."}},
+    {"@type":"Question","name":"How much mortar for concrete block wall?","acceptedAnswer":{"@type":"Answer","text":"You need about 3 bags of 80lb mortar per 100 blocks for typical 3/8 inch joints. Our calculator estimates block count only. Add 1 bag of mortar per 35-40 blocks when ordering materials."}},
+    {"@type":"Question","name":"Do I need rebar in a block wall?","acceptedAnswer":{"@type":"Answer","text":"Residential block walls under 4 ft tall generally don't need rebar if on solid footing. Walls over 4 ft or retaining walls need vertical rebar at 32 in oc in every other core and horizontal bond beam every 2-3 courses."}}
+  ]
+}
+</script><style id="bc-theme">/* FieldMath - Light Theme
+   All pages use this single light theme. No dark mode. */
+:root{
+  --bg:#f5f5f5;
+  --card:#ffffff;
+  --text:#333333;
+  --text-light:#666666;
+  --muted:#f1f3f7;
+  --muted-bg:#f8f9fa;
+  --border:#dde3ea;
+  --navy:#1a2332;
+  --header-bg:#1a2332;
+  --header-text:#ffffff;
+  --orange:#f97316;
+  --accent:#f97316;
+  --success:#16a34a;
+  --warning:#d97706;
+  --danger:#dc2626;
+}
+</style>
+<style id="bc-darkflash">html,html body{background:#f5f5f5 !important;color:#333 !important}body .card,body .panel,body .box,body .calculator,body .container,body .c,body .result,body .results,body .res,body .formula,body .example,body .faq,body .faq-item,body input,body select,body textarea{background:#ffffff !important;color:#333 !important;border-color:#ddd !important}</style></head>
+<body>
+<header><h1>Concrete Block Calculator</h1></header>
+
+<div class="container">
+
+  <div class="card" id="calculator">
+    <h2>Wall Measurements</h2>
+    <div class="form-group">
+      <label for="length">Wall Length (ft)</label>
+      <input type="number" id="length" value="40" min="0" step="0.1">
+    </div>
+    <div class="form-group">
+      <label for="height">Wall Height (ft)</label>
+      <input type="number" id="height" value="8" min="0" step="0.1">
+    </div>
+    <div class="form-group">
+      <label for="waste">Waste (%)</label>
+      <input type="number" id="waste" value="5" min="0" max="50" step="0.5">
+    </div>
+    <div class="results">
+      <h3>Results</h3>
+      <div class="result-row"><span class="result-label">Wall Area</span><span class="result-value" id="area">0.00</span></div>
+      <div class="result-row"><span class="result-label">Blocks (clean)</span><span class="result-value" id="blocksClean">0</span></div>
+      <div class="result-row"><span class="result-label">Blocks (with waste)</span><span class="result-value" id="blocksWaste">0</span></div>
+      <div class="result-row"><span class="result-label">Mortar Bags (80lb, est.)</span><span class="result-value" id="mortar">0</span></div>
+    </div>
+  </div>
+
+  <div class="card" style="margin-top:8px">
+<h2>Share This Calculation</h2>
+<div style="display:flex;gap:8px;flex-wrap:wrap">
+<button onclick="navigator.clipboard.writeText(window.location.href);this.textContent='Copied!';setTimeout(()=>this.textContent='&#128203; Copy Link',2000)" style="padding:8px 16px;background:#f97316;color:#fff;border:none;border-radius:6px;cursor:pointer;font-size:0.9rem">&#128203; Copy Link</button>
+<button onclick="window.open('https://twitter.com/intent/tweet?url='+encodeURIComponent(window.location.href)+'&text='+encodeURIComponent(document.title),'_blank')" style="padding:8px 16px;background:#1a2332;color:#fff;border:none;border-radius:6px;cursor:pointer;font-size:0.9rem">ð• Tweet</button>
+<button onclick="window.open('https://www.facebook.com/sharer/sharer.php?u='+encodeURIComponent(window.location.href),'_blank')" style="padding:8px 16px;background:#1877f2;color:#fff;border:none;border-radius:6px;cursor:pointer;font-size:0.9rem"> Share</button>
+<button onclick="window.open('https://pinterest.com/pin/create/button/?url='+encodeURIComponent(window.location.href)+'&description='+encodeURIComponent(document.title),'_blank')" style="padding:8px 16px;background:#e60023;color:#fff;border:none;border-radius:6px;cursor:pointer;font-size:0.9rem"> Pin</button>
+</div>
+</div>
+<div class="card">
+<h2>Embed This Calculator</h2>
+<p style="color:var(--text-light);font-size:0.85rem;margin-bottom:8px">Add this calculator to your website:</p>
+<textarea readonly onclick="this.select()" style="width:100%;height:60px;padding:8px;border:2px solid #ddd;border-radius:6px;font-family:monospace;font-size:0.8rem;background:var(--muted-bg);color:var(--text)" rows="3">&lt;iframe src="https://dustyjones49.github.io/dustyjones49/block-calculator/" width="100%" height="800" frameborder="0"&gt;&lt;/iframe&gt;</textarea>
+</div>
+<div class="card" style="text-align:center">
+<div id="ad-slot" style="min-height:90px;border:2px dashed var(--border);display:flex;align-items:center;justify-content:center;color:var(--text-light);border-radius:6px;font-size:0.85rem">Ad Slot &#8212; Replace with AdSense Code</div>
+</div>
+
+  <div class="card">
+    <h2>Formula</h2>
+    <div class="formula-box">
+      area = L &times; H<br>
+      blocks_clean = ceil(area / 0.89)<br>
+      blocks_with_waste = ceil(blocks_clean &times; (1 + waste% / 100))<br>
+      mortar_bags = ceil(blocks_with_waste / 33)
+    </div>
+  </div>
+
+  <div class="card">
+    <h2>Example Calculation</h2>
+    <div class="example-box">
+      A <strong>40 &times; 8 ft</strong> wall with <strong>5% waste</strong>:<br>
+      Area = 40 &times; 8 = <strong>320 sq ft</strong><br>
+      Blocks (clean) = ceil(320 / 0.89) = <strong>360 blocks</strong><br>
+      Blocks (5% waste) = ceil(360 &times; 1.05) = <strong>378 blocks</strong><br>
+      Mortar = ceil(378 / 33) &asymp; <strong>12 bags</strong>
+    </div>
+  </div>
+
+  <div class="card">
+    <h2>FAQ</h2>
+    <div class="faq-item">
+      <button class="faq-q">How many concrete blocks per 100 sq ft?</button>
+      <div class="faq-a">Standard 8x16 blocks cover 0.89 sq ft each with mortar joint, so you need 113 blocks per 100 sq ft of wall. With 5% waste, order 119 blocks per 100 sq ft. Half blocks fill at corners and ends.</div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q">How much mortar for concrete block wall?</button>
+      <div class="faq-a">You need about 3 bags of 80lb mortar per 100 blocks for typical 3/8 inch joints. Our calculator estimates block count only. Add 1 bag of mortar per 35-40 blocks when ordering materials.</div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q">Do I need rebar in a block wall?</button>
+      <div class="faq-a">Residential block walls under 4 ft tall generally don't need rebar if on solid footing. Walls over 4 ft or retaining walls need vertical rebar at 32 in oc in every other core and horizontal bond beam every 2-3 courses.</div>
+    </div>
+  </div>
+
+  <div class="card">
+    <h2>Recommended Products</h2>
+    <div class="products">
+      <div class="product-card">
+        <div class="store">Home Depot</div>
+        <a href="https://www.homedepot.com/s/concrete%20block%208x8x16?NCNI-5" target="_blank" rel="nofollow">Concrete Block 8x8x16 &rarr;</a>
+      </div>
+      <div class="product-card">
+        <div class="store">Home Depot</div>
+        <a href="https://www.homedepot.com/s/mortar%20mix%20type%20S%2080lb?NCNI-5" target="_blank" rel="nofollow">Mortar Mix Type S 80lb &rarr;</a>
+      </div>
+      <div class="product-card">
+        <div class="store">Amazon</div>
+        <a href="https://www.amazon.com/s?k=mason+line+500ft&tag=buildcalc-20" target="_blank" rel="nofollow">Mason Line 500ft &rarr;</a>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<footer>
+<p>2026 FieldMath - Calculators are reference only. Always verify with your local code.</p>
+</footer>
+
+<script>
+(function() {
+  var length = document.getElementById('length');
+  var height = document.getElementById('height');
+  var waste = document.getElementById('waste');
+  var areaEl = document.getElementById('area');
+  var blocksCleanEl = document.getElementById('blocksClean');
+  var blocksWasteEl = document.getElementById('blocksWaste');
+  var mortarEl = document.getElementById('mortar');
+
+  function calc() {
+    var L = parseFloat(length.value) || 0;
+    var H = parseFloat(height.value) || 0;
+    var wp = parseFloat(waste.value) || 0;
+    var area = L * H;
+    var blocksClean = Math.ceil(area / 0.89);
+    var blocksWaste = Math.ceil(blocksClean * (1 + wp / 100));
+    var mortar = Math.ceil(blocksWaste / 33);
+    areaEl.textContent = area.toFixed(2) + ' sq ft';
+    blocksCleanEl.textContent = blocksClean;
+    blocksWasteEl.textContent = blocksWaste;
+    mortarEl.textContent = mortar + ' bags';
+  }
+
+  length.addEventListener('input', calc);
+  height.addEventListener('input', calc);
+  waste.addEventListener('input', calc);
+
+  var faqs = document.querySelectorAll('.faq-q');
+  faqs.forEach(function(btn) {
+    btn.addEventListener('click', function() {
+      var answer = this.nextElementSibling;
+      var isOpen = answer.classList.contains('open');
+      document.querySelectorAll('.faq-a').forEach(function(a){ a.classList.remove('open'); });
+      document.querySelectorAll('.faq-q').forEach(function(q){ q.classList.remove('active'); });
+      if (!isOpen) {
+        answer.classList.add('open');
+        this.classList.add('active');
+      }
+    });
+  });
+
+  calc();
+})();
+(function(){
+  var inputs=document.querySelectorAll('input,select');
+  function save(){var p=new URLSearchParams();inputs.forEach(function(e,i){if(e.value)p.set('i'+i,e.value)});if(p.toString())history.replaceState(null,'','?'+p.toString())}
+  function load(){var p=new URLSearchParams(location.search);inputs.forEach(function(e,i){if(p.has('i'+i))e.value=p.get('i'+i);e.addEventListener('input',save);e.addEventListener('change',save)});if(p.toString()){var ev=new Event('input');inputs[inputs.length-1].dispatchEvent(ev)}}
+  load();
+})();
+</script>
+
+<script src="../custom-select.js"></script><script src="../favorites.js"></script><script src="../remember-inputs.js"></script><script src="../sticky-header.js"></script><script src="../ui-fix.js"></script><script src="../link-fix.js"></script><script src="../auto-calc.js"></script><script src="../dark-persist.js"></script><script src="../admob-banner.js"></script></body>
+</html>
+
+
+
+
+

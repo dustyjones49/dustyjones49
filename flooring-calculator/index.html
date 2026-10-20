@@ -1,0 +1,158 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<meta name="description" content="Calculate flooring needed in square feet and boxes. Works for hardwood, laminate, vinyl plank and tile with waste.">
+<title>Flooring Calculator - Sq Ft &amp; Boxes | FieldMath</title>
+<link rel="canonical" href="https://dustyjones49.github.io/dustyjones49/flooring-calculator/">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"Flooring Calculator","url":"https://dustyjones49.github.io/dustyjones49/flooring-calculator/","description":"Calculate flooring needed in square feet and boxes. Works for hardwood, laminate, vinyl plank and tile with waste.","applicationCategory":"EducationalApplication","operatingSystem":"All"}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"How much extra flooring should I buy?","acceptedAnswer":{"@type":"Answer","text":"Buy 5-10% extra for straight lay, 15% for diagonal or herringbone patterns. For rooms with lots of cuts like hallways, go 15%. One extra box is smart for future repairs."}},{"@type":"Question","name":"How many sq ft per box of flooring?","acceptedAnswer":{"@type":"Answer","text":"Laminate and vinyl plank boxes typically contain 15-25 sq ft. Hardwood boxes range from 18-24 sq ft. Engineered wood is usually 20-30 sq ft per carton. Always check the box label."}},{"@type":"Question","name":"Laminate vs vinyl plank vs hardwood?","acceptedAnswer":{"@type":"Answer","text":"Laminate is cheapest at $1-3/sq ft, good for rentals. Vinyl plank is waterproof ($2-5/sq ft), best for kitchens/basements. Hardwood ($4-12/sq ft) adds most resale value but can't get wet."}}]}</script>
+<style>
+:root{--bg:#f5f5f5;--card:#fff;--text:#333;--text-light:#666;--border:#ddd;--header-bg:#1a2332;--header-text:#fff;--muted-bg:#f8f9fa}
+body.dark{--bg:#1a1a2e;--card:#16213e;--text:#e0e0e0;--text-light:#aaa;--border:#333;--header-bg:#0f3460;--header-text:#e0e0e0;--muted-bg:#1a1a2e}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;background:var(--bg);color:var(--text);line-height:1.6}
+header{background:var(--header-bg);color:var(--header-text);padding:24px 16px;text-align:center}
+header a{color:#f97316;text-decoration:none;font-size:0.9rem}
+header a:hover{text-decoration:underline}
+header h1{font-size:2rem;margin:8px 0}
+header .cat{color:#f97316;font-size:0.85rem;text-transform:uppercase;letter-spacing:1px}
+header .desc{color:#ccc;font-size:0.95rem;margin-top:4px}
+.container{max-width:840px;margin:24px auto;padding:0 16px}
+.card{background:var(--card);border-radius:10px;padding:24px;margin-bottom:20px;box-shadow:0 2px 8px rgba(0,0,0,0.06);border:1px solid var(--border)}
+.card h2{color:var(--text);font-size:1.25rem;margin-bottom:16px;border-bottom:3px solid #f97316;padding-bottom:8px;display:inline-block}
+.form-group{margin-bottom:16px}
+.form-group label{display:block;font-weight:600;margin-bottom:6px;color:var(--text)}
+.form-group input{width:100%;padding:10px 12px;border:2px solid var(--border);border-radius:6px;font-size:1rem;background:var(--card);color:var(--text);transition:border-color 0.2s}
+.form-group input:focus{outline:none;border-color:#f97316}
+.form-row{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:16px}
+.results{background:linear-gradient(135deg,#fff7ed,var(--card));border:2px solid #f97316;border-radius:10px;padding:20px;margin-top:20px}
+.results h3{color:#f97316;margin-bottom:12px}
+.result-item{display:flex;justify-content:space-between;padding:8px 0;border-bottom:1px solid var(--border)}
+.result-item:last-child{border-bottom:none}
+.result-label{font-weight:600;color:var(--text)}
+.result-value{font-weight:700;color:#f97316}
+.formula-box{background:var(--muted-bg);border-left:4px solid #f97316;padding:16px;border-radius:0 6px 6px 0;margin-top:12px;font-family:monospace;font-size:0.9rem}
+.example-box{background:var(--muted-bg);padding:16px;border-radius:6px;font-size:0.95rem}
+.faq-item{border:1px solid var(--border);border-radius:6px;margin-bottom:8px;overflow:hidden}
+.faq-q{width:100%;text-align:left;padding:14px 16px;background:var(--card);border:none;font-size:1rem;font-weight:600;color:var(--text);cursor:pointer;display:flex;justify-content:space-between;align-items:center}
+.faq-q:hover{background:var(--muted-bg)}
+.faq-q::after{content:'+';font-size:1.3rem;color:#f97316;transition:transform 0.3s}
+.faq-q.open::after{content:'-';transform:rotate(180deg)}
+.faq-a{max-height:0;overflow:hidden;transition:max-height 0.3s ease}
+.faq-a.open{max-height:300px;padding:0 16px 14px}
+.faq-a p{font-size:0.95rem;color:var(--text-light)}
+.share-btns{display:flex;gap:8px;flex-wrap:wrap}
+.share-btns button{padding:8px 16px;border:none;border-radius:6px;cursor:pointer;font-size:0.9rem;color:#fff}
+.embed-ta{width:100%;height:60px;padding:8px;border:2px solid var(--border);border-radius:6px;font-family:monospace;font-size:0.8rem;background:var(--muted-bg);color:var(--text);resize:none}
+.products{list-style:none;padding:0}
+.products li{padding:8px 0;border-bottom:1px solid var(--border)}
+.products li:last-child{border-bottom:none}
+.products a{color:#f97316;text-decoration:none;font-weight:600}
+.products a:hover{text-decoration:underline}
+footer{background:var(--header-bg);color:#888;text-align:center;padding:24px 16px;font-size:0.85rem}
+footer a{color:#f97316;text-decoration:none}
+@media print{header a,footer,.share-btns button,button.dark-btn,#ad-slot{display:none!important}body{background:var(--bg);color:#000;font-size:12pt}.card{box-shadow:none;border:1px solid #ccc;break-inside:avoid}.results{border:2px solid var(--orange,#f97316)}@page{margin:0.5in}}
+@media(max-width:600px){header h1{font-size:1.5rem}.card{padding:16px}}
+</style><style id="bc-theme">/* FieldMath - Light Theme
+   All pages use this single light theme. No dark mode. */
+:root{
+  --bg:#f5f5f5;
+  --card:#ffffff;
+  --text:#333333;
+  --text-light:#666666;
+  --muted:#f1f3f7;
+  --muted-bg:#f8f9fa;
+  --border:#dde3ea;
+  --navy:#1a2332;
+  --header-bg:#1a2332;
+  --header-text:#ffffff;
+  --orange:#f97316;
+  --accent:#f97316;
+  --success:#16a34a;
+  --warning:#d97706;
+  --danger:#dc2626;
+}
+</style>
+<style id="bc-darkflash">html,html body{background:#f5f5f5 !important;color:#333 !important}body .card,body .panel,body .box,body .calculator,body .container,body .c,body .result,body .results,body .res,body .formula,body .example,body .faq,body .faq-item,body input,body select,body textarea{background:#ffffff !important;color:#333 !important;border-color:#ddd !important}</style></head>
+<body>
+
+<header><h1>Flooring Calculator</h1></header>
+<div class="container">
+<div class="card">
+<h2>Enter Your Room</h2>
+<div class="form-row">
+<div class="form-group"><label>Room Length (ft)</label><input type="number" id="length" value="15" min="1" step="0.5"></div>
+<div class="form-group"><label>Room Width (ft)</label><input type="number" id="width" value="20" min="1" step="0.5"></div>
+</div>
+<div class="form-row">
+<div class="form-group"><label>Waste %</label><input type="number" id="waste" value="10" min="0" max="30" step="1"></div>
+<div class="form-group"><label>Sq Ft per Box</label><input type="number" id="boxSqft" value="20" min="1" step="0.1"></div>
+<div class="form-group"><label>Price per Box ($)</label><input type="number" id="price" value="60" min="0" step="0.01"></div>
+</div>
+<div class="results">
+<h3>Results</h3>
+<div class="result-item"><span class="result-label">Total Area (with waste)</span><span class="result-value" id="rArea">0</span></div>
+<div class="result-item"><span class="result-label">Boxes Needed</span><span class="result-value" id="rBoxes">0</span></div>
+<div class="result-item"><span class="result-label">Total Cost</span><span class="result-value" id="rCost">0</span></div>
+</div>
+<div class="formula-box"><strong>Formula:</strong> area = L × W × (1 + waste/100); boxes = ceil(area / boxSqft); cost = boxes × pricePerBox</div>
+<div class="example-box"><strong>Example:</strong> 15×20 ft room, 10% waste, 20 sq ft/box: area=330, boxes=17. $60/box = $1,020. Buy an extra box for repairs.</div>
+</div>
+<div class="card">
+<h2>Share This Calculation</h2>
+<div class="share-btns">
+<button onclick="navigator.clipboard.writeText(location.href);this.textContent='Copied!';setTimeout(()=>this.textContent='&#128203; Copy',2000)" style="background:#f97316">&#128203; Copy</button>
+<button onclick="window.open('https://twitter.com/intent/tweet?url='+encodeURIComponent(location.href)+'&text='+encodeURIComponent(document.title),'_blank')" style="background:#1da1f2">ð• Tweet</button>
+<button onclick="window.open('https://www.facebook.com/sharer/sharer.php?u='+encodeURIComponent(location.href),'_blank')" style="background:#1877f2"> Share</button>
+<button onclick="window.open('https://pinterest.com/pin/create/button/?url='+encodeURIComponent(location.href)+'&description='+encodeURIComponent(document.title),'_blank')" style="background:#e60023"> Pin</button>
+</div>
+</div>
+<div class="card">
+<h2>Embed This Calculator</h2>
+<textarea class="embed-ta" readonly onclick="this.select()">&lt;iframe src="https://dustyjones49.github.io/dustyjones49/flooring-calculator/" width="100%" height="800" frameborder="0"&gt;&lt;/iframe&gt;</textarea>
+</div>
+<div id="ad-slot" class="card" style="text-align:center;min-height:90px;border:2px dashed var(--border);display:flex;align-items:center;justify-content:center;color:var(--text-light);font-size:0.85rem">Ad Slot &#8212; Replace with AdSense Code</div>
+<div class="card">
+<h2>Frequently Asked Questions</h2>
+<div class="faq-item"><button class="faq-q">How much extra flooring should I buy?</button><div class="faq-a"><p>Buy 5-10% extra for straight lay, 15% for diagonal or herringbone patterns. For rooms with lots of cuts like hallways or closets, go 15%. One extra box is smart for future repairs &#8212; styles get discontinued.</p></div></div>
+<div class="faq-item"><button class="faq-q">How many sq ft per box of flooring?</button><div class="faq-a"><p>Laminate and vinyl plank boxes typically contain 15-25 sq ft. Hardwood boxes range from 18-24 sq ft. Engineered wood is usually 20-30 sq ft per carton. Always check the box label before calculating &#8212; the default is 20 sq ft.</p></div></div>
+<div class="faq-item"><button class="faq-q">Laminate vs vinyl plank vs hardwood?</button><div class="faq-a"><p>Laminate is cheapest at $1-3/sq ft, good for rentals and low-traffic areas. Vinyl plank is 100% waterproof ($2-5/sq ft), best for kitchens, bathrooms and basements. Hardwood ($4-12/sq ft) adds the most resale value but can't handle moisture. Engineered wood splits the difference with a real wood veneer.</p></div></div>
+</div>
+<div class="card">
+<h2>Recommended Products</h2>
+<ul class="products">
+<li><a href="https://www.homedepot.com/s/vinyl%20plank%20flooring%2020%20sq%20ft" target="_blank" rel="nofollow">Vinyl Plank Flooring 20 sq ft</a> &#8212; Home Depot</li>
+<li><a href="https://www.amazon.com/s?k=underlayment+roll+100+sq+ft&tag=buildcalc-20" target="_blank" rel="nofollow">Underlayment Roll 100 sq ft</a> &#8212; Amazon</li>
+<li><a href="https://www.amazon.com/s?k=flooring+installation+kit&tag=buildcalc-20" target="_blank" rel="nofollow">Flooring Installation Kit</a> &#8212; Amazon</li>
+</ul>
+</div>
+</div>
+<footer>
+<p>2026 FieldMath - Calculators are reference only. Always verify with your local code.</p>
+</footer>
+<script>
+(function(){
+var l=document.getElementById('length'),w=document.getElementById('width'),wa=document.getElementById('waste'),b=document.getElementById('boxSqft'),p=document.getElementById('price');
+var ra=document.getElementById('rArea'),rb=document.getElementById('rBoxes'),rc=document.getElementById('rCost');
+function calc(){
+var len=parseFloat(l.value)||0,wid=parseFloat(w.value)||0,wst=parseFloat(wa.value)||0,bs=parseFloat(b.value)||15,pr=parseFloat(p.value)||0;
+var area=len*wid*(1+wst/100),boxes=Math.ceil(area/bs),cost=boxes*pr;
+ra.textContent=area.toFixed(0)+' sq ft';rb.textContent=boxes+' boxes';rc.textContent='$'+cost.toFixed(2);
+}
+[l,w,wa,b,p].forEach(function(e){e.addEventListener('input',calc);e.addEventListener('change',calc)});
+calc();
+document.querySelectorAll('.faq-q').forEach(function(b){b.addEventListener('click',function(){this.classList.toggle('open');this.nextElementSibling.classList.toggle('open')})});
+var inputs=document.querySelectorAll('input,select');
+function save(){var params=new URLSearchParams();inputs.forEach(function(e,i){if(e.value)params.set('i'+i,e.value)});if(params.toString())history.replaceState(null,'','?'+params.toString())}
+function load(){var params=new URLSearchParams(location.search);inputs.forEach(function(e,i){if(params.has('i'+i))e.value=params.get('i'+i);e.addEventListener('input',save);e.addEventListener('change',save)});if(params.toString())calc()}
+load();
+})();
+</script>
+<script src="../custom-select.js"></script><script src="../favorites.js"></script><script src="../remember-inputs.js"></script><script src="../sticky-header.js"></script><script src="../ui-fix.js"></script><script src="../link-fix.js"></script><script src="../auto-calc.js"></script><script src="../dark-persist.js"></script><script src="../admob-banner.js"></script></body>
+</html>
+
+
+
+

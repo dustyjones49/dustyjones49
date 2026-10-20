@@ -1,0 +1,53 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta name="description" content="Water Main Sizing calculator. Enter your values for instant, accurate results with clear formulas and helpful references.">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<link rel="canonical" href="https://dustyjones49.github.io/dustyjones49/water-main/">
+<title>Water Main Sizing Calculator | FieldMath</title>
+<style>*{margin:0;padding:0;box-sizing:border-box}body{font-family:Arial,sans-serif;background:var(--bg);min-height:100vh}.header{background:#1a3a5c;color:#fff;padding:20px;text-align:center}.header h1{font-size:1.5rem}.header span{font-size:.85rem;opacity:.8}.container{max-width:600px;margin:20px auto;padding:0 16px}.card{background:#fff;border-radius:10px;box-shadow:0 2px 8px rgba(0,0,0,.1);padding:20px;margin-bottom:16px}.card h3{color:#1a3a5c;border-bottom:2px solid #e67e22;padding-bottom:8px;margin-bottom:16px}.form-group{margin-bottom:14px}.form-group label{display:block;color:#333;font-weight:600;margin-bottom:4px;font-size:.9rem}.form-group input,.form-group select{width:100%;padding:10px;border:1px solid #ccc;border-radius:6px;font-size:1rem}.form-group input:focus,.form-group select:focus{outline:none;border-color:#e67e22;box-shadow:0 0 0 3px rgba(230,126,34,.15)}.result{background:#fef9f4;border-radius:8px;padding:14px}.result-item{display:flex;justify-content:space-between;padding:8px 0;border-bottom:1px solid #f0e0c8}.result-item:last-child{border-bottom:none}.result-label{font-weight:600;color:#555}.result-value{color:#e67e22;font-weight:700;font-size:1.1rem}.badge{display:inline-block;background:#e67e22;color:#fff;padding:3px 8px;border-radius:4px;font-size:.75rem;margin-left:6px}.footer{text-align:center;padding:16px;color:#888;font-size:.8rem}</style>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"Water Main Sizing","url":"https://dustyjones49.github.io/dustyjones49/water-main/","description":"Water Main Sizing calculator. Enter your values for instant, accurate results with clear formulas and helpful references.","applicationCategory":"UtilityApplication","operatingSystem":"Any"}</script><style id="bc-theme">/* FieldMath - Light Theme
+   All pages use this single light theme. No dark mode. */
+:root{
+  --bg:#f5f5f5;
+  --card:#ffffff;
+  --text:#333333;
+  --text-light:#666666;
+  --muted:#f1f3f7;
+  --muted-bg:#f8f9fa;
+  --border:#dde3ea;
+  --navy:#1a2332;
+  --header-bg:#1a2332;
+  --header-text:#ffffff;
+  --orange:#f97316;
+  --accent:#f97316;
+  --success:#16a34a;
+  --warning:#d97706;
+  --danger:#dc2626;
+}
+</style>
+<style id="bc-darkflash">html,html body{background:#f5f5f5 !important;color:#333 !important}body .card,body .panel,body .box,body .calculator,body .container,body .c,body .result,body .results,body .res,body .formula,body .example,body .faq,body .faq-item,body input,body select,body textarea{background:#ffffff !important;color:#333 !important;border-color:#ddd !important}</style></head>
+<body>
+<header><h1>Water Main Sizing</h1></header>
+<div class="container">
+<div class="card"><h3>Inputs</h3>
+<div class="form-group"><label for="fixtures">Fixture Units <span class="badge">count</span></label><input type="number" id="fixtures" value="15"></div>
+</div>
+<div class="card"><h3>Results</h3>
+<div class="result">
+<div class="result-item"><span class="result-label">Main Size:</span><span class="result-value" id="output0">--</span></div><div class="result-item"><span class="result-label">Service Type:</span><span class="result-value" id="output1">--</span></div>
+</div></div></div>
+<div class="footer">2026 FieldMath - Calculators are reference only. Always verify with your local code.</div>
+<script>
+const fixtures=document.getElementById('fixtures'),o0=document.getElementById('output0'),o1=document.getElementById('output1');
+function calc(){const f=parseInt(fixtures.value)||0;let s='',st='';if(f<=10){s='3/4"';st='Residential Standard'}else if(f<=25){s='1"';st='Residential Large'}else if(f<=50){s='1-1/4"';st='Light Commercial'}else{s='1-1/2"';st='Commercial'}o0.textContent=s;o1.textContent=st}
+fixtures.addEventListener('input',calc);calc();
+</script>
+<script src="../custom-select.js"></script><script src="../favorites.js"></script><script src="../remember-inputs.js"></script><script src="../sticky-header.js"></script><script src="../ui-fix.js"></script><script src="../link-fix.js"></script><script src="../auto-calc.js"></script><script src="../dark-persist.js"></script><script src="../admob-banner.js"></script></body>
+</html>
+
+
+
+
+

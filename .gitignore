@@ -1,0 +1,15 @@
+# Platform/app source folders (not part of the website)
+/android/
+/ios/
+/windows-exe/
+/windows-store/
+/deploy-cloudflare/
+node_modules/
+
+# Native iOS source (belongs to the app project)
+SceneDelegate.swift
+ViewController.swift
+
+# Dev/test artifacts
+electron-*.js
+ios-*.png

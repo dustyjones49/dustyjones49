@@ -1,0 +1,169 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<meta name="description" content="Calculate joint compound needed for drywall finishing. Gallons of mud by sheet count and finish level.">
+<title>Drywall Mud Calculator - Joint Compound | FieldMath</title>
+<link rel="canonical" href="https://dustyjones49.github.io/dustyjones49/drywall-mud-calculator/">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"Drywall Mud Calculator","url":"https://dustyjones49.github.io/dustyjones49/drywall-mud-calculator/","description":"Calculate joint compound needed for drywall finishing. Gallons of mud by sheet count and finish level.","applicationCategory":"EducationalApplication","operatingSystem":"All"}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"How much mud per sheet of drywall?","acceptedAnswer":{"@type":"Answer","text":"About 0.5-0.75 gallons per 4x8 sheet for a Level 4 finish. That's roughly one 4.5 gallon bucket per 6-8 sheets. Level 5 skim coat needs about 1 gallon per sheet. Use all-purpose for embedding tape."}},{"@type":"Question","name":"What are the drywall finish levels?","acceptedAnswer":{"@type":"Answer","text":"Level 3: tape + one coat, good for texture or tile. Level 4: tape + two coats, standard for flat paint. Level 5: tape + two coats + skim coat, required for gloss paint and critical lighting."}},{"@type":"Question","name":"Can drywall mud go bad?","acceptedAnswer":{"@type":"Answer","text":"Yes - unopened premixed mud lasts about 9-12 months. Once opened, use within 2-3 months. Moldy or sour-smelling mud must be thrown out. Setting-type powder (hot mud) lasts indefinitely if kept dry."}}]}</script>
+<style>
+:root{--bg:#f5f5f5;--card:#fff;--text:#333;--text-light:#666;--border:#ddd;--header-bg:#1a2332;--header-text:#fff;--muted-bg:#f8f9fa}
+body.dark{--bg:#1a1a2e;--card:#16213e;--text:#e0e0e0;--text-light:#aaa;--border:#333;--header-bg:#0f3460;--header-text:#e0e0e0;--muted-bg:#1a1a2e}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;background:var(--bg);color:var(--text);line-height:1.6}
+header{background:var(--header-bg);color:var(--header-text);padding:24px 16px;text-align:center}
+header a{color:#f97316;text-decoration:none;font-size:0.9rem}
+header a:hover{text-decoration:underline}
+header h1{font-size:2rem;margin:8px 0}
+header .cat{color:#f97316;font-size:0.85rem;text-transform:uppercase;letter-spacing:1px}
+header .desc{color:#ccc;font-size:0.95rem;margin-top:4px}
+.container{max-width:840px;margin:24px auto;padding:0 16px}
+.card{background:var(--card);border-radius:10px;padding:24px;margin-bottom:20px;box-shadow:0 2px 8px rgba(0,0,0,0.06);border:1px solid var(--border)}
+.card h2{color:var(--text);font-size:1.25rem;margin-bottom:16px;border-bottom:3px solid #f97316;padding-bottom:8px;display:inline-block}
+.form-group{margin-bottom:16px}
+.form-group label{display:block;font-weight:600;margin-bottom:6px;color:var(--text)}
+.form-group input,.form-group select{width:100%;padding:10px 12px;border:2px solid var(--border);border-radius:6px;font-size:1rem;background:var(--card);color:var(--text);transition:border-color 0.2s}
+.form-group input:focus,.form-group select:focus{outline:none;border-color:#f97316}
+.form-row{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:16px}
+.results{background:linear-gradient(135deg,#fff7ed,var(--card));border:2px solid #f97316;border-radius:10px;padding:20px;margin-top:20px}
+.results h3{color:#f97316;margin-bottom:12px}
+.result-item{display:flex;justify-content:space-between;padding:8px 0;border-bottom:1px solid var(--border)}
+.result-item:last-child{border-bottom:none}
+.result-label{font-weight:600;color:var(--text)}
+.result-value{font-weight:700;color:#f97316}
+.formula-box{background:var(--muted-bg);border-left:4px solid #f97316;padding:16px;border-radius:0 6px 6px 0;margin-top:12px;font-family:monospace;font-size:0.9rem}
+.example-box{background:var(--muted-bg);padding:16px;border-radius:6px;font-size:0.95rem}
+.faq-item{border:1px solid var(--border);border-radius:6px;margin-bottom:8px;overflow:hidden}
+.faq-q{width:100%;text-align:left;padding:14px 16px;background:var(--card);border:none;font-size:1rem;font-weight:600;color:var(--text);cursor:pointer;display:flex;justify-content:space-between;align-items:center}
+.faq-q:hover{background:var(--muted-bg)}
+.faq-q::after{content:'+';font-size:1.3rem;color:#f97316;transition:transform 0.3s}
+.faq-q.open::after{content:'-';transform:rotate(180deg)}
+.faq-a{max-height:0;overflow:hidden;transition:max-height 0.3s ease}
+.faq-a.open{max-height:300px;padding:0 16px 14px}
+.faq-a p{font-size:0.95rem;color:var(--text-light)}
+.share-btns{display:flex;gap:8px;flex-wrap:wrap}
+.share-btns button{padding:8px 16px;border:none;border-radius:6px;cursor:pointer;font-size:0.9rem;color:#fff}
+.embed-ta{width:100%;height:60px;padding:8px;border:2px solid var(--border);border-radius:6px;font-family:monospace;font-size:0.8rem;background:var(--muted-bg);color:var(--text);resize:none}
+.products{list-style:none;padding:0}
+.products li{padding:8px 0;border-bottom:1px solid var(--border)}
+.products li:last-child{border-bottom:none}
+.products a{color:#f97316;text-decoration:none;font-weight:600}
+.products a:hover{text-decoration:underline}
+table{width:100%;border-collapse:collapse;margin-top:12px}
+th{background:#1a2332;color:#fff;padding:10px;text-align:left}
+td{padding:10px;border-bottom:1px solid var(--border)}
+tr:nth-child(even){background:var(--muted-bg)}
+footer{background:var(--header-bg);color:#888;text-align:center;padding:24px 16px;font-size:0.85rem}
+footer a{color:#f97316;text-decoration:none}
+@media print{header a,footer,.share-btns button,button.dark-btn,#ad-slot{display:none!important}body{background:var(--bg);color:#000;font-size:12pt}.card{box-shadow:none;border:1px solid #ccc;break-inside:avoid}.results{border:2px solid var(--orange,#f97316)}@page{margin:0.5in}}
+@media(max-width:600px){header h1{font-size:1.5rem}.card{padding:16px}}
+</style><style id="bc-theme">/* FieldMath - Light Theme
+   All pages use this single light theme. No dark mode. */
+:root{
+  --bg:#f5f5f5;
+  --card:#ffffff;
+  --text:#333333;
+  --text-light:#666666;
+  --muted:#f1f3f7;
+  --muted-bg:#f8f9fa;
+  --border:#dde3ea;
+  --navy:#1a2332;
+  --header-bg:#1a2332;
+  --header-text:#ffffff;
+  --orange:#f97316;
+  --accent:#f97316;
+  --success:#16a34a;
+  --warning:#d97706;
+  --danger:#dc2626;
+}
+</style>
+<style id="bc-darkflash">html,html body{background:#f5f5f5 !important;color:#333 !important}body .card,body .panel,body .box,body .calculator,body .container,body .c,body .result,body .results,body .res,body .formula,body .example,body .faq,body .faq-item,body input,body select,body textarea{background:#ffffff !important;color:#333 !important;border-color:#ddd !important}</style></head>
+<body>
+
+<header><h1>Drywall Mud Calculator</h1></header>
+<div class="container">
+<div class="card">
+<h2>Enter Your Project</h2>
+<div class="form-row">
+<div class="form-group"><label>Number of Sheets (4×8)</label><input type="number" id="sheets" value="20" min="1" step="1"></div>
+<div class="form-group"><label>Finish Level</label><select id="level"><option value="0.5">Level 3 &#8212; Tape + 1 Coat</option><option value="0.75" selected>Level 4 &#8212; Tape + 2 Coats (Standard)</option><option value="1.0">Level 5 &#8212; Tape + 2 Coats + Skim</option></select></div>
+<div class="form-group"><label>Waste %</label><input type="number" id="wastePct" value="10" min="0" max="30" step="1"></div>
+</div>
+<div class="results">
+<h3>Results</h3>
+<div class="result-item"><span class="result-label">Joint Compound Needed</span><span class="result-value" id="rGallons">0</span></div>
+<div class="result-item"><span class="result-label">4.5 Gal Buckets</span><span class="result-value" id="rBuckets">0</span></div>
+<div class="result-item"><span class="result-label">Recommended Purchase</span><span class="result-value" id="rBuy">0</span></div>
+</div>
+<div class="formula-box"><strong>Formula:</strong> gallons = sheets × levelFactor × (1 + waste/100); buckets = ceil(gallons / 4.5)</div>
+<div class="example-box"><strong>Example:</strong> 20 sheets, Level 4 finish, 10% waste: mud = 16.5 gallons, 4 buckets (4.5 gal each). Buy 4 buckets plus a small box for touch-ups.</div>
+</div>
+<div class="card">
+<h2>Finish Level Reference</h2>
+<table>
+<tr><th>Level</th><th>Coats</th><th>Mud per Sheet</th><th>Best For</th></tr>
+<tr><td>Level 3</td><td>Tape + 1</td><td>0.50 gal</td><td>Texture, tile, or heavy wall coverings</td></tr>
+<tr><td>Level 4</td><td>Tape + 2</td><td>0.75 gal</td><td>Flat paint, light textures (most homes)</td></tr>
+<tr><td>Level 5</td><td>Tape + 2 + Skim</td><td>1.00 gal</td><td>Gloss/semi-gloss paint, critical lighting</td></tr>
+</table>
+</div>
+<div class="card">
+<h2>Share This Calculation</h2>
+<div class="share-btns">
+<button onclick="navigator.clipboard.writeText(location.href);this.textContent='Copied!';setTimeout(()=>this.textContent='&#128203; Copy',2000)" style="background:#f97316">&#128203; Copy</button>
+<button onclick="window.open('https://twitter.com/intent/tweet?url='+encodeURIComponent(location.href)+'&text='+encodeURIComponent(document.title),'_blank')" style="background:#1da1f2">ð• Tweet</button>
+<button onclick="window.open('https://www.facebook.com/sharer/sharer.php?u='+encodeURIComponent(location.href),'_blank')" style="background:#1877f2"> Share</button>
+<button onclick="window.open('https://pinterest.com/pin/create/button/?url='+encodeURIComponent(location.href)+'&description='+encodeURIComponent(document.title),'_blank')" style="background:#e60023"> Pin</button>
+</div>
+</div>
+<div class="card">
+<h2>Embed This Calculator</h2>
+<textarea class="embed-ta" readonly onclick="this.select()">&lt;iframe src="https://dustyjones49.github.io/dustyjones49/drywall-mud-calculator/" width="100%" height="800" frameborder="0"&gt;&lt;/iframe&gt;</textarea>
+</div>
+<div id="ad-slot" class="card" style="text-align:center;min-height:90px;border:2px dashed var(--border);display:flex;align-items:center;justify-content:center;color:var(--text-light);font-size:0.85rem">Ad Slot &#8212; Replace with AdSense Code</div>
+<div class="card">
+<h2>Frequently Asked Questions</h2>
+<div class="faq-item"><button class="faq-q">How much mud per sheet of drywall?</button><div class="faq-a"><p>About 0.5-0.75 gallons per 4x8 sheet for a Level 4 finish. That's roughly one 4.5 gallon bucket per 6-8 sheets. Level 5 skim coat needs about 1 gallon per sheet. Use all-purpose compound for embedding tape and lightweight for topping coats.</p></div></div>
+<div class="faq-item"><button class="faq-q">What are the drywall finish levels?</button><div class="faq-a"><p>Level 3: tape + one coat, good for texture or tile application. Level 4: tape + two coats, standard for flat paint and light textures. Level 5: tape + two coats + skim coat, required for gloss paint and areas with critical lighting like large windows. Most residential homes are finished to Level 4.</p></div></div>
+<div class="faq-item"><button class="faq-q">Can drywall mud go bad?</button><div class="faq-a"><p>Yes &#8212; unopened premixed mud lasts about 9-12 months from manufacture date. Once opened, use within 2-3 months. Moldy or sour-smelling mud must be thrown out immediately. Setting-type powder (hot mud) lasts indefinitely if kept dry in sealed containers.</p></div></div>
+</div>
+<div class="card">
+<h2>Recommended Products</h2>
+<ul class="products">
+<li><a href="https://www.homedepot.com/s/all%20purpose%20joint%20compound%204.5%20gal" target="_blank" rel="nofollow">All-Purpose Joint Compound 4.5 gal</a> &#8212; Home Depot</li>
+<li><a href="https://www.amazon.com/s?k=drywall+taping+knife+set&tag=buildcalc-20" target="_blank" rel="nofollow">Drywall Taping Knife Set</a> &#8212; Amazon</li>
+<li><a href="https://www.homedepot.com/s/drywall%20sanding%20sponge" target="_blank" rel="nofollow">Drywall Sanding Sponge</a> &#8212; Home Depot</li>
+</ul>
+</div>
+</div>
+<footer>
+<p>2026 FieldMath - Calculators are reference only. Always verify with your local code.</p>
+</footer>
+<script>
+(function(){
+var s=document.getElementById('sheets'),l=document.getElementById('level'),wp=document.getElementById('wastePct');
+var rg=document.getElementById('rGallons'),rb=document.getElementById('rBuckets'),rby=document.getElementById('rBuy');
+function calc(){
+var sheets=parseInt(s.value)||0,levelFactor=parseFloat(l.value)||0.75,waste=parseFloat(wp.value)||0;
+var gallons=sheets*levelFactor*(1+waste/100);
+var buckets=gallons/4.5,bucketsCeil=Math.ceil(buckets);
+rg.textContent=gallons.toFixed(1)+' gal';rb.textContent=buckets.toFixed(1)+' buckets';rby.textContent=bucketsCeil+' × 4.5 gal buckets';
+}
+[s,l,wp].forEach(function(e){e.addEventListener('input',calc);e.addEventListener('change',calc)});
+calc();
+document.querySelectorAll('.faq-q').forEach(function(b){b.addEventListener('click',function(){this.classList.toggle('open');this.nextElementSibling.classList.toggle('open')})});
+var inputs=document.querySelectorAll('input,select');
+function save(){var params=new URLSearchParams();inputs.forEach(function(e,i){if(e.value)params.set('i'+i,e.value)});if(params.toString())history.replaceState(null,'','?'+params.toString())}
+function load(){var params=new URLSearchParams(location.search);inputs.forEach(function(e,i){if(params.has('i'+i))e.value=params.get('i'+i);e.addEventListener('input',save);e.addEventListener('change',save)});if(params.toString())calc()}
+load();
+})();
+</script>
+<script src="../custom-select.js"></script><script src="../favorites.js"></script><script src="../remember-inputs.js"></script><script src="../sticky-header.js"></script><script src="../ui-fix.js"></script><script src="../link-fix.js"></script><script src="../auto-calc.js"></script><script src="../dark-persist.js"></script><script src="../admob-banner.js"></script></body>
+</html>
+
+
+
+
+

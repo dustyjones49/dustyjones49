@@ -1,0 +1,200 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>Deck Footing Calculator - Concrete &amp; Size</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<meta name="description" content="Calculate concrete footings for deck posts. Footing diameter, depth and concrete volume with frost line consideration.">
+<link rel="canonical" href="https://buildcalc.com/deck-footing-calculator/">
+<meta property="og:title" content="Deck Footing Calculator - Concrete &amp; Size">
+<meta property="og:description" content="Calculate concrete footings for deck posts. Footing diameter, depth and concrete volume with frost line consideration.">
+<meta property="og:url" content="https://buildcalc.com/deck-footing-calculator/">
+<meta property="og:type" content="website">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Deck Footing Calculator - Concrete &amp; Size">
+<meta name="twitter:description" content="Calculate concrete footings for deck posts. Footing diameter, depth and concrete volume with frost line consideration.">
+<style>
+:root{--bg:#fff;--text:#1a1a1a;--card:#f8f9fa;--input:#fff;--border:#dee2e6;--primary:#0d9488;--primary-hover:#0f766e;--result-bg:#f0fdfa;--accent:#ea580c;--faq-bg:#ccfbf1;--shadow:0 2px 8px rgba(0,0,0,0.1)}
+.dark{--bg:#1a1a2e;--text:#e0e0e0;--card:#16213e;--input:#0f3460;--border:#2a2a4a;--primary:#2dd4bf;--primary-hover:#5eead4;--result-bg:#115e59;--accent:#f97316;--faq-bg:#1e2a3a;--shadow:0 2px 8px rgba(0,0,0,0.4)}
+body{font-family:system-ui,-apple-system,sans-serif;background:var(--bg);color:var(--text);margin:0;padding:0;line-height:1.6;transition:background .3s,color .3s}
+.container{max-width:720px;margin:0 auto;padding:16px}
+h1{font-size:1.8rem;margin:0 0 4px;color:var(--primary)}
+header p{margin:0 0 16px;color:var(--text);opacity:.8}
+.breadcrumb{font-size:.85rem;margin-bottom:12px;color:var(--text);opacity:.7}
+.breadcrumb a{color:var(--primary);text-decoration:none}
+.breadcrumb a:hover{text-decoration:underline}
+.card{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:20px;margin-bottom:16px;box-shadow:var(--shadow)}
+.card h2{font-size:1.2rem;margin:0 0 12px;color:var(--primary)}
+.input-group{margin-bottom:12px}
+.input-group label{display:block;font-weight:600;margin-bottom:4px;font-size:.9rem}
+.input-group input,.input-group select{width:100%;padding:10px 12px;border:1px solid var(--border);border-radius:8px;font-size:1rem;background:var(--input);color:var(--text);box-sizing:border-box}
+.input-group input:focus,.input-group select:focus{outline:2px solid var(--primary);outline-offset:-1px}
+.btn{display:inline-block;padding:12px 24px;font-size:1rem;font-weight:600;border:none;border-radius:8px;cursor:pointer;transition:background .2s}
+.btn-primary{background:var(--primary);color:#fff;width:100%}
+.btn-primary:hover{background:var(--primary-hover)}
+.result{background:var(--result-bg);border:1px solid var(--primary);border-radius:8px;padding:12px 16px;margin-top:12px}
+.result .row{display:flex;justify-content:space-between;align-items:center;padding:6px 0;border-bottom:1px solid var(--border)}
+.result .row:last-child{border-bottom:none}
+.result .label{font-weight:600}
+.result .value{font-size:1.1rem;font-weight:700;color:var(--accent)}
+.formula-box{background:var(--result-bg);border:1px dashed var(--primary);border-radius:8px;padding:12px;margin-top:12px;font-size:.85rem}
+.formula-box code{display:block;margin:4px 0}
+.faq-item{border:1px solid var(--border);border-radius:8px;margin-bottom:8px;overflow:hidden}
+.faq-question{width:100%;text-align:left;padding:14px 16px;background:var(--faq-bg);border:none;cursor:pointer;font-weight:600;font-size:.95rem;color:var(--text);display:flex;justify-content:space-between;align-items:center}
+.faq-question:hover{opacity:.85}
+.faq-question .arrow{transition:transform .2s;font-size:1.2rem}
+.faq-question.open .arrow{transform:rotate(180deg)}
+.faq-answer{display:none;padding:0 16px 14px;font-size:.9rem;line-height:1.5}
+.faq-answer.open{display:block}
+.share-row{display:flex;gap:8px;flex-wrap:wrap;margin-top:8px}
+.share-btn{flex:1;min-width:100px;padding:10px;border:none;border-radius:8px;cursor:pointer;font-size:.85rem;font-weight:600;text-align:center;color:#fff}
+.share-fb{background:#1877f2}.share-tw{background:#000}.share-wa{background:#25d366}.share-em{background:#555}
+.embed-box{width:100%;background:var(--input);border:1px solid var(--border);border-radius:8px;padding:10px;font-size:.8rem;font-family:monospace;box-sizing:border-box;margin-top:4px;color:var(--text)}
+.products{margin-top:12px}
+.products a{display:block;padding:10px 12px;background:var(--card);border:1px solid var(--border);border-radius:8px;margin-bottom:6px;text-decoration:none;color:var(--primary);font-weight:600;font-size:.9rem;transition:background .2s}
+.products a:hover{background:var(--result-bg)}
+.related-links{display:flex;flex-wrap:wrap;gap:8px;margin-top:8px}
+.related-links a{background:var(--card);border:1px solid var(--border);padding:8px 14px;border-radius:20px;text-decoration:none;color:var(--primary);font-size:.85rem;font-weight:500}
+.related-links a:hover{background:var(--result-bg)}
+.ad-slot{background:var(--card);border:1px dashed var(--border);padding:60px 20px;text-align:center;border-radius:12px;margin:16px 0;color:var(--text);opacity:.6;font-size:.9rem}
+#backToTop{position:fixed;bottom:24px;right:24px;width:44px;height:44px;background:var(--primary);color:#fff;border:none;border-radius:50%;font-size:1.3rem;cursor:pointer;display:none;box-shadow:0 2px 8px rgba(0,0,0,.3);z-index:999}
+#backToTop:hover{background:var(--primary-hover)}
+.dark-toggle{position:fixed;top:16px;right:16px;z-index:1000;background:var(--card);border:1px solid var(--border);border-radius:50%;width:40px;height:40px;cursor:pointer;font-size:1.2rem;display:flex;align-items:center;justify-content:center;box-shadow:var(--shadow)}
+@media print{.share-row,.embed-box,.ad-slot,.dark-toggle,#backToTop,.products,.related-links{display:none!important}body{background:var(--bg);color:#000;font-size:12px}.card{box-shadow:none;border:1px solid #ccc;break-inside:avoid}}
+@media(max-width:480px){.container{padding:10px}h1{font-size:1.4rem}}
+</style>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebApplication","name":"Deck Footing Calculator","description":"Calculate concrete footings for deck posts. Footing diameter, depth and concrete volume with frost line consideration.","url":"https://buildcalc.com/deck-footing-calculator/","applicationCategory":"EducationalApplication"}
+</script>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"How deep should deck footings be?","acceptedAnswer":{"@type":"Answer","text":"Below the frost line&#8212;check your local code. Most areas: 30-42 inches. Southern states: 12-18 inches. Add 6 in of gravel at the bottom of each hole for drainage. Footing must bear on undisturbed soil, not fill."}},{"@type":"Question","name":"What size footing for a deck post?","acceptedAnswer":{"@type":"Answer","text":"Minimum 12 in diameter for a 4x4 post, 14 in for a 6x6. The footing should be at least 2x the post width. Larger footings spread the load over more soil&#8212;increase size for heavy decks (hot tubs, stone tops) or poor soil."}},{"@type":"Question","name":"Do deck footings need rebar?","acceptedAnswer":{"@type":"Answer","text":"Not required by most codes for residential decks under 6 ft tall. For taller decks or heavy loads, add 2 #4 vertical rebar bars in each footing tied to the post anchor. Rebar prevents the footing from cracking and separating."}}]}
+</script>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://buildcalc.com/"},{"@type":"ListItem","position":2,"name":"Lumber & Framing","item":"https://buildcalc.com/category/lumber-framing/"},{"@type":"ListItem","position":3,"name":"Deck Footing Calculator","item":"https://buildcalc.com/deck-footing-calculator/"}]}
+</script><style id="bc-theme">/* FieldMath - Light Theme
+   All pages use this single light theme. No dark mode. */
+:root{
+  --bg:#f5f5f5;
+  --card:#ffffff;
+  --text:#333333;
+  --text-light:#666666;
+  --muted:#f1f3f7;
+  --muted-bg:#f8f9fa;
+  --border:#dde3ea;
+  --navy:#1a2332;
+  --header-bg:#1a2332;
+  --header-text:#ffffff;
+  --orange:#f97316;
+  --accent:#f97316;
+  --success:#16a34a;
+  --warning:#d97706;
+  --danger:#dc2626;
+}
+</style>
+<style id="bc-darkflash">html,html body{background:#f5f5f5 !important;color:#333 !important}body .card,body .panel,body .box,body .calculator,body .container,body .c,body .result,body .results,body .res,body .formula,body .example,body .faq,body .faq-item,body input,body select,body textarea{background:#ffffff !important;color:#333 !important;border-color:#ddd !important}</style></head>
+<body>
+<button class="dark-toggle" onclick="toggleDark()" aria-label="Toggle dark mode">&#9788;</button>
+<div class="container">
+
+<header><h1>Deck Footing Calculator</h1></header>
+<div class="card">
+<h2>Footing Specs</h2>
+<div class="input-group"><label for="numFootings">Number of Footings</label><input type="number" id="numFootings" value="6" min="1" step="1"></div>
+<div class="input-group"><label for="diameter">Footing Diameter (in)</label><input type="number" id="diameter" value="12" min="6" step="1"></div>
+<div class="input-group"><label for="depth">Footing Depth (in)</label><input type="number" id="depth" value="36" min="12" step="1"></div>
+<div class="input-group"><label for="frostLine">Frost Line (in)</label><input type="number" id="frostLine" value="30" min="0" step="1"></div>
+<button class="btn btn-primary" onclick="calculate()">Calculate</button>
+<div class="result" id="result"></div>
+<div class="formula-box">
+<strong>Formula:</strong>
+<code>vol = &pi; &times; (d/24)&sup2; &times; (depth/12)</code>
+<code>total = vol &times; num</code>
+<code>cy = total / 27</code>
+<strong>Example:</strong> 6 footings, 12 in dia, 36 in deep: 2.36 cu ft each, 14.1 cu ft total, 0.52 cy, 4 bags per footing, 24 total.
+</div>
+</div>
+<div class="ad-slot">Advertisement</div>
+<div class="card">
+<h2>FAQ</h2>
+<div class="faq-item"><button class="faq-question" onclick="toggleFAQ(this)">How deep should deck footings be? <span class="arrow">&#9660;</span></button><div class="faq-answer">Below the frost line&#8212;check your local code. Most areas: 30-42 inches. Southern states: 12-18 inches. Add 6 in of gravel at the bottom of each hole for drainage. Footing must bear on undisturbed soil, not fill.</div></div>
+<div class="faq-item"><button class="faq-question" onclick="toggleFAQ(this)">What size footing for a deck post? <span class="arrow">&#9660;</span></button><div class="faq-answer">Minimum 12 in diameter for a 4x4 post, 14 in for a 6x6. The footing should be at least 2&times; the post width. Larger footings spread the load over more soil&#8212;increase size for heavy decks (hot tubs, stone tops) or poor soil.</div></div>
+<div class="faq-item"><button class="faq-question" onclick="toggleFAQ(this)">Do deck footings need rebar? <span class="arrow">&#9660;</span></button><div class="faq-answer">Not required by most codes for residential decks under 6 ft tall. For taller decks or heavy loads, add 2 #4 vertical rebar bars in each footing tied to the post anchor. Rebar prevents the footing from cracking and separating.</div></div>
+</div>
+<div class="card">
+<h2>Recommended Products</h2>
+<div class="products">
+<a href="https://www.homedepot.com/s/concrete+mix+80lb?NCNI-5" target="_blank" rel="nofollow sponsored">Concrete Mix 80lb (Home Depot)</a>
+<a href="https://www.homedepot.com/s/sonotube+12x4?NCNI-5" target="_blank" rel="nofollow sponsored">Sonotube 12 in &times; 4 ft (Home Depot)</a>
+<a href="https://www.amazon.com/s?k=post+anchor+bracket&tag=buildcalc-20" target="_blank" rel="nofollow sponsored">Post Anchor Bracket (Amazon)</a>
+</div>
+</div>
+<div class="card">
+<h2>Share</h2>
+<div class="share-row">
+<button class="share-btn share-fb" onclick="share('facebook')">Facebook</button>
+<button class="share-btn share-tw" onclick="share('twitter')">X / Twitter</button>
+<button class="share-btn share-wa" onclick="share('whatsapp')">WhatsApp</button>
+<button class="share-btn share-em" onclick="share('email')">Email</button>
+</div>
+<h2 style="margin-top:16px">Embed</h2>
+<textarea class="embed-box" rows="3" readonly><iframe src="https://buildcalc.com/deck-footing-calculator/" width="100%" height="600" style="border:none;border-radius:12px" title="Deck Footing Calculator"></iframe></textarea>
+</div>
+<div class="card">
+<h2>Related Calculators</h2>
+<div class="related-links">
+<a href="../deck-calculator/">Deck Calculator</a>
+<a href="../concrete-calculator/">Concrete Calculator</a>
+<a href="../post-hole-calculator/">Post Hole Calculator</a>
+</div>
+</div>
+</div>
+<button id="backToTop" onclick="window.scrollTo({top:0,behavior:'smooth'})">&#9650;</button>
+<script>
+function calculate(){
+  var n=parseInt(document.getElementById('numFootings').value)||0;
+  var d=parseFloat(document.getElementById('diameter').value)||0;
+  var depth=parseFloat(document.getElementById('depth').value)||0;
+  var fl=parseFloat(document.getElementById('frostLine').value)||0;
+  var volPer=Math.PI*Math.pow(d/24,2)*(depth/12);
+  var totalVol=volPer*n;
+  var cy=totalVol/27;
+  var bagsPer=Math.ceil(volPer/0.6);
+  var totalBags=bagsPer*n;
+  document.getElementById('result').innerHTML=
+  '<div class="row"><span class="label">Volume per Footing</span><span class="value">'+volPer.toFixed(2)+' cu ft</span></div>'+
+  '<div class="row"><span class="label">Total Volume</span><span class="value">'+totalVol.toFixed(1)+' cu ft</span></div>'+
+  '<div class="row"><span class="label">Total Cubic Yards</span><span class="value">'+cy.toFixed(2)+' cu yd</span></div>'+
+  '<div class="row"><span class="label">80lb Bags per Footing</span><span class="value">'+bagsPer+' bags</span></div>'+
+  '<div class="row"><span class="label">Total 80lb Bags</span><span class="value">'+totalBags+' bags</span></div>'+
+  (depth<fl?'<div class="row"><span class="label" style="color:#dc2626">Warning</span><span class="value" style="color:#dc2626">Depth below frost line!</span></div>':'');
+  var p=new URLSearchParams(window.location.search);
+  p.set('numFootings',n);p.set('diameter',d);p.set('depth',depth);p.set('frostLine',fl);
+  window.history.replaceState({},'',location.pathname+'?'+p.toString());
+}
+function toggleFAQ(el){el.classList.toggle('open');el.nextElementSibling.classList.toggle('open')}
+function toggleDark(){document.documentElement.classList.toggle('dark');localStorage.setItem('dark',document.documentElement.classList.contains('dark')?'1':'0')}
+function share(p){
+  var u=encodeURIComponent(location.href),t=encodeURIComponent(document.title);
+  if(p==='facebook')window.open('https://www.facebook.com/sharer.php?u='+u);
+  else if(p==='twitter')window.open('https://twitter.com/intent/tweet?url='+u+'&text='+t);
+  else if(p==='whatsapp')window.open('https://wa.me/?text='+t+' '+u);
+  else if(p==='email')window.open('mailto:?subject='+t+'&body='+u);
+}
+window.onscroll=function(){document.getElementById('backToTop').style.display=window.scrollY>300?'block':'none'};
+window.onload=function(){
+  if(localStorage.getItem('dark')==='1')document.documentElement.classList.add('dark');
+  var p=new URLSearchParams(window.location.search);
+  if(p.get('numFootings'))document.getElementById('numFootings').value=p.get('numFootings');
+  if(p.get('diameter'))document.getElementById('diameter').value=p.get('diameter');
+  if(p.get('depth'))document.getElementById('depth').value=p.get('depth');
+  if(p.get('frostLine'))document.getElementById('frostLine').value=p.get('frostLine');
+  calculate();
+};
+</script>
+<script id='__CALC_AUTO__'>(function(){try{if(typeof calculate==='function')calculate();}catch(e){}})();</script><script src="../custom-select.js"></script><script src="../favorites.js"></script><script src="../remember-inputs.js"></script><script src="../sticky-header.js"></script><script src="../ui-fix.js"></script><script src="../link-fix.js"></script><script src="../auto-calc.js"></script><script src="../dark-persist.js"></script><script src="../admob-banner.js"></script></body>
+</html>
+
+
+
+
+
